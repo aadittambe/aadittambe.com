@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Home from '../src/components/Home.js'
 import Image from 'next/image'
 import Header from "../src/components/Header";
 
@@ -6,7 +7,7 @@ import Header from "../src/components/Header";
 
 // import Hero from '../.next/src/components/Hero'
 
-export default function Home() {
+export default function HomePage() {
   return (
     <div className={''}>
       <Head>
@@ -15,70 +16,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={''}>
-        <h1>Home Page</h1>
-        <section id="contact">
-          <h3 className="section-title">Contact Us</h3>
-          <p className="section-body">
-            You can Contact us via our various social media handles
-          </p>
-          <p className="section-body">
-            You can Contact us via our various social media handles
-          </p>
-          <p className="section-body">
-            You can Contact us via our various social media handles
-          </p>
-          <p className="section-body">
-            You can Contact us via our various social media handles
-          </p>
-          <p className="section-body">
-            You can Contact us via our various social media handles
-          </p>
-          <p className="section-body">
-            You can Contact us via our various social media handles
-          </p>
-          <p className="section-body">
-            You can Contact us via our various social media handles
-          </p>
-          <p className="section-body">
-            You can Contact us via our various social media handles
-          </p>
-          <p className="section-body">
-            You can Contact us via our various social media handles
-          </p>
-          <p className="section-body">
-            You can Contact us via our various social media handles
-          </p>
-          <p className="section-body">
-            You can Contact us via our various social media handles
-          </p>
-          <p className="section-body">
-            You can Contact us via our various social media handles
-          </p>
-
-
-          <p className="section-body">
-            You can Contact us via our various social media handles
-          </p>
-          <p className="section-body">
-            You can Contact us via our various social media handles
-          </p>
-          <p className="section-body">
-            You can Contact us via our various social media handles
-          </p>
-
-          <p className="section-body">
-            You can Contact us via our various social media handles
-          </p>
-          <p className="section-body">
-            You can Contact us via our various social media handles
-          </p>
-          <p className="section-body">
-            You can Contact us via our various social media handles
-          </p>
-          <p className="section-body">
-            You can Contact us via our various social media handles
-          </p>
-        </section>
+        <Home />
       </main>
 
       <footer>

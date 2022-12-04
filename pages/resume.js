@@ -1,10 +1,10 @@
 import React from "react";
 import Resume from '../src/components/Resume.js'
 
-const resume = props => {
+const ResumePage = props => {
 
 
     return <Resume />
 }
 
-export default resume
+export default ResumePage

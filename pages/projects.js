@@ -1,5 +1,5 @@
-const Projects = props => {
+const ProjectsPage = props => {
     return 'Projects'
 }
 
-export default Projects
+export default ProjectsPage
