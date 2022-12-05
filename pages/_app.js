@@ -8,7 +8,9 @@ function app({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <meta name="theme-color" content="#3c1742" />
+        <title>Aadit Tambe — a journalist and developer</title>
+        <meta name="description" content="Aadit Tambe is a journalist and developer who tells data-driven stories visually — with code." />
+        <link rel="icon" href="/favicon.jpg" />
       </Head>
       <div id="container">
         <Header />

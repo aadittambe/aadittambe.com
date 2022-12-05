@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { faTwitter, faGithubAlt, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
+import Sparklines from "./Sparklines";
 
 const Home = props => {
     const { data } = props
@@ -41,7 +42,7 @@ const Home = props => {
             /></span></p>
 
         {intro.map((text, index) => (
-            index === 1 ? <p key={index}>{text}.</p> :
+            index === 1 ? <p key={index}>{text} <Sparklines />.</p> :
                 <p key={index}>{text}</p>
         ))}
         <a href='https://twitter.com/aadittambe/' rel="noreferrer" target="_blank">

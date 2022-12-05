@@ -11,7 +11,7 @@ const Header = props => {
                         <Link href='/'>Home</Link>
                     </li>
                     <li id="nav-experience">
-                        <Link href='/experience' id="nav-projects">Projects</Link>
+                        <Link href='/projects' id="nav-projects">Projects</Link>
                     </li>
                     <li id="nav-resume">
                         <Link href='/resume' id="nav-resume">Resume</Link>
