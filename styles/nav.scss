@@ -1,0 +1,54 @@
+.nav {
+    text-align: right;
+}
+
+.nav ul {
+    list-style-type: none;
+    padding: 1% 0.5% 0% 0%;
+    margin: 0px;
+}
+
+.nav li {
+    text-decoration: none;
+    display: inline;
+    padding: 0% .1%;
+    margin: 0% .1%;
+
+
+}
+
+.nav a {
+    text-decoration: none;
+    border-style: solid;
+    border-width: 5px;
+    border-color: #edcf2e;
+    background-color: #edcf2e;
+    color: #171e2b;
+}
+
+.nav a:hover {
+    background-color: #f6f4e6;
+    border-color: #f6f4e6;
+
+}
+
+/* .nav .active a {
+    border-color: blue;
+    background-color: blue;
+} */
+
+
+@media only screen and (max-width: 600px) {
+    .nav {
+        padding: 0% 10% 0% 10%;
+    }
+
+    .nav li {
+        display: block;
+        padding: 2% 0%;
+    }
+
+    .nav ul {
+        text-align: right;
+    }
+}

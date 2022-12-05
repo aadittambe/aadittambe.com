@@ -7,23 +7,28 @@ const Header = props => {
         <header>
             <nav className="nav" role="navigation">
                 <ul>
-                    <Link href='/'>
-                        <li id="nav-home" >
-                            Home
-                        </li>
-                    </Link>
-                    <Link href='/projects' id="nav-projects">
-                        <li id="nav-experience">
-                            Projects
-                        </li>
-                    </Link>
-                    <Link href='/resume' id="nav-resume">
-                        <li id="nav-resume">
-                            Resume
-                        </li>
-                    </Link>
+                    <li id="nav-home" >
+                        <Link href='/'>Home</Link>
+                    </li>
+                    <li id="nav-experience">
+                        <Link href='/experience' id="nav-projects">Projects</Link>
+                    </li>
+                    <li id="nav-resume">
+                        <Link href='/resume' id="nav-resume">Resume</Link>
+                    </li>
                 </ul>
             </nav>
+            {/* <nav>
+                {navLinks.map((link, index) => {
+                    return (
+                        <ul>
+                            <Link href={link.path}>
+                                <li key={index}>{link.name}</li>
+                            </Link>
+                        </ul>
+                    );
+                })}
+            </nav> */}
         </header>
     );
 }

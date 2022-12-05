@@ -1,7 +1,7 @@
 import TypeIt from "typeit-react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
-// import { faTwitter, faGithubAlt, faLinkedin } from '@fortawesome/free-brands-svg-icons'
+import { faTwitter, faGithubAlt, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
 
 const Home = props => {
@@ -11,7 +11,7 @@ const Home = props => {
 
 
 
-    return <>
+    return <main className="hero">
         <h1><span className='wave'>👋🏽</span> Hi, I am Aadit!</h1>
         <p><span style={{ display: "none" }}>👨🏽‍💻</span>I tell stories — but with<span className='mob-jump'><br /></span> <span className="typeit">
             <TypeIt
@@ -44,8 +44,19 @@ const Home = props => {
             index === 1 ? <p key={index}>{text}.</p> :
                 <p key={index}>{text}</p>
         ))}
-        <div></div>
-    </>
+        <a href='https://twitter.com/aadittambe/' rel="noreferrer" target="_blank">
+            <FontAwesomeIcon className="icon" icon={faTwitter} size='2x' />
+        </a>
+        <a href='https://github.com/aadittambe' rel="noreferrer" target="_blank">
+            <FontAwesomeIcon className="icon" icon={faGithubAlt} size='2x' />
+        </a>
+        <a href='https://www.linkedin.com/in/aadittambe/' rel="noreferrer" target="_blank">
+            <FontAwesomeIcon className="icon" icon={faLinkedin} size='2x' />
+        </a>
+        <a href='mailto:aadit.tambe@gmail.com' rel="noreferrer" target="_blank">
+            <FontAwesomeIcon className="icon" icon={faEnvelope} size='2x' />
+        </a>
+    </main>
 }
 
 export default Home

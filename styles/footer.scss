@@ -1,0 +1,19 @@
+.footer {
+    /* position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding-top: 100%; */
+    padding: 5% 10% 0% 10%;
+}
+
+hr {
+    /* margin: 0% 10% 0% 10%; */
+    border: 1px solid #f6f4e60f;
+}
+
+@media only screen and (max-width: 600px) {
+    .footer {
+        padding-top: 5%;
+    }
+}
