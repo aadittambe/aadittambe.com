@@ -36,7 +36,7 @@ const Projects = props => {
                         <a href={d.url} rel="noreferrer" target="_blank">
                             <p className="story-tools">🧰 {d.tools}</p>
                             <img
-                                src={d.img.startsWith("https") ? d.img : `/images/${d.img}.jpeg`}
+                                src={d.img.startsWith("https") ? d.img : `/images/${d.img}?.jpeg`}
                                 alt={d.alt}
                                 className="story-img"
                             ></img>
