@@ -7,7 +7,8 @@ import Header from "../src/components/Header";
 
 // import Hero from '../.next/src/components/Hero'
 
-export default function HomePage() {
+const HomePage = (props) => {
+  const { data } = props
   return (
     <div className={''}>
       <Head>
@@ -16,12 +17,10 @@ export default function HomePage() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={''}>
-        <Home />
+        <Home data={data} />
       </main>
-
-      <footer>
-        Footer
-      </footer>
     </div>
   )
 }
+
+export default HomePage
