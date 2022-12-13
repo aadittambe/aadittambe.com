@@ -39,7 +39,7 @@ const Resume = props => {
                         <div className="skill" key={i}>
                             <h3>{d.name}</h3>
                             {d.tools.map((skills, i) => (
-                                <p>{skills}</p>
+                                <p key={i}>{skills}</p>
                             ))}
                         </div>
                     ))}
