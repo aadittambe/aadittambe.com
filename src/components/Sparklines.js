@@ -1,10 +1,14 @@
 import React from 'react';
-import * as d3 from 'd3'
-// import '../styles/Hero.css'
+import { max } from 'd3-array'
+import { scaleLinear } from 'd3-scale';
+import { select } from 'd3-selection'
+import { line } from 'd3-shape';
+import { json } from 'd3-fetch';
+
 
 const Sparklines = props => {
     const data = "https://raw.githubusercontent.com/aadittambe/portfolio/main/gh-contribs/contribs.json"
-    d3.json(data).then(function (json) {
+    json(data).then(function (json) {
         // console.log(json);
         var content = json.data.user.contributionsCollection.contributionCalendar.weeks
         // console.log(content);
@@ -29,25 +33,21 @@ const Sparklines = props => {
         const boundedwidth = width - margin.left - margin.right;
         const boundedheight = height - margin.top - margin.bottom;
 
-        const xScale = d3
-            .scaleLinear()
+        const xScale = scaleLinear()
             .domain([0, data.length])
             .range([0, boundedwidth]);
-        const yScale = d3
-            .scaleLinear()
-            .domain([0, d3.max(data)])
+        const yScale = scaleLinear()
+            .domain([0, max(data)])
             .range([boundedheight, 0]);
 
-        const svg = d3
-            .select("#sparklines")
+        const svg = select("#sparklines")
             .append("svg")
             .attr("width", width)
             .attr("height", height)
             .append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-        const line = d3
-            .line()
+        const chartLine = line()
             .x((d, i) => xScale(i))
             .y((d) => yScale(d));
 
@@ -57,7 +57,7 @@ const Sparklines = props => {
             .attr("fill", "none")
             .attr("stroke", "#f6f4e6")
             .attr("stroke-width", 1)
-            .attr("d", line);
+            .attr("d", chartLine);
 
         svg
             .append("circle")
