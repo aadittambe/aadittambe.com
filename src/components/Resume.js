@@ -6,12 +6,16 @@ const Resume = props => {
     const ed = data.ed
     const skills = data.skills
 
-
     return (
         <main className="resume">
             <h1>📝 Resume</h1>
             <div className="ital source">
-                {/* <p >And <a href={Pdf} rel="noreferrer" target="_blank">here's</a> a PDF, if that's what you're looking for.</p> */}
+                <p >And  <a
+                    href="/docs/AaditTambe_Resume.pdf"
+                    alt="alt text"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >here's</a> a PDF, if that's what you're looking for.</p>
             </div>
             <div className="section">
                 <h2>💼 Work experience</h2>
