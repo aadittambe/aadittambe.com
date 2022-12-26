@@ -1,7 +1,7 @@
 # 👨🏽‍💻 My website
 Codebase for my personal [website](https://aadittambe.com/). 
 
-The site is scaffolded with [`create-react-app`](https://create-react-app.dev/) and uses [ArchieML](http://archieml.org/) as a micro CMS, so I can catch typos easily. A GitHub Action automatically builds and deploys this site to my FTP server when changes are pushed to the repository, because I like automation.
+The site is scaffolded with [Next.js](https://nextjs.org/) and uses [ArchieML](http://archieml.org/) as a micro CMS, so I can catch typos easily. A GitHub Action automatically builds and deploys this site to my FTP server when changes are pushed to the repository, because I like automation.
 
 ## 🧰 Development
  Download the code:
