@@ -10,7 +10,9 @@ function app({ Component, pageProps }) {
       <Head>
         <title>Aadit Tambe — a journalist and developer</title>
         <meta name="description" content="Aadit Tambe is a journalist and developer who tells data-driven stories visually — with code." />
-        <link rel="icon" href="/favicon.jpg" />
+        <link rel="icon" href="/logo592.png" />
+        <link rel="shortcut icon" href="/static/logo592.png" />
+        <link rel="apple-touch-icon" href="/static/logo592.png" />
       </Head>
       <div id="container">
         <Header />
