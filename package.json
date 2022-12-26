@@ -3,11 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "download": "node scripts/fetch.js",
+    "dev": "npm run download && next dev",
     "build": "next build && next export",
     "start": "next start",
     "lint": "next lint",
-    "download": "node server/fetch.js"
+    "deploy": "npm run build && node scripts/deploy.js"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
@@ -31,5 +32,8 @@
     "sass": "^1.56.1",
     "swr": "^2.0.0",
     "typeit-react": "^2.6.0"
+  },
+  "devDependencies": {
+    "ftp-deploy": "^2.4.3"
   }
 }
