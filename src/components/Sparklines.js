@@ -7,7 +7,7 @@ import { json } from 'd3-fetch';
 
 
 const Sparklines = props => {
-    const data = "https://raw.githubusercontent.com/aadittambe/portfolio/main/gh-contribs/contribs.json"
+    const data = "https://raw.githubusercontent.com/aadittambe/github-contributions/main/contribs.json"
     useEffect(() => {
         json(data).then(function (json) {
             var content = json.data.user.contributionsCollection.contributionCalendar.weeks
