@@ -15,7 +15,7 @@ const Resume = props => {
                     alt="alt text"
                     target="_blank"
                     rel="noopener noreferrer"
-                >here's</a> a PDF, if that's what you're looking for.</p>
+                >here&apos;s</a> a PDF, if that&apos;s what you&apos;re looking for.</p>
             </div>
             <div className="section">
                 <h2>💼 Work experience</h2>
