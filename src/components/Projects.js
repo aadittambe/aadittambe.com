@@ -48,7 +48,7 @@ const Projects = props => {
                 }
                 )}
             </div>
-            <div className="source ital"><p>I am a supporter of open-source code — the source code for this website is available on <a href="https://github.com/aadittambe/dot-com-two-point-o">GitHub</a>.</p></div>
+            <div className="source ital"><p>I am a supporter of open-source code — the source code for this website is available on <a href="https://github.com/aadittambe/aadittambe.com">GitHub</a>.</p></div>
         </main >
     )
 }
