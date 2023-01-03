@@ -13,6 +13,7 @@ function app({ Component, pageProps }) {
         <link rel="icon" href="/logo592.png" />
         <link rel="shortcut icon" href="/static/logo592.png" />
         <link rel="apple-touch-icon" href="/static/logo592.png" />
+        <link rel="me" href="https://vis.social/@aadittambe" />
         <script
           async
           src={`https://www.googletagmanager.com/gtag/js?id=UA-157385072-1`}
