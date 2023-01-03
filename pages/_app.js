@@ -13,6 +13,22 @@ function app({ Component, pageProps }) {
         <link rel="icon" href="/logo592.png" />
         <link rel="shortcut icon" href="/static/logo592.png" />
         <link rel="apple-touch-icon" href="/static/logo592.png" />
+        <script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=UA-157385072-1`}
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'UA-157385072-1', {
+              page_path: window.location.pathname,
+            });
+          `,
+          }}
+        />
       </Head>
       <div id="container">
         <Header />
