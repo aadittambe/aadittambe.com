@@ -1,9 +1,16 @@
 import React, { useState } from "react";
+import { useInView } from 'react-intersection-observer';
+
 
 const Story = props => {
     const { storyType, url, tools, img, org, alt, project } = props
 
-    return (<div className={`story ${storyType}`} >
+    const { ref, inView, entry } = useInView({
+        threshold: 0,
+        rootMargin: '50% 0% -10% 0%'
+    });
+
+    return (<div className={`story ${storyType} ${inView ? 'reveal' : 'no-reveal'}`} ref={ref}>
         <a href={url} rel="noreferrer" target="_blank">
             <p className="story-tools">🧰 {tools}</p>
             <img
