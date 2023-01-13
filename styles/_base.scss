@@ -1,17 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
-@import "./home.scss";
-@import './footer.scss';
-@import './experience.scss';
-@import './nav.scss';
-@import './resume.scss';
-
 body {
     margin: 0px;
-    /* background-image: linear-gradient(to bottom right, #171e2b, #171e2be9); */
-
-    /* border: solid #edcf2e 10px; */
-    /* background-color: #edcf2e; */
 }
 
 #container {
@@ -23,18 +13,8 @@ body {
     margin: 0;
     box-sizing: border-box;
     background-image: linear-gradient(to bottom right, #171e2b, #2b313b);
-    /* min-height: 100%;
-    border: solid #edcf2e 10px; */
     font-family: Roboto, sans-serif;
-    /* background-image: linear-gradient(to bottom right, #171e2b, #171e2bf4); */
-    /* height: 100%; */
-    /* min-height: 100vh; */
     color: #f6f4e6;
-    /* position: absolute; */
-    /* top: 50%; */
-    /* transform: translate(0, -50%); */
-    /* position: relative; */
-    /* padding: 50% 0% 50% 0%; */
 }
 
 ::selection {
@@ -80,5 +60,360 @@ footer,
         top: 0%;
         transform: translate(0, 0);
         padding: 10% 0% 10% 0%;
+    }
+}
+
+.experience {
+    padding: 5% 10% 5% 10%;
+    box-sizing: border-box;
+}
+
+.experience a,
+a:hover {
+    text-decoration: none;
+    color: inherit;
+}
+
+.experience .intro a,
+.source a {
+    text-decoration: none;
+    border-bottom: solid 1px #edcf2e;
+    transition: all .1s;
+    color: #edcf2e;
+}
+
+.experience .intro a:hover,
+.source a:hover {
+    border-bottom: solid 2px #edcf2e;
+    transition: all .1s;
+}
+
+.layout {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.story {
+    margin: 2% 1% 2% 1%;
+    width: 300px;
+}
+
+.story-img {
+    width: 100%;
+    border-radius: 10px;
+    transition: all 0.5s;
+    box-shadow: 0.1em 0.1em 1em 0.03em black;
+    margin-bottom: 20px;
+    min-height: 200px;
+    max-height: 200px;
+    object-fit: cover;
+}
+
+.story-img:hover {
+    box-shadow: 0.1em 0.1em 1em 0.03em #edcf2e;
+    transform: scale(1.05);
+}
+
+
+.story p {
+    margin: 0px;
+}
+
+.story-name {
+    border-bottom: solid 0px #edcf2e;
+    transition: all .1s;
+}
+
+.story-name:hover {
+    border-bottom: solid 3px #edcf2e;
+}
+
+.story-tools {
+    text-align: right;
+    font-size: small;
+    padding-bottom: 2%;
+}
+
+.story-org {
+    font-size: medium;
+    padding: 2% 0% 2% 0%;
+}
+
+.ital {
+    font-style: italic;
+}
+
+fieldset {
+    text-align: center;
+    border: none;
+    padding: 0px;
+}
+
+.btn {
+    padding: 0% 1%;
+}
+
+.btn input {
+    display: none;
+}
+
+
+.btn span {
+    text-align: center;
+    border: 1.2px solid #52575d;
+    background-color: #f6f4e6;
+    color: #41444b;
+    padding: 6px 6px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 3px;
+    display: inline-block;
+    margin: 0.2em 0em;
+    min-width: 96px;
+    max-width: 96px;
+}
+
+@media only screen and (max-width: 600px) {
+    .btn span {
+        max-width: 72px;
+        min-width: 72px;
+    }
+}
+
+.footer {
+    padding: 5% 10% 0% 10%;
+}
+
+hr {
+    border: 1px solid #f6f4e60f;
+}
+
+@media only screen and (max-width: 600px) {
+    .footer {
+        padding-top: 5%;
+    }
+}
+
+.hero {
+    padding: 5% 10% 5% 10%;
+}
+
+
+h1 {
+    font-size: 60px;
+    color: #edcf2e;
+    font-weight: 900;
+    margin-top: 0px;
+
+}
+
+p {
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.typeit {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 700;
+    color: #edcf2e;
+}
+
+.wave {
+    cursor: default;
+    animation-name: wave-animation;
+    animation-duration: 3.5s;
+    animation-iteration-count: 1;
+    animation-delay: 1.5s;
+    transform-origin: 70% 70%;
+    display: inline-block;
+}
+
+.wave:hover {
+    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>👋🏽</text></svg>") 16 0, auto;
+    animation-name: wave-animation;
+    animation-duration: 2.5s;
+    animation-iteration-count: infinite;
+    transform-origin: 70% 70%;
+    display: inline-block;
+}
+
+.mob-jump {
+    display: none;
+}
+
+@media only screen and (max-width: 600px) {
+    .wave:hover {
+        animation-iteration-count: 1;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .mob-jump {
+        display: block;
+        line-height: 0px;
+    }
+}
+
+@keyframes wave-animation {
+    0% {
+        transform: rotate(0.0deg)
+    }
+
+    10% {
+        transform: rotate(14.0deg)
+    }
+
+    20% {
+        transform: rotate(-8.0deg)
+    }
+
+    30% {
+        transform: rotate(14.0deg)
+    }
+
+    40% {
+        transform: rotate(-4.0deg)
+    }
+
+    50% {
+        transform: rotate(10.0deg)
+    }
+
+    60% {
+        transform: rotate(0.0deg)
+    }
+
+    100% {
+        transform: rotate(0.0deg)
+    }
+}
+
+.icon {
+    width: 36px;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    transition: all 0.5s;
+    color: #f6f4e6;
+}
+
+.icon:hover {
+    transform: scale(1.25);
+    color: #edcf2e;
+}
+
+.nav {
+    text-align: right;
+}
+
+.nav ul {
+    list-style-type: none;
+    padding: 1% 0.5% 0% 0%;
+    margin: 0px;
+}
+
+.nav li {
+    text-decoration: none;
+    display: inline;
+    padding: 0% .1%;
+    margin: 0% .1%;
+
+
+}
+
+.nav a {
+    text-decoration: none;
+    border-style: solid;
+    border-width: 5px;
+    border-color: #edcf2e;
+    background-color: #edcf2e;
+    color: #171e2b;
+}
+
+.nav a:hover {
+    background-color: #f6f4e6;
+    border-color: #f6f4e6;
+
+}
+
+
+@media only screen and (max-width: 600px) {
+    .nav {
+        padding: 0% 10% 0% 10%;
+    }
+
+    .nav li {
+        display: block;
+        padding: 2% 0%;
+    }
+
+    .nav ul {
+        text-align: right;
+    }
+}
+
+.resume {
+    padding: 5% 10% 5% 10%;
+}
+
+.exp {
+    display: flex;
+}
+
+.left {
+    width: 25%;
+    padding-right: 2%;
+}
+
+.right {
+    width: 75%;
+    padding-left: 2%;
+}
+
+.item h3 {
+    padding: 0px;
+    margin: 0px;
+}
+
+.item {
+    padding: 1% 0%;
+}
+
+.section {
+    padding: 2% 0%;
+}
+
+.resume p {
+    font-size: medium;
+}
+
+.skills {
+    display: flex;
+}
+
+.skill {
+    width: 25%;
+    padding: 0% 0.5%;
+}
+
+@media only screen and (max-width: 720px) {
+    .exp {
+        display: block;
+    }
+
+    .item {
+        padding: 3% 0%;
+    }
+
+    .left,
+    .right {
+        width: 100%;
+        padding: 0%;
+    }
+
+    .skls {
+        display: none;
     }
 }
