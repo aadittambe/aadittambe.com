@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Image from 'next/image'
 import { useInView } from 'react-intersection-observer';
 
 
@@ -13,11 +14,13 @@ const Story = props => {
     return (<div className={`story ${storyType} ${inView ? 'reveal' : 'no-reveal'}`} ref={ref}>
         <a href={url} rel="noreferrer" target="_blank">
             <p className="story-tools">🧰 {tools}</p>
-            <img
+            <Image
                 src={img.startsWith("https") ? img : `/images/${img}?.jpeg`}
                 alt={alt}
                 className="story-img"
-            ></img>
+                width={200}
+                height={200}
+            />
             <p className="story-org">📍<span className="ital"> {org}</span></p>
             <p>🔗 <span className="story-name">{project}</span></p>
 
