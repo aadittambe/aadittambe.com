@@ -5,7 +5,7 @@ const Footer = props => {
 
         <footer className='footer'>
             <hr></hr>
-            <p>© Handmade by Aadit Tambe | 2019 – 2022
+            <p>© Handmade by Aadit Tambe | 2019 – 2023
             </p>
 
         </footer>
