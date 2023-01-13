@@ -1,5 +1,23 @@
 import React, { useState } from "react";
 
+const Story = props => {
+    const { storyType, url, tools, img, org, alt, project } = props
+
+    return (<div className={`story ${storyType}`} >
+        <a href={url} rel="noreferrer" target="_blank">
+            <p className="story-tools">🧰 {tools}</p>
+            <img
+                src={img.startsWith("https") ? img : `/images/${img}?.jpeg`}
+                alt={alt}
+                className="story-img"
+            ></img>
+            <p className="story-org">📍<span className="ital"> {org}</span></p>
+            <p>🔗 <span className="story-name">{project}</span></p>
+
+        </a>
+    </div>)
+}
+
 const Projects = props => {
     const { data } = props
     const stories = data.stories
@@ -31,20 +49,9 @@ const Projects = props => {
                 </p>
             </fieldset>
             <div className="layout">
-                {stories.filter(d => (clicked === "all" ? d : d.storyType.includes(clicked))).map((d, i) => {
-                    return <div className={`story ${d.storyType}`} key={i}>
-                        <a href={d.url} rel="noreferrer" target="_blank">
-                            <p className="story-tools">🧰 {d.tools}</p>
-                            <img
-                                src={d.img.startsWith("https") ? d.img : `/images/${d.img}?.jpeg`}
-                                alt={d.alt}
-                                className="story-img"
-                            ></img>
-                            <p className="story-org">📍<span className="ital"> {d.org}</span></p>
-                            <p>🔗 <span className="story-name">{d.project}</span></p>
+                {stories.filter(d => (clicked === "all" ? d : d.storyType.includes(clicked))).map((d, ind) => {
+                    return (<Story key={ind} storyType={d.storyType} url={d.url} tools={d.tools} img={d.img} org={d.org} alt={d.alt} project={d.project} />)
 
-                        </a>
-                    </div>
                 }
                 )}
             </div>
