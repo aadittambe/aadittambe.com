@@ -5,6 +5,9 @@ body {
 }
 
 #container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     min-height: 100vh;
     border-width: 5px;
     border-style: solid;
@@ -182,7 +185,7 @@ fieldset {
 }
 
 .footer {
-    padding: 5% 10% 0% 10%;
+    padding: 0% 10% 36px 10%;
 }
 
 hr {
@@ -195,8 +198,8 @@ hr {
     }
 }
 
-.hero {
-    padding: 5% 10% 5% 10%;
+.home {
+    padding: 12px 10%;
 }
 
 
@@ -306,27 +309,25 @@ p {
 
 .nav {
     text-align: right;
+    padding: 36px 10% 0% 10%;
 }
 
 .nav ul {
     list-style-type: none;
-    padding: 1% 0.5% 0% 0%;
     margin: 0px;
 }
 
 .nav li {
     text-decoration: none;
     display: inline;
-    padding: 0% .1%;
-    margin: 0% .1%;
-
+    padding: 0% 4px;
 
 }
 
 .nav a {
     text-decoration: none;
     border-style: solid;
-    border-width: 5px;
+    border-width: 3px;
     border-color: #edcf2e;
     background-color: #edcf2e;
     color: #171e2b;
@@ -340,18 +341,11 @@ p {
 
 
 @media only screen and (max-width: 600px) {
-    .nav {
-        padding: 0% 10% 0% 10%;
-    }
-
     .nav li {
         display: block;
         padding: 2% 0%;
     }
 
-    .nav ul {
-        text-align: right;
-    }
 }
 
 .resume {
