@@ -33,6 +33,7 @@ a:hover {
     margin: 2% 1% 2% 1%;
     /* background-color: green; */
     width: 300px;
+    transition: 1s ease-in-out;
 }
 
 .story-img {
@@ -109,6 +110,14 @@ fieldset {
     margin: 0.2em 0em;
     min-width: 96px;
     max-width: 96px;
+}
+
+.reveal {
+    opacity: 1;
+}
+
+.no-reveal {
+    opacity: 0;
 }
 
 /* 
