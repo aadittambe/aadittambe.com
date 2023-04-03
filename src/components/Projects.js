@@ -32,7 +32,7 @@ const Projects = props => {
     const { data } = props
     const stories = data.stories
 
-    const categories = [{ topic: "Design", class: "design", emoji: "🎨" }, { topic: "Graphics", class: "graphics", emoji: "📊" }, { topic: "Data-driven", class: "data", emoji: "📈" }, { topic: "News app", class: "app", emoji: "🖥" }, { topic: "Docs", class: "docs", emoji: "📖" }, { topic: "Written", class: "text", emoji: "✍️" }]
+    const categories = [{ topic: "Dev", class: "development", emoji: "🖥️" }, { topic: "Graphics", class: "graphics", emoji: "📊" }, { topic: "Data-driven", class: "data", emoji: "📈" }, { topic: "Docs", class: "docs", emoji: "📖" }, { topic: "Written", class: "reporting", emoji: "✍️" }]
 
     const [clicked, setClicked] = useState("all")
     return (
