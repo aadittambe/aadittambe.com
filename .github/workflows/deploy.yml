@@ -29,5 +29,7 @@ jobs:
 
     - name: Install dependencies
       run: npm install
+    - name: Download website data
+      run: npm run fetch
     - name: Build
       run: npm run deploy
