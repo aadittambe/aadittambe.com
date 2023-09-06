@@ -59,11 +59,13 @@ const Projects = props => {
                 </p>
             </fieldset>
             <div className="layout">
-                {stories.filter(d => (clicked === "all" ? d : d.storyType.includes(clicked))).map((d, ind) => {
-                    return (<Story key={ind} storyType={d.storyType} url={d.url} tools={d.tools} img={d.img} org={d.org} alt={d.alt} project={d.project} />)
+                {stories
+                    .filter(d => d.show !== "false")
+                    .filter(d => (clicked === "all" ? d : d.storyType.includes(clicked))).map((d, ind) => {
+                        return (<Story key={ind} storyType={d.storyType} url={d.url} tools={d.tools} img={d.img} org={d.org} alt={d.alt} project={d.project} />)
 
-                }
-                )}
+                    }
+                    )}
             </div>
             <div className="source ital"><p>I am a supporter of open-source code — the source code for this website is available on <a href="https://github.com/aadittambe/aadittambe.com">GitHub</a>.</p></div>
         </main >
