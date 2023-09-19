@@ -49,12 +49,12 @@ const Projects = props => {
                 <p className="filters">
                     <label className={`btn reset`}>
                         <input type="radio" name="" value="" id="all" onClick={e => { setClicked("all") }} />
-                        <span style={{ backgroundColor: clicked === "all" ? "#edcf2e" : '#f6f4e6' }}>🌎<br></br>All</span>
+                        <span style={{ backgroundColor: clicked === "all" ? "#F6C90E" : '#F7F7F7' }}>🌎<br></br>All</span>
                     </label>
                     {categories.map((cat, ind) =>
                     (<label className={`btn ${cat.class}`} key={ind}>
                         <input type="radio" name="" value="" id={cat.class} onClick={e => { setClicked(cat.class) }} />
-                        <span style={{ backgroundColor: cat.class === clicked ? "#edcf2e" : '#f6f4e6' }}>{cat.emoji}<br></br>{cat.topic}</span>
+                        <span style={{ backgroundColor: cat.class === clicked ? "#F6C90E" : '#F7F7F7' }}>{cat.emoji}<br></br>{cat.topic}</span>
                     </label>))}
                 </p>
             </fieldset>

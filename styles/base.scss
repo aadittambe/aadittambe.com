@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
+$site-yellow: #F6C90E;
+$site-black: #303841;
+$site-blue: #2E4750;
+$site-white: #F7F7F7;
+
 body {
     margin: 0px;
 }
@@ -9,19 +14,20 @@ body {
     flex-direction: column;
     justify-content: space-between;
     min-height: 100vh;
-    border-width: 5px;
-    border-style: solid;
-    border-color: #edcf2e;
+    // border-width: 5px;
+    // border-style: solid;
+    // border-color: $site-black;
     width: 100%;
     margin: 0;
+    background-color: $site-white;
     box-sizing: border-box;
-    background-image: linear-gradient(to bottom right, #171e2b, #2b313b);
-    font-family: Roboto, sans-serif;
-    color: #f6f4e6;
+    // background-image: linear-gradient(to bottom right, #171e2b, #2b313b);
+    font-family: ui-sans-serif, sans-serif;
+    // color: #f6f4e6;
 }
 
 ::selection {
-    background: #41444b;
+    background: $site-yellow;
 }
 
 
@@ -80,14 +86,14 @@ a:hover {
 .experience .intro a,
 .source a {
     text-decoration: none;
-    border-bottom: solid 1px #edcf2e;
+    border-bottom: solid 2px $site-yellow;
     transition: all .1s;
-    color: #edcf2e;
+    color: $site-black;
 }
 
 .experience .intro a:hover,
 .source a:hover {
-    border-bottom: solid 2px #edcf2e;
+    border-bottom: solid 3px $site-yellow;
     transition: all .1s;
 }
 
@@ -107,7 +113,7 @@ a:hover {
     width: 100%;
     border-radius: 10px;
     transition: all 0.5s;
-    box-shadow: 0.1em 0.1em 1em 0.03em black;
+    box-shadow: 0.1em 0.1em 1em 0.03em $site-black;
     margin-bottom: 20px;
     min-height: 200px;
     max-height: 200px;
@@ -115,7 +121,7 @@ a:hover {
 }
 
 .story-img:hover {
-    box-shadow: 0.1em 0.1em 1em 0.03em #edcf2e;
+    box-shadow: 0.1em 0.1em 1em 0.03em $site-yellow;
     transform: scale(1.05);
 }
 
@@ -125,12 +131,12 @@ a:hover {
 }
 
 .story-name {
-    border-bottom: solid 0px #edcf2e;
+    border-bottom: solid 0px $site-yellow;
     transition: all .1s;
 }
 
 .story-name:hover {
-    border-bottom: solid 3px #edcf2e;
+    border-bottom: solid 3px $site-yellow;
 }
 
 .story-tools {
@@ -165,9 +171,9 @@ fieldset {
 
 .btn span {
     text-align: center;
-    border: 1.2px solid #52575d;
-    background-color: #f6f4e6;
-    color: #41444b;
+    border: 1.2px solid $site-black;
+    background-color: $site-white;
+    color: $site-black;
     padding: 6px 6px;
     font-size: 14px;
     cursor: pointer;
@@ -190,7 +196,7 @@ fieldset {
 }
 
 hr {
-    border: 1px solid #f6f4e60f;
+    border: 1px solid $site-black;
 }
 
 @media only screen and (max-width: 600px) {
@@ -206,7 +212,7 @@ hr {
 
 h1 {
     font-size: 60px;
-    color: #edcf2e;
+    color: $site-black;
     font-weight: 900;
     margin-top: 0px;
 
@@ -220,7 +226,7 @@ p {
 .typeit {
     font-family: 'Courier New', Courier, monospace;
     font-weight: 700;
-    color: #edcf2e;
+    color: $site-black;
 }
 
 .wave {
@@ -234,7 +240,7 @@ p {
 }
 
 .wave:hover {
-    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>👋🏽</text></svg>") 16 0, auto;
+    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:$site-black;font-size:24px;'><text y='50%'>👋🏽</text></svg>") 16 0, auto;
     animation-name: wave-animation;
     animation-duration: 2.5s;
     animation-iteration-count: infinite;
@@ -300,12 +306,12 @@ p {
     padding-top: 10px;
     padding-bottom: 10px;
     transition: all 0.5s;
-    color: #f6f4e6;
+    color: $site-black;
 }
 
 .icon:hover {
     transform: scale(1.25);
-    color: #edcf2e;
+    color: $site-yellow;
 }
 
 .nav {
@@ -329,14 +335,15 @@ p {
     text-decoration: none;
     border-style: solid;
     border-width: 3px;
-    border-color: #edcf2e;
-    background-color: #edcf2e;
-    color: #171e2b;
+    border-color: $site-yellow;
+    background-color: $site-yellow;
+    color: $site-black;
 }
 
 .nav a:hover {
-    background-color: #f6f4e6;
-    border-color: #f6f4e6;
+    color: $site-white;
+    background-color: $site-black;
+    border-color: $site-black;
 
 }
 
