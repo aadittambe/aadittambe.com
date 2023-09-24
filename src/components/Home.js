@@ -13,7 +13,7 @@ const Home = props => {
 
 
     return <main className="home">
-        <h1><span className='wave'>👋🏽</span> Hi, I am Aadit!</h1>
+        <h1><span className='wave'>👋🏽</span> Hi, I am <span style={{ color: '#F6C90E' }}>Aadit!</span></h1>
         <p><span style={{ display: "none" }}>👨🏽‍💻</span>I tell stories — but with<span className='mob-jump'><br /></span> <span className="typeit">
             <TypeIt
                 options={{

@@ -53,7 +53,7 @@ const Sparklines = props => {
                 .append("path")
                 .datum(data)
                 .attr("fill", "none")
-                .attr("stroke", "#f6f4e6")
+                .attr("stroke", "#303841")
                 .attr("stroke-width", 1)
                 .attr("d", chartLine);
 
@@ -62,14 +62,14 @@ const Sparklines = props => {
                 .attr("r", 2)
                 .attr("cx", xScale(0))
                 .attr("cy", yScale(data[0]))
-                .attr("fill", "#f6f4e6");
+                .attr("fill", "#303841");
 
             svg
                 .append("circle")
                 .attr("r", 2)
                 .attr("cx", xScale(data.length - 1))
                 .attr("cy", yScale(data[data.length - 1]))
-                .attr("fill", "#edcf2e");
+                .attr("fill", "#303841");
             return json
         })
     }, [])
