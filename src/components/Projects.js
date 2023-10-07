@@ -42,7 +42,7 @@ const Projects = (props) => {
   const categories = [
     { topic: "Dev", class: "development", emoji: "🖥️" },
     { topic: "Graphics", class: "graphics", emoji: "📊" },
-    { topic: "Data-driven", class: "data", emoji: "📈" },
+    { topic: "Data", class: "data", emoji: "📈" },
     { topic: "Docs", class: "docs", emoji: "📖" },
     { topic: "Written", class: "reporting", emoji: "✍️" },
   ];
@@ -122,7 +122,7 @@ const Projects = (props) => {
         {stories
           .filter((d) => d.show !== "false")
           .filter((d) =>
-            clicked === "all" ? d : d.storyType.includes(clicked)
+            clicked === "all" ? d : d.storyType.includes(clicked),
           )
           .map((d, ind) => {
             return (

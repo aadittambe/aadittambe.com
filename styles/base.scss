@@ -19,7 +19,7 @@ body {
   // border-color: $site-black;
   width: 100%;
   margin: 0;
-  background-color: $site-white;
+  // background-color: $site-white;
   box-sizing: border-box;
   // background-image: linear-gradient(to bottom right, #171e2b, #2b313b);
   font-family: ui-sans-serif, sans-serif;
@@ -167,14 +167,15 @@ fieldset {
 }
 
 .btn span {
+  transition-duration: 0.3s;
   text-align: center;
-  border: 1.2px solid $site-black;
-  background-color: $site-white;
+  // border: 1.2px solid $site-black;
+  // background-color: $site-white;
   color: $site-black;
-  padding: 6px 6px;
-  font-size: 14px;
+  padding: 4px;
+  font-size: 16px;
   cursor: pointer;
-  border-radius: 3px;
+  border-radius: 4px;
   display: inline-block;
   margin: 0.2em 0em;
   min-width: 96px;
@@ -206,11 +207,67 @@ hr {
   padding: 12px 10%;
 }
 
+.city-parent {
+  position: relative;
+}
+
+.dc {
+  white-space: nowrap;
+  position: absolute;
+  left: 0;
+}
+
+.dc::after {
+  content: " ";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: $site-black;
+  animation-name: strike;
+  animation-duration: 8s;
+  // animation-delay: 2s;
+  // animation-timing-function: linear;
+  // animation-iteration-count: 1;
+  // animation-fill-mode: forwards;
+}
+
+.seoul-hidden {
+  visibility: hidden;
+  white-space: nowrap;
+  // position: absolute;
+  // left: 0;
+  // white-space: nowrap;
+}
+
+.seoul {
+  background-color: white;
+  // visibility: hidden;
+  position: absolute;
+  left: 0;
+  white-space: nowrap;
+}
+
+@keyframes strike {
+  0% {
+    width: 0;
+  }
+
+  50% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
 h1 {
   font-size: 60px;
   color: $site-black;
   font-weight: 900;
   margin-top: 0px;
+
   @media only screen and (max-width: 600px) {
     font-size: 36px;
   }
@@ -238,7 +295,8 @@ p {
 }
 
 .wave:hover {
-  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:$site-black;font-size:24px;'><text y='50%'>👋🏽</text></svg>")
+  cursor:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:$site-black;font-size:24px;'><text y='50%'>👋🏽</text></svg>")
       16 0,
     auto;
   animation-name: wave-animation;
@@ -314,43 +372,89 @@ p {
   color: $site-yellow;
 }
 
-.nav {
-  text-align: right;
-  padding: 36px 10% 0% 10%;
-}
+header {
+  nav {
+    display: flex;
+    justify-content: end;
+    padding: 36px 10% 0% 10%;
+    @media only screen and (max-width: 600px) {
+      justify-content: center;
+      padding: 36px 10% 10% 10%;
+    }
+  }
 
-.nav ul {
-  list-style-type: none;
-  margin: 0px;
-}
+  ul {
+    margin: 0px;
+    padding: 0px;
+    list-style-type: none;
+    display: flex;
+  }
 
-.nav li {
-  text-decoration: none;
-  display: inline;
-  padding: 0% 4px;
-}
+  li {
+    transition-duration: 0.3s;
+    margin-right: 12px;
+    text-decoration: none;
+    // border: 1px solid black;
+    border-radius: 4px;
+    padding: 4px;
+    // border: 1px solid $site-black;
+    background-color: $site-white;
+    font-size: 18px;
+    @media only screen and (max-width: 600px) {
+      font-size: 18px;
+      margin-right: 6px;
+    }
 
-.nav a {
-  text-decoration: none;
-  border-style: solid;
-  border-width: 3px;
-  border-color: $site-yellow;
-  background-color: $site-yellow;
-  color: $site-black;
-}
+    &.active {
+      background-color: $site-yellow;
+      color: $site-black;
+      // border: 1px solid $site-black;
+    }
+  }
 
-.nav a:hover {
-  color: $site-white;
-  background-color: $site-black;
-  border-color: $site-black;
-}
-
-@media only screen and (max-width: 600px) {
-  .nav li {
-    display: block;
-    padding: 2% 0%;
+  a {
+    text-decoration: none;
+    color: inherit;
   }
 }
+
+// .nav {
+//   text-align: right;
+//   padding: 36px 10% 0% 10%;
+// }
+
+// .nav ul {
+//   list-style-type: none;
+//   margin: 0px;
+// }
+
+// .nav li {
+//   text-decoration: none;
+//   display: inline;
+//   padding: 0% 4px;
+// }
+
+// .nav a {
+//   text-decoration: none;
+//   border-style: solid;
+//   border-width: 3px;
+//   border-color: $site-yellow;
+//   background-color: $site-yellow;
+//   color: $site-black;
+// }
+
+// .nav a:hover {
+//   color: $site-white;
+//   background-color: $site-black;
+//   border-color: $site-black;
+// }
+
+// @media only screen and (max-width: 600px) {
+//   .nav li {
+//     display: block;
+//     padding: 2% 0%;
+//   }
+// }
 
 .resume {
   padding: 5% 10% 5% 10%;
@@ -384,7 +488,7 @@ p {
 }
 
 .resume p {
-  font-size: medium;
+  // font-size: medium;
 }
 
 .skills {
