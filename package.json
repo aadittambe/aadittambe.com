@@ -36,6 +36,7 @@
     "typeit-react": "^2.6.0"
   },
   "devDependencies": {
-    "ftp-deploy": "^2.4.3"
+    "ftp-deploy": "^2.4.3",
+    "prettier": "3.0.3"
   }
 }
