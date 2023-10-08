@@ -16,7 +16,7 @@ const Story = (props) => {
       ref={ref}
     >
       <a href={url} rel="noreferrer" target="_blank">
-        <p className="story-tools">🧰 {tools}</p>
+        {/* <p className="story-tools">🧰 {tools}</p> */}
         <Image
           src={img.startsWith("https") ? img : `/images/${img}?.jpeg`}
           alt={alt}
@@ -24,12 +24,14 @@ const Story = (props) => {
           width={200}
           height={200}
         />
-        <p className="story-org">
-          📍<span className="ital"> {org}</span>
-        </p>
-        <p>
-          🔗 <span className="story-name">{project}</span>
-        </p>
+        <div className="card-text">
+          <p className="story-org">
+            📍<span className="ital"> {org}</span>
+          </p>
+          <p>
+            🔗 <span className="story-name">{project}</span>
+          </p>
+        </div>
       </a>
     </div>
   );
@@ -75,7 +77,12 @@ const Projects = (props) => {
           <p> 👀 Looking for a particular type of project? </p>
         </legend>
         <p className="filters">
-          <label className={`btn reset`}>
+          <label
+            className={`btn reset`}
+            style={{
+              backgroundColor: clicked === "all" ? "#F6C90E" : "#F7F7F7",
+            }}
+          >
             <input
               type="radio"
               name=""
@@ -85,16 +92,16 @@ const Projects = (props) => {
                 setClicked("all");
               }}
             />
-            <span
-              style={{
-                backgroundColor: clicked === "all" ? "#F6C90E" : "#F7F7F7",
-              }}
-            >
-              🌎<br></br>All
-            </span>
+            🌎<br></br>All
           </label>
           {categories.map((cat, ind) => (
-            <label className={`btn ${cat.class}`} key={ind}>
+            <label
+              className={`btn ${cat.class}`}
+              key={ind}
+              style={{
+                backgroundColor: cat.class === clicked ? "#F6C90E" : "#F7F7F7",
+              }}
+            >
               <input
                 type="radio"
                 name=""
@@ -104,16 +111,9 @@ const Projects = (props) => {
                   setClicked(cat.class);
                 }}
               />
-              <span
-                style={{
-                  backgroundColor:
-                    cat.class === clicked ? "#F6C90E" : "#F7F7F7",
-                }}
-              >
-                {cat.emoji}
-                <br></br>
-                {cat.topic}
-              </span>
+              {cat.emoji}
+              <br></br>
+              {cat.topic}
             </label>
           ))}
         </p>
