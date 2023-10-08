@@ -35,7 +35,9 @@ const Home = (props) => {
       <p>
         <span>I am a journalist who tells stories — but with&nbsp;</span>
         <span style={{ position: "relative" }}>
-          <span style={{ visibility: "hidden" }}>graphics. 📊</span>
+          <span style={{ visibility: "hidden", whiteSpace: "nowrap" }}>
+            graphics. 📊
+          </span>
           <span
             className="typeit"
             style={{
@@ -122,29 +124,39 @@ const Home = (props) => {
           <p key={index}>{text}</p>
         ),
       )}
-      <a href="https://vis.social/@aadittambe" rel="noreferrer" target="_blank">
-        <FontAwesomeIcon className="icon" icon={faMastodon} size="2x" />
-      </a>
-      <a
-        href="https://twitter.com/aadittambe/"
-        rel="noreferrer"
-        target="_blank"
-      >
-        <FontAwesomeIcon className="icon" icon={faTwitter} size="2x" />
-      </a>
-      <a href="https://github.com/aadittambe" rel="noreferrer" target="_blank">
-        <FontAwesomeIcon className="icon" icon={faGithubAlt} size="2x" />
-      </a>
-      <a
-        href="https://www.linkedin.com/in/aadittambe/"
-        rel="noreferrer"
-        target="_blank"
-      >
-        <FontAwesomeIcon className="icon" icon={faLinkedin} size="2x" />
-      </a>
-      <a href="mailto:aadit.tambe@gmail.com" rel="noreferrer" target="_blank">
-        <FontAwesomeIcon className="icon" icon={faEnvelope} size="2x" />
-      </a>
+      <div className="home-buttons">
+        <a
+          href="https://vis.social/@aadittambe"
+          rel="noreferrer"
+          target="_blank"
+        >
+          <FontAwesomeIcon className="icon" icon={faMastodon} size="2x" />
+        </a>
+        <a
+          href="https://twitter.com/aadittambe/"
+          rel="noreferrer"
+          target="_blank"
+        >
+          <FontAwesomeIcon className="icon" icon={faTwitter} size="2x" />
+        </a>
+        <a
+          href="https://github.com/aadittambe"
+          rel="noreferrer"
+          target="_blank"
+        >
+          <FontAwesomeIcon className="icon" icon={faGithubAlt} size="2x" />
+        </a>
+        <a
+          href="https://www.linkedin.com/in/aadittambe/"
+          rel="noreferrer"
+          target="_blank"
+        >
+          <FontAwesomeIcon className="icon" icon={faLinkedin} size="2x" />
+        </a>
+        <a href="mailto:aadit.tambe@gmail.com" rel="noreferrer" target="_blank">
+          <FontAwesomeIcon className="icon" icon={faEnvelope} size="2x" />
+        </a>
+      </div>
     </main>
   );
 };
