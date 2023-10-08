@@ -10,11 +10,9 @@ import Header from "../src/components/Header";
 const HomePage = (props) => {
   const { data } = props;
   return (
-    <div className={""}>
-      <main className={""}>
-        <Home data={data} />
-      </main>
-    </div>
+    <main className={""}>
+      <Home data={data} />
+    </main>
   );
 };
 
