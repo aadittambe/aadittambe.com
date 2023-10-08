@@ -16,20 +16,22 @@ const Story = (props) => {
       ref={ref}
     >
       <a href={url} rel="noreferrer" target="_blank">
-        {/* <p className="story-tools">🧰 {tools}</p> */}
-        <Image
-          src={img.startsWith("https") ? img : `/images/${img}?.jpeg`}
-          alt={alt}
-          className="story-img"
-          width={200}
-          height={200}
-        />
+        <div
+          style={{ position: "relative", width: "100%", aspectRatio: "16/9" }}
+        >
+          <Image
+            src={img.startsWith("https") ? img : `/images/${img}?.jpeg`}
+            alt=""
+            fill
+            style={{ objectFit: "cover" }}
+          />
+        </div>
         <div className="card-text">
           <p className="story-org">
             📍<span className="ital"> {org}</span>
           </p>
-          <p>
-            🔗 <span className="story-name">{project}</span>
+          <p className="story-name">
+            🔗 <span>{project}</span>
           </p>
         </div>
       </a>
