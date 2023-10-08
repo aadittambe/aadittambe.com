@@ -85,30 +85,17 @@ const Home = (props) => {
           <span className="seoul">
             <TypeIt
               options={{
-                // loop: true,
-                speed: 200,
+                speed: 150,
                 waitUntilVisible: true,
                 lifeLike: true,
                 cursor: false,
               }}
               getBeforeInit={(instance) => {
                 instance.pause(10000).type("Seoul, South Korea");
-                //   .pause(2000)
-                //   .delete(7)
-                //   .type("graphics. 📊")
-                //   .pause(2500)
-                //   .delete(11)
-                //   .type("design. 🎨")
-                //   .pause(2700)
-                //   .delete(9)
-                //   .type("data. 📈")
-                //   .pause(2100);
-
                 return instance;
               }}
             />
           </span>
-          {/* <span className="seoul">Seoul, South Korea</span> */}
         </span>
         , and work on the News Design team at The Washington Post, building
         rich, highly customized interactive storytelling experiences and web
@@ -118,7 +105,10 @@ const Home = (props) => {
       {intro.map((text, index) =>
         index === 0 ? (
           <p key={index}>
-            {text} <Sparklines />.
+            {text}{" "}
+            <span style={{ whiteSpace: "nowrap" }}>
+              <Sparklines />.
+            </span>
           </p>
         ) : (
           <p key={index}>{text}</p>
