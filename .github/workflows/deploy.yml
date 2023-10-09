@@ -1,9 +1,9 @@
 name: Build and deploy site
 
 on:
-  workflow_dispatch: 
+  workflow_dispatch:
   push:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   deploy:
@@ -13,23 +13,23 @@ jobs:
         node-version: [18.x]
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-    - name: Set up Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    
-    - name: Create env file
-      run: |
-        touch .env
-        echo FTP_USERNAME=${{ secrets.FTP_USERNAME }} >> .env
-        echo FTP_PASSWORD='${{ secrets.FTP_PASSWORD }}' >> .env
+      - name: Set up Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
 
-    - name: Install dependencies
-      run: npm install
-    - name: Download website data
-      run: npm run fetch
-    - name: Build
-      run: npm run deploy
+      - name: Create env file
+        run: |
+          touch .env
+          echo FTP_USERNAME=${{ secrets.FTP_USERNAME }} >> .env
+          echo FTP_PASSWORD='${{ secrets.FTP_PASSWORD }}' >> .env
+
+      - name: Install dependencies
+        run: npm install
+      - name: Download website data
+        run: npm run download
+      - name: Build
+        run: npm run deploy
