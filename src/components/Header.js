@@ -12,7 +12,7 @@ const Header = (props) => {
       <nav className="nav" role="navigation">
         <ul>
           <li id="nav-home" className={activeLink === "home" && "active"}>
-            <Link href="/" id="nav-home" onClick={() => setActiveLink("home")}>
+            <Link href="/" onClick={() => setActiveLink("home")}>
               <p>Home</p>
             </Link>
           </li>
@@ -20,20 +20,12 @@ const Header = (props) => {
             id="nav-experience"
             className={activeLink === "projects" && "active"}
           >
-            <Link
-              href="/projects"
-              id="nav-projects"
-              onClick={() => setActiveLink("projects")}
-            >
+            <Link href="/projects" onClick={() => setActiveLink("projects")}>
               <p>Projects</p>
             </Link>
           </li>
           <li id="nav-resume" className={activeLink === "resume" && "active"}>
-            <Link
-              href="/resume"
-              id="nav-resume"
-              onClick={() => setActiveLink("resume")}
-            >
+            <Link href="/resume" onClick={() => setActiveLink("resume")}>
               <p>Resume</p>
             </Link>
           </li>

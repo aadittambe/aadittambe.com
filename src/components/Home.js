@@ -86,6 +86,7 @@ const Home = (props) => {
           href="https://vis.social/@aadittambe"
           rel="noreferrer"
           target="_blank"
+          aria-label="Mastodon"
         >
           <FontAwesomeIcon className="icon" icon={faMastodon} size="2x" />
         </a>
@@ -93,6 +94,7 @@ const Home = (props) => {
           href="https://twitter.com/aadittambe/"
           rel="noreferrer"
           target="_blank"
+          aria-label="Twitter"
         >
           <FontAwesomeIcon className="icon" icon={faTwitter} size="2x" />
         </a>
@@ -100,6 +102,7 @@ const Home = (props) => {
           href="https://github.com/aadittambe"
           rel="noreferrer"
           target="_blank"
+          aria-label="GitHub"
         >
           <FontAwesomeIcon className="icon" icon={faGithubAlt} size="2x" />
         </a>
@@ -107,10 +110,16 @@ const Home = (props) => {
           href="https://www.linkedin.com/in/aadittambe/"
           rel="noreferrer"
           target="_blank"
+          aria-label="LinkedIn"
         >
           <FontAwesomeIcon className="icon" icon={faLinkedin} size="2x" />
         </a>
-        <a href="mailto:aadit.tambe@gmail.com" rel="noreferrer" target="_blank">
+        <a
+          href="mailto:aadit.tambe@gmail.com"
+          rel="noreferrer"
+          target="_blank"
+          aria-label="email"
+        >
           <FontAwesomeIcon className="icon" icon={faEnvelope} size="2x" />
         </a>
       </div>

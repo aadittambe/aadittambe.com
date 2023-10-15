@@ -1,4 +1,4 @@
-@import "/path/to/reset-css/reset.css";
+@import "./reset";
 
 $site-yellow: #f6c90e;
 $site-black: #303841;
@@ -87,34 +87,5 @@ p {
   @media only screen and (max-width: $md) {
     padding-left: 24px;
     padding-right: 24px;
-  }
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-p,
-li,
-a,
-footer,
-.icon {
-  animation: text-fade-in ease 1s;
-  -webkit-animation: text-fade-in ease 1s;
-  -moz-animation: text-fade-in ease 1s;
-  -o-animation: text-fade-in ease 1s;
-  -ms-animation: text-fade-in ease 1s;
-}
-
-@keyframes text-fade-in {
-  0% {
-    filter: blur(12px);
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-    filter: blur(0px);
   }
 }
