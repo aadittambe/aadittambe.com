@@ -47,7 +47,7 @@
   }
 
   .story-name {
-    border-bottom: solid 0px $site-yellow;
+    // border-bottom: solid 0px $site-yellow;
     transition: all 0.1s;
   }
 
@@ -59,6 +59,8 @@
   .story-org {
     // font-size: medium;
     padding-bottom: 4px;
+    font-size: 1rem;
+    line-height: 1.2rem;
   }
 
   .ital {
