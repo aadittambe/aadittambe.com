@@ -52,6 +52,54 @@
     color: $site-yellow;
   }
 
+  .city-parent {
+    position: relative;
+  }
+
+  .dc {
+    white-space: nowrap;
+    position: absolute;
+    left: 0;
+  }
+
+  .dc::after {
+    content: " ";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: $site-black;
+    animation-name: strike;
+    animation-duration: 8s;
+  }
+
+  .seoul-hidden {
+    visibility: hidden;
+    white-space: nowrap;
+  }
+
+  .seoul {
+    background-color: $site-white;
+    // visibility: hidden;
+    position: absolute;
+    left: 0;
+    white-space: nowrap;
+  }
+
+  @keyframes strike {
+    0% {
+      width: 0;
+    }
+
+    50% {
+      width: 0;
+    }
+    100% {
+      width: 100%;
+    }
+  }
+
   @keyframes wave-animation {
     0% {
       transform: rotate(0deg);
