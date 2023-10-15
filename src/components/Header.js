@@ -13,7 +13,7 @@ const Header = (props) => {
         <ul>
           <li id="nav-home" className={activeLink === "home" && "active"}>
             <Link href="/" id="nav-home" onClick={() => setActiveLink("home")}>
-              Home
+              <p>Home</p>
             </Link>
           </li>
           <li
@@ -25,7 +25,7 @@ const Header = (props) => {
               id="nav-projects"
               onClick={() => setActiveLink("projects")}
             >
-              Projects
+              <p>Projects</p>
             </Link>
           </li>
           <li id="nav-resume" className={activeLink === "resume" && "active"}>
@@ -34,7 +34,7 @@ const Header = (props) => {
               id="nav-resume"
               onClick={() => setActiveLink("resume")}
             >
-              Resume
+              <p>Resume</p>
             </Link>
           </li>
         </ul>

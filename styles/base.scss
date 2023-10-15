@@ -33,10 +33,28 @@ a:hover {
   transition: all 0.1s;
 }
 
+h1 {
+  font-size: 4.5rem;
+  padding-bottom: 1.5rem;
+  font-weight: 800;
+  @media only screen and (max-width: $md) {
+    font-size: 2.5rem;
+  }
+}
+
+p {
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+  padding-bottom: 1.2rem;
+}
+
 .container {
   max-width: $md;
   margin: auto;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   @media only screen and (max-width: $md) {
     padding-left: 24px;

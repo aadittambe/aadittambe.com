@@ -1,9 +1,7 @@
 .home {
-  h1 {
-    font-size: 4.5rem;
-    font-weight: 800;
-    @media only screen and (max-width: $md) {
-      font-size: 2.5rem;
-    }
+  .typeit {
+    font-family: "Courier New", Courier, monospace;
+    font-weight: 700;
+    color: $site-black;
   }
 }
