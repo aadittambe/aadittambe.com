@@ -1,2 +1,47 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto");
 @import "/path/to/reset-css/reset.css";
+
+$site-yellow: #f6c90e;
+$site-black: #303841;
+$site-white: #f7f7f7;
+$site-blue: #2e4750;
+$site-gray: (#{$site-black}ad);
+
+$sm: 768px;
+$md: 992px;
+$lg: 1280px;
+
+@import "./_header.scss";
+@import "./_footer.scss";
+@import "./_home.scss";
+
+body {
+  font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, Roboto,
+    sans-serif;
+  background-color: $site-white;
+  color: $site-black;
+}
+
+a {
+  text-decoration: none;
+  border-bottom: solid 2px $site-yellow;
+  transition: all 0.1s;
+  color: $site-black;
+}
+
+a:hover {
+  border-bottom: solid 3px $site-yellow;
+  transition: all 0.1s;
+}
+
+.container {
+  max-width: $md;
+  margin: auto;
+  min-height: 100vh;
+
+  @media only screen and (max-width: $md) {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+@import "./_removeWeirdness.scss";

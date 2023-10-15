@@ -1,23 +1,30 @@
 import TypeIt from "typeit-react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
-import { faTwitter, faGithubAlt, faMastodon, faLinkedin } from '@fortawesome/free-brands-svg-icons'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import {
+  faTwitter,
+  faGithubAlt,
+  faMastodon,
+  faLinkedin,
+} from "@fortawesome/free-brands-svg-icons";
 
 import Sparklines from "./Sparklines";
 
-const Home = props => {
-    const { data } = props
+const Home = (props) => {
+  const { data } = props;
 
-    const intro = data.intro
+  const intro = data.intro;
 
-
-
-    return <main className="home">
-       
+  return (
+    <main className="home">
+      <h1>
+        <span className="wave">👋🏽</span> Hi, I am Aadit!
+      </h1>
     </main>
-}
+  );
+};
 
-export default Home
+export default Home;
 
 //  <h1><span className='wave'>👋🏽</span> Hi, I am Aadit!</h1>
 //         <p><span style={{ display: "none" }}>👨🏽‍💻</span>I tell stories — but with<span className='mob-jump'><br /></span> <span className="typeit">

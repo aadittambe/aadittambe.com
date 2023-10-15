@@ -1,0 +1,42 @@
+.header {
+  a,
+  a:hover {
+    border: none;
+  }
+
+  .nav {
+    display: flex;
+    justify-content: end;
+    padding-top: 36px;
+    padding-bottom: 36px;
+    @media only screen and (max-width: $md) {
+      padding-top: 36px;
+      justify-content: center;
+    }
+    color: $site-gray;
+    font-weight: 500;
+  }
+  ul {
+    margin: 0px;
+    padding: 0px;
+    list-style-type: none;
+    display: flex;
+  }
+
+  li {
+    transition-duration: 0.3s;
+    margin-right: 12px;
+    text-decoration: none;
+    // border: 1px solid black;
+    border-radius: 4px;
+    padding: 4px;
+    // border: 1px solid $site-black;
+    background-color: $site-white;
+
+    &.active {
+      background-color: $site-yellow;
+      color: $site-black;
+      // border: 1px solid $site-black;
+    }
+  }
+}

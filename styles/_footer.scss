@@ -1,0 +1,12 @@
+footer {
+  padding-top: 36px;
+  padding-bottom: 36px;
+  @media only screen and (max-width: $md) {
+    padding-top: 36px;
+    justify-content: center;
+  }
+
+  p {
+    padding-top: 24px;
+  }
+}
