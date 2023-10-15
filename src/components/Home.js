@@ -22,7 +22,10 @@ const Home = (props) => {
       </h1>
       <p>
         <span>I am a journalist who tells stories — but with&nbsp;</span>
-        <span style={{ position: "relative" }} className="typeit">
+        <span
+          style={{ position: "relative", verticalAlign: "text-bottom" }}
+          className="typeit"
+        >
           <span
             style={{
               visibility: "hidden",
