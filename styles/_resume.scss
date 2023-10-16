@@ -1,0 +1,66 @@
+.resume {
+  .exp {
+    display: flex;
+    @media only screen and (max-width: $md) {
+      display: block;
+    }
+  }
+
+  .left {
+    width: 25%;
+    padding-right: 2%;
+    @media only screen and (max-width: $md) {
+      width: 100%;
+      padding: 0%;
+    }
+  }
+
+  .right {
+    width: 75%;
+    padding-left: 2%;
+    @media only screen and (max-width: $md) {
+      width: 100%;
+      padding: 0%;
+    }
+  }
+
+  .reveal {
+    opacity: 1;
+  }
+
+  .no-reveal {
+    opacity: 0;
+  }
+
+  .skills {
+    display: grid;
+    grid-gap: 24px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    @media only screen and (max-width: $md) {
+      grid-row-gap: 0px;
+
+      grid-column-gap: 18px;
+
+      grid-template-columns: 1fr 1fr;
+    }
+
+    p {
+      padding-bottom: 0.2rem;
+    }
+  }
+  p {
+    padding-bottom: 0.75rem;
+  }
+
+  h2 {
+    padding-top: 1.25rem;
+  }
+
+  h3 {
+    padding-top: 1.2rem;
+  }
+
+  h4 {
+    padding-bottom: 0.75rem;
+  }
+}
