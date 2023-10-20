@@ -1,6 +1,8 @@
 .contact {
   p {
-    padding-bottom: 0rem;
+    @media only screen and (max-width: $md) {
+      padding-bottom: 0rem;
+    }
   }
   .flex {
     @media only screen and (max-width: $md) {
