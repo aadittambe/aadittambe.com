@@ -98,7 +98,7 @@ const Home = (props) => {
         apps.
       </p>
       {intro.map((text, index) =>
-        index === 1 ? (
+        index === 0 ? (
           <p key={index}>
             {text} <Sparklines />.
           </p>
