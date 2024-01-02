@@ -4,11 +4,10 @@ import Link from "next/link";
 import Toggle from "react-toggle";
 
 const Header = (props) => {
+  const { isSnowing, setIsSnowing } = props;
   const router = useRouter();
   const page = router.route.replaceAll("/", "");
   const [activeLink, setActiveLink] = useState(page === "" ? "home" : page);
-
-  const [isSnowing, setIsSnowing] = useState(false);
 
   return (
     <header className="header">
@@ -55,7 +54,9 @@ const Header = (props) => {
               checked: (
                 <div style={{ fontSize: "12px", paddingTop: "5px" }}>❄️</div>
               ),
-              unchecked: null,
+              unchecked: (
+                <div style={{ fontSize: "14px", paddingTop: "5px" }}>❄️</div>
+              ),
             }}
           />
         </label>

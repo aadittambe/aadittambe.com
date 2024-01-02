@@ -49,7 +49,7 @@
 }
 
 .react-toggle:hover:not(.react-toggle--disabled) .react-toggle-track {
-  background-color: #000000;
+  // background-color: #000000;
 }
 
 .react-toggle--checked .react-toggle-track {
@@ -57,7 +57,7 @@
 }
 
 .react-toggle--checked:hover:not(.react-toggle--disabled) .react-toggle-track {
-  background-color: $site-yellow;
+  // background-color: $site-yellow;
 }
 
 .react-toggle-track-check {
@@ -112,7 +112,7 @@
   height: 22px;
   border: 1px solid white;
   border-radius: 50%;
-  background-color: #fafafa;
+  background-color: $site-yellow;
 
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;

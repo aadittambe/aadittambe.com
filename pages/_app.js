@@ -1,10 +1,15 @@
+import { useState } from "react";
 import Head from "next/head";
 import "../styles/base.scss";
 import Header from "../src/components/Header";
 import Footer from "../src/components/Footer";
+import Snowfall from "react-snowfall";
+
 const data = require("../data/content.json");
 
-function app({ Component, pageProps }) {
+function App({ Component, pageProps }) {
+  const [isSnowing, setIsSnowing] = useState(true);
+
   return (
     <>
       <Head>
@@ -35,12 +40,27 @@ function app({ Component, pageProps }) {
         />
       </Head>
       <div id="container" className="container">
-        <Header />
-        <Component data={data} {...pageProps} />
+        {isSnowing && (
+          <Snowfall
+            style={{
+              position: "fixed",
+              width: "100vw",
+              height: "100vh",
+            }}
+            snowflakeCount={50}
+          />
+        )}
+        <Header isSnowing={isSnowing} setIsSnowing={setIsSnowing} />
+        <Component
+          isSnowing={isSnowing}
+          setIsSnowing={setIsSnowing}
+          data={data}
+          {...pageProps}
+        />
         <Footer />
       </div>
     </>
   );
 }
 
-export default app;
+export default App;
