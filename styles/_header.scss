@@ -10,9 +10,20 @@
     line-height: 1.2rem;
   }
 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .snowToggle.react-toggle--checked .react-toggle-track {
+    background-color: $site-black;
+  }
+  .snowToggle.react-toggle--checked .react-toggle-thumb {
+    background-color: $site-yellow;
+  }
+
   .nav {
     display: flex;
-    justify-content: end;
+    justify-content: start;
     padding-top: 36px;
     padding-bottom: 36px;
     @media only screen and (max-width: $md) {

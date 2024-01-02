@@ -74,8 +74,14 @@ const Home = (props) => {
       <p>
         Currently I am based in<span> </span>
         <span className="city-parent">
-          <span className="seoul-hidden">Seoul, South Korea,</span>
-          <span className="dc" style={{ letterSpacing: "1px" }}>
+          <span className="seoul-hidden" aria-label="hidden">
+            Seoul, South Korea,
+          </span>
+          <span
+            className="dc"
+            style={{ letterSpacing: "1px" }}
+            aria-label="hidden"
+          >
             Washington D.C.,
           </span>
           <span className="seoul">
