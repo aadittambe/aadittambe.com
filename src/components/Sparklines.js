@@ -3,15 +3,29 @@ import { max } from "d3-array";
 import { scaleLinear } from "d3-scale";
 import { select } from "d3-selection";
 import { line } from "d3-shape";
-import { json } from "d3-fetch";
+
+import useSWR from "swr";
+
+const fetcher = (url) => fetch(url).then((r) => r.json());
+
+const useGetData = () => {
+  const url =
+    "https://raw.githubusercontent.com/aadittambe/github-contributions/main/contribs.json";
+  const { data, error } = useSWR(url, fetcher, {});
+
+  return {
+    d: data,
+    loading: !data,
+    error,
+  };
+};
 
 const Sparklines = (props) => {
-  const data =
-    "https://raw.githubusercontent.com/aadittambe/github-contributions/main/contribs.json";
+  const { d, loading, error } = useGetData();
   useEffect(() => {
-    json(data).then(function (json) {
-      var content =
-        json.data.user.contributionsCollection.contributionCalendar.weeks;
+    if (!loading) {
+      const content =
+        d.data.user.contributionsCollection.contributionCalendar.weeks;
       let data = {};
       content.map((d) => {
         const startDate = d.firstDay;
@@ -71,9 +85,9 @@ const Sparklines = (props) => {
         .attr("cx", xScale(data.length - 1))
         .attr("cy", yScale(data[data.length - 1]))
         .attr("fill", "#edcf2e");
-      return json;
-    });
-  }, []);
+      return d;
+    }
+  }, [d, loading]);
 
   return <span id="sparklines"></span>;
 };
