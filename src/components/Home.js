@@ -99,9 +99,14 @@ const Home = (props) => {
       </p>
       {intro.map((text, index) =>
         index === 0 ? (
-          <p key={index}>
-            {text} <Sparklines />.
-          </p>
+          <>
+            <p key={index}>{text}</p>
+            <p>
+              My code contributions on GitHub in the last year look like
+              this:&nbsp;
+              <Sparklines />.
+            </p>
+          </>
         ) : (
           <p key={index}>{text}</p>
         )
