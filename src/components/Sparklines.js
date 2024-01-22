@@ -85,7 +85,7 @@ const Sparklines = (props) => {
         .attr("cx", xScale(data.length - 1))
         .attr("cy", yScale(data[data.length - 1]))
         .attr("fill", "#edcf2e");
-      return d;
+      // return d;
     }
   }, [d, loading]);
 
