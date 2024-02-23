@@ -17,7 +17,7 @@ const Contact = (props) => {
       </div>
       <div className="flex">
         <p className="left">Mobile phone</p>
-        <p className="right">+81 10-4570-1501</p>
+        <p className="right">+82 10-4570-1501</p>
       </div>
       <div className="flex">
         <p className="left">LinkedIn</p>
