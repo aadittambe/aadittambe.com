@@ -6,9 +6,7 @@
   .typeit {
     font-family: "Courier New", Courier, monospace;
     font-weight: 700;
-    @media (prefers-color-scheme: light) {
-      color: $site-black;
-    }
+    color: $site-black;
     @media (prefers-color-scheme: dark) {
       color: $site-white;
     }
@@ -53,9 +51,7 @@
     padding-top: 10px;
     padding-bottom: 10px;
     transition: all 0.5s;
-    @media (prefers-color-scheme: light) {
-      color: $site-black;
-    }
+    color: $site-black;
     @media (prefers-color-scheme: dark) {
       color: $site-white;
     }
@@ -83,9 +79,7 @@
     left: 0;
     width: 100%;
     height: 3px;
-    @media (prefers-color-scheme: light) {
-      background: $site-black;
-    }
+    background: $site-black;
     @media (prefers-color-scheme: dark) {
       background: $site-white;
     }
@@ -103,9 +97,7 @@
     position: absolute;
     left: 0;
     white-space: nowrap;
-    @media (prefers-color-scheme: light) {
-      background-color: $site-white;
-    }
+    background-color: $site-white;
     @media (prefers-color-scheme: dark) {
       background-color: $site-black;
     }
@@ -113,9 +105,7 @@
 
   #sparklines {
     path {
-      @media (prefers-color-scheme: light) {
-        stroke: $site-black;
-      }
+      stroke: $site-black;
       @media (prefers-color-scheme: dark) {
         stroke: $site-white;
       }

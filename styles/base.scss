@@ -28,11 +28,9 @@ body {
   // color: $site-black;
 }
 
-@media (prefers-color-scheme: light) {
-  body {
-    background-color: $site-white;
-    color: $site-black;
-  }
+body {
+  background-color: $site-white;
+  color: $site-black;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -46,9 +44,7 @@ a {
   text-decoration: none;
   border-bottom: solid 2px $site-yellow;
   transition: all 0.1s;
-  @media (prefers-color-scheme: light) {
-    color: $site-black;
-  }
+  color: $site-black;
   @media (prefers-color-scheme: dark) {
     color: $site-white;
   }

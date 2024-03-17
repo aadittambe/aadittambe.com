@@ -45,9 +45,7 @@
     border-radius: 4px;
     padding: 4px;
     // border: 1px solid $site-black;
-    @media (prefers-color-scheme: light) {
-      background-color: $site-white;
-    }
+    background-color: $site-white;
     @media (prefers-color-scheme: dark) {
       background-color: $site-black;
     }
@@ -59,9 +57,7 @@
       background-color: $site-yellow;
       width: fit-content;
       a {
-        @media (prefers-color-scheme: light) {
-          color: $site-black;
-        }
+        color: $site-black;
         @media (prefers-color-scheme: dark) {
           color: $site-gray;
         }
