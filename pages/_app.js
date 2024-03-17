@@ -35,7 +35,7 @@ function app({ Component, pageProps }) {
         />
       </Head>
       <div id="container" className="container">
-        <Header />
+        <Header data={data} />
         <Component data={data} {...pageProps} />
         <Footer />
       </div>

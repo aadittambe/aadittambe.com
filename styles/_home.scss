@@ -1,8 +1,15 @@
 .home {
+  @media only screen and (max-width: $md) {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
   .typeit {
     font-family: "Courier New", Courier, monospace;
     font-weight: 700;
     color: $site-black;
+    @media (prefers-color-scheme: dark) {
+      color: $site-white;
+    }
   }
 
   .wave {
@@ -45,6 +52,9 @@
     padding-bottom: 10px;
     transition: all 0.5s;
     color: $site-black;
+    @media (prefers-color-scheme: dark) {
+      color: $site-white;
+    }
   }
 
   .icon:hover {
@@ -70,6 +80,9 @@
     width: 100%;
     height: 3px;
     background: $site-black;
+    @media (prefers-color-scheme: dark) {
+      background: $site-white;
+    }
     animation-name: strike;
     animation-duration: 8s;
   }
@@ -80,11 +93,23 @@
   }
 
   .seoul {
-    background-color: $site-white;
     // visibility: hidden;
     position: absolute;
     left: 0;
     white-space: nowrap;
+    background-color: $site-white;
+    @media (prefers-color-scheme: dark) {
+      background-color: $site-black;
+    }
+  }
+
+  #sparklines {
+    path {
+      stroke: $site-black;
+      @media (prefers-color-scheme: dark) {
+        stroke: $site-white;
+      }
+    }
   }
 
   @keyframes strike {

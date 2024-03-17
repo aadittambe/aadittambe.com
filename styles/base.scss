@@ -19,12 +19,25 @@ $lg: 1280px;
 @import "./_projects.scss";
 @import "./_resume.scss";
 @import "./_contact.scss";
+@import "./_colophon.scss";
 
 body {
   font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, Roboto,
     sans-serif;
+  // background-color: $site-white;
+  // color: $site-black;
+}
+
+body {
   background-color: $site-white;
   color: $site-black;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: $site-black;
+    color: $site-white;
+  }
 }
 
 a {
@@ -32,6 +45,9 @@ a {
   border-bottom: solid 2px $site-yellow;
   transition: all 0.1s;
   color: $site-black;
+  @media (prefers-color-scheme: dark) {
+    color: $site-white;
+  }
 }
 
 a:hover {
@@ -90,7 +106,7 @@ p {
   justify-content: space-between;
 
   @media only screen and (max-width: $md) {
-    padding-left: 24px;
-    padding-right: 24px;
+    // padding-left: 24px;
+    // padding-right: 24px;
   }
 }

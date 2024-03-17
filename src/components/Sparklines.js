@@ -77,7 +77,7 @@ const Sparklines = (props) => {
         .attr("r", 2)
         .attr("cx", xScale(0))
         .attr("cy", yScale(data[0]))
-        .attr("fill", "#f6f4e6");
+        .attr("fill", "#edcf2e");
 
       svg
         .append("circle")

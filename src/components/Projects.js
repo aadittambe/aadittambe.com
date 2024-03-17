@@ -80,10 +80,12 @@ const Projects = (props) => {
         </legend>
         <p className="filters">
           <label
-            className={`btn reset`}
-            style={{
-              backgroundColor: clicked === "all" ? "#F6C90E" : "#F7F7F7",
-            }}
+            className={`btn reset ${clicked === "all" && "active"}`}
+            style={
+              {
+                // backgroundColor: clicked === "all" ? "#F6C90E" : "#F7F7F7",
+              }
+            }
           >
             <input
               type="radio"
@@ -98,11 +100,13 @@ const Projects = (props) => {
           </label>
           {categories.map((cat, ind) => (
             <label
-              className={`btn ${cat.class}`}
+              className={`btn ${cat.class === clicked && "active"}`}
               key={ind}
-              style={{
-                backgroundColor: cat.class === clicked ? "#F6C90E" : "#F7F7F7",
-              }}
+              style={
+                {
+                  // backgroundColor: cat.class === clicked ? "#F6C90E" : "#F7F7F7",
+                }
+              }
             >
               <input
                 type="radio"

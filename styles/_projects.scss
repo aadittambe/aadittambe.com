@@ -1,4 +1,8 @@
 .projects {
+  @media only screen and (max-width: $md) {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
   .layout {
     display: grid;
     grid-gap: 24px;
@@ -26,6 +30,9 @@
     width: 100%;
     transition: 1s ease-in-out;
     box-shadow: 0 8px 16px 0 #66666640;
+    @media (prefers-color-scheme: dark) {
+      box-shadow: 0 8px 16px 0 rgb(0 0 0 / 25%);
+    }
   }
 
   .story-img {
@@ -87,7 +94,6 @@
     margin-right: 4px;
     transition-duration: 0.3s;
     text-align: center;
-    color: $site-black;
     padding: 4px;
     cursor: pointer;
     border-radius: 4px;
@@ -97,6 +103,17 @@
     min-width: 82px;
     max-width: 82px;
     font-size: 1rem;
+    color: $site-black;
+    background-color: $site-white;
+    @media (prefers-color-scheme: dark) {
+      color: $site-white;
+      background-color: $site-black;
+    }
+
+    &.active {
+      color: $site-black;
+      background-color: $site-yellow;
+    }
   }
 
   @media only screen and (max-width: $md) {
@@ -106,11 +123,11 @@
     }
   }
 
-  .reveal {
-    opacity: 1;
-  }
+  // .reveal {
+  //   opacity: 1;
+  // }
 
-  .no-reveal {
-    opacity: 0;
-  }
+  // .no-reveal {
+  //   opacity: 0;
+  // }
 }

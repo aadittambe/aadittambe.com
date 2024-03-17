@@ -1,4 +1,7 @@
 .header {
+  display: flex;
+  flex-direction: row-reverse;
+
   a,
   a:hover {
     border: none;
@@ -12,12 +15,12 @@
 
   .nav {
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
     padding-top: 36px;
     padding-bottom: 36px;
     @media only screen and (max-width: $md) {
       padding-top: 36px;
-      justify-content: center;
+      padding-left: 24px;
     }
     color: $site-gray;
     font-weight: 500;
@@ -27,6 +30,10 @@
     padding: 0px;
     list-style-type: none;
     display: flex;
+    align-items: center;
+    @media only screen and (max-width: $md) {
+      display: block;
+    }
   }
 
   li {
@@ -39,11 +46,39 @@
     padding: 4px;
     // border: 1px solid $site-black;
     background-color: $site-white;
-
+    @media (prefers-color-scheme: dark) {
+      background-color: $site-black;
+    }
+    width: fit-content;
+    @media only screen and (max-width: $md) {
+      margin-left: 0px;
+    }
     &.active {
       background-color: $site-yellow;
-      color: $site-black;
-      // border: 1px solid $site-black;
+      width: fit-content;
+      a {
+        color: $site-black;
+        @media (prefers-color-scheme: dark) {
+          color: $site-gray;
+        }
+      }
+    }
+  }
+
+  .nav,
+  #viz {
+    width: 50%;
+  }
+
+  .nav {
+    @media only screen and (max-width: $md) {
+      width: 30%;
+    }
+  }
+
+  #viz {
+    @media only screen and (max-width: $md) {
+      width: 70%;
     }
   }
 }

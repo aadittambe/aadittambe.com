@@ -1,4 +1,8 @@
 .resume {
+  @media only screen and (max-width: $md) {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
   .exp {
     display: flex;
     @media only screen and (max-width: $md) {

@@ -111,7 +111,6 @@ const Home = (props) => {
           <p key={index}>{text}</p>
         )
       )}
-
       <div>
         <a
           href="https://vis.social/@aadittambe"
