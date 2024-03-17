@@ -29,7 +29,12 @@
     // margin: 2% 1% 2% 1%;
     width: 100%;
     transition: 1s ease-in-out;
-    box-shadow: 0 8px 16px 0 #66666640;
+    @media (prefers-color-scheme: dark) {
+      box-shadow: 0 8px 16px 0 rgb(0 0 0 / 25%);
+    }
+    @media (prefers-color-scheme: light) {
+      box-shadow: 0 8px 16px 0 #66666640;
+    }
   }
 
   .story-img {
@@ -91,7 +96,6 @@
     margin-right: 4px;
     transition-duration: 0.3s;
     text-align: center;
-    color: $site-black;
     padding: 4px;
     cursor: pointer;
     border-radius: 4px;
@@ -101,6 +105,19 @@
     min-width: 82px;
     max-width: 82px;
     font-size: 1rem;
+    @media (prefers-color-scheme: dark) {
+      color: $site-white;
+      background-color: $site-black;
+    }
+    @media (prefers-color-scheme: light) {
+      color: $site-black;
+      background-color: $site-white;
+    }
+
+    &.active {
+      color: $site-black;
+      background-color: $site-yellow;
+    }
   }
 
   @media only screen and (max-width: $md) {

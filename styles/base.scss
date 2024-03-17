@@ -23,15 +23,34 @@ $lg: 1280px;
 body {
   font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, Roboto,
     sans-serif;
-  background-color: $site-white;
-  color: $site-black;
+  // background-color: $site-white;
+  // color: $site-black;
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: $site-white;
+    color: $site-black;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: $site-black;
+    color: $site-white;
+  }
 }
 
 a {
   text-decoration: none;
   border-bottom: solid 2px $site-yellow;
   transition: all 0.1s;
-  color: $site-black;
+  @media (prefers-color-scheme: light) {
+    color: $site-black;
+  }
+  @media (prefers-color-scheme: dark) {
+    color: $site-white;
+  }
 }
 
 a:hover {

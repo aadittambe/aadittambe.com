@@ -45,16 +45,27 @@
     border-radius: 4px;
     padding: 4px;
     // border: 1px solid $site-black;
-    background-color: $site-white;
+    @media (prefers-color-scheme: light) {
+      background-color: $site-white;
+    }
+    @media (prefers-color-scheme: dark) {
+      background-color: $site-black;
+    }
     width: fit-content;
     @media only screen and (max-width: $md) {
       margin-left: 0px;
     }
     &.active {
       background-color: $site-yellow;
-      color: $site-black;
       width: fit-content;
-      // border: 1px solid $site-black;
+      a {
+        @media (prefers-color-scheme: light) {
+          color: $site-black;
+        }
+        @media (prefers-color-scheme: dark) {
+          color: $site-gray;
+        }
+      }
     }
   }
 
