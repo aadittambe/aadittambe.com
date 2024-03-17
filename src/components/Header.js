@@ -12,7 +12,12 @@ const Header = (props) => {
   const svgRef = useRef(null);
 
   useEffect(() => {
-    console.log(window.matchMedia("prefers-color-scheme: dark"));
+    if (page === "colophon") {
+      setActiveLink(null);
+    }
+  }, [page]);
+
+  useEffect(() => {
     const width = document.getElementById("viz").offsetWidth;
     const height = 150;
     const strength = 0.05;

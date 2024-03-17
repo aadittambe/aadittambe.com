@@ -9,7 +9,7 @@ const Footer = (props) => {
       <p>
         © Site developed by Aadit Tambe |{" "}
         <a href="https://github.com/aadittambe/aadittambe.com">Source code</a> |{" "}
-        <Link href="/contact">Colophon</Link> | 2019 –{" "}
+        <Link href="/colophon">Colophon</Link> | 2019 –{" "}
         {new Date().getFullYear()}{" "}
       </p>
     </footer>
