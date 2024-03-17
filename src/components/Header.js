@@ -97,7 +97,7 @@ const Header = (props) => {
   return (
     <header className="header">
       <div id="viz">
-        <svg ref={svgRef} id="d3banner"></svg>
+        <svg ref={svgRef}></svg>
       </div>
 
       <nav className="nav" role="navigation">
