@@ -1,4 +1,8 @@
 .contact {
+  @media only screen and (max-width: $md) {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
   p {
     @media only screen and (max-width: $md) {
       padding-bottom: 0rem;

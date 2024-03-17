@@ -2,6 +2,20 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { useInView } from "react-intersection-observer";
 
+const ImageCustom = (props) => {
+  const [isLoaded, setIsLoaded] = useState(false);
+  const { img } = props;
+  return (
+    <Image
+      onLoad={() => setIsLoaded(true)}
+      src={img.startsWith("https") ? img : `/images/${img}?.jpeg`}
+      alt=""
+      fill
+      style={{ objectFit: "cover", visibility: isLoaded ? "reveal" : "hidden" }}
+    />
+  );
+};
+
 const Story = (props) => {
   const { storyType, url, tools, img, org, alt, project } = props;
 
@@ -19,12 +33,7 @@ const Story = (props) => {
         <div
           style={{ position: "relative", width: "100%", aspectRatio: "16/9" }}
         >
-          <Image
-            src={img.startsWith("https") ? img : `/images/${img}?.jpeg`}
-            alt=""
-            fill
-            style={{ objectFit: "cover" }}
-          />
+          <ImageCustom img={img} />
         </div>
         <div className="card-text">
           <p className="story-org">

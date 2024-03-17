@@ -1,4 +1,8 @@
 .projects {
+  @media only screen and (max-width: $md) {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
   .layout {
     display: grid;
     grid-gap: 24px;
@@ -106,11 +110,11 @@
     }
   }
 
-  .reveal {
-    opacity: 1;
-  }
+  // .reveal {
+  //   opacity: 1;
+  // }
 
-  .no-reveal {
-    opacity: 0;
-  }
+  // .no-reveal {
+  //   opacity: 0;
+  // }
 }
