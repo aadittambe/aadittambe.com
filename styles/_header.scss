@@ -1,6 +1,9 @@
 .header {
   display: flex;
-  flex-direction: row-reverse;
+  justify-content: left;
+  @media only screen and (max-width: $md) {
+    justify-content: center;
+  }
 
   a,
   a:hover {
@@ -15,12 +18,13 @@
 
   .nav {
     display: flex;
-    justify-content: flex-start;
-    padding-top: 36px;
-    padding-bottom: 36px;
+    // justify-content: flex-start;
+    padding-top: 60px;
+    padding-bottom: 60px;
     @media only screen and (max-width: $md) {
       padding-top: 36px;
       padding-left: 24px;
+      padding-bottom: 36px;
     }
     color: $site-gray;
     font-weight: 500;
@@ -32,7 +36,7 @@
     display: flex;
     align-items: center;
     @media only screen and (max-width: $md) {
-      display: block;
+      display: flex;
     }
   }
 
@@ -66,13 +70,9 @@
   }
 
   .nav,
-  #viz {
-    width: 50%;
-  }
-
   .nav {
     @media only screen and (max-width: $md) {
-      width: 30%;
+      // width: 30%;
     }
   }
 
