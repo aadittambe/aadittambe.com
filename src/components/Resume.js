@@ -5,6 +5,7 @@ const Resume = (props) => {
   const work = data.work;
   const ed = data.ed;
   const skills = data.skills;
+  const awards = data.awards;
 
   return (
     <main className="resume">
@@ -37,6 +38,27 @@ const Resume = (props) => {
                 <p className="desc">{d.desc}</p>
               </div>
             </div>
+          </div>
+        ))}
+      </div>
+      <div className="section">
+        <h2>🏆 Awards</h2>
+        {awards.map((d, i) => (
+          <div className="item" key={i}>
+            <h3 className="">
+              {d.event} ({d.year})
+            </h3>
+            <p className="">
+              {d.category}
+              {d.project && (
+                <>
+                  <span> for </span>
+                  <a href={d.link} target="_blank" rel="noreferrer">
+                    {d.project}
+                  </a>
+                </>
+              )}
+            </p>
           </div>
         ))}
       </div>
