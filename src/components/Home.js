@@ -7,6 +7,7 @@ import {
   faMastodon,
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
+import Link from "next/link";
 
 import Sparklines from "./Sparklines";
 
@@ -100,12 +101,29 @@ const Home = (props) => {
       {intro.map((text, index) =>
         index === 0 ? (
           <>
-            <p key={index}>{text}</p>
+            <p>
+              Recently, I was part of the team at the Post that won the{" "}
+              <a href="https://www.pulitzer.org/winners/staff-washington-post-0">
+                2024 Pulitzer Prize
+              </a>{" "}
+              in National Reporting for our &lsquo;American Icon&lsquo; series,
+              which chronicled the rise of the AR-15 rifle in the U.S.
+              {/* Projects
+              I have worked on have won awards from the Society for News Design,
+              Online News Organization, and the White House
+              Correspondents&lsquo; Association. */}
+            </p>
             <p>
               My code contributions on GitHub in the last year look like
               this:&nbsp;
               <Sparklines />.
             </p>
+            <p key={index}>{text}</p>
+          </>
+        ) : index === 1 ? (
+          <>
+            greee
+            <p key={index}>{text}</p>
           </>
         ) : (
           <p key={index}>{text}</p>

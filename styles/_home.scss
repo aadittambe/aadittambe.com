@@ -44,6 +44,15 @@
     border: none;
   }
 
+  p > a {
+    border-bottom: solid 2px $site-yellow;
+  }
+
+  p > a:hover {
+    border-bottom: solid 3px $site-yellow;
+    transition: all 0.1s;
+  }
+
   .icon {
     width: 36px;
     padding-right: 10px;
