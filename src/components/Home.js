@@ -103,7 +103,12 @@ const Home = (props) => {
           <>
             <p>
               Recently, I was part of the team at the Post that won the{" "}
-              <a href="https://www.pulitzer.org/winners/staff-washington-post-0">
+              <a
+                rel="noreferrer"
+                target="_blank"
+                aria-label="pulitzer website"
+                href="https://www.pulitzer.org/winners/staff-washington-post-0"
+              >
                 2024 Pulitzer Prize
               </a>{" "}
               in National Reporting for our &lsquo;American Icon&lsquo; series,
