@@ -59,13 +59,13 @@ a:hover {
 
 h1 {
   font-size: 4.5rem;
-  padding-bottom: 1.5rem;
+  padding-bottom: 2rem;
   font-weight: 800;
   @media only screen and (max-width: $xs) {
     font-size: 2.8rem;
   }
   @media only screen and (max-width: $xxs) {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
   }
 }
 
@@ -98,6 +98,7 @@ p {
   font-size: 1.2rem;
   line-height: 1.75rem;
   padding-bottom: 1.2rem;
+  font-weight: 350;
 }
 
 .container {

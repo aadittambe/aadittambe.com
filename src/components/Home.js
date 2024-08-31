@@ -74,7 +74,32 @@ const Home = (props) => {
           </span>
         </span>
       </p>
-
+      <p>
+        Currently I am based in<span> </span>
+        <span className="city-parent">
+          <span className="seoul-hidden">Seoul, South Korea,</span>
+          <span className="dc" style={{ letterSpacing: "1px" }}>
+            Washington D.C.,
+          </span>
+          <span className="seoul">
+            <TypeIt
+              options={{
+                speed: 150,
+                waitUntilVisible: true,
+                lifeLike: true,
+                cursor: false,
+              }}
+              getBeforeInit={(instance) => {
+                instance.pause(10000).type("Seoul, South Korea,");
+                return instance;
+              }}
+            />
+          </span>
+        </span>
+        &nbsp;and work on the News Design team at The Washington Post, building
+        rich, highly customized interactive storytelling experiences and web
+        applications.
+      </p>
       {intro.map((text, index) =>
         index === 0 ? (
           <div key={0}>
@@ -88,7 +113,7 @@ const Home = (props) => {
               >
                 2024 Pulitzer Prize
               </a>{" "}
-              in National Reporting for our &lsquo;American Icon&lsquo; series,
+              in National Reporting for our &lsquo;American Icon&rsquo; series,
               which chronicled the rise of the AR-15 rifle in the U.S.
             </p>
             <p>
