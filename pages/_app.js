@@ -3,6 +3,7 @@ import "../styles/base.scss";
 import Header from "../src/components/Header";
 import Footer from "../src/components/Footer";
 const data = require("../data/content.json");
+import Script from "next/script";
 
 function app({ Component, pageProps }) {
   return (
@@ -17,13 +18,15 @@ function app({ Component, pageProps }) {
         <link rel="shortcut icon" href="/static/logo592.png" />
         <link rel="apple-touch-icon" href="/static/logo592.png" />
         <link rel="me" href="https://vis.social/@aadittambe" />
-        <script
-          async
-          src={`https://www.googletagmanager.com/gtag/js?id=UA-157385072-1`}
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
+      </Head>
+      <Script
+        async
+        src={`https://www.googletagmanager.com/gtag/js?id=UA-157385072-1`}
+      />
+      <Script
+        id="google"
+        dangerouslySetInnerHTML={{
+          __html: `
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
@@ -31,9 +34,8 @@ function app({ Component, pageProps }) {
               page_path: window.location.pathname,
             });
           `,
-          }}
-        />
-      </Head>
+        }}
+      />
       <div id="container" className="container">
         <Header data={data} />
         <Component data={data} {...pageProps} />
