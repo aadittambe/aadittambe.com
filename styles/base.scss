@@ -21,9 +21,11 @@ $lg: 1280px;
 @import "./_contact.scss";
 @import "./_colophon.scss";
 
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap");
+
 body {
-  font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, Roboto,
-    sans-serif;
+  font-family: "Fraunces", serif;
+
   // background-color: $site-white;
   // color: $site-black;
 }
@@ -57,13 +59,13 @@ a:hover {
 
 h1 {
   font-size: 4.5rem;
-  padding-bottom: 1.5rem;
+  padding-bottom: 2rem;
   font-weight: 800;
   @media only screen and (max-width: $xs) {
     font-size: 2.8rem;
   }
   @media only screen and (max-width: $xxs) {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
   }
 }
 
@@ -96,6 +98,7 @@ p {
   font-size: 1.2rem;
   line-height: 1.75rem;
   padding-bottom: 1.2rem;
+  font-weight: 350;
 }
 
 .container {

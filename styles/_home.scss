@@ -4,8 +4,8 @@
     padding-right: 24px;
   }
   .typeit {
-    font-family: "Courier New", Courier, monospace;
-    font-weight: 700;
+    // font-family: "Courier New", Courier, monospace;
+    font-weight: 500;
     color: $site-black;
     @media (prefers-color-scheme: dark) {
       color: $site-white;

@@ -19,7 +19,7 @@ const Home = (props) => {
   return (
     <main className="home">
       <h1>
-        <span className="wave">👋🏽</span> Hi, I am Aadit!
+        <span className="wave">👋🏽</span> Hi — I am Aadit.
       </h1>
       <p>
         <span>I am a journalist who tells stories — but with&nbsp;</span>
@@ -44,31 +44,33 @@ const Home = (props) => {
               top: 0,
             }}
           >
-            <TypeIt
-              options={{
-                loop: true,
-                speed: 200,
-                waitUntilVisible: true,
-                lifeLike: true,
-              }}
-              getBeforeInit={(instance) => {
-                instance
-                  .pause(1500)
-                  .type("code. 🖥")
-                  .pause(2000)
-                  .delete(7)
-                  .type("graphics. 📊")
-                  .pause(2500)
-                  .delete(11)
-                  .type("design. 🎨")
-                  .pause(2700)
-                  .delete(9)
-                  .type("data. 📈")
-                  .pause(2100);
+            <>
+              <TypeIt
+                options={{
+                  loop: true,
+                  speed: 200,
+                  waitUntilVisible: true,
+                  lifeLike: true,
+                }}
+                getBeforeInit={(instance) => {
+                  instance
+                    .pause(1500)
+                    .type("code. 🖥")
+                    .pause(2000)
+                    .delete(7)
+                    .type("graphics. 📊")
+                    .pause(2500)
+                    .delete(11)
+                    .type("design. 🎨")
+                    .pause(2700)
+                    .delete(9)
+                    .type("data. 📈")
+                    .pause(2100);
 
-                return instance;
-              }}
-            />
+                  return instance;
+                }}
+              />
+            </>
           </span>
         </span>
       </p>
@@ -96,11 +98,11 @@ const Home = (props) => {
         </span>
         &nbsp;and work on the News Design team at The Washington Post, building
         rich, highly customized interactive storytelling experiences and web
-        apps.
+        applications.
       </p>
       {intro.map((text, index) =>
         index === 0 ? (
-          <>
+          <div key={0}>
             <p>
               Recently, I was part of the team at the Post that won the{" "}
               <a
@@ -111,12 +113,8 @@ const Home = (props) => {
               >
                 2024 Pulitzer Prize
               </a>{" "}
-              in National Reporting for our &lsquo;American Icon&lsquo; series,
+              in National Reporting for our &lsquo;American Icon&rsquo; series,
               which chronicled the rise of the AR-15 rifle in the U.S.
-              {/* Projects
-              I have worked on have won awards from the Society for News Design,
-              Online News Organization, and the White House
-              Correspondents&lsquo; Association. */}
             </p>
             <p>
               My code contributions on GitHub in the last year look like
@@ -124,7 +122,7 @@ const Home = (props) => {
               <Sparklines />.
             </p>
             <p key={index}>{text}</p>
-          </>
+          </div>
         ) : index === 1 ? (
           <>
             greee
@@ -181,33 +179,3 @@ const Home = (props) => {
 };
 
 export default Home;
-
-//  <h1><span className='wave'>👋🏽</span> Hi, I am Aadit!</h1>
-//         <p><span style={{ display: "none" }}>👨🏽‍💻</span>I tell stories — but with<span className='mob-jump'><br /></span> <span className="typeit">
-//             <TypeIt
-//                 options={{
-//                     loop: true,
-//                     speed: 200,
-//                     waitUntilVisible: true,
-//                     lifeLike: true,
-//                 }}
-//                 getBeforeInit={(instance) => {
-//                     instance
-//                         .pause(1500)
-//                         .type("code. 🖥")
-//                         .pause(2000)
-//                         .delete(7)
-//                         .type("graphics. 📊")
-//                         .pause(2500)
-//                         .delete(11)
-//                         .type("design. 🎨")
-//                         .pause(2700)
-//                         .delete(9)
-//                         .type("data. 📈")
-//                         .pause(2100);
-
-//                     return instance;
-//                 }}
-//             /></span></p>
-
-//
