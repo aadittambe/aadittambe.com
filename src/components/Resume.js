@@ -19,9 +19,9 @@ const Resume = (props) => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            here&apos;s
+            here’s
           </a>{" "}
-          a PDF, if that&apos;s what you&apos;re looking for.
+          a PDF, if that’s what you’re looking for.
         </p>
       </div>
       <div className="section">

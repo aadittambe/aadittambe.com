@@ -19,7 +19,7 @@ const Home = (props) => {
   return (
     <main className="home">
       <h1>
-        <span className="wave">👋🏽</span> Hi, I am Aadit!
+        <span className="wave">👋🏽</span> Hi — I am Aadit.
       </h1>
       <p>
         <span>I am a journalist who tells stories — but with&nbsp;</span>
