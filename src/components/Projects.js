@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { useInView } from "react-intersection-observer";
+import { TailSpin } from "react-loader-spinner";
 
 const Story = (props) => {
   const { storyType, url, tools, img, org, alt, project } = props;
 
-  const { ref, inView, entry } = useInView({
+  const { ref, inView } = useInView({
     threshold: 0,
     rootMargin: "50% 0% -10% 0%",
   });
+
+  const [isLoaded, setIsLoaded] = useState(false);
 
   return (
     <div
@@ -19,11 +22,40 @@ const Story = (props) => {
         <div
           style={{ position: "relative", width: "100%", aspectRatio: "16/9" }}
         >
+          <div
+            style={{
+              zIndex: 1,
+              position: "absolute",
+              top: 0,
+              width: "100%",
+              height: "100%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              backgroundColor: "#f7f7f7",
+              opacity: !isLoaded ? 1 : 0,
+              transition: ".4s ease-in-out",
+            }}
+          >
+            {!isLoaded && (
+              <TailSpin
+                visible={true}
+                height="36"
+                width="36"
+                color="black"
+                ariaLabel="tail-spin-loading"
+                radius="1"
+                wrapperStyle={{}}
+                wrapperClass=""
+              />
+            )}
+          </div>
           <Image
             src={img.startsWith("https") ? img : `/images/${img}?.jpeg`}
             alt=""
             fill
             style={{ objectFit: "cover" }}
+            onLoad={() => setIsLoaded(true)}
           />
         </div>
         <div className="card-text">

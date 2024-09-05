@@ -28,7 +28,7 @@
     border-radius: 4px;
     // margin: 2% 1% 2% 1%;
     width: 100%;
-    transition: 1s ease-in-out;
+    transition: 0.4s ease-in-out;
     box-shadow: 0 8px 16px 0 #66666640;
     @media (prefers-color-scheme: dark) {
       box-shadow: 0 8px 16px 0 rgb(0 0 0 / 25%);
@@ -133,11 +133,11 @@
     }
   }
 
-  // .reveal {
-  //   opacity: 1;
-  // }
+  .reveal {
+    opacity: 1;
+  }
 
-  // .no-reveal {
-  //   opacity: 0;
-  // }
+  .no-reveal {
+    opacity: 0;
+  }
 }
