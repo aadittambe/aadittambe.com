@@ -10,6 +10,7 @@ import {
 import Link from "next/link";
 
 import Sparklines from "./Sparklines";
+import React from "react";
 
 const Home = (props) => {
   const { data } = props;
@@ -74,35 +75,10 @@ const Home = (props) => {
           </span>
         </span>
       </p>
-      <p>
-        Currently I am based in<span> </span>
-        <span className="city-parent">
-          <span className="seoul-hidden">Seoul, South Korea,</span>
-          <span className="dc" style={{ letterSpacing: "1px" }}>
-            Washington D.C.,
-          </span>
-          <span className="seoul">
-            <TypeIt
-              options={{
-                speed: 150,
-                waitUntilVisible: true,
-                lifeLike: true,
-                cursor: false,
-              }}
-              getBeforeInit={(instance) => {
-                instance.pause(10000).type("Seoul, South Korea,");
-                return instance;
-              }}
-            />
-          </span>
-        </span>
-        &nbsp;and work on the News Design team at The Washington Post, building
-        rich, highly customized interactive storytelling experiences and web
-        applications.
-      </p>
-      {intro.map((text, index) =>
-        index === 0 ? (
-          <div key={0}>
+      {intro.map((text, index) => {
+        return index === 0 ? (
+          <div key={index}>
+            <p>{text}</p>
             <p>
               Recently, I was part of the team at the Post that won the{" "}
               <a
@@ -121,17 +97,11 @@ const Home = (props) => {
               this:&nbsp;
               <Sparklines />.
             </p>
-            <p key={index}>{text}</p>
           </div>
-        ) : index === 1 ? (
-          <>
-            greee
-            <p key={index}>{text}</p>
-          </>
         ) : (
           <p key={index}>{text}</p>
-        )
-      )}
+        );
+      })}
       <div>
         <a
           href="https://vis.social/@aadittambe"
