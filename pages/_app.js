@@ -4,8 +4,21 @@ import Header from "../src/components/Header";
 import Footer from "../src/components/Footer";
 const data = require("../data/content.json");
 import Script from "next/script";
+import Snowfall from "react-snowfall";
+import React, { useEffect, useState } from "react";
 
-function app({ Component, pageProps }) {
+function App({ Component, pageProps }) {
+  const [images, setImages] = useState([]);
+
+  useEffect(() => {
+    if (document) {
+      const snowflake1 = document.createElement("img");
+      snowflake1.src = "/snow.png";
+      setImages([snowflake1]);
+
+      console.log(snowflake1);
+    }
+  }, [setImages]);
   return (
     <>
       <Head>
@@ -38,6 +51,21 @@ function app({ Component, pageProps }) {
       />
       <div id="container" className="container">
         <Header data={data} />
+        {images && (
+          <Snowfall
+            style={{
+              position: "fixed",
+              width: "100vw",
+              height: "100vh",
+            }}
+            radius={[3, 18]}
+            color={"#000000"}
+            snowflakeCount={"050"}
+            images={images}
+            speed={[1.0, 2.0]}
+            wind={[0, 0.2]}
+          />
+        )}
         <Component data={data} {...pageProps} />
         <Footer />
       </div>
@@ -45,4 +73,4 @@ function app({ Component, pageProps }) {
   );
 }
 
-export default app;
+export default App;

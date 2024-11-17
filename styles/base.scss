@@ -31,15 +31,8 @@ body {
 }
 
 body {
-  background-color: $site-white;
+  // background-color: $site-white;
   color: $site-black;
-}
-
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: $site-black;
-    color: $site-white;
-  }
 }
 
 a {
@@ -47,9 +40,6 @@ a {
   border-bottom: solid 2px $site-yellow;
   transition: all 0.1s;
   color: $site-black;
-  @media (prefers-color-scheme: dark) {
-    color: $site-white;
-  }
 }
 
 a:hover {

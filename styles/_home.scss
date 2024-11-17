@@ -7,9 +7,6 @@
     // font-family: "Courier New", Courier, monospace;
     font-weight: 500;
     color: $site-black;
-    @media (prefers-color-scheme: dark) {
-      color: $site-white;
-    }
   }
 
   .wave {
@@ -61,9 +58,6 @@
     padding-bottom: 10px;
     transition: all 0.5s;
     color: $site-black;
-    @media (prefers-color-scheme: dark) {
-      color: $site-white;
-    }
   }
 
   .icon:hover {
@@ -89,9 +83,6 @@
     width: 100%;
     height: 3px;
     background: $site-black;
-    @media (prefers-color-scheme: dark) {
-      background: $site-white;
-    }
     animation-name: strike;
     animation-duration: 8s;
   }
@@ -106,18 +97,12 @@
     position: absolute;
     left: 0;
     white-space: nowrap;
-    background-color: $site-white;
-    @media (prefers-color-scheme: dark) {
-      background-color: $site-black;
-    }
+    // background-color: $site-white;
   }
 
   #sparklines {
     path {
       stroke: $site-black;
-      @media (prefers-color-scheme: dark) {
-        stroke: $site-white;
-      }
     }
   }
 
