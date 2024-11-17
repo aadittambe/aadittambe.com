@@ -10,6 +10,8 @@ import React, { useEffect, useState } from "react";
 function App({ Component, pageProps }) {
   const [images, setImages] = useState([]);
 
+  const [showSnow, setShowSnow] = useState(true);
+
   useEffect(() => {
     if (document) {
       const snowflake1 = document.createElement("img");
@@ -48,8 +50,8 @@ function App({ Component, pageProps }) {
         }}
       />
       <div id="container" className="container">
-        <Header data={data} />
-        {images && (
+        <Header setShowSnow={setShowSnow} showSnow={showSnow} data={data} />
+        {images && showSnow && (
           <Snowfall
             style={{
               position: "fixed",

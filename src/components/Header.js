@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import Toggle from "react-toggle";
 
 const Header = (props) => {
-  const { data } = props;
+  const { data, setShowSnow, showSnow } = props;
   const router = useRouter();
   const page = router.route.replaceAll("/", "");
   const [activeLink, setActiveLink] = useState(page === "" ? "home" : page);
@@ -49,17 +50,16 @@ const Header = (props) => {
           </li>
         </ul>
       </nav>
-      {/* <nav>
-                {navLinks.map((link, index) => {
-                    return (
-                        <ul>
-                            <Link href={link.path}>
-                                <li key={index}>{link.name}</li>
-                            </Link>
-                        </ul>
-                    );
-                })}
-            </nav> */}
+      <label className="label">
+        <Toggle
+          defaultChecked={true}
+          icons={false}
+          onChange={() => {
+            setShowSnow(!showSnow);
+          }}
+        />
+        <span>❄️</span>
+      </label>
     </header>
   );
 };
