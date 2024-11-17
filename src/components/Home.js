@@ -76,31 +76,7 @@ const Home = (props) => {
         </span>
       </p>
       {intro.map((text, index) => {
-        return index === 0 ? (
-          <div key={index}>
-            <p>{text}</p>
-            <p>
-              Recently, I was part of the team at the Post that won the{" "}
-              <a
-                rel="noreferrer"
-                target="_blank"
-                aria-label="pulitzer website"
-                href="https://www.pulitzer.org/winners/staff-washington-post-0"
-              >
-                2024 Pulitzer Prize
-              </a>{" "}
-              in National Reporting for our &lsquo;American Icon&rsquo; series,
-              which chronicled the rise of the AR-15 rifle in the U.S.
-            </p>
-            <p>
-              My code contributions on GitHub in the last year look like
-              this:&nbsp;
-              <Sparklines />.
-            </p>
-          </div>
-        ) : (
-          <p key={index}>{text}</p>
-        );
+        return <p key={index} dangerouslySetInnerHTML={{ __html: text }}></p>;
       })}
       <div>
         <a
