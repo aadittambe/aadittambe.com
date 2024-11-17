@@ -15,8 +15,6 @@ function App({ Component, pageProps }) {
       const snowflake1 = document.createElement("img");
       snowflake1.src = "/snow.png";
       setImages([snowflake1]);
-
-      console.log(snowflake1);
     }
   }, [setImages]);
   return (
