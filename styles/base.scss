@@ -22,10 +22,8 @@ $lg: 1280px;
 @import "./_colophon.scss";
 @import "./_toggle.scss";
 
-// @import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap");
-
 body {
-  font-family: "Fraunces";
+  font-family: ui-sans-serif, Roboto, sans-serif;
 
   // background-color: $site-white;
   // color: $site-black;
