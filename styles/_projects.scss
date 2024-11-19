@@ -1,8 +1,7 @@
 .projects {
-  @media only screen and (max-width: $md) {
-    padding-left: 24px;
-    padding-right: 24px;
-  }
+  padding-left: 12px;
+  padding-right: 12px;
+
   .layout {
     display: grid;
     grid-gap: 24px;
