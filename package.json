@@ -41,6 +41,11 @@
     "typeit-react": "^2.6.0"
   },
   "devDependencies": {
-    "ftp-deploy": "^2.4.3"
+    "ftp-deploy": "^2.4.3",
+    "gray-matter": "^4.0.3",
+    "i": "^0.3.7",
+    "npm": "^10.9.0",
+    "remark": "^15.0.1",
+    "remark-html": "^16.0.1"
   }
 }

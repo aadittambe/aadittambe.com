@@ -1,15 +1,21 @@
 import Head from "next/head";
-import Home from "../src/components/Home.js";
-import Image from "next/image";
-import Header from "../src/components/Header";
+import Link from "next/link";
 
-// import styles from '../styles/Home.module.scss'
+import Layout from "../components/layout";
 
-// import Hero from '../.next/src/components/Hero'
+export default function Home() {
+  return (
+    <Layout home>
+      <div>
+        <Head>
+          <title>Aadit Tambe</title>
+        </Head>
 
-const HomePage = (props) => {
-  const { data } = props;
-  return <Home data={data} />;
-};
-
-export default HomePage;
+        <main>
+          <h1>hi</h1>
+          <Link href="/contact">contact</Link>{" "}
+        </main>
+      </div>
+    </Layout>
+  );
+}
