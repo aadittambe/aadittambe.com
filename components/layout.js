@@ -16,7 +16,7 @@ export default function Layout({ children, home, blog }) {
         <link rel="apple-touch-icon" href="/static/logo592.png" />
         <link rel="me" href="https://vis.social/@aadittambe" />
       </Head>
-      <main>
+      <main className="container">
         {children}
 
         {!home && !blog && <div>not home page</div>}
