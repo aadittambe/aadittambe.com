@@ -1,0 +1,20 @@
+.blog {
+  padding-left: 12px;
+  padding-right: 12px;
+
+  table {
+    width: 100%;
+  }
+
+  .post-date {
+    text-align: right;
+  }
+
+  .post-date p a:hover {
+    border-bottom: none;
+  }
+
+  a {
+    border-bottom: none;
+  }
+}

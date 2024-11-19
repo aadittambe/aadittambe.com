@@ -1,25 +1,23 @@
-import Layout from "../../components/layout";
 import { getAllPostIds, getPostData } from "../../lib/posts";
 import Head from "next/head";
 
 export default function Post({ postData }) {
   return (
-    <Layout blog>
-      <div>
-        <Head>
-          <title>{postData.title}.</title>
-        </Head>
+    <div className="post">
+      <Head>
+        <title>{postData.title}.</title>
+      </Head>
 
-        <main>
-          <h1>{postData.title}</h1>
-          <p>{postData.subhead}.</p>
+      <main>
+        <h1>{postData.title}</h1>
+        <h2>{postData.subhead}</h2>
+        <h4>{postData.date}</h4>
 
-          <article>
-            <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
-          </article>
-        </main>
-      </div>
-    </Layout>
+        <article>
+          <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+        </article>
+      </main>
+    </div>
   );
 }
 

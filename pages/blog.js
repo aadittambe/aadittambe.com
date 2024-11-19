@@ -22,20 +22,44 @@ const BlogPage = (props) => {
   console.log(allPostsData);
 
   return (
-    <div>
+    <div className="blog">
       <Head>
         <title>bloggg</title>
       </Head>
+      <h1>✍️ Blog</h1>
 
-      <main>
+      <div id="posts">
+        <table>
+          <tbody>
+            {allPostsData.map((p, i) => (
+              <tr key={i}>
+                <td class="post-title">
+                  <p>
+                    <Link href={`/blog/${p.id}`}>{p.title}</Link>
+                  </p>
+                </td>
+                <td class="post-date">
+                  <p>
+                    <Link href={`/blog/${p.id}`}>{p.date}</Link>
+                  </p>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      {/* <div>
         {allPostsData.map((p) => (
           <div key={p.id}>
             <Link href={`/blog/${p.id}`}>{p.id}</Link>
           </div>
         ))}
-      </main>
+      </div> */}
     </div>
   );
 };
 
 export default BlogPage;
+// <div key={p.id}>
+//   <Link href={`/blog/${p.id}`}>{p.id}</Link>
+// </div>

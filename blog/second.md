@@ -1,7 +1,8 @@
 ---
-title: "firstPost"
+title: "Lorem ipsum dolor sit amet"
 subhead: "this isi a subhead"
 tag: "tag"
+date: 1/1/19
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus posuere neque orci, et efficitur nunc semper sit amet. Suspendisse mattis ligula eu ullamcorper congue. Quisque mattis fringilla imperdiet. Integer id libero leo. Nulla ut diam eu enim malesuada consequat. Etiam nibh nibh, fermentum nec euismod sit amet, faucibus eget augue. Interdum et malesuada fames ac ante ipsum primis in faucibus.
