@@ -16,8 +16,6 @@ export async function getStaticProps() {
 const BlogPage = (props) => {
   const { allPostsData } = props;
 
-  console.log(allPostsData);
-
   return (
     <div className="blog">
       <Head>
