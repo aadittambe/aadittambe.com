@@ -8,9 +8,8 @@ const Footer = (props) => {
       <hr></hr>
       <p>
         © Site developed by Aadit Tambe |{" "}
-        <a href="https://github.com/aadittambe/aadittambe.com">Source code</a> |{" "}
-        <Link href="/colophon">Colophon</Link> | 2019 –{" "}
-        {new Date().getFullYear()}{" "}
+        <a href="https://github.com/aadittambe/aadittambe.com">Source code</a> |
+        2019 – {new Date().getFullYear()}{" "}
       </p>
     </footer>
   );

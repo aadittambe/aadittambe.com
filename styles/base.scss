@@ -19,12 +19,14 @@ $lg: 1280px;
 @import "./_projects.scss";
 @import "./_resume.scss";
 @import "./_contact.scss";
-@import "./_colophon.scss";
+@import "./_blog.scss";
 @import "./_toggle.scss";
 
 body {
-  font-family: ui-sans-serif, Roboto, sans-serif;
-
+  // font-family: "Fraunces", serif;
+  // font-optical-sizing: auto;
+  // font-style: normal;
+  // font-variation-settings: "SOFT" 0, "WONK" 0;
   // background-color: $site-white;
   // color: $site-black;
 }
@@ -101,7 +103,7 @@ p {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
+  // align-items: center;
   @media only screen and (max-width: $md) {
     // padding-left: 24px;
     // padding-right: 24px;

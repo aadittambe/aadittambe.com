@@ -1,11 +1,10 @@
 .home {
-  @media only screen and (max-width: $md) {
-    padding-left: 24px;
-    padding-right: 24px;
-  }
+  padding-left: 12px;
+  padding-right: 12px;
+
   .typeit {
-    // font-family: "Courier New", Courier, monospace;
-    font-weight: 500;
+    font-family: "Courier New", Courier, monospace;
+    font-weight: 700;
     color: $site-black;
   }
 

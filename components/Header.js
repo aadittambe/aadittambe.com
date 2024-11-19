@@ -4,7 +4,7 @@ import Link from "next/link";
 import Toggle from "react-toggle";
 
 const Header = (props) => {
-  const { data, setShowSnow, showSnow } = props;
+  const { data, setShowSnow, showSnow, test } = props;
   const router = useRouter();
   const page = router.route.replaceAll("/", "");
   const [activeLink, setActiveLink] = useState(page === "" ? "home" : page);
@@ -50,7 +50,7 @@ const Header = (props) => {
           </li>
         </ul>
       </nav>
-      <label className="label">
+      {/* <label className="label">
         <Toggle
           defaultChecked={true}
           icons={false}
@@ -59,7 +59,7 @@ const Header = (props) => {
           }}
         />
         <span>❄️</span>
-      </label>
+      </label> */}
     </header>
   );
 };
