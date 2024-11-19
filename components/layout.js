@@ -7,7 +7,7 @@ import localFont from "next/font/local";
 
 const myFont = localFont({ src: "../public/assets/Fraunces.ttf" });
 
-export default function Layout({ children, className, home, blog }) {
+export default function Layout({ children, home, blog }) {
   return (
     <div className={myFont.className}>
       <Head>

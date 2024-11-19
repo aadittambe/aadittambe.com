@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "../styles/base.scss";
 import Layout from "../components/layout";
 
