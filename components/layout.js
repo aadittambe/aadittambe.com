@@ -17,6 +17,11 @@ export default function Layout({ children, home, blog }) {
           name="description"
           content="Aadit Tambe is a journalist and developer who tells data-driven stories visually — with code."
         />
+        <meta
+          name="keywords"
+          content="Aadit Tambe, developer, designer, data journalist, graphics journalist, Washington Post"
+        />
+        <meta name="author" content="Aadit Tambe" />
         <meta charSet="UTF-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
