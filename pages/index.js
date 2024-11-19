@@ -8,6 +8,7 @@ import {
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import TypeItLine from "../components/TypeItLine";
 
 const data = require("../data/content.json");
 
@@ -24,7 +25,7 @@ export default function Home() {
         <h1>
           <span className="wave">👋🏽</span> Hi — I am Aadit.
         </h1>
-
+        <TypeItLine />
         {intro.map((text, index) => {
           return <p key={index} dangerouslySetInnerHTML={{ __html: text }}></p>;
         })}
