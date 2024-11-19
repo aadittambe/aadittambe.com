@@ -5,7 +5,7 @@ export default function Post({ postData }) {
   return (
     <div className="post">
       <Head>
-        <title>{postData.title}.</title>
+        <title>Blog — {postData.title}.</title>
       </Head>
 
       <main>

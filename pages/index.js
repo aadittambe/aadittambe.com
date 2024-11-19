@@ -18,7 +18,7 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>Aadit Tambeee</title>
+        <title>Aadit Tambe — a journalist and developer</title>
       </Head>
 
       <div className="home">
