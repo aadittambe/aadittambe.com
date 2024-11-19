@@ -39,14 +39,6 @@ export default function Home() {
             <FontAwesomeIcon className="icon" icon={faMastodon} size="2x" />
           </a>
           <a
-            href="https://twitter.com/aadittambe/"
-            rel="noreferrer"
-            target="_blank"
-            aria-label="Twitter"
-          >
-            <FontAwesomeIcon className="icon" icon={faTwitter} size="2x" />
-          </a>
-          <a
             href="https://github.com/aadittambe"
             rel="noreferrer"
             target="_blank"
