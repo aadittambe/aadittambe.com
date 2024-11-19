@@ -7,19 +7,15 @@ import {
   faMastodon,
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const data = require("../data/content.json");
 
 const intro = data.intro;
 
-import Layout from "../components/layout";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
-export default function Home({ test }) {
-  console.log(test);
-
+export default function Home() {
   return (
-    <Layout home>
+    <div>
       <Head>
         <title>Aadit Tambeee</title>
       </Head>
@@ -75,6 +71,6 @@ export default function Home({ test }) {
           </a>
         </div>
       </div>
-    </Layout>
+    </div>
   );
 }

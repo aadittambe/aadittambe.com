@@ -1,6 +1,8 @@
 import Head from "next/head";
 
 import { useRouter } from "next/router";
+import Header from "./Header";
+import Footer from "./Footer";
 
 export default function Layout({ children, home, blog }) {
   return (
@@ -17,9 +19,9 @@ export default function Layout({ children, home, blog }) {
         <link rel="me" href="https://vis.social/@aadittambe" />
       </Head>
       <main className="container">
+        <Header />
         {children}
-
-        {!home && !blog && <div>not home page</div>}
+        <Footer />
       </main>
     </div>
   );

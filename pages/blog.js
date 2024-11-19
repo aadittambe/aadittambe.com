@@ -22,21 +22,19 @@ const BlogPage = (props) => {
   console.log(allPostsData);
 
   return (
-    <Layout page>
-      <div>
-        <Head>
-          <title>bloggg</title>
-        </Head>
+    <div>
+      <Head>
+        <title>bloggg</title>
+      </Head>
 
-        <main>
-          {allPostsData.map((p) => (
-            <div key={p.id}>
-              <Link href={`/blog/${p.id}`}>{p.id}</Link>
-            </div>
-          ))}
-        </main>
-      </div>
-    </Layout>
+      <main>
+        {allPostsData.map((p) => (
+          <div key={p.id}>
+            <Link href={`/blog/${p.id}`}>{p.id}</Link>
+          </div>
+        ))}
+      </main>
+    </div>
   );
 };
 
