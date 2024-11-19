@@ -3,10 +3,13 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import Header from "./Header";
 import Footer from "./Footer";
+import localFont from "next/font/local";
 
-export default function Layout({ children, home, blog }) {
+const myFont = localFont({ src: "../public/assets/Fraunces.ttf" });
+
+export default function Layout({ children, className, home, blog }) {
   return (
-    <div>
+    <div className={myFont.className}>
       <Head>
         <title>Aadit Tambe — a journalist and developer</title>
         <meta
