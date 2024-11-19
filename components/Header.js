@@ -15,8 +15,6 @@ const Header = (props) => {
     }
   }, [page]);
 
-  console.log(isSnowing);
-
   return (
     <header className="header">
       <nav className="nav" role="navigation">
