@@ -5,10 +5,17 @@ import Header from "./Header";
 import Footer from "./Footer";
 import localFont from "next/font/local";
 import Script from "next/script";
+import Snowfall from "react-snowfall";
 
 const myFont = localFont({ src: "../public/assets/Fraunces.ttf" });
 
-export default function Layout({ children, home, blog }) {
+export default function Layout({
+  children,
+  home,
+  blog,
+  isSnowing,
+  setIsSnowing,
+}) {
   return (
     <div className={myFont.className}>
       <Head>
@@ -48,7 +55,7 @@ export default function Layout({ children, home, blog }) {
         }}
       />
       <main className="container">
-        <Header />
+        <Header isSnowing={isSnowing} setIsSnowing={setIsSnowing} />
         {children}
         <Footer />
       </main>
