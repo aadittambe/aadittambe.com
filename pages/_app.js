@@ -7,7 +7,11 @@ export default function App({ Component, pageProps }) {
   const [isSnowing, setIsSnowing] = useState(true);
   return (
     <Layout isSnowing={isSnowing} setIsSnowing={setIsSnowing}>
-      {isSnowing && <Snowfall />}
+      {isSnowing && (
+        <Snowfall
+          style={{ position: "fixed", width: "100vw", height: "100vh" }}
+        />
+      )}
       <Component
         setIsSnowing={setIsSnowing}
         isSnowing={isSnowing}
