@@ -15,7 +15,7 @@ export default function ResumePage() {
       </Head>
       <div className="resume">
         <h1>📝 Resume</h1>
-        <div className="ital source">
+        {/* <div className="ital source">
           <p>
             And{" "}
             <a
@@ -28,7 +28,7 @@ export default function ResumePage() {
             </a>{" "}
             a PDF, if that’s what you’re looking for.
           </p>
-        </div>
+        </div> */}
         <div className="section">
           <h2>💼 Work experience</h2>
           {work.map((d, i) => (
