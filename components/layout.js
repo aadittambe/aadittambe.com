@@ -33,8 +33,8 @@ export default function Layout({
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href="/logo592.png" />
-        <link rel="shortcut icon" href="/static/logo592.png" />
-        <link rel="apple-touch-icon" href="/static/logo592.png" />
+        <link rel="shortcut icon" href="/logo592.png" />
+        <link rel="apple-touch-icon" href="/logo592.png" />
         <link rel="me" href="https://vis.social/@aadittambe" />
       </Head>
       <Script

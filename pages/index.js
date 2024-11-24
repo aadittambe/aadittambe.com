@@ -20,6 +20,7 @@ export default function Home({ isSnowing }) {
     <div>
       <Head>
         <title>Aadit Tambe — a journalist and developer</title>
+        <link rel="canonical" href="https://aadittambe.com/" />
       </Head>
 
       <div className="home">
