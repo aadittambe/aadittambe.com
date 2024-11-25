@@ -19,7 +19,7 @@ export default function Home({ isSnowing }) {
   return (
     <div>
       <Head>
-        <title>Aadit Tambe — a journalist and developer</title>
+        <title>Aadit Tambe</title>
         <link rel="canonical" href="https://aadittambe.com/" />
       </Head>
 

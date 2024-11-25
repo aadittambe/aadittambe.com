@@ -90,6 +90,7 @@ export default function ProjectsPage() {
   return (
     <div>
       <Head>
+        <title>Projects</title>
         <link rel="canonical" href="https://aadittambe.com/projects/" />
       </Head>
       <div className="projects">

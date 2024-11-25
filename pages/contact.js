@@ -5,6 +5,7 @@ const ContactPage = () => {
   return (
     <div>
       <Head>
+        <title>Contact</title>
         <link rel="canonical" href="https://aadittambe.com/contact/" />
       </Head>
       <div className="contact">

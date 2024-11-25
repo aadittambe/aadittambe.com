@@ -19,7 +19,6 @@ export default function Layout({
   return (
     <div className={myFont.className}>
       <Head>
-        <title>Aadit Tambe — a journalist and developer</title>
         <meta
           name="description"
           content="Aadit Tambe is a journalist and developer who tells data-driven stories visually — with code."
