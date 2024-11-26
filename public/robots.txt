@@ -1,0 +1,10 @@
+//robots.txt
+
+# Block all crawlers for assets
+User-agent: *
+Disallow: /images/
+Disallow: /assets/
+
+# Allow all crawlers
+User-agent: *
+Allow: /
