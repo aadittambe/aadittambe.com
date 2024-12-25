@@ -12,7 +12,7 @@ export default function Post({ postData }) {
         <h1>{postData.title}</h1>
         <h2>{postData.subhead}</h2>
         <h4>{postData.date}</h4>
-
+        <div className="divider" />
         <article>
           <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
         </article>

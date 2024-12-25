@@ -48,6 +48,14 @@ const Header = (props) => {
               <p>Contact</p>
             </Link>
           </li>
+          <li
+            id="nav-blog"
+            className={activeLink.includes("blog") ? "active" : ""}
+          >
+            <Link href="/blog" onClick={() => setActiveLink("blog")}>
+              <p>Blog</p>
+            </Link>
+          </li>
         </ul>
       </nav>
       {/* <label className="label">
