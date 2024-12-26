@@ -11,8 +11,8 @@ export default function Post({ postData }) {
 
       <main>
         <h1>{postData.title}</h1>
-        <h2>{postData.subhead}</h2>
-        <h4>{longAP(postData.date)}</h4>
+        <p>{postData.subhead}</p>
+        <p>{longAP(postData.date)}</p>
         <div className="divider" />
         <article>
           <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
