@@ -2,7 +2,7 @@
 title: Looking back at 2023
 subhead: Documenting milestones, meaningful moments
 tag: "life"
-date: 2/1/19
+date: 12/31/2023
 ---
 
 As the year draws to a close, I thought it was fitting to pause and reflect on the whirlwind of experiences, challenges, and growth that marked the past 12 months. Turning over a new leaf seems harder this year, as it involved an unprecedented number of changes and moments I cherished at work, and with friends and family.
