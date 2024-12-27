@@ -1,11 +1,10 @@
-.blog,
 .post {
-  padding-left: 24px;
-  padding-right: 24px;
+  padding-left: 12px;
+  padding-right: 12px;
 
-  @media only screen and (max-width: $lg) {
-    padding-left: 12px;
-    padding-right: 12px;
+  @media only screen and (max-width: $md) {
+    padding-left: 24px;
+    padding-right: 24px;
   }
 }
 .blog {
