@@ -5,24 +5,35 @@ import Header from "./Header";
 import Footer from "./Footer";
 import localFont from "next/font/local";
 import Script from "next/script";
+import Snowfall from "react-snowfall";
 
 const myFont = localFont({ src: "../public/assets/Fraunces.ttf" });
 
-export default function Layout({ children, home, blog }) {
+export default function Layout({
+  children,
+  home,
+  blog,
+  isSnowing,
+  setIsSnowing,
+}) {
   return (
     <div className={myFont.className}>
       <Head>
-        <title>Aadit Tambe — a journalist and developer</title>
         <meta
           name="description"
           content="Aadit Tambe is a journalist and developer who tells data-driven stories visually — with code."
         />
+        <meta
+          name="keywords"
+          content="Aadit Tambe, developer, designer, data journalist, graphics journalist, Washington Post"
+        />
+        <meta name="author" content="Aadit Tambe" />
         <meta charSet="UTF-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href="/logo592.png" />
-        <link rel="shortcut icon" href="/static/logo592.png" />
-        <link rel="apple-touch-icon" href="/static/logo592.png" />
+        <link rel="shortcut icon" href="/logo592.png" />
+        <link rel="apple-touch-icon" href="/logo592.png" />
         <link rel="me" href="https://vis.social/@aadittambe" />
       </Head>
       <Script
@@ -43,7 +54,7 @@ export default function Layout({ children, home, blog }) {
         }}
       />
       <main className="container">
-        <Header />
+        <Header isSnowing={isSnowing} setIsSnowing={setIsSnowing} />
         {children}
         <Footer />
       </main>

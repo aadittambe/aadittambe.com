@@ -9,22 +9,42 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import TypeItLine from "../components/TypeItLine";
+import Image from "next/image";
 
 const data = require("../data/content.json");
 
 const intro = data.intro;
 
-export default function Home() {
+export default function Home({ isSnowing }) {
   return (
     <div>
       <Head>
-        <title>Aadit Tambe — a journalist and developer</title>
+        <title>Aadit Tambe</title>
+        <link rel="canonical" href="https://aadittambe.com/" />
       </Head>
 
       <div className="home">
-        <h1>
-          <span className="wave">👋🏽</span> Hi — I am Aadit.
-        </h1>
+        <div className="headline-wrapper">
+          <h1>
+            <span className="wave">👋🏽</span> Hi — I am{" "}
+            <span
+              style={{
+                position: "relative",
+                whiteSpace: "nowrap",
+                marginRight: "22px",
+              }}
+            >
+              <span className="">Aadit.</span>
+              <Image
+                alt=""
+                src="/assets/santa-hat.png"
+                width={100}
+                height={100}
+                className={`hat ${isSnowing ? "show" : "hide"}`}
+              ></Image>
+            </span>
+          </h1>
+        </div>
         <TypeItLine />
         {intro.map((text, index) => {
           return <p key={index} dangerouslySetInnerHTML={{ __html: text }}></p>;
@@ -37,14 +57,6 @@ export default function Home() {
             aria-label="Mastodon"
           >
             <FontAwesomeIcon className="icon" icon={faMastodon} size="2x" />
-          </a>
-          <a
-            href="https://twitter.com/aadittambe/"
-            rel="noreferrer"
-            target="_blank"
-            aria-label="Twitter"
-          >
-            <FontAwesomeIcon className="icon" icon={faTwitter} size="2x" />
           </a>
           <a
             href="https://github.com/aadittambe"
