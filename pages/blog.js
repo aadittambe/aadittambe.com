@@ -25,7 +25,7 @@ const BlogPage = (props) => {
   return (
     <div className="blog">
       <Head>
-        <title>bloggg</title>
+        <title>Aadit Tambe&apos;s blog</title>
       </Head>
       <h1>✍️ Blog</h1>
 
@@ -34,12 +34,12 @@ const BlogPage = (props) => {
           <tbody>
             {sortedPosts.map((p, i) => (
               <tr key={i}>
-                <td class="post-title">
+                <td className="post-title">
                   <p>
                     <Link href={`/blog/${p.id}`}>{p.title}</Link>
                   </p>
                 </td>
-                <td class="post-date">
+                <td className="post-date">
                   <p>
                     <Link href={`/blog/${p.id}`}>{longAP(p.date)}</Link>
                   </p>

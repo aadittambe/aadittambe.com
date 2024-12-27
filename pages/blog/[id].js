@@ -6,7 +6,7 @@ export default function Post({ postData }) {
   return (
     <div className="post">
       <Head>
-        <title>Blog — {postData.title}.</title>
+        <title>Aadit Tambe&apos;s blog</title>
       </Head>
 
       <main>
