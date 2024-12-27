@@ -1,4 +1,3 @@
-import React from "react";
 import Head from "next/head";
 import Link from "next/link";
 import { getSortedPostsData } from "../lib/posts";
@@ -6,18 +5,25 @@ import { compareDesc } from "date-fns";
 const longAP = require("ap-style-date").longAP;
 
 export async function getStaticProps() {
-  const allPostsData = getSortedPostsData();
+  try {
+    const allPostsData = await getSortedPostsData(); // Await the asynchronous function
 
-  return {
-    props: {
-      allPostsData,
-    },
-  };
+    return {
+      props: {
+        allPostsData,
+      },
+    };
+  } catch (error) {
+    console.error("Error fetching posts data:", error);
+    return {
+      props: {
+        allPostsData: [],
+      },
+    };
+  }
 }
 
-const BlogPage = (props) => {
-  const { allPostsData } = props;
-
+const BlogPage = ({ allPostsData }) => {
   const sortedPosts = allPostsData.sort((a, b) =>
     compareDesc(new Date(a.date), new Date(b.date))
   );
@@ -49,18 +55,8 @@ const BlogPage = (props) => {
           </tbody>
         </table>
       </div>
-      {/* <div>
-        {allPostsData.map((p) => (
-          <div key={p.id}>
-            <Link href={`/blog/${p.id}`}>{p.id}</Link>
-          </div>
-        ))}
-      </div> */}
     </div>
   );
 };
 
 export default BlogPage;
-// <div key={p.id}>
-//   <Link href={`/blog/${p.id}`}>{p.id}</Link>
-// </div>
