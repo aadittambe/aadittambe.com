@@ -23,22 +23,26 @@ export default function Post({ postData, prevPost, nextPost }) {
           <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
         </article>
         <nav>
-          {prevPost && (
-            <div className="actions">
-              <p className="label">← Previous</p>
-              <p>
-                <Link href={`/blog/${prevPost.slug}`}>{prevPost.title}</Link>
-              </p>
-            </div>
-          )}
-          {nextPost && (
-            <div className="actions next">
-              <p className="label">Next →</p>
-              <p>
-                <Link href={`/blog/${nextPost.slug}`}>{nextPost.title}</Link>
-              </p>
-            </div>
-          )}
+          <div className="actions">
+            {prevPost && (
+              <>
+                <p className="label">← Previous</p>
+                <p>
+                  <Link href={`/blog/${prevPost.slug}`}>{prevPost.title}</Link>
+                </p>
+              </>
+            )}
+          </div>
+          <div className="actions next">
+            {nextPost && (
+              <>
+                <p className="label">Next →</p>
+                <p>
+                  <Link href={`/blog/${nextPost.slug}`}>{nextPost.title}</Link>
+                </p>
+              </>
+            )}
+          </div>
         </nav>
       </main>
     </div>
