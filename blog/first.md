@@ -2,6 +2,7 @@
 title: "First test post"
 subhead: "this isi a subhead"
 tag: "tag"
+slug: first-post
 date: 1/1/24
 ---
 

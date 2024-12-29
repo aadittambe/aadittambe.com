@@ -1,4 +1,4 @@
-import { getAllPostIds, getPostData } from "../../lib/posts";
+import { getAllPostSlugs, getPostDataBySlug } from "../../lib/posts";
 import Head from "next/head";
 const longAP = require("ap-style-date").longAP;
 
@@ -6,7 +6,7 @@ export default function Post({ postData }) {
   return (
     <div className="post">
       <Head>
-        <title>Aadit Tambe&apos;s blog</title>
+        <title>{postData.title}</title>
       </Head>
 
       <main>
@@ -24,7 +24,7 @@ export default function Post({ postData }) {
 
 // Return a list of possible value for id
 export async function getStaticPaths() {
-  const paths = getAllPostIds();
+  const paths = getAllPostSlugs();
   return {
     paths,
     fallback: false,
@@ -33,9 +33,7 @@ export async function getStaticPaths() {
 
 // Fetch necessary data for the blog post using params.id
 export async function getStaticProps({ params }) {
-  // Add the "await" keyword like this:
-  const postData = await getPostData(params.id);
-
+  const postData = await getPostDataBySlug(params.slug);
   return {
     props: {
       postData,

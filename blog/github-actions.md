@@ -3,6 +3,7 @@ title: Scraping with Selenium and GitHub Actions
 subhead: Unleashing the power webdriver-manager.
 tag: journalism
 date: 03/10/2022
+slug: github-actions-selenium
 ---
 
 ## ⏳ TL;DR

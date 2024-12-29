@@ -42,12 +42,12 @@ const BlogPage = ({ allPostsData }) => {
               <tr key={i}>
                 <td className="post-title">
                   <p>
-                    <Link href={`/blog/${p.id}`}>{p.title}</Link>
+                    <Link href={`/blog/${p.slug}`}>{p.title}</Link>
                   </p>
                 </td>
                 <td className="post-date">
                   <p>
-                    <Link href={`/blog/${p.id}`}>{longAP(p.date)}</Link>
+                    <Link href={`/blog/${p.slug}`}>{longAP(p.date)}</Link>
                   </p>
                 </td>
               </tr>
