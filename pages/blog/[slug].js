@@ -1,8 +1,13 @@
-import { getAllPostSlugs, getPostDataBySlug } from "../../lib/posts";
+import {
+  getAllPostSlugs,
+  getPostDataBySlug,
+  getSortedPostsData,
+} from "../../lib/posts";
 import Head from "next/head";
+import Link from "next/link";
 const longAP = require("ap-style-date").longAP;
 
-export default function Post({ postData }) {
+export default function Post({ postData, prevPost, nextPost }) {
   return (
     <div className="post">
       <Head>
@@ -17,12 +22,29 @@ export default function Post({ postData }) {
           <div className="divider" />
           <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
         </article>
+        <nav>
+          {prevPost && (
+            <div className="actions">
+              <p className="label">← Previous</p>
+              <p>
+                <Link href={`/blog/${prevPost.slug}`}>{prevPost.title}</Link>
+              </p>
+            </div>
+          )}
+          {nextPost && (
+            <div className="actions next">
+              <p className="label">Next →</p>
+              <p>
+                <Link href={`/blog/${nextPost.slug}`}>{nextPost.title}</Link>
+              </p>
+            </div>
+          )}
+        </nav>
       </main>
     </div>
   );
 }
 
-// Return a list of possible value for id
 export async function getStaticPaths() {
   const paths = getAllPostSlugs();
   return {
@@ -31,12 +53,20 @@ export async function getStaticPaths() {
   };
 }
 
-// Fetch necessary data for the blog post using params.id
 export async function getStaticProps({ params }) {
+  const allPostsData = getSortedPostsData();
+  const postIndex = allPostsData.findIndex((post) => post.slug === params.slug);
   const postData = await getPostDataBySlug(params.slug);
+
+  const prevPost = postIndex > 0 ? allPostsData[postIndex - 1] : null;
+  const nextPost =
+    postIndex < allPostsData.length - 1 ? allPostsData[postIndex + 1] : null;
+
   return {
     props: {
       postData,
+      prevPost,
+      nextPost,
     },
   };
 }
