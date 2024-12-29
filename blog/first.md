@@ -1,7 +1,7 @@
 ---
-title: "First test post"
-subhead: "this isi a subhead"
-tag: "tag"
+title: First test post
+subhead: This isi a subhead
+tag: tag
 slug: first-post
 date: 1/1/24
 ---
