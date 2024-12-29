@@ -24,6 +24,12 @@
     }
   }
 
+  .post-title {
+    p {
+      font-weight: 500;
+    }
+  }
+
   .post-date p a:hover {
     border-bottom: none;
   }
@@ -132,7 +138,7 @@
       color: $site-gray;
     }
     a {
-      border-bottom: none;
+      // border-bottom: none;
     }
   }
 }

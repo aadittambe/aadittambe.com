@@ -36,8 +36,10 @@ const BlogPage = ({ allPostsData }) => {
         <title>Aadit Tambe&apos;s blog</title>
       </Head>
       <h1>✍️ Blog</h1>
-
-      <div id="posts">
+      <p style={{ paddingBottom: "24px" }}>
+        Thoughts, ideas, code hacks, and projects I find interesting.
+      </p>
+      <div className="posts">
         <table>
           <tbody>
             {sortedPosts.map((p, i) => (
