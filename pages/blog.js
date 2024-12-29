@@ -2,11 +2,13 @@ import Head from "next/head";
 import Link from "next/link";
 import { getSortedPostsData } from "../lib/posts";
 import { compareDesc } from "date-fns";
+import generateRssFeed from "../utils/rss";
 const longAP = require("ap-style-date").longAP;
 
 export async function getStaticProps() {
   try {
     const allPostsData = await getSortedPostsData(); // Await the asynchronous function
+    generateRssFeed(allPostsData);
 
     return {
       props: {
