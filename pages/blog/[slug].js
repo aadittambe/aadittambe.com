@@ -1,3 +1,4 @@
+import { compareDesc } from "date-fns";
 import {
   getAllPostSlugs,
   getPostDataBySlug,
@@ -58,7 +59,10 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const allPostsData = getSortedPostsData();
+  const data = getSortedPostsData();
+  const allPostsData = data.sort((a, b) =>
+    compareDesc(new Date(a.date), new Date(b.date))
+  );
   const postIndex = allPostsData.findIndex((post) => post.slug === params.slug);
   const postData = await getPostDataBySlug(params.slug);
 
