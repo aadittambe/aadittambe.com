@@ -10,13 +10,13 @@ At the Post we use Next.js, a React-based framework, to build special projects a
 
 Next.js imposes a page size threshold of `126kB`, and exceeding this limit can result in slower loading times, particularly on mobile networks.
 
-To address this, I started writing out flat JSON files containing necessary CMS data attributes during the build process and serving them from the `public` folder. This approach lets me fetch pre-generated files client-side, speeding up load times while keeping the app under the size threshold.
+To address this, I started writing out flat JSON files containing necessary CMS data attributes during the build process and serving them from the `public/` folder. This approach lets me fetch pre-generated files client-side, speeding up load times while keeping the app under the size threshold.
 
-Although Next.js offers multiple ways to fetch and serve data (such as `getStaticProps`), passing large datasets as page props can increase the JavaScript bundle size. Instead, I generate flat files during the build process and store them in the `public` folder. These files are then fetched client-side via an HTTP request (e.g., `/data/my-file.json`) using SWR.
+Although Next.js offers multiple ways to fetch and serve data (such as `getStaticProps`), passing large datasets as page props can increase the JavaScript bundle size. Instead, I generate flat files during the build process and store them in the `public/` folder. These files are then fetched client-side via an HTTP request (e.g., `/data/my-file.json`) using SWR.
 
 During development, I fetch the necessary data from our content API and write it out as static JSON files. This process is automated with a script that runs during the Next.js build. By avoiding passing large datasets through page props, this method significantly reduces the JavaScript bundle size, helping the app stay within performance limits.
 
-For instance, our [2024 fall dining guide](https://www.washingtonpost.com/food/interactive/2024/best-dc-restaurants/) uses text and data from several CMS files — one for each restaurant. So a script in `getStaticProps` runs and downloads that data in JSON files, storing it in the public directory. When a user clicks on one of the restaurants, an SWR fetches the relevant data to display on the modal. 
+For instance, our [2024 fall dining guide](https://www.washingtonpost.com/food/interactive/2024/best-dc-restaurants/) uses text and data from several CMS files — one for each restaurant. So a script in `getStaticProps` runs and downloads that data in JSON files, storing it in the `public/` directory. When a user clicks on one of the restaurants, an SWR fetches the relevant data to display on the modal. 
 
 The advantages of this approach include smaller bundle sizes, faster page loads, and better caching (since Next.js caches JSON files in the browser, eliminating the need for repeated server fetches). It also simplifies data management by fetching only the required file when needed, making the code easier to maintain.
 
