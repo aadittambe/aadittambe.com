@@ -21,7 +21,7 @@ export default async function generateRssFeed(allPosts) {
     feed.item({
       title: post.title,
       description: post.subhead,
-      url: `${site_url}/posts/${post.slug}`,
+      url: `${site_url}/blog/${post.slug}`,
       date: post.date,
     });
   });

@@ -5,7 +5,7 @@ import { compareDesc } from "date-fns";
 import generateRssFeed from "../utils/rss";
 import fetchBlogData from "../utils/fetchBlogData";
 const longAP = require("ap-style-date").longAP;
-const config = require("../config");
+const config = require("../blogConfig");
 
 export async function getStaticProps() {
   fetchBlogData(config);
