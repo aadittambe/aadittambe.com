@@ -68,15 +68,6 @@
     }
   }
 
-  .label {
-    display: flex;
-    font-size: 22px;
-    align-items: center;
-    span {
-      padding-left: 6px;
-    }
-  }
-
   .nav,
   .nav {
     @media only screen and (max-width: $xs) {
