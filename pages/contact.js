@@ -2,6 +2,43 @@ import Head from "next/head";
 import React from "react";
 
 const ContactPage = () => {
+  const socials = [
+    {
+      name: "Email",
+      text: "aadit.tambe@gmail.com",
+      link: "mailto:aadit.tambe@gmail.com",
+    },
+    { name: "Mobile phone", text: "+82 10-4570-1501" },
+    {
+      name: "LinkedIn",
+      text: "in/aadittambe",
+      link: "https://www.linkedin.com/in/aadittambe/",
+    },
+    {
+      name: "GitHub",
+      text: "aadittambe",
+      link: "https://github.com/aadittambe/",
+    },
+    {
+      name: "Mastodon",
+      text: "vis.social/aadittambe",
+      link: "https://vis.social/@aadittambe",
+      inActive: true,
+    },
+    {
+      name: "Bluesky",
+      text: "aadittambe.bsky.social",
+      link: "https://bsky.app/profile/aadittambe.bsky.social",
+      inActive: true,
+    },
+    {
+      name: "Twitter",
+      text: "aadittambe",
+      link: "https://twitter.com/aadittambe",
+      inActive: true,
+    },
+  ];
+
   return (
     <div>
       <Head>
@@ -10,77 +47,27 @@ const ContactPage = () => {
       </Head>
       <div className="contact">
         <h1>☎️ Contact</h1>
-        <div className="flex">
-          <p className="left">Email</p>
-          <p className="right">
-            <a href="mailto:aadit.tambe@gmail.com">aadit.tambe@gmail.com</a>
-          </p>
-        </div>
-        <div className="flex">
-          <p className="left">Mobile phone</p>
-          <p className="right">+82 10-4570-1501</p>
-        </div>
-        <div className="flex">
-          <p className="left">LinkedIn</p>
-          <p className="right">
-            <a
-              href=" https://www.linkedin.com/in/aadittambe/"
-              target="_blank"
-              rel="noreferrer"
+        {socials.map((s, i) => (
+          <div key={i} className="flex">
+            <p className="left">{s.name}</p>
+            <p
+              className="right"
+              style={{
+                textDecoration:
+                  s.inActive &&
+                  "line-through solid rgba(48, 56, 65, 0.6) 1.5px",
+              }}
             >
-              in/aadittambe
-            </a>
-          </p>
-        </div>
-
-        <div className="flex">
-          <p className="left">Twitter</p>
-          <p className="right">
-            <a
-              href="https://twitter.com/aadittambe"
-              target="_blank"
-              rel="noreferrer"
-            >
-              aadittambe
-            </a>
-          </p>
-        </div>
-        <div className="flex">
-          <p className="left">Mastodon</p>
-          <p className="right">
-            <a
-              href="https://vis.social/@aadittambe"
-              target="_blank"
-              rel="noreferrer"
-            >
-              vis.social/aadittambe
-            </a>
-          </p>
-        </div>
-        <div className="flex">
-          <p className="left">Bluesky</p>
-          <p className="right">
-            <a
-              href="https://bsky.app/profile/aadittambe.bsky.social"
-              target="_blank"
-              rel="noreferrer"
-            >
-              aadittambe.bsky.social
-            </a>
-          </p>
-        </div>
-        <div className="flex">
-          <p className="left">GitHub</p>
-          <p className="right">
-            <a
-              href="https://github.com/aadittambe/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              aadittambe
-            </a>
-          </p>
-        </div>
+              {s.link ? (
+                <a href={s.link} target="_blank">
+                  {s.text}
+                </a>
+              ) : (
+                s.text
+              )}
+            </p>
+          </div>
+        ))}
       </div>
     </div>
   );
