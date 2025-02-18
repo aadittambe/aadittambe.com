@@ -1,12 +1,6 @@
 import Head from "next/head";
-import Link from "next/link";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
-import {
-  faTwitter,
-  faGithubAlt,
-  faMastodon,
-  faLinkedin,
-} from "@fortawesome/free-brands-svg-icons";
+import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import TypeItLine from "../components/TypeItLine";
 import Image from "next/image";
@@ -51,20 +45,12 @@ export default function Home({ isSnowing }) {
         })}
         <div>
           <a
-            href="https://vis.social/@aadittambe"
+            href="mailto:aadit.tambe@gmail.com"
             rel="noreferrer"
             target="_blank"
-            aria-label="Mastodon"
+            aria-label="email"
           >
-            <FontAwesomeIcon className="icon" icon={faMastodon} size="2x" />
-          </a>
-          <a
-            href="https://github.com/aadittambe"
-            rel="noreferrer"
-            target="_blank"
-            aria-label="GitHub"
-          >
-            <FontAwesomeIcon className="icon" icon={faGithubAlt} size="2x" />
+            <FontAwesomeIcon className="icon" icon={faEnvelope} size="2x" />
           </a>
           <a
             href="https://www.linkedin.com/in/aadittambe/"
@@ -75,12 +61,12 @@ export default function Home({ isSnowing }) {
             <FontAwesomeIcon className="icon" icon={faLinkedin} size="2x" />
           </a>
           <a
-            href="mailto:aadit.tambe@gmail.com"
+            href="https://github.com/aadittambe"
             rel="noreferrer"
             target="_blank"
-            aria-label="email"
+            aria-label="GitHub"
           >
-            <FontAwesomeIcon className="icon" icon={faEnvelope} size="2x" />
+            <FontAwesomeIcon className="icon" icon={faGithub} size="2x" />
           </a>
         </div>
       </div>
