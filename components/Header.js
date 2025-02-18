@@ -1,19 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import Toggle from "react-toggle";
 
 const Header = (props) => {
-  const { setIsSnowing, isSnowing } = props;
   const router = useRouter();
   const page = router.route.replaceAll("/", "");
   const [activeLink, setActiveLink] = useState(page === "" ? "home" : page);
-
-  useEffect(() => {
-    if (page === "colophon") {
-      setActiveLink(null);
-    }
-  }, [page]);
 
   return (
     <header className="header">
@@ -48,18 +40,16 @@ const Header = (props) => {
               <p>Contact</p>
             </Link>
           </li>
+          {/* <li
+            id="nav-blog"
+            className={activeLink.includes("blog") ? "active" : ""}
+          >
+            <Link href="/blog" onClick={() => setActiveLink("blog")}>
+              <p>Blog</p>
+            </Link>
+          </li> */}
         </ul>
       </nav>
-      <label className="label">
-        <Toggle
-          defaultChecked={true}
-          icons={false}
-          onChange={() => {
-            setIsSnowing(!isSnowing);
-          }}
-        />
-        <span>❄️</span>
-      </label>
     </header>
   );
 };
