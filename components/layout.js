@@ -3,14 +3,15 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import Header from "./Header";
 import Footer from "./Footer";
-import localFont from "next/font/local";
 import Script from "next/script";
 
-const myFont = localFont({ src: "../public/assets/Fraunces.ttf" });
+import { Fraunces } from "next/font/google";
+
+const fraunces = Fraunces({ subsets: ["latin"] });
 
 export default function Layout({ children, home, blog }) {
   return (
-    <div className={myFont.className}>
+    <div className={fraunces.className}>
       <Head>
         <meta
           name="description"
