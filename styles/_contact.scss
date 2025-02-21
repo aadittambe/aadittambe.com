@@ -2,6 +2,11 @@
   padding-left: 12px;
   padding-right: 12px;
 
+  &.container {
+    max-width: $xs;
+    margin: auto;
+  }
+
   p {
     @media only screen and (max-width: $md) {
       padding-bottom: 0rem;

@@ -17,7 +17,7 @@ export default function Home({ isSnowing }) {
         <link rel="canonical" href="https://aadittambe.com/" />
       </Head>
 
-      <div className="home">
+      <div className="home container">
         <div className="headline-wrapper">
           <h1>
             <span className="wave">👋🏽</span> Hi — I am{" "}

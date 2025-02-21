@@ -33,7 +33,7 @@ const BlogPage = ({ allPostsData }) => {
   );
 
   return (
-    <div className="blog">
+    <div className="blog container">
       <Head>
         <title>Aadit Tambe&apos;s blog</title>
       </Head>

@@ -14,7 +14,7 @@ export default function ResumePage() {
         <title>Resume</title>
         <link rel="canonical" href="https://aadittambe.com/resume/" />
       </Head>
-      <div className="resume">
+      <div className="resume container">
         <h1>📝 Resume</h1>
         {/* <div className="ital source">
           <p>

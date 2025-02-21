@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const Footer = (props) => {
   return (
-    <footer className="footer">
+    <footer className="footer container">
       <hr></hr>
       <p>
         © Site developed by Aadit Tambe |{" "}

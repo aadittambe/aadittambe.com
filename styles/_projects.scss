@@ -3,6 +3,8 @@
   padding-right: 12px;
 
   .layout {
+    max-width: $lg;
+    margin: auto;
     display: grid;
     grid-gap: 24px;
     grid-template-columns: 1fr 1fr 1fr;
@@ -20,6 +22,11 @@
       grid-gap: 18px;
       grid-template-columns: 1fr;
     }
+  }
+
+  .source {
+    max-width: $xs;
+    margin: auto;
   }
 
   .story {

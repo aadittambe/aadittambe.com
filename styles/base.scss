@@ -7,7 +7,7 @@ $site-blue: #2e4750;
 $site-gray: (#{$site-black}ad);
 
 $xxs: 400px;
-$xs: 600px;
+$xs: 672px;
 $sm: 768px;
 $md: 992px;
 $lg: 1280px;
@@ -48,18 +48,16 @@ a:hover {
 }
 
 h1 {
-  font-size: 4.5rem;
+  font-size: 3rem;
   padding-bottom: 2rem;
   font-weight: 800;
   line-height: 1.25;
   @media only screen and (max-width: $sm) {
-    font-size: 4rem;
   }
   @media only screen and (max-width: $xs) {
-    font-size: 3rem;
   }
   @media only screen and (max-width: $xxs) {
-    font-size: 2.8rem;
+    font-size: 2rem;
   }
 }
 
@@ -100,15 +98,7 @@ p {
 }
 
 .container {
-  max-width: $md;
+  max-width: $xs;
   margin: auto;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  // align-items: center;
-  @media only screen and (max-width: $md) {
-    // padding-left: 24px;
-    // padding-right: 24px;
-  }
+  // width: 100%;
 }

@@ -45,7 +45,7 @@ export default function Layout({ children, home, blog }) {
           `,
         }}
       />
-      <main className="container">
+      <main>
         <Header />
         {children}
         <Footer />

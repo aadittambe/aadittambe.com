@@ -94,7 +94,7 @@ export default function ProjectsPage() {
         <link rel="canonical" href="https://aadittambe.com/projects/" />
       </Head>
       <div className="projects">
-        <div className="intro">
+        <div className="intro container">
           <h1>🖥 Projects</h1>
           <p>
             I specialize in telling data-driven stories visually, and my work
