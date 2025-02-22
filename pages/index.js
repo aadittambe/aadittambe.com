@@ -12,7 +12,7 @@ const intro = data.intro;
 
 export default function Home({}) {
   return (
-    <Layout>
+    <Layout home>
       <Head>
         <title>Aadit Tambe</title>
         <link rel="canonical" href="https://aadittambe.com/" />

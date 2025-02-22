@@ -1,153 +1,108 @@
-.home {
-  padding-left: 12px;
-  padding-right: 12px;
-  &.container {
+.home-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+  .container {
     max-width: $xs;
-    margin: auto;
-  }
+    margin: 0 auto;
 
-  .headline-wrapper {
-    position: relative;
-    width: fit-content;
-    @media only screen and (max-width: $md) {
-      width: 100%;
-    }
-  }
-  .typeit {
-    font-family: "Courier New", Courier, monospace;
-    font-weight: 700;
-    color: $site-black;
-  }
-
-  .wave {
-    cursor: default;
-    animation-name: wave-animation;
-    animation-duration: 3.5s;
-    animation-iteration-count: 1;
-    animation-delay: 1.5s;
-    transform-origin: 70% 70%;
-    display: inline-block;
-  }
-
-  .wave:hover {
-    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:$site-black;font-size:24px;'><text y='50%'>👋🏽</text></svg>")
-        16 0,
-      auto;
-    animation-name: wave-animation;
-    animation-duration: 2.5s;
-    animation-iteration-count: infinite;
-    transform-origin: 70% 70%;
-    display: inline-block;
-  }
-
-  @media only screen and (max-width: 600px) {
-    .wave:hover {
-      animation-iteration-count: 1;
-    }
-  }
-
-  a,
-  a:hover {
-    border: none;
-  }
-
-  p > a {
-    border-bottom: solid 2px $site-yellow;
-  }
-
-  p > a:hover {
-    border-bottom: solid 3px $site-yellow;
-    transition: all 0.1s;
-  }
-
-  .icon {
-    width: 36px;
-    padding-right: 10px;
-    padding-left: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    transition: all 0.5s;
-    color: $site-black;
-  }
-
-  .icon:hover {
-    transform: scale(1.25);
-    color: $site-yellow;
-  }
-
-  .city-parent {
-    position: relative;
-  }
-
-  .dc {
-    white-space: nowrap;
-    position: absolute;
-    left: 0;
-  }
-
-  .dc::after {
-    content: " ";
-    position: absolute;
-    top: 50%;
-    left: 0;
     width: 100%;
-    height: 3px;
-    background: $site-black;
-    animation-name: strike;
-    animation-duration: 8s;
   }
 
-  .seoul-hidden {
-    visibility: hidden;
-    white-space: nowrap;
-  }
+  .home {
+    padding-left: 12px;
+    padding-right: 12px;
 
-  .seoul {
-    // visibility: hidden;
-    position: absolute;
-    left: 0;
-    white-space: nowrap;
-    // background-color: $site-white;
-  }
-
-  #sparklines {
-    path {
-      stroke: $site-black;
+    .headline-wrapper {
+      position: relative;
+      width: fit-content;
+      @media only screen and (max-width: $md) {
+        width: 100%;
+      }
     }
-  }
-
-  @keyframes strike {
-    0% {
-      width: 0;
+    .typeit {
+      font-family: "Courier New", Courier, monospace;
+      font-weight: 700;
+      color: $site-black;
     }
 
-    50% {
-      width: 0;
-    }
-    100% {
-      width: 100%;
-    }
-  }
-
-  @keyframes wave-animation {
-    0% {
-      transform: rotate(0deg);
+    .wave {
+      cursor: default;
+      animation-name: wave-animation;
+      animation-duration: 3.5s;
+      animation-iteration-count: 1;
+      animation-delay: 1.5s;
+      transform-origin: 70% 70%;
+      display: inline-block;
     }
 
-    10% {
-      transform: rotate(14deg);
+    .wave:hover {
+      cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:$site-black;font-size:24px;'><text y='50%'>👋🏽</text></svg>")
+          16 0,
+        auto;
+      animation-name: wave-animation;
+      animation-duration: 2.5s;
+      animation-iteration-count: infinite;
+      transform-origin: 70% 70%;
+      display: inline-block;
     }
 
-    20% {
-      transform: rotate(-8deg);
+    @media only screen and (max-width: 600px) {
+      .wave:hover {
+        animation-iteration-count: 1;
+      }
     }
 
-    30% {
-      transform: rotate(14deg);
+    a,
+    a:hover {
+      border: none;
     }
 
-    40% {
-      transform: rotate(-4deg);
+    p > a {
+      border-bottom: solid 2px $site-yellow;
+    }
+
+    p > a:hover {
+      border-bottom: solid 3px $site-yellow;
+      transition: all 0.1s;
+    }
+
+    .icon {
+      width: 36px;
+      padding-right: 10px;
+      padding-left: 10px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      transition: all 0.5s;
+      color: $site-black;
+    }
+
+    .icon:hover {
+      transform: scale(1.25);
+      color: $site-yellow;
+    }
+
+    @keyframes wave-animation {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      10% {
+        transform: rotate(14deg);
+      }
+
+      20% {
+        transform: rotate(-8deg);
+      }
+
+      30% {
+        transform: rotate(14deg);
+      }
+
+      40% {
+        transform: rotate(-4deg);
+      }
     }
   }
 }
