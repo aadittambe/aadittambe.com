@@ -1,5 +1,6 @@
 import Head from "next/head";
 import React from "react";
+import Layout from "../components/layout";
 
 const ContactPage = () => {
   const socials = [
@@ -40,7 +41,7 @@ const ContactPage = () => {
   ];
 
   return (
-    <div>
+    <Layout>
       <Head>
         <title>Contact</title>
         <link rel="canonical" href="https://aadittambe.com/contact/" />
@@ -69,7 +70,7 @@ const ContactPage = () => {
           </div>
         ))}
       </div>
-    </div>
+    </Layout>
   );
 };
 

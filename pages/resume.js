@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Layout from "../components/layout";
 
 const data = require("../data/content.json");
 
@@ -9,7 +10,7 @@ const ed = data.ed;
 
 export default function ResumePage() {
   return (
-    <div>
+    <Layout>
       <Head>
         <title>Resume</title>
         <link rel="canonical" href="https://aadittambe.com/resume/" />
@@ -100,6 +101,6 @@ export default function ResumePage() {
           ))}
         </div>
       </div>
-    </div>
+    </Layout>
   );
 }

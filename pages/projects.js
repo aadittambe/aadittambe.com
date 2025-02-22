@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useInView } from "react-intersection-observer";
 import { TailSpin } from "react-loader-spinner";
 import Head from "next/head";
+import Layout from "../components/layout";
 
 const data = require("../data/content.json");
 
@@ -88,7 +89,7 @@ export default function ProjectsPage() {
   const [clicked, setClicked] = useState("all");
 
   return (
-    <div>
+    <Layout>
       <Head>
         <title>Projects</title>
         <link rel="canonical" href="https://aadittambe.com/projects/" />
@@ -193,6 +194,6 @@ export default function ProjectsPage() {
           </p>
         </div>
       </div>
-    </div>
+    </Layout>
   );
 }

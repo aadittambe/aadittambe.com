@@ -4,6 +4,7 @@ import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import TypeItLine from "../components/TypeItLine";
 import Image from "next/image";
+import Layout from "../components/layout";
 
 const data = require("../data/content.json");
 
@@ -11,7 +12,7 @@ const intro = data.intro;
 
 export default function Home({}) {
   return (
-    <div>
+    <Layout>
       <Head>
         <title>Aadit Tambe</title>
         <link rel="canonical" href="https://aadittambe.com/" />
@@ -54,6 +55,6 @@ export default function Home({}) {
           </a>
         </div>
       </div>
-    </div>
+    </Layout>
   );
 }
