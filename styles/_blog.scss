@@ -10,27 +10,29 @@
     width: 100%;
   }
 
-  .post-date {
-    text-align: right;
-    width: 30%;
-
-    @media only screen and (max-width: $sm) {
-      width: 40%;
+  .posts {
+    a {
+      border-bottom: none;
     }
-  }
 
-  .post-title {
-    p {
-      font-weight: 500;
+    .post-date {
+      text-align: right;
+      width: 30%;
+
+      @media only screen and (max-width: $sm) {
+        width: 40%;
+      }
     }
-  }
 
-  .post-date p a:hover {
-    border-bottom: none;
-  }
+    .post-title {
+      p {
+        font-weight: 500;
+      }
+    }
 
-  a {
-    border-bottom: none;
+    .post-date p a:hover {
+      border-bottom: none;
+    }
   }
 }
 
