@@ -7,8 +7,14 @@ const Header = (props) => {
   const page = router.route.replaceAll("/", "");
   const [activeLink, setActiveLink] = useState(page === "" ? "home" : page);
 
+  useEffect(() => {
+    if (activeLink.includes("blog")) {
+      setActiveLink("blog");
+    }
+  }, [activeLink]);
+
   return (
-    <div className="container">
+    <div className="header-wrapper">
       <header className="header">
         <nav className="nav" role="navigation">
           <ul>
@@ -41,14 +47,16 @@ const Header = (props) => {
                 <p>Contact</p>
               </Link>
             </li>
-            {/* <li
-            id="nav-blog"
-            className={activeLink.includes("blog") ? "active" : ""}
-          >
-            <Link href="/blog" onClick={() => setActiveLink("blog")}>
-              <p>Blog</p>
-            </Link>
-          </li> */}
+            {activeLink === "blog" && (
+              <li
+                id="nav-blog"
+                className={activeLink.includes("blog") ? "active" : ""}
+              >
+                <Link href="/blog" onClick={() => setActiveLink("blog")}>
+                  <p>Blog</p>
+                </Link>
+              </li>
+            )}
           </ul>
         </nav>
       </header>
