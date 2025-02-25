@@ -1,6 +1,8 @@
 User-agent: *
 Disallow: /images/
 Disallow: /assets/
+Disallow: /blog/
+
 
 User-agent: *
 Allow: /
