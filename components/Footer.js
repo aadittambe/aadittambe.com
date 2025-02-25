@@ -4,8 +4,8 @@ import Link from "next/link";
 
 const Footer = (props) => {
   return (
-    <footer className="footer container">
-      <hr></hr>
+    <footer>
+      <div className="divider"></div>
       <p>
         © Site developed by Aadit Tambe |{" "}
         <a href="https://github.com/aadittambe/aadittambe.com">Source code</a> |

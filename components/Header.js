@@ -14,53 +14,51 @@ const Header = (props) => {
   }, [activeLink]);
 
   return (
-    <div className="header-wrapper">
-      <header className="header">
-        <nav className="nav" role="navigation">
-          <ul>
-            <li id="nav-home" className={activeLink === "home" ? "active" : ""}>
-              <Link href="/" onClick={() => setActiveLink("home")}>
-                <p>Home</p>
-              </Link>
-            </li>
+    <header>
+      <nav role="navigation">
+        <ul>
+          <li id="nav-home" className={activeLink === "home" ? "active" : ""}>
+            <Link href="/" onClick={() => setActiveLink("home")}>
+              Home
+            </Link>
+          </li>
+          <li
+            id="nav-experience"
+            className={activeLink === "projects" ? "active" : ""}
+          >
+            <Link href="/projects" onClick={() => setActiveLink("projects")}>
+              Projects
+            </Link>
+          </li>
+          <li
+            id="nav-resume"
+            className={activeLink === "resume" ? "active" : ""}
+          >
+            <Link href="/resume" onClick={() => setActiveLink("resume")}>
+              Resume
+            </Link>
+          </li>
+          <li
+            id="nav-contact"
+            className={activeLink === "contact" ? "active" : ""}
+          >
+            <Link href="/contact" onClick={() => setActiveLink("contact")}>
+              Contact
+            </Link>
+          </li>
+          {activeLink === "blog" && (
             <li
-              id="nav-experience"
-              className={activeLink === "projects" ? "active" : ""}
+              id="nav-blog"
+              className={activeLink.includes("blog") ? "active" : ""}
             >
-              <Link href="/projects" onClick={() => setActiveLink("projects")}>
-                <p>Projects</p>
+              <Link href="/blog" onClick={() => setActiveLink("blog")}>
+                Blog
               </Link>
             </li>
-            <li
-              id="nav-resume"
-              className={activeLink === "resume" ? "active" : ""}
-            >
-              <Link href="/resume" onClick={() => setActiveLink("resume")}>
-                <p>Resume</p>
-              </Link>
-            </li>
-            <li
-              id="nav-contact"
-              className={activeLink === "contact" ? "active" : ""}
-            >
-              <Link href="/contact" onClick={() => setActiveLink("contact")}>
-                <p>Contact</p>
-              </Link>
-            </li>
-            {activeLink === "blog" && (
-              <li
-                id="nav-blog"
-                className={activeLink.includes("blog") ? "active" : ""}
-              >
-                <Link href="/blog" onClick={() => setActiveLink("blog")}>
-                  <p>Blog</p>
-                </Link>
-              </li>
-            )}
-          </ul>
-        </nav>
-      </header>
-    </div>
+          )}
+        </ul>
+      </nav>
+    </header>
   );
 };
 

@@ -1,30 +1,20 @@
 .home-wrapper {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  min-height: 100vh;
-  .container {
-    max-width: $xs;
-    margin: 0 auto;
 
+  header {
     // width: 100%;
   }
-
   .home {
+    max-width: $xs;
+    margin: auto;
     padding-left: 12px;
     padding-right: 12px;
 
-    .headline-wrapper {
-      position: relative;
-      width: fit-content;
-      @media only screen and (max-width: $md) {
-        width: 100%;
-      }
-    }
     .typeit {
       font-family: "Courier New", Courier, monospace;
-      font-weight: 700;
-      color: $site-black;
+      font-weight: 800;
     }
 
     .wave {
@@ -52,20 +42,6 @@
       .wave:hover {
         animation-iteration-count: 1;
       }
-    }
-
-    a,
-    a:hover {
-      border: none;
-    }
-
-    p > a {
-      border-bottom: solid 2px $site-yellow;
-    }
-
-    p > a:hover {
-      border-bottom: solid 3px $site-yellow;
-      transition: all 0.1s;
     }
 
     .icon {
@@ -102,6 +78,13 @@
 
       40% {
         transform: rotate(-4deg);
+      }
+    }
+
+    .icons-row {
+      a,
+      a:hover {
+        border: none;
       }
     }
   }
