@@ -37,11 +37,14 @@ const BlogPage = ({ allPostsData }) => {
     <Layout>
       <div className="blog container">
         <Head>
-          <title>Aadit Tambe&apos;s blog</title>
+          <title>Aadit&apos;s blog</title>
         </Head>
         <h1>✍️ Blog</h1>
         <p style={{ paddingBottom: "24px" }}>
-          Thoughts, ideas, code hacks, and projects I find interesting.
+          You found my blog! I created this page to practice building a blog
+          with Next.js, and now end up writing here infrequently. You can
+          subscribe to my RSS feed{" "}
+          <a href="https://aadittambe.com/rss.xml">here</a>.
         </p>
         <div className="posts">
           <table>
