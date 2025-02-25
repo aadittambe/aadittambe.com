@@ -5,7 +5,10 @@ import Script from "next/script";
 
 import { Fraunces } from "next/font/google";
 
-const fraunces = Fraunces({ subsets: ["latin"] });
+const fraunces = Fraunces({
+  weight: ["300", "500", "600", "700", "800"],
+  subsets: ["latin"],
+});
 
 export default function Layout({ children, home, blog }) {
   return (
