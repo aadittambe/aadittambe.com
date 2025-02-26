@@ -94,7 +94,7 @@ export default function ProjectsPage() {
       </Head>
       <div className="projects">
         <div className="intro">
-          <h1>🖥 Projects</h1>
+          <h1>Projects.</h1>
           <p>
             I specialize in telling data-driven stories visually, and my work
             helps people understand the news and make sense of the policies that

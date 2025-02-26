@@ -39,7 +39,7 @@ const BlogPage = ({ allPostsData }) => {
         <Head>
           <title>Aadit&apos;s blog</title>
         </Head>
-        <h1>✍️ Blog</h1>
+        <h1>Blog.</h1>
         <p style={{ paddingBottom: "24px" }}>
           You found my blog! I created this page to practice building a blog
           with Next.js, and now end up writing here infrequently. You can

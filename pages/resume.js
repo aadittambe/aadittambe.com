@@ -16,7 +16,7 @@ export default function ResumePage() {
         <link rel="canonical" href="https://aadittambe.com/resume/" />
       </Head>
       <div className="resume">
-        <h1>📝 Resume</h1>
+        <h1>Resume.</h1>
         {/* <div className="ital source">
           <p>
             And{" "}
