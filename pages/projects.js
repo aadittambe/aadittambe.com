@@ -57,7 +57,7 @@ const Story = (props) => {
             )}
           </div>
           <Image
-            src={img.startsWith("https") ? img : `/images/${img}?.jpeg`}
+            src={img.startsWith("https") ? img : `/images/${img}`}
             alt=""
             fill
             style={{ objectFit: "cover" }}
