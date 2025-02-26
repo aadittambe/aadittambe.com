@@ -18,8 +18,8 @@ export default function Home({}) {
         <link rel="canonical" href="https://aadittambe.com/" />
       </Head>
 
-      <div className="home container">
-        <div className="headline-wrapper">
+      <div className="home">
+        <div>
           <h1>
             <span className="wave">👋🏽</span> Hi — I am Aadit.
           </h1>
@@ -28,14 +28,14 @@ export default function Home({}) {
         {intro.map((text, index) => {
           return <p key={index} dangerouslySetInnerHTML={{ __html: text }}></p>;
         })}
-        <div>
+        <div className="icons-row">
           <a
             href="mailto:aadit.tambe@gmail.com"
             rel="noreferrer"
             target="_blank"
             aria-label="email"
           >
-            <FontAwesomeIcon className="icon" icon={faEnvelope} size="2x" />
+            <FontAwesomeIcon className="icon" icon={faEnvelope} size="1x" />
           </a>
           <a
             href="https://www.linkedin.com/in/aadittambe/"
@@ -43,7 +43,7 @@ export default function Home({}) {
             target="_blank"
             aria-label="LinkedIn"
           >
-            <FontAwesomeIcon className="icon" icon={faLinkedin} size="2x" />
+            <FontAwesomeIcon className="icon" icon={faLinkedin} size="1x" />
           </a>
           <a
             href="https://github.com/aadittambe"
@@ -51,7 +51,7 @@ export default function Home({}) {
             target="_blank"
             aria-label="GitHub"
           >
-            <FontAwesomeIcon className="icon" icon={faGithub} size="2x" />
+            <FontAwesomeIcon className="icon" icon={faGithub} size="1x" />
           </a>
         </div>
       </div>

@@ -65,9 +65,7 @@ const Story = (props) => {
           />
         </div>
         <div className="card-text">
-          <p className="story-org">
-            📍<span className="ital"> {org}</span>
-          </p>
+          <p className="story-org">📍{org}</p>
           <p className="story-name">
             🔗 <span>{project}</span>
           </p>
@@ -95,7 +93,7 @@ export default function ProjectsPage() {
         <link rel="canonical" href="https://aadittambe.com/projects/" />
       </Head>
       <div className="projects">
-        <div className="intro container">
+        <div className="intro">
           <h1>🖥 Projects</h1>
           <p>
             I specialize in telling data-driven stories visually, and my work
@@ -115,11 +113,9 @@ export default function ProjectsPage() {
             figuring out programming concepts I may not know.
           </p>
         </div>
-        <fieldset className="btn-row">
-          <legend>
-            <p> 👀 Looking for a particular type of project? </p>
-          </legend>
-          <p className="filters">
+        <fieldset>
+          <legend>👀 Looking for a particular type of project?</legend>
+          <div className="filters">
             <label
               className={`btn reset ${clicked === "all" && "active"}`}
               style={
@@ -163,9 +159,9 @@ export default function ProjectsPage() {
                 {cat.topic}
               </label>
             ))}
-          </p>
+          </div>
         </fieldset>
-        <div className="layout">
+        <div className="grid">
           {stories
             .filter((d) => d.show !== "false")
             .filter((d) =>
@@ -186,7 +182,7 @@ export default function ProjectsPage() {
               );
             })}
         </div>
-        <div className="source ital">
+        <div className="source">
           <p>
             I am a supporter of open-source code — the source code for this
             website is available on{" "}
