@@ -101,7 +101,7 @@ export default function ProjectsPage() {
             impact them.
           </p>
           <p>
-            This page includes projects I have worked on for{" "}
+            This page includes a sample of projects I have worked on for{" "}
             <a href="https://www.washingtonpost.com/">The Washington Post</a>,{" "}
             <a href="https://merrill.umd.edu/howard-center-for-investigative-journalism">
               the Howard Center for Investigative Journalism
