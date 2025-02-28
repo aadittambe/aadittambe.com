@@ -44,21 +44,6 @@
       }
     }
 
-    .icon {
-      width: 36px;
-      padding-right: 10px;
-      padding-left: 10px;
-      padding-top: 10px;
-      padding-bottom: 10px;
-      transition: all 0.5s;
-      color: $site-black;
-    }
-
-    .icon:hover {
-      transform: scale(1.25);
-      color: $site-yellow;
-    }
-
     @keyframes wave-animation {
       0% {
         transform: rotate(0deg);

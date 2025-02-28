@@ -28,32 +28,6 @@ export default function Home({}) {
         {intro.map((text, index) => {
           return <p key={index} dangerouslySetInnerHTML={{ __html: text }}></p>;
         })}
-        <div className="icons-row">
-          <a
-            href="mailto:aadit.tambe@gmail.com"
-            rel="noreferrer"
-            target="_blank"
-            aria-label="email"
-          >
-            <FontAwesomeIcon className="icon" icon={faEnvelope} size="1x" />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/aadittambe/"
-            rel="noreferrer"
-            target="_blank"
-            aria-label="LinkedIn"
-          >
-            <FontAwesomeIcon className="icon" icon={faLinkedin} size="1x" />
-          </a>
-          <a
-            href="https://github.com/aadittambe"
-            rel="noreferrer"
-            target="_blank"
-            aria-label="GitHub"
-          >
-            <FontAwesomeIcon className="icon" icon={faGithub} size="1x" />
-          </a>
-        </div>
       </div>
     </Layout>
   );
