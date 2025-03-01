@@ -4,7 +4,9 @@ footer {
   .container {
     max-width: $xs;
     margin: auto;
-
+    p {
+      font-size: 1rem;
+    }
     .divider {
       height: 1px;
       background-color: $site-black;
