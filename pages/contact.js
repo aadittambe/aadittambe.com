@@ -59,37 +59,37 @@ const ContactPage = () => {
         {socials.map((s, i) => (
           <div key={i} className="flex">
             <p className="left">{s.name}</p>
-            <p className="right">
+            <div className="right">
               {s.link ? (
                 <>
-                  <a href={s.link} target="_blank">
-                    {s.text}
-                  </a>
+                  <p>
+                    <a href={s.link} target="_blank">
+                      {s.text}
+                    </a>
+                  </p>
                   {s.inActive && (
-                    <>
+                    <div>
                       <FontAwesomeIcon
                         icon={faCircleInfo}
                         data-tooltip-id={`${s.name}-tooltip`}
                         data-tooltip-content={s.tooltipText}
                         data-tooltip-place="right"
-                        style={{
-                          width: "20px",
-                          verticalAlign: "middle",
-                          marginLeft: "12px",
-                        }}
+                        className="info-icon"
+                        aria-hidden="false"
+                        focusable="true"
                       />
                       <Tooltip
                         className="tooltip"
                         id={`${s.name}-tooltip`}
                         place="right"
                       />
-                    </>
+                    </div>
                   )}
                 </>
               ) : (
-                s.text
+                <p>{s.text}</p>
               )}
-            </p>
+            </div>
           </div>
         ))}
       </div>

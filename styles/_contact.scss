@@ -28,10 +28,22 @@
       }
     }
     .right {
+      display: flex;
+      align-items: center;
       width: 70%;
       @media only screen and (max-width: $md) {
         width: 100%;
       }
+    }
+  }
+
+  .info-icon {
+    width: 20px;
+    vertical-align: middle;
+    margin-left: 9px;
+    margin-bottom: 9px;
+    @media only screen and (max-width: $md) {
+      margin-top: 9px;
     }
   }
 
