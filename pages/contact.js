@@ -12,7 +12,7 @@ const ContactPage = () => {
       text: "aadit.tambe@gmail.com",
       link: "mailto:aadit.tambe@gmail.com",
     },
-    { name: "Mobile phone", text: "+82 10-4570-1501" },
+    { name: "Mobile phone", text: "(267) 250-1220" },
     {
       name: "LinkedIn",
       text: "in/aadittambe",
