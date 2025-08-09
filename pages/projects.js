@@ -107,9 +107,8 @@ export default function ProjectsPage() {
               the Howard Center for Investigative Journalism
             </a>
             , <a href="https://cnsmaryland.org/">Capital News Service</a>,{" "}
-            <a href="https://www.nbcnews.com/datagraphics">NBC News</a>,{" "}
-            <a href="https://dailyiowan.com/">The Daily Iowan</a>, as well as
-            personal practice projects. My work demonstrates my commitment to
+            <a href="https://www.nbcnews.com/datagraphics">NBC News</a>, as well
+            as personal practice projects. My work demonstrates my commitment to
             figuring out programming concepts I may not know.
           </p>
         </div>
