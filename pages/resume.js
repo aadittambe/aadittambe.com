@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Layout from "../components/layout";
+import Link from "next/link";
 
 const data = require("../data/content.json");
 
@@ -17,20 +18,20 @@ export default function ResumePage() {
       </Head>
       <div className="resume">
         <h1>Resume.</h1>
-        {/* <div className="ital source">
+        <div className="ital source">
           <p>
             And{" "}
-            <a
-              href="/docs/AaditTambe_Resume.pdf"
+            <Link
+              href="/AaditTambe_Resume.pdf"
               alt="alt text"
               target="_blank"
               rel="noopener noreferrer"
             >
               here’s
-            </a>{" "}
+            </Link>{" "}
             a PDF, if that’s what you’re looking for.
           </p>
-        </div> */}
+        </div>
         <div className="section">
           <h2>💼 Work experience</h2>
           {work.map((d, i) => (
