@@ -10,7 +10,7 @@ header {
   }
 
   nav {
-    max-width: $xs;
+    max-width: calc($xs + 12px);
     margin: auto;
     font-size: 1rem;
     font-weight: 500;
