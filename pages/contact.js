@@ -55,7 +55,7 @@ const ContactPage = () => {
         <link rel="canonical" href="https://aadittambe.com/contact/" />
       </Head>
       <div className="contact container">
-        <h1>Contact.</h1>
+        <h1>Get in touch.</h1>
         {socials.map((s, i) => (
           <div key={i} className="flex">
             <p className="left">{s.name}</p>

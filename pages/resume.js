@@ -17,19 +17,18 @@ export default function ResumePage() {
         <link rel="canonical" href="https://aadittambe.com/resume/" />
       </Head>
       <div className="resume">
-        <h1>Resume.</h1>
+        <h1>Some of my experience and skills.</h1>
         <div className="ital source">
           <p>
-            And{" "}
             <Link
               href="/AaditTambe_Resume.pdf"
               alt="alt text"
               target="_blank"
               rel="noopener noreferrer"
             >
-              here’s
+              Here’s
             </Link>{" "}
-            a PDF, if that’s what you’re looking for.
+            a PDF resume, if that’s what you’re looking for.
           </p>
         </div>
         <div className="section">

@@ -94,7 +94,7 @@ export default function ProjectsPage() {
       </Head>
       <div className="projects">
         <div className="intro">
-          <h1>Projects.</h1>
+          <h1>A selection of my work.</h1>
           <p>
             I specialize in telling data-driven stories visually, and my work
             helps people understand the news and make sense of the policies that
@@ -164,7 +164,7 @@ export default function ProjectsPage() {
           {stories
             .filter((d) => d.show !== "false")
             .filter((d) =>
-              clicked === "all" ? d : d.storyType.includes(clicked)
+              clicked === "all" ? d : d.storyType.includes(clicked),
             )
             .map((d, ind) => {
               return (
