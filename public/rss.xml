@@ -9,10 +9,10 @@
             <link>https://aadittambe.com</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Wed, 09 Jul 2025 11:42:00 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 25 Jan 2026 19:38:01 GMT</lastBuildDate>
         <atom:link href="https://aadittambe.com/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Wed, 09 Jul 2025 11:42:00 GMT</pubDate>
-        <copyright><![CDATA[All rights reserved 2025]]></copyright>
+        <pubDate>Sun, 25 Jan 2026 19:38:01 GMT</pubDate>
+        <copyright><![CDATA[All rights reserved 2026]]></copyright>
         <item>
             <title><![CDATA[Optimizing Next.js with Flat JSON Files]]></title>
             <description><![CDATA[To optimize performance in Next.js projects, particularly those with large datasets, a strategy of flattening CMS data into JSON files during the build process and serving them client-side from the public folder can result in faster, smoother user experiences.]]></description>
