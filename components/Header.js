@@ -31,13 +31,10 @@ const Header = (props) => {
       const vizEl = document.getElementById("viz");
       const width = vizEl ? vizEl.offsetWidth : 0;
       const height = 150;
-      const strength = 0.05;
+      const strength = 0.1;
 
       const nodes = data.stories.map((d) => ({
-        radius:
-          width < 300
-            ? d.storyType.split(" ").length * 3 + 6
-            : d.storyType.split(" ").length * 3 + 8,
+        radius: d.storyType.split(" ").length * 3 + 4,
         type: d.storyType.split(" "),
       }));
 
