@@ -31,7 +31,7 @@ const Header = (props) => {
       const vizEl = document.getElementById("viz");
       const width = vizEl ? vizEl.offsetWidth : 0;
       const height = 150;
-      const strength = 0.1;
+      const strength = 0.09;
 
       const nodes = data.stories.map((d) => ({
         radius: d.storyType.split(" ").length * 3 + 4,

@@ -1,11 +1,11 @@
 header {
-  max-width: calc($xs);
+  max-width: calc($xs + 12px);
   margin: auto;
 
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
-  padding: 60px 0px;
+  padding: 60px 12px;
   a,
   a:hover {
     border: none;
