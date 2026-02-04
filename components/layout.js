@@ -1,18 +1,9 @@
 import Head from "next/head";
-import Header from "./Header";
-import Footer from "./Footer";
 import Script from "next/script";
-
-import { Fraunces } from "next/font/google";
-
-const fraunces = Fraunces({
-  weight: ["300", "500", "700"],
-  subsets: ["latin"],
-});
 
 export default function Layout({ children, home, blog }) {
   return (
-    <div className={fraunces.className}>
+    <div>
       <Head>
         <meta
           name="description"
@@ -48,11 +39,7 @@ export default function Layout({ children, home, blog }) {
           `,
         }}
       />
-      <main className={home && "home-wrapper"}>
-        <Header />
-        {children}
-        <Footer />
-      </main>
+      <main className={home && "home-wrapper"}>{children}</main>
     </div>
   );
 }

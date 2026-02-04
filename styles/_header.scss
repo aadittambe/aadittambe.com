@@ -1,17 +1,32 @@
 header {
-  padding: 60px 16px;
+  max-width: calc($xs + 18px);
+  margin: 0px auto;
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  padding: 60px 12px;
+  justify-content: space-between;
   a,
   a:hover {
     border: none;
   }
+  #viz {
+    overflow: hidden;
+  }
 
   @media only screen and (max-width: $xs) {
+    width: auto;
+    margin: 0px;
+    justify-content: space-between;
+    #viz {
+      width: 100%;
+    }
+
     padding: 18px 16px;
   }
 
   nav {
-    max-width: calc($xs + 12px);
-    margin: auto;
     font-size: 1rem;
     font-weight: 500;
   }

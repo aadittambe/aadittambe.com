@@ -29,7 +29,8 @@
     "request": "^2.88.2",
     "reset-css": "^5.0.2",
     "sass": "^1.56.1",
-    "swr": "^2.0.0"
+    "swr": "^2.0.0",
+    "d3": "^7.9.0"
   },
   "devDependencies": {
     "date-fns": "^4.1.0",

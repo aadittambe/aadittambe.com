@@ -1,11 +1,11 @@
 .home-wrapper {
-  min-height: 100vh;
+  // min-height: 100vh;
   display: flex;
   flex-direction: column;
 
   .home {
     max-width: $xs;
-    margin: auto;
+    margin: 0px auto;
     padding-left: 18px;
     padding-right: 18px;
 
@@ -20,7 +20,8 @@
     }
 
     .wave:hover {
-      cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:$site-black;font-size:24px;'><text y='50%'>👋🏽</text></svg>")
+      cursor:
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:$site-black;font-size:24px;'><text y='50%'>👋🏽</text></svg>")
           16 0,
         auto;
       animation-name: wave-animation;

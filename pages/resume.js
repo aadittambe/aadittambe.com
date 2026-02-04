@@ -32,7 +32,7 @@ export default function ResumePage() {
           </p>
         </div>
         <div className="section">
-          <h2>💼 Work experience</h2>
+          <h2 id="experience">💼 Work experience</h2>
           {work.map((d, i) => (
             <div className="item" key={i}>
               <h3 className="org">{d.name}</h3>
@@ -70,7 +70,7 @@ export default function ResumePage() {
           ))}
         </div>
         <div className="section skls">
-          <h2>🛠 Skills</h2>
+          <h2 id="skills">🛠 Skills</h2>
           <div className="skills">
             {skills.map((d, i) => (
               <div className="skill" key={i}>
@@ -83,7 +83,7 @@ export default function ResumePage() {
           </div>
         </div>
         <div className="section">
-          <h2>📚 Education</h2>
+          <h2 id="education">📚 Education</h2>
           {ed.map((d, i) => (
             <div className="item" key={i}>
               <h3 className="org">{d.name}</h3>
