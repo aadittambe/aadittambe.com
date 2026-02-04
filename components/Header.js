@@ -13,15 +13,13 @@ const Header = (props) => {
     if (activeLink.includes("blog")) {
       setActiveLink("blog");
     }
-  }, [activeLink]);
+  }, [activeLink, router]);
+
+  useEffect(() => {
+    setActiveLink(page === "" ? "home" : page);
+  }, [page, router]);
 
   const svgRef = useRef(null);
-
-  // useEffect(() => {
-  //   if (page === "colophon") {
-  //     setActiveLink(null);
-  //   }
-  // }, [page]);
 
   useEffect(() => {
     let simulation;
