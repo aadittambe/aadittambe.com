@@ -10,7 +10,7 @@ const fraunces = Fraunces({
 
 export default function App({ Component, pageProps }) {
   return (
-    <div className={fraunces.className}>
+    <div className={`app-wrapper ${fraunces.className}`}>
       <Header />
       <Component {...pageProps} />
       <Footer />
