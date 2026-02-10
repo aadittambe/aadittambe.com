@@ -27,8 +27,8 @@
       border-radius: 4px;
       width: 100%;
       transition: 0.4s ease-in-out;
-      box-shadow: 0 8px 16px 0 #66666640;
-
+      border: 1px solid $site-background-alt;
+      box-shadow: 0 8px 24px 0 #66666626;
       .card-text {
         padding-left: 8px;
         padding-right: 8px;
@@ -44,9 +44,8 @@
       }
 
       .story-org {
-        font-style: italic;
         padding-bottom: 4px;
-        font-size: 1rem;
+        font-size: 0.87rem;
         line-height: 1.2rem;
       }
     }
@@ -98,9 +97,9 @@
     border-radius: 6px;
     display: inline-block;
     min-width: 82px;
-    color: $site-black;
+    color: $site-text;
     &.active {
-      color: $site-black;
+      color: $site-text-on-yellow;
       background-color: $site-yellow;
     }
   }

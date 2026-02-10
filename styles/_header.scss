@@ -55,6 +55,10 @@ header {
     &.active {
       background-color: $site-yellow;
       width: fit-content;
+
+      a {
+        color: $site-text-on-yellow !important;
+      }
     }
   }
 }
