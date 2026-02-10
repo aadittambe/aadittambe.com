@@ -65,9 +65,9 @@ const Story = (props) => {
           />
         </div>
         <div className="card-text">
-          <p className="story-org">📍{org}</p>
+          <p className="story-org">{org}</p>
           <p className="story-name">
-            🔗 <span>{project}</span>
+            <span>{project}</span>
           </p>
         </div>
       </a>
