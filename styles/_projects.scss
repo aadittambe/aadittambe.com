@@ -98,9 +98,9 @@
     border-radius: 6px;
     display: inline-block;
     min-width: 82px;
-    color: $site-black;
+    color: $site-text;
     &.active {
-      color: $site-black;
+      color: $site-text-on-yellow;
       background-color: $site-yellow;
     }
   }

@@ -44,7 +44,7 @@
 
   .divider {
     height: 1px;
-    background-color: $site-black;
+    background-color: $site-text;
     margin-bottom: 24px;
   }
 
@@ -52,11 +52,11 @@
     width: 100%;
   }
   em {
-    color: $site-gray;
+    color: $site-background-alt;
   }
 
   pre {
-    border: 1px solid $site-gray;
+    border: 1px solid $site-background-alt;
     border-radius: 2px;
     padding: 12px;
     margin-bottom: 2rem;
@@ -113,7 +113,7 @@
     }
     .label {
       // font-size: 16px; sadsdf
-      color: $site-gray;
+      color: $site-background-alt;
     }
   }
 }

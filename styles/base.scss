@@ -1,10 +1,35 @@
 @import "./normalize";
 
-$site-yellow: #f6c90e;
-$site-black: #303841;
-$site-white: #f7f7f7;
-$site-blue: #2e4750;
-$site-gray: (#{$site-black}ad);
+:root {
+  --site-background: #f2f4f7;
+  --site-text: #2e3440;
+  --site-background-alt: #e1e6ee; /* pre */
+  --site-text-alt: #3b4252;
+
+  --site-yellow: #f6c90e;
+  --site-text-on-yellow: #2b2f36;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --site-background: #2e3440;
+    --site-text: #eceff4;
+    --site-background-alt: #3b4252; /* pre */
+    --site-text-alt: #e5e9f0;
+
+    --site-yellow: #f6c90e;
+    --site-text-on-yellow: #2b2f36;
+  }
+}
+
+$site-background: var(--site-background);
+$site-text: var(--site-text);
+$site-background-alt: var(--site-background-alt);
+$site-text-alt: var(--site-text-alt);
+$site-background: var(--site-background);
+
+$site-yellow: var(--site-yellow);
+$site-text-on-yellow: var(--site-text-on-yellow);
 
 $xxs: 400px;
 $xs: 672px;
@@ -28,15 +53,23 @@ $lg: 1280px;
   justify-content: space-between;
 }
 
+* {
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
+}
+
 body {
-  color: $site-black;
+  background-color: $site-background;
+  color: $site-text;
 }
 
 a {
   text-decoration: none;
   border-bottom: solid 2px $site-yellow;
   transition: all 0.1s;
-  color: $site-black;
+  color: $site-text;
 }
 
 a:hover {
