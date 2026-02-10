@@ -1,24 +1,24 @@
 @import "./normalize";
 
 :root {
-  --site-background: #f2f4f7;
-  --site-text: #2e3440;
-  --site-background-alt: #e1e6ee; /* pre */
-  --site-text-alt: #3b4252;
+  --site-background: #f8f8f2;
+  --site-text: #282a36;
+  --site-background-alt: #eaeaf0; /* pre */
+  --site-text-alt: #44475a;
 
-  --site-yellow: #f6c90e;
-  --site-text-on-yellow: #2b2f36;
+  --site-yellow: #8b80d6;
+  --site-text-on-yellow: #eaeaf0;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --site-background: #2e3440;
-    --site-text: #eceff4;
-    --site-background-alt: #3b4252; /* pre */
-    --site-text-alt: #e5e9f0;
+    --site-background: #282a36;
+    --site-text: #f8f8f2;
+    --site-background-alt: #343746; /* pre */
+    --site-text-alt: #cfd3f0;
 
-    --site-yellow: #f6c90e;
-    --site-text-on-yellow: #2b2f36;
+    --site-yellow: #8b80d6;
+    --site-text-on-yellow: #eaeaf0;
   }
 }
 
