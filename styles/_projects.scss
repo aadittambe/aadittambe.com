@@ -27,8 +27,8 @@
       border-radius: 4px;
       width: 100%;
       transition: 0.4s ease-in-out;
-      box-shadow: 0 8px 16px 0 #66666640;
-
+      border: 1px solid $site-background-alt;
+      box-shadow: 0 8px 24px 0 #66666626;
       .card-text {
         padding-left: 8px;
         padding-right: 8px;
