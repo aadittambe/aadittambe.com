@@ -56,19 +56,25 @@ const Header = (props) => {
 
       function getColor(t) {
         if (t === "development") {
-          return "#fd7f6f";
+          // Brick red (serious, not warning-red)
+          return "#8b80d6";
         } else if (t === "graphics") {
-          return "#7eb0d5";
+          // Gold / ochre (visual, warm)
+          return "#d4a44c";
         } else if (t === "app") {
-          return "#b2e061";
+          // True green (runtime, alive)
+          return "#4fa36f";
         } else if (t === "docs") {
-          return "#ffb55a";
+          // Burnt amber (text, paper)
+          return "#b8894a";
         } else if (t === "data") {
-          return "#ffee65";
+          // Olive-lime (analytical, unmistakable)
+          return "#9cab3c";
         } else if (t === "reporting") {
-          return "#fdcce5";
+          // Your coder purple (unchanged)
+          return "#c65a4a";
         } else {
-          return "blue";
+          return "#ff79c6";
         }
       }
 
@@ -105,7 +111,8 @@ const Header = (props) => {
         const p1 = d3.pointer(event, this);
         root.fx = p1[0];
         root.fy = p1[1];
-        simulation.alphaTarget(0.3).restart();
+
+        simulation.alpha(0.3).restart();
       });
     })();
 
