@@ -1,9 +1,38 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import { useInView } from "react-intersection-observer";
-import { TailSpin } from "react-loader-spinner";
 import Head from "next/head";
 import Layout from "../components/layout";
+
+const CustomSpinner = ({ size = 36, color = "var(--site-text)" }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 50 50"
+    role="status"
+    aria-label="loading"
+  >
+    <circle
+      cx="25"
+      cy="25"
+      r="20"
+      fill="none"
+      stroke={color}
+      strokeWidth="4"
+      strokeLinecap="round"
+      strokeDasharray="31.4 31.4"
+    >
+      <animateTransform
+        attributeName="transform"
+        type="rotate"
+        from="0 25 25"
+        to="360 25 25"
+        dur="0.9s"
+        repeatCount="indefinite"
+      />
+    </circle>
+  </svg>
+);
 
 const data = require("../data/content.json");
 
@@ -38,23 +67,12 @@ const Story = (props) => {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              backgroundColor: "#f7f7f7",
+              backgroundColor: "var(--site-background-alt)",
               opacity: !isLoaded ? 1 : 0,
               transition: ".4s ease-in-out",
             }}
           >
-            {!isLoaded && (
-              <TailSpin
-                visible={true}
-                height="36"
-                width="36"
-                color="black"
-                ariaLabel="tail-spin-loading"
-                radius="1"
-                wrapperStyle={{}}
-                wrapperClass=""
-              />
-            )}
+            {!isLoaded && <CustomSpinner />}
           </div>
           <Image
             src={img.startsWith("https") ? img : `/images/${img}`}
