@@ -169,7 +169,7 @@ export default function ProjectsPage() {
             .map((d, ind) => {
               return (
                 <Story
-                  key={ind}
+                  key={d.url}
                   storyType={d.storyType}
                   url={d.url}
                   tools={d.tools}
