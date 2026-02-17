@@ -1,0 +1,35 @@
+:root {
+  --site-background: #f8f8f2;
+  --site-text: #282a36;
+  --site-background-alt: #eaeaf0; /* pre */
+  --site-text-alt: #44475a;
+
+  --site-yellow: #8b80d6;
+  --site-text-on-yellow: #eaeaf0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --site-background: #282a36;
+    --site-text: #f8f8f2;
+    --site-background-alt: #343746; /* pre */
+    --site-text-alt: #cfd3f0;
+
+    --site-yellow: #8b80d6;
+    --site-text-on-yellow: #eaeaf0;
+  }
+}
+
+$site-background: var(--site-background);
+$site-text: var(--site-text);
+$site-background-alt: var(--site-background-alt);
+$site-text-alt: var(--site-text-alt);
+
+$site-yellow: var(--site-yellow);
+$site-text-on-yellow: var(--site-text-on-yellow);
+
+$xxs: 400px;
+$xs: 672px;
+$sm: 768px;
+$md: 992px;
+$lg: 1280px;
