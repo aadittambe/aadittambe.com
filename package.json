@@ -3,12 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "download": "node scripts/fetch.js",
+    "download": "node scripts/fetch.mjs",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "deploy": "npm run build && node scripts/deploy.js"
+    "deploy": "npm run build && node scripts/deploy.mjs"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.1",

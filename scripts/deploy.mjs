@@ -1,10 +1,9 @@
-const FtpDeploy = require("ftp-deploy");
-const ftpDeploy = new FtpDeploy();
-require("dotenv").config();
+import FtpDeploy from "ftp-deploy";
+import dotenv from "dotenv";
 
-if (process.env.NODE_ENV !== "production") {
-  require("dotenv").config();
-}
+dotenv.config();
+
+const ftpDeploy = new FtpDeploy();
 
 const config = {
   user: process.env.FTP_USERNAME,
