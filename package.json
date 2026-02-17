@@ -5,6 +5,7 @@
   "scripts": {
     "download": "node scripts/fetch.mjs",
     "dev": "next dev",
+    "prebuild": "node scripts/clean-build.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
