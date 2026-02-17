@@ -57,7 +57,7 @@ const ContactPage = () => {
       <div className="contact container">
         <h1>Ways to get in touch.</h1>
         {socials.map((s, i) => (
-          <div key={i} className="flex">
+          <div key={i} className="social">
             <p className="left">{s.name}</p>
             <div className="right">
               {s.link ? (
