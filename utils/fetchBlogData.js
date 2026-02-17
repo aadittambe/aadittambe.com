@@ -1,22 +1,21 @@
-const request = require("request");
-const fs = require("fs");
+import { writeFile } from "fs/promises";
 
 const fetchBlogData = async (config) => {
-  for (let i = 0; i < config.length; i++) {
-    const url = `https://docs.google.com/document/d/${config[i].id}/export?format=md`;
-    request(url, (error, response, body) => {
-      const removeSlashes = body.replace(/\\/g, "");
+  await Promise.all(
+    config.map(async (item) => {
+      const url = `https://docs.google.com/document/d/${item.id}/export?format=md`;
 
-      if (error) console.log(error);
-      else if (response) {
-        const dataPath = `./blog/${config[i].slug}.md`;
-
-        fs.writeFile(dataPath, removeSlashes, (err) => {
-          if (err) console.error(err);
-        });
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error(`Failed to fetch ${item.slug}`);
       }
-    });
-  }
+
+      const body = await response.text();
+      const cleaned = body.replace(/\\/g, "");
+
+      await writeFile(`./blog/${item.slug}.md`, cleaned);
+    }),
+  );
 };
 
 export default fetchBlogData;

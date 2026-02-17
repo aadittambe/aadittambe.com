@@ -1,6 +1,5 @@
-import fs from "node:fs";
+import { writeFile } from "fs/promises";
 import archieml from "archieml";
-import request from "request";
 
 const CWD = process.cwd();
 // const CONFIG_PATH = `${CWD}/config.json`;
@@ -28,20 +27,29 @@ const CONFIG = {
 };
 const { doc } = CONFIG.google;
 
-const makeRequest = (opt, cb) => {
-  const url = `https://docs.google.com/document/d/${opt.id}/export?format=txt`;
-  request(url, (error, response, body) => {
-    if (error) console.log(error);
-    else if (response) {
-      const parsed = archieml.load(body);
-      const str = JSON.stringify(parsed);
-      const file = `${CWD}/${opt.filepath || "data/content.json"}`;
-      fs.writeFile(file, str, (err) => {
-        if (err) console.error(err);
-        cb();
-      });
+const makeRequest = async (opt, cb) => {
+  try {
+    const url = `https://docs.google.com/document/d/${opt.id}/export?format=txt`;
+
+    const response = await fetch(url);
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
     }
-  });
+
+    const body = await response.text();
+
+    const parsed = archieml.load(body);
+    const str = JSON.stringify(parsed);
+    const file = `${CWD}/${opt.filepath || "data/content.json"}`;
+
+    writeFile(file, str, (err) => {
+      if (err) console.error(err);
+      cb();
+    });
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 function init() {
