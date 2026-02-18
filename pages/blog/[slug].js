@@ -1,14 +1,14 @@
 import { compareDesc } from "date-fns";
+import Head from "next/head";
+import Link from "next/link";
+import Layout from "../../components/layout";
 import {
   getAllPostSlugs,
   getPostDataBySlug,
   getSortedPostsData,
 } from "../../lib/posts";
-import Head from "next/head";
-import Link from "next/link";
-import Layout from "../../components/layout";
-
-const longAP = require("ap-style-date").longAP;
+import apStyleDate from "ap-style-date";
+const { longAP } = apStyleDate;
 
 export default function Post({ postData, prevPost, nextPost }) {
   return (
@@ -67,16 +67,19 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const data = getSortedPostsData();
-  const allPostsData = data.sort((a, b) =>
-    compareDesc(new Date(a.date), new Date(b.date))
+  const sortedPosts = [...getSortedPostsData()].sort((a, b) =>
+    compareDesc(new Date(a.date), new Date(b.date)),
   );
-  const postIndex = allPostsData.findIndex((post) => post.slug === params.slug);
+
+  const postIndex = sortedPosts.findIndex((post) => post.slug === params.slug);
+
   const postData = await getPostDataBySlug(params.slug);
 
-  const prevPost = postIndex > 0 ? allPostsData[postIndex - 1] : null;
+  const prevPost = postIndex > 0 ? sortedPosts[postIndex - 1] : null;
   const nextPost =
-    postIndex < allPostsData.length - 1 ? allPostsData[postIndex + 1] : null;
+    postIndex >= 0 && postIndex < sortedPosts.length - 1
+      ? sortedPosts[postIndex + 1]
+      : null;
 
   return {
     props: {
