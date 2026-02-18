@@ -1,7 +1,12 @@
+import "dotenv/config";
 import FtpDeploy from "ftp-deploy";
-import dotenv from "dotenv";
 
-dotenv.config();
+const required = ["FTP_USER", "FTP_PASSWORD", "FTP_HOST"];
+for (const key of required) {
+  if (!process.env[key]) {
+    throw new Error(`Missing required env var: ${key}`);
+  }
+}
 
 const ftpDeploy = new FtpDeploy();
 
@@ -22,7 +27,10 @@ const config = {
   sftp: true,
 };
 
-ftpDeploy
-  .deploy(config)
-  .then((res) => console.log("finished:", res))
-  .catch((err) => console.log(err));
+try {
+  const res = await ftpDeploy.deploy(config);
+  console.log("finished:", res);
+} catch (err) {
+  console.error("deploy failed:", err);
+  process.exitCode = 1;
+}

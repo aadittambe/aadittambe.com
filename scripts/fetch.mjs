@@ -2,69 +2,39 @@ import { writeFile } from "fs/promises";
 import archieml from "archieml";
 
 const CWD = process.cwd();
-// const CONFIG_PATH = `${CWD}/config.json`;
-// const CONFIG = JSON.parse(fs.readFileSync(CONFIG_PATH, 'utf-8'));
-const CONFIG = {
-  google: {
-    doc: [
-      {
-        id: "1lnWLWaUz2b-ho5QxBcjh5jdxF4Gf_K2gumFWfyma4xc",
-        filepath: "data/content.json",
-      },
-      {
-        id: "",
-        filepath: "",
-      },
-    ],
-    sheet: [
-      {
-        id: "",
-        gid: "",
-        filepath: "",
-      },
-    ],
+
+const DOCS = [
+  {
+    id: "1lnWLWaUz2b-ho5QxBcjh5jdxF4Gf_K2gumFWfyma4xc",
+    filepath: "data/content.json",
   },
-};
-const { doc } = CONFIG.google;
+];
 
-const makeRequest = async (opt, cb) => {
-  try {
-    const url = `https://docs.google.com/document/d/${opt.id}/export?format=txt`;
+async function fetchDoc({ id, filepath = "data/content.json" }) {
+  const url = `https://docs.google.com/document/d/${id}/export?format=txt`;
 
-    const response = await fetch(url);
-
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
-    }
-
-    const body = await response.text();
-
-    const parsed = archieml.load(body);
-    const str = JSON.stringify(parsed);
-    const file = `${CWD}/${opt.filepath || "data/content.json"}`;
-
-    writeFile(file, str, (err) => {
-      if (err) console.error(err);
-      cb();
-    });
-  } catch (error) {
-    console.error(error);
+  const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error(`Failed to fetch doc ${id} (${response.status})`);
   }
-};
 
-function init() {
-  let i = 0;
-  const next = () => {
-    const d = doc[i];
-    if (d.id)
-      makeRequest(d, () => {
-        i += 1;
-        if (i < doc.length) next();
-        else process.exit();
-      });
-  };
+  const text = await response.text();
+  const parsed = archieml.load(text);
 
-  next();
+  const outputPath = `${CWD}/${filepath}`;
+  await writeFile(outputPath, JSON.stringify(parsed, null, 2));
+
+  console.log(`✓ Wrote ${outputPath}`);
 }
 
-init();
+async function main() {
+  for (const doc of DOCS) {
+    if (!doc.id) continue;
+    await fetchDoc(doc);
+  }
+}
+
+main().catch((err) => {
+  console.error(err);
+  process.exit(1);
+});
