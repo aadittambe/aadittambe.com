@@ -157,7 +157,7 @@ const Header = (props) => {
               Contact
             </Link>
           </li>
-          {activeLink === "blog" && (
+          {activeLink.includes("blog") && (
             <li
               id="nav-blog"
               className={activeLink.includes("blog") ? "active" : ""}
