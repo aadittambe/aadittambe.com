@@ -13,7 +13,7 @@ export default function ResumePage() {
   return (
     <Layout>
       <Head>
-        <title>Resume</title>
+        <title>Aadit Tambe — Resume</title>
         <link rel="canonical" href="https://aadittambe.com/resume/" />
       </Head>
       <div className="resume">

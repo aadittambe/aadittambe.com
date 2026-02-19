@@ -51,7 +51,7 @@ const ContactPage = () => {
   return (
     <Layout>
       <Head>
-        <title>Contact</title>
+        <title>Aadit Tambe — Contact</title>
         <link rel="canonical" href="https://aadittambe.com/contact/" />
       </Head>
       <div className="contact container">

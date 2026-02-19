@@ -107,7 +107,7 @@ export default function ProjectsPage() {
   return (
     <Layout>
       <Head>
-        <title>Projects</title>
+        <title>Aadit Tambe — Projects</title>
         <link rel="canonical" href="https://aadittambe.com/projects/" />
       </Head>
       <div className="projects">

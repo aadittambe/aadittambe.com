@@ -42,7 +42,7 @@ export default function BlogPage({ allPostsData = [] }) {
     <Layout>
       <div className="blog container">
         <Head>
-          <title>Aadit&apos;s blog</title>
+          <title>Aadit Tambe — blog</title>
         </Head>
 
         <h1>Blog.</h1>

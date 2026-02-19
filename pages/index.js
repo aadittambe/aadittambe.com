@@ -1,15 +1,12 @@
 import Head from "next/head";
 import Layout from "../components/layout";
 import Link from "next/link";
-const data = require("../data/content.json");
-
-const intro = data.intro;
 
 export default function Home({}) {
   return (
     <Layout home>
       <Head>
-        <title>Aadit Tambe</title>
+        <title>Aadit Tambe — a journalist and developer</title>
         <link rel="canonical" href="https://aadittambe.com/" />
       </Head>
 
