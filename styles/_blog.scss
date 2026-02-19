@@ -54,7 +54,7 @@
     width: 100%;
   }
   em {
-    color: $site-background-alt;
+    color: $site-text;
   }
 
   pre {
@@ -62,7 +62,9 @@
     border-radius: 2px;
     padding: 12px;
     margin-bottom: 2rem;
-    background-color: #e8e6e6;
+    background-color: $site-background-alt;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
   }
   code {
     text-wrap: auto;
@@ -84,7 +86,7 @@
 
   p {
     code {
-      background-color: #e8e6e6;
+      background-color: $site-background-alt;
       padding-left: 6px;
       padding-right: 6px;
 
