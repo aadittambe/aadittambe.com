@@ -7,7 +7,9 @@ const nextConfig = {
     unoptimized: true,
   },
   env: {
-    NEXT_PUBLIC_MODIFIED_DATE: new Date().toLocaleDateString("en-US"),
+    NEXT_PUBLIC_MODIFIED_DATE: new Date().toLocaleDateString("en-US", {
+      timeZone: "America/New_York",
+    }),
   },
 };
 
