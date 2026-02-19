@@ -41,7 +41,7 @@ export default function Home({}) {
           The visualization at the top represents my{" "}
           <Link href="/projects">projects</Link>, grouped by my primary
           contribution — web development, graphics, data analysis, or reporting.
-          That’s not all <Link href="/resume#skills">I’m skilled at.</Link>,
+          That’s not all <Link href="/resume#skills">I’m skilled at</Link>,
           though.
         </p>
 
