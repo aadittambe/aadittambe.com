@@ -1,8 +1,11 @@
-import React from "react";
-import { useRouter } from "next/router";
-import Link from "next/link";
+import apStyleDate from "ap-style-date";
+const { longAP } = apStyleDate;
 
 const Footer = (props) => {
+  const apUpdatedDate = process.env.NEXT_PUBLIC_MODIFIED_DATE
+    ? longAP(process.env.NEXT_PUBLIC_MODIFIED_DATE)
+    : null;
+
   return (
     <footer>
       <div className="container">
@@ -10,7 +13,7 @@ const Footer = (props) => {
         <p>
           © Site developed by Aadit Tambe |{" "}
           <a href="https://github.com/aadittambe/aadittambe.com">Source code</a>{" "}
-          | 2019 – {new Date().getFullYear()}{" "}
+          {apUpdatedDate && `| Last updated ${apUpdatedDate}`}
         </p>
       </div>
     </footer>

@@ -6,6 +6,9 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  env: {
+    NEXT_PUBLIC_MODIFIED_DATE: new Date().toLocaleDateString("en-US"),
+  },
 };
 
 module.exports = nextConfig;
