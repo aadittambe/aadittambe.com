@@ -134,7 +134,10 @@ export default function ProjectsPage() {
         <fieldset>
           <legend>👀 Looking for a particular type of project?</legend>
           <div className="filters">
-            <label
+            <button
+              onClick={(e) => {
+                setClicked("all");
+              }}
               className={`btn reset ${clicked === "all" && "active"}`}
               style={
                 {
@@ -142,19 +145,13 @@ export default function ProjectsPage() {
                 }
               }
             >
-              <input
-                type="radio"
-                name=""
-                value=""
-                id="all"
-                onClick={(e) => {
-                  setClicked("all");
-                }}
-              />
               🌎<br></br>All
-            </label>
+            </button>
             {categories.map((cat, ind) => (
-              <label
+              <button
+                onClick={(e) => {
+                  setClicked(cat.class);
+                }}
                 className={`btn ${cat.class === clicked && "active"}`}
                 key={ind}
                 style={
@@ -163,19 +160,10 @@ export default function ProjectsPage() {
                   }
                 }
               >
-                <input
-                  type="radio"
-                  name=""
-                  value=""
-                  id={cat.class}
-                  onClick={(e) => {
-                    setClicked(cat.class);
-                  }}
-                />
                 {cat.emoji}
                 <br></br>
                 {cat.topic}
-              </label>
+              </button>
             ))}
           </div>
         </fieldset>
