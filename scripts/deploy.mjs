@@ -1,7 +1,7 @@
 import "dotenv/config";
 import FtpDeploy from "ftp-deploy";
 
-const required = ["FTP_USER", "FTP_PASSWORD", "FTP_HOST"];
+const required = ["FTP_USERNAME", "FTP_PASSWORD", "FTP_HOST"];
 for (const key of required) {
   if (!process.env[key]) {
     throw new Error(`Missing required env var: ${key}`);
