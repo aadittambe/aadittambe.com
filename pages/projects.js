@@ -76,8 +76,9 @@ const Story = (props) => {
           </div>
           <Image
             src={img.startsWith("https") ? img : `/images/${img}`}
-            alt=""
+            alt={alt || project || ""}
             fill
+            sizes="(max-width: 672px) 100vw, (max-width: 992px) 50vw, 33vw"
             style={{ objectFit: "cover" }}
             onLoad={() => setIsLoaded(true)}
           />
