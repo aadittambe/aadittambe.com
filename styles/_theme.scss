@@ -6,18 +6,32 @@
 
   --site-yellow: #8b80d6;
   --site-text-on-yellow: #eaeaf0;
+
+  --node-development: #c4a4f8; /* Dracula purple  ~270° */
+  --node-graphics: #f8be70; /* Dracula orange   ~30°  */
+  --node-app: #98eab0;      /* Dracula green    ~140° */
+  --node-docs: #f0f080;     /* Dracula yellow   ~60°  */
+  --node-data: #88e0f8;     /* Dracula cyan     ~190° */
+  --node-reporting: #f8a0a0; /* Dracula red      ~0°   */
+  --node-default: #f0a0d8;  /* Dracula pink     ~310° */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --site-background: #282a36;
-    --site-text: #f8f8f2;
-    --site-background-alt: #343746; /* pre */
-    --site-text-alt: #cfd3f0;
+[data-theme="dark"] {
+  --site-background: #282a36;
+  --site-text: #f8f8f2;
+  --site-background-alt: #343746; /* pre */
+  --site-text-alt: #cfd3f0;
 
-    --site-yellow: #8b80d6;
-    --site-text-on-yellow: #eaeaf0;
-  }
+  --site-yellow: #8b80d6;
+  --site-text-on-yellow: #eaeaf0;
+
+  --node-development: #bd93f9; /* Dracula purple */
+  --node-graphics: #ffb86c; /* Dracula orange */
+  --node-app: #50fa7b; /* Dracula green */
+  --node-docs: #f1fa8c; /* Dracula yellow */
+  --node-data: #8be9fd; /* Dracula cyan */
+  --node-reporting: #ff5555; /* Dracula red */
+  --node-default: #ff79c6; /* Dracula pink */
 }
 
 $site-background: var(--site-background);
