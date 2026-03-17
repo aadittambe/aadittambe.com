@@ -80,7 +80,11 @@ const Header = (props) => {
 
       function ticked() {
         svg
-          .selectAll("circle")
+          .selectAll("circle.node")
+          .attr("cx", (d) => d.x)
+          .attr("cy", (d) => d.y);
+        svg
+          .selectAll("circle.node-blur")
           .attr("cx", (d) => d.x)
           .attr("cy", (d) => d.y);
       }
@@ -100,12 +104,87 @@ const Header = (props) => {
         .on("tick", ticked);
 
       svg
-        .selectAll("circle")
+        .selectAll("circle.node")
         .data(nodes.slice(1))
         .join("circle")
+        .attr("class", "node")
         .attr("r", (d) => d.radius)
         .attr("opacity", 0.7)
         .attr("fill", (d, i) => getColor(d.type[0]));
+
+      const defs = svg.append("defs");
+
+      defs
+        .append("filter")
+        .attr("id", "btn-blur")
+        .append("feGaussianBlur")
+        .attr("stdDeviation", 3);
+
+      defs
+        .append("clipPath")
+        .attr("id", "btn-clip")
+        .append("circle")
+        .attr("cx", width / 2)
+        .attr("cy", height / 2)
+        .attr("r", 17);
+
+      svg
+        .append("g")
+        .attr("clip-path", "url(#btn-clip)")
+        .attr("filter", "url(#btn-blur)")
+        .selectAll("circle.node-blur")
+        .data(nodes.slice(1))
+        .join("circle")
+        .attr("class", "node-blur")
+        .attr("r", (d) => d.radius)
+        .attr("opacity", 1)
+        .attr("fill", (d) => getColor(d.type[0]));
+
+      const isDark = () => document.documentElement.dataset.theme === "dark";
+      const themeIcon = () => (isDark() ? "☀️" : "🌘");
+
+      const toggleTheme = () => {
+        document.documentElement.dataset.theme = isDark() ? "light" : "dark";
+        btn.select("text").text(themeIcon());
+        btn.attr(
+          "aria-label",
+          isDark() ? "Switch to light mode" : "Switch to dark mode",
+        );
+      };
+
+      const btn = svg
+        .append("g")
+        .attr("transform", `translate(${width / 2}, ${height / 2})`)
+        .attr("cursor", "pointer")
+        .attr("class", "center-btn")
+        .attr("role", "button")
+        .attr("tabindex", "0")
+        .attr(
+          "aria-label",
+          isDark() ? "Switch to light mode" : "Switch to dark mode",
+        )
+        .on("click", toggleTheme)
+        .on("keydown", (event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            toggleTheme();
+          }
+        });
+
+      btn
+        .append("circle")
+        .attr("r", 18)
+        .attr("fill", "transparent")
+        .attr("stroke", "var(--site-text)")
+        .attr("stroke-width", 1.5);
+
+      btn
+        .append("text")
+        .attr("text-anchor", "middle")
+        .attr("dominant-baseline", "central")
+        .attr("font-size", "16px")
+        .attr("pointer-events", "none")
+        .text(themeIcon());
 
       svg.on("mousemove", function (event) {
         const p1 = d3.pointer(event, this);
@@ -126,6 +205,7 @@ const Header = (props) => {
       <div id="viz">
         <svg ref={svgRef}></svg>
       </div>
+
       <nav role="navigation">
         <ul>
           <li id="nav-home" className={activeLink === "home" ? "active" : ""}>
