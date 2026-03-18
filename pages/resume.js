@@ -22,7 +22,6 @@ export default function ResumePage() {
           <p>
             <Link
               href="/AaditTambe_Resume.pdf"
-              alt="alt text"
               target="_blank"
               rel="noopener noreferrer"
             >

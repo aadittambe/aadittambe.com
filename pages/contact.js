@@ -63,7 +63,7 @@ const ContactPage = () => {
               {s.link ? (
                 <>
                   <p>
-                    <a href={s.link} target="_blank">
+                    <a href={s.link} target="_blank" rel="noopener noreferrer">
                       {s.text}
                     </a>
                   </p>
