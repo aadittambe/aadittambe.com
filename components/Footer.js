@@ -7,7 +7,7 @@ const Footer = (props) => {
     : null;
 
   return (
-    <footer>
+    <footer className="site-footer">
       <div className="container">
         <div className="divider"></div>
         <p>

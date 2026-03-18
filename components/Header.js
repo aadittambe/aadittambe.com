@@ -183,8 +183,8 @@ const Header = () => {
   }, []);
 
   return (
-    <header>
-      <div id="viz">
+    <header className="site-header">
+      <div className="viz">
         <svg ref={svgRef} />
       </div>
 
