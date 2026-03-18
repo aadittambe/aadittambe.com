@@ -30,7 +30,7 @@
       width: 100%;
       transition: 0.4s ease-in-out;
       border: 1px solid $site-background-alt;
-      box-shadow: 0 8px 24px 0 #66666626;
+      box-shadow: 0 8px 24px 0 rgba(102, 102, 102, 0.15);
       .card-text {
         padding-left: 8px;
         padding-right: 8px;
@@ -39,10 +39,6 @@
 
       .story-name {
         transition: all 0.1s;
-      }
-
-      .story-tools {
-        text-align: right;
       }
 
       .story-org {
@@ -59,8 +55,6 @@
     text-align: center;
     border: none;
     padding: 0px;
-    margin-top: 36px;
-    margin-bottom: 48px;
     max-width: $md;
     margin: auto;
     padding-bottom: 48px;
@@ -78,14 +72,6 @@
   .source {
     max-width: $xs;
     margin: auto;
-  }
-
-  .btn {
-    padding-right: 9px;
-  }
-
-  .btn input {
-    display: none;
   }
 
   .btn {
@@ -108,18 +94,14 @@
     }
   }
 
+  .btn input {
+    display: none;
+  }
+
   @media only screen and (max-width: $md) {
     .btn span {
       max-width: 72px;
       min-width: 72px;
     }
-  }
-
-  .reveal {
-    opacity: 1;
-  }
-
-  .no-reveal {
-    opacity: 0;
   }
 }

@@ -139,11 +139,6 @@ export default function ProjectsPage() {
                 setClicked("all");
               }}
               className={`btn reset ${clicked === "all" && "active"}`}
-              style={
-                {
-                  // backgroundColor: clicked === "all" ? "#F6C90E" : "#F7F7F7",
-                }
-              }
             >
               🌎<br></br>All
             </button>
@@ -154,11 +149,6 @@ export default function ProjectsPage() {
                 }}
                 className={`btn ${cat.class === clicked && "active"}`}
                 key={ind}
-                style={
-                  {
-                    // backgroundColor: cat.class === clicked ? "#F6C90E" : "#F7F7F7",
-                  }
-                }
               >
                 {cat.emoji}
                 <br></br>

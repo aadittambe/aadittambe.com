@@ -46,7 +46,7 @@ export default function BlogPage({ allPostsData = [] }) {
         </Head>
 
         <h1>Blog.</h1>
-        <p style={{ paddingBottom: "24px" }}>
+        <p className="blog-intro">
           You found my blog! I created this page to practice building a blog
           with Next.js, and now end up writing here infrequently. You can
           subscribe to my RSS feed{" "}

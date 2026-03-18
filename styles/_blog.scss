@@ -8,6 +8,10 @@
   padding-left: 18px;
   padding-right: 18px;
 
+  .blog-intro {
+    padding-bottom: 24px;
+  }
+
   table {
     width: 100%;
   }
@@ -116,7 +120,6 @@
       padding-bottom: 6px;
     }
     .label {
-      // font-size: 16px; sadsdf
       color: $site-text;
     }
   }
