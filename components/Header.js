@@ -39,19 +39,21 @@ const Header = () => {
       const width = svgRef.current?.parentElement?.offsetWidth ?? 0;
       const height = 150;
 
+      const anchorX = width - width / 3;
+
       const nodes = data.stories.map((d) => {
         const type = d.storyType.split(" ");
         return {
           radius: type.length * 3 + 4,
           type,
-          x: Math.random() * width,
+          x: anchorX + (Math.random() - 0.5) * (width / 2),
           y: Math.random() * height,
         };
       });
 
       const root = nodes[0];
       root.radius = 0;
-      root.fx = width / 2;
+      root.fx = anchorX;
       root.fy = height / 2;
 
       const svg = d3
@@ -75,7 +77,7 @@ const Header = () => {
         .append("clipPath")
         .attr("id", "btn-clip")
         .append("circle")
-        .attr("cx", width / 2)
+        .attr("cx", anchorX)
         .attr("cy", height / 2)
         .attr("r", 17);
 
@@ -105,7 +107,7 @@ const Header = () => {
 
       const btn = svg
         .append("g")
-        .attr("transform", `translate(${width / 2}, ${height / 2})`)
+        .attr("transform", `translate(${anchorX}, ${height / 2})`)
         .attr("cursor", "pointer")
         .attr("class", "center-btn")
         .attr("role", "button")
@@ -152,7 +154,7 @@ const Header = () => {
           "charge",
           d3.forceManyBody().strength((_, i) => (i ? 0 : -250)),
         )
-        .force("x", d3.forceX(width / 2).strength(0.09))
+        .force("x", d3.forceX(anchorX).strength(0.09))
         .force("y", d3.forceY(height / 2).strength(0.09))
         .force(
           "collision",
@@ -173,7 +175,7 @@ const Header = () => {
           simulation.alpha(0.3).restart();
         })
         .on("mouseleave", () => {
-          root.fx = width / 2;
+          root.fx = anchorX;
           root.fy = height / 2;
           simulation.alpha(0.3).restart();
         });
