@@ -9,6 +9,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "test": "vitest",
+    "test:run": "vitest run",
     "deploy": "npm run build && node scripts/deploy.mjs"
   },
   "dependencies": {
@@ -27,15 +29,21 @@
     "sass": "^1.56.1"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^14.6.1",
+    "@vitejs/plugin-react": "^6.0.1",
     "date-fns": "^4.1.0",
     "eslint": "^9.39.2",
     "ftp-deploy": "^2.4.3",
     "gray-matter": "^4.0.3",
+    "jsdom": "^29.0.0",
     "npm": "^10.9.2",
     "react-tooltip": "^5.28.0",
     "remark": "^15.0.1",
     "remark-html": "^16.0.1",
-    "rss": "^1.2.2"
+    "rss": "^1.2.2",
+    "vitest": "^4.1.0"
   },
   "overrides": {}
 }
