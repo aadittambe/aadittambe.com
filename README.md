@@ -6,6 +6,12 @@ The site is scaffolded with [Next.js](https://nextjs.org/) and uses [ArchieML](h
 
 ## 🧰 Development
 
+### Prerequisites
+
+This site is built with [Next.js 16](https://nextjs.org/), which requires **Node.js 18.18+**. It's recommended to use the latest LTS release.
+
+### Setup
+
 Download the code:
 
 ```
