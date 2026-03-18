@@ -38,9 +38,15 @@ const data = require("../data/content.json");
 
 const stories = data.stories;
 
-const Story = (props) => {
-  const { storyType, url, tools, img, org, alt, project } = props;
+const categories = [
+  { topic: "Dev", class: "development", emoji: "🖥️" },
+  { topic: "Graphics", class: "graphics", emoji: "📊" },
+  { topic: "Data", class: "data", emoji: "📈" },
+  { topic: "Docs", class: "docs", emoji: "📖" },
+  { topic: "Written", class: "reporting", emoji: "✍️" },
+];
 
+const Story = ({ storyType, url, img, org, alt, project }) => {
   const { ref, inView } = useInView({
     threshold: 0,
     rootMargin: "50% 0% -10% 0%",
@@ -95,20 +101,12 @@ const Story = (props) => {
 };
 
 export default function ProjectsPage() {
-  const categories = [
-    { topic: "Dev", class: "development", emoji: "🖥️" },
-    { topic: "Graphics", class: "graphics", emoji: "📊" },
-    { topic: "Data", class: "data", emoji: "📈" },
-    { topic: "Docs", class: "docs", emoji: "📖" },
-    { topic: "Written", class: "reporting", emoji: "✍️" },
-  ];
-
   const [clicked, setClicked] = useState("all");
 
   return (
     <Layout>
       <Head>
-        <title>Aadit Tambe — Projects</title>
+        <title>Aadit Tambe — Projects</title>
         <link rel="canonical" href="https://aadittambe.com/projects/" />
       </Head>
       <div className="projects">
@@ -135,23 +133,19 @@ export default function ProjectsPage() {
           <legend>👀 Looking for a particular type of project?</legend>
           <div className="filters">
             <button
-              onClick={(e) => {
-                setClicked("all");
-              }}
+              onClick={() => setClicked("all")}
               className={`btn reset ${clicked === "all" && "active"}`}
             >
-              🌎<br></br>All
+              🌎<br />All
             </button>
-            {categories.map((cat, ind) => (
+            {categories.map((cat) => (
               <button
-                onClick={(e) => {
-                  setClicked(cat.class);
-                }}
+                onClick={() => setClicked(cat.class)}
                 className={`btn ${cat.class === clicked && "active"}`}
-                key={ind}
+                key={cat.class}
               >
                 {cat.emoji}
-                <br></br>
+                <br />
                 {cat.topic}
               </button>
             ))}
@@ -160,23 +154,18 @@ export default function ProjectsPage() {
         <div className="grid">
           {stories
             .filter((d) => d.show !== "false")
-            .filter((d) =>
-              clicked === "all" ? d : d.storyType.includes(clicked),
-            )
-            .map((d, ind) => {
-              return (
-                <Story
-                  key={d.url}
-                  storyType={d.storyType}
-                  url={d.url}
-                  tools={d.tools}
-                  img={d.img}
-                  org={d.org}
-                  alt={d.alt}
-                  project={d.project}
-                />
-              );
-            })}
+            .filter((d) => clicked === "all" || d.storyType.includes(clicked))
+            .map((d) => (
+              <Story
+                key={d.url}
+                storyType={d.storyType}
+                url={d.url}
+                img={d.img}
+                org={d.org}
+                alt={d.alt}
+                project={d.project}
+              />
+            ))}
         </div>
         <div className="source">
           <p>

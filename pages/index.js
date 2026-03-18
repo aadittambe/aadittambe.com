@@ -2,7 +2,7 @@ import Head from "next/head";
 import Layout from "../components/layout";
 import Link from "next/link";
 
-export default function Home({}) {
+export default function Home() {
   return (
     <Layout home>
       <Head>
@@ -11,11 +11,9 @@ export default function Home({}) {
       </Head>
 
       <div className="home">
-        <div>
-          <h1>
-            <span className="wave">👋🏽</span> Hi — I am Aadit.
-          </h1>
-        </div>
+        <h1>
+          <span className="wave">👋🏽</span> Hi — I am Aadit.
+        </h1>
         <p>
           I am a journalist who specializes in telling visual stories with code.
         </p>
@@ -27,7 +25,7 @@ export default function Home({}) {
         <p>
           I was a part of the team at the Post that won the{" "}
           <a
-            rel="noreferrer"
+            rel="noopener noreferrer"
             target="_blank"
             aria-label="pulitzer website"
             href="https://www.pulitzer.org/winners/staff-washington-post-0"

@@ -1,7 +1,7 @@
 import apStyleDate from "ap-style-date";
 const { longAP } = apStyleDate;
 
-const Footer = (props) => {
+const Footer = () => {
   const apUpdatedDate = process.env.NEXT_PUBLIC_MODIFIED_DATE
     ? longAP(process.env.NEXT_PUBLIC_MODIFIED_DATE)
     : null;

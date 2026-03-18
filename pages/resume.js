@@ -51,10 +51,10 @@ export default function ResumePage() {
           <h2>🏆 Awards</h2>
           {awards.map((d, i) => (
             <div className="item" key={i}>
-              <h3 className="">
+              <h3 >
                 {d.event} ({d.year})
               </h3>
-              <p className="">
+              <p >
                 {d.category}
                 {d.project && (
                   <>
@@ -74,8 +74,8 @@ export default function ResumePage() {
             {skills.map((d, i) => (
               <div className="skill" key={i}>
                 <h3>{d.name}</h3>
-                {d.tools.map((skills, i) => (
-                  <p key={i}>{skills}</p>
+                {d.tools.map((tool, i) => (
+                  <p key={i}>{tool}</p>
                 ))}
               </div>
             ))}
