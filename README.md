@@ -2,7 +2,7 @@
 
 Codebase for my personal [website](https://aadittambe.com/).
 
-The site is scaffolded with [Next.js](https://nextjs.org/) and uses [ArchieML](http://archieml.org/) as a micro CMS, so I can catch typos easily. A GitHub Action automatically builds and deploys this site to my FTP server when changes are pushed to the repository because I like automation.
+The site is scaffolded with [Next.js](https://nextjs.org/) and uses [ArchieML](http://archieml.org/) as a micro CMS, so I can catch typos easily.
 
 ## 🧰 Development
 
@@ -27,12 +27,12 @@ npm run download
 Start the development server:
 
 ```
-npm run start
+npm run dev
 ```
 
 ## 🛠️ Build site
 
-A [GitHub Action](.github/workflows/deploy.yml) automatically builds (and deploys the site to my FTP server) when changes to this repository are pushed to GitHub (on the `main` branch). However, to manually build it for local testing, run:
+To build the site locally, run:
 
 ```
 npm run build
@@ -40,10 +40,24 @@ npm run build
 
 ## 🪖 Deploy site
 
-The same GitHub Action mentioned in the earlier step deploys it to my FTP server with `ftp-deploy` when changes are pushed to the `main` branch. However, to manually deploy, you can run:
+To deploy to the FTP server, run:
 
 ```
 npm run deploy
+```
+
+## 🧪 Tests
+
+This site has a unit test suite powered by [Vitest](https://vitest.dev/). To run tests in watch mode:
+
+```
+npm run test
+```
+
+Or run them once:
+
+```
+npm run test:run
 ```
 
 ## 🤖 Happy hacking
