@@ -38,7 +38,6 @@ a {
 
 a:hover {
   border-bottom: solid 3px $site-yellow;
-  transition: all 0.1s;
 }
 
 h1 {
@@ -78,4 +77,12 @@ p {
   padding-bottom: 12px;
   font-weight: 300;
   margin: 0;
+}
+
+.reveal {
+  opacity: 1;
+}
+
+.no-reveal {
+  opacity: 0;
 }

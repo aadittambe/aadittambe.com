@@ -69,7 +69,7 @@ export default function ResumePage() {
             </div>
           ))}
         </div>
-        <div className="section skls">
+        <div className="section">
           <h2 id="skills">🛠 Skills</h2>
           <div className="skills">
             {skills.map((d, i) => (
