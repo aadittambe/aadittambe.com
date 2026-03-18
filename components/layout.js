@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Script from "next/script";
 
 export default function Layout({ children, home, blog }) {
   return (
@@ -22,23 +21,6 @@ export default function Layout({ children, home, blog }) {
         <link rel="apple-touch-icon" href="/logo592.png" />
         <link rel="me" href="https://vis.social/@aadittambe" />
       </Head>
-      <Script
-        async
-        src={`https://www.googletagmanager.com/gtag/js?id=UA-157385072-1`}
-      />
-      <Script
-        id="google"
-        dangerouslySetInnerHTML={{
-          __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'UA-157385072-1', {
-              page_path: window.location.pathname,
-            });
-          `,
-        }}
-      />
       <main className={home && "home-wrapper"}>{children}</main>
     </div>
   );
