@@ -104,7 +104,9 @@ const D3Viz = () => {
         );
 
       function toggleTheme() {
-        document.documentElement.dataset.theme = isDark() ? "light" : "dark";
+        const newTheme = isDark() ? "light" : "dark";
+        document.documentElement.dataset.theme = newTheme;
+        localStorage.setItem("theme", newTheme);
         btn.select("text").text(themeIcon());
         btn.attr(
           "aria-label",

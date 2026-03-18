@@ -6,7 +6,7 @@ export default function Document() {
       <Head>
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){document.documentElement.dataset.theme=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';})();`,
+            __html: `(function(){var saved=localStorage.getItem('theme');document.documentElement.dataset.theme=saved?saved:(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');})();`,
           }}
         />
       </Head>
