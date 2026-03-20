@@ -89,7 +89,7 @@ const D3Viz = () => {
         .attr("fill", (d) => getColor(d.type[0]));
 
       const isDark = () => document.documentElement.dataset.theme === "dark";
-      const themeIcon = () => (isDark() ? "☀️" : "🌘");
+      const themeIcon = () => (isDark() ? "💡" : "🌘");
 
       const btn = svg
         .append("g")
