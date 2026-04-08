@@ -23,18 +23,18 @@ const D3Viz = () => {
       const d3 = await import("d3");
 
       const width = svgRef.current?.parentElement?.offsetWidth ?? 0;
+      const height = 72;
 
-      console.log(width);
-
-      const height = 90;
+      const padX = 20;
+      const padY = 15;
+      const usableW = width - 2 * padX;
+      const usableH = height - 2 * padY;
 
       const nodes = data.stories.map((d) => {
         const type = d.storyType.split(" ");
         return {
-          radius: width > 500 ? type.length * 3 + 5 : type.length * 3 + 4,
+          radius: width > 500 ? type.length * 2 + 7 : type.length * 2 + 6,
           type,
-          x: Math.random() * width,
-          y: Math.random() * height,
         };
       });
 
@@ -42,6 +42,13 @@ const D3Viz = () => {
       root.radius = 0;
       root.fx = -1000;
       root.fy = -1000;
+
+      nodes.slice(1).forEach((d) => {
+        d.homeX = padX + Math.random() * usableW;
+        d.homeY = padY + Math.random() * usableH;
+        d.x = d.homeX;
+        d.y = d.homeY;
+      });
 
       const svg = d3
         .select(svgRef.current)
@@ -65,10 +72,10 @@ const D3Viz = () => {
         .forceSimulation(nodes)
         .force(
           "charge",
-          d3.forceManyBody().strength((_, i) => (i ? 0 : -250)),
+          d3.forceManyBody().strength((_, i) => (i ? 2 : -80)),
         )
-        .force("x", d3.forceX(width / 2).strength(0.006))
-        .force("y", d3.forceY(height / 2).strength(1))
+        .force("x", d3.forceX((d) => d.homeX ?? 0).strength(0.1))
+        .force("y", d3.forceY((d) => d.homeY ?? 0).strength(0.1))
         .force(
           "collision",
           d3.forceCollide().radius((d) => d.radius),
@@ -97,7 +104,7 @@ const D3Viz = () => {
     return () => simulation?.stop();
   }, []);
 
-  return <svg ref={svgRef} />;
+  return <svg ref={svgRef} style={{ width: "100%", height: "72px" }} />;
 };
 
 export default D3Viz;
