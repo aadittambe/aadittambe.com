@@ -1,35 +1,37 @@
 @use "./globals" as *;
 
-.center-btn:focus {
-  outline: none;
-}
-
 .site-header {
   max-width: calc($xs + 18px);
   margin: 0px auto;
   width: 100%;
   display: flex;
-  flex-direction: row-reverse;
-  align-items: center;
+  flex-direction: column;
   padding: 60px 12px;
-  justify-content: space-between;
+
   a,
   a:hover {
     border: none;
   }
+
+  .header-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    @media only screen and (max-width: $xs) {
+      align-items: flex-start;
+    }
+  }
+
   .viz {
+    width: 100%;
     overflow: hidden;
   }
 
   @media only screen and (max-width: $xs) {
     width: auto;
     margin: 0px;
-    justify-content: space-between;
-    .viz {
-      width: 100%;
-    }
-
-    padding: 18px 16px;
+    padding: 24px 12px;
   }
 
   nav {
@@ -66,5 +68,24 @@
         color: $site-text-on-yellow;
       }
     }
+  }
+}
+
+.theme-toggle {
+  background: transparent;
+  border: 1.5px solid var(--site-text);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  flex-shrink: 0;
+
+  &:focus {
+    outline: none;
   }
 }
