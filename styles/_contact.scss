@@ -5,7 +5,7 @@
   padding-right: 18px;
 
   &.container {
-    max-width: $xs;
+    max-width: calc($xs + 36px);
     margin: auto;
   }
 

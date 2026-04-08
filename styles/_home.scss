@@ -6,7 +6,7 @@
   flex-direction: column;
 
   .home {
-    max-width: $xs;
+    max-width: calc($xs + 36px);
     margin: 0px auto;
     padding-left: 18px;
     padding-right: 18px;

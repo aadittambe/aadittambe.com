@@ -17,6 +17,12 @@
   justify-content: space-between;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 * {
   transition:
     background-color 0.25s ease,
