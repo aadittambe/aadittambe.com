@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Layout from "../components/layout";
 import Link from "next/link";
+import D3Viz from "./../components/D3Viz";
 
 export default function Home() {
   return (
@@ -11,6 +12,9 @@ export default function Home() {
       </Head>
 
       <div className="home">
+        <div className="viz">
+          <D3Viz />
+        </div>
         <h1>
           <span className="wave">👋🏽</span> Hi — I am Aadit.
         </h1>

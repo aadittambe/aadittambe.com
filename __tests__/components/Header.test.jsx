@@ -8,9 +8,6 @@ vi.mock("next/router", () => ({ useRouter: () => mockUseRouter() }));
 vi.mock("next/link", () => ({
   default: ({ href, children }) => <a href={href}>{children}</a>,
 }));
-vi.mock("../../components/D3Viz", () => ({
-  default: () => <div data-testid="d3viz" />,
-}));
 
 describe("Header", () => {
   beforeEach(() => {
@@ -45,8 +42,5 @@ describe("Header", () => {
     expect(screen.getByText("Blog").closest("li")).toHaveClass("active");
   });
 
-  it("renders the D3Viz component", () => {
-    render(<Header />);
-    expect(screen.getByTestId("d3viz")).toBeInTheDocument();
-  });
+
 });
