@@ -6,7 +6,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  padding: 60px 12px;
+  padding: 60px 18px;
 
   a,
   a:hover {
@@ -31,7 +31,7 @@
   @media only screen and (max-width: $xs) {
     width: auto;
     margin: 0px;
-    padding: 24px 12px;
+    padding: 18px;
   }
 
   nav {
@@ -73,7 +73,7 @@
 
 .theme-toggle {
   background: transparent;
-  border: 1.5px solid var(--site-text);
+  border: none;
   border-radius: 50%;
   width: 36px;
   height: 36px;
@@ -84,8 +84,26 @@
   justify-content: center;
   padding: 0;
   flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+  backdrop-filter: blur(6px);
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 1px solid $site-text;
+    mix-blend-mode: difference;
+    pointer-events: none;
+  }
 
   &:focus {
     outline: none;
+  }
+
+  @media only screen and (max-width: $xs) {
+    position: fixed;
+    right: 18px;
   }
 }
