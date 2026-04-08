@@ -1,7 +1,7 @@
 @use "./globals" as *;
 
 .resume {
-  max-width: $xs;
+  max-width: calc($xs + 36px);
   margin: auto;
   padding-left: 18px;
   padding-right: 18px;
