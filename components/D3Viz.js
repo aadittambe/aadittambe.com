@@ -18,6 +18,7 @@ const D3Viz = () => {
 
   useEffect(() => {
     let simulation;
+    let drift;
 
     (async () => {
       const d3 = await import("d3");
@@ -58,11 +59,11 @@ const D3Viz = () => {
 
       svg.selectAll("*").remove();
 
-      const visibleNodes = nodes.slice(1);
+      const visible = nodes.slice(1);
 
       svg
         .selectAll("circle.node")
-        .data(visibleNodes)
+        .data(visible)
         .join("circle")
         .attr("class", "node")
         .attr("r", (d) => d.radius)
@@ -72,20 +73,34 @@ const D3Viz = () => {
         .forceSimulation(nodes)
         .force(
           "charge",
-          d3.forceManyBody().strength((_, i) => (i ? 2 : -80)),
+          d3.forceManyBody().strength((_, i) => (i ? -1 : -80)),
         )
         .force("x", d3.forceX((d) => d.homeX ?? 0).strength(0.1))
-        .force("y", d3.forceY((d) => d.homeY ?? 0).strength(0.1))
+        .force("y", d3.forceY((d) => d.homeY ?? 0).strength(0.3))
         .force(
           "collision",
-          d3.forceCollide().radius((d) => d.radius),
+          d3.forceCollide().radius((d) => d.radius + 2),
         )
         .on("tick", () => {
+          // clamp within bounds
+          visible.forEach((d) => {
+            d.x = Math.max(d.radius, Math.min(width - d.radius, d.x));
+            d.y = Math.max(d.radius, Math.min(height - d.radius, d.y));
+          });
           svg
             .selectAll("circle.node")
             .attr("cx", (d) => d.x)
             .attr("cy", (d) => d.y);
         });
+
+      // gentle ambient drift
+      drift = setInterval(() => {
+        visible.forEach((d) => {
+          d.homeX += (Math.random() - 0.5) * 1.5;
+          d.homeY += (Math.random() - 0.5) * 1.5;
+        });
+        simulation.alpha(0.05).restart();
+      }, 800);
 
       svg
         .on("mousemove", function (event) {
@@ -101,7 +116,10 @@ const D3Viz = () => {
         });
     })();
 
-    return () => simulation?.stop();
+    return () => {
+      simulation?.stop();
+      clearInterval(drift);
+    };
   }, []);
 
   return <svg ref={svgRef} style={{ width: "100%", height: "72px" }} />;
