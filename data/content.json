@@ -1,11 +1,4 @@
 {
-  "intro": [
-    "I am a journalist who specializes in telling visual stories with code.",
-    "Currently I am based in Washington, D.C., and work on the News Design team at The Washington Post, building rich, highly customized interactive stories and web applications.",
-    "I was a part of the team at the Post that won the <a rel=\"noreferrer\" target=\"_blank\" aria-label=\"pulitzer website\" href=https://www.pulitzer.org/winners/staff-washington-post-0> 2024 Pulitzer Prize </a> in National Reporting for our ‘American Icon’ series, which chronicled the rise of the AR-15 rifle in the U.S.",
-    "In case you’re wondering, the visualization at the top represents my <a href=/projects>projects</a>, grouped by my primary contribution — web development, graphics, data analysis, or reporting. But that’s not all <a href=/resume>I’m good at.</a>",
-    "Feel free to <a href=/contact>get in touch</a> — I’d love to hear from you. And thank you for stopping by."
-  ],
   "stories": [
     {
       "project": "Gift guide 2025: The gifts we are giving and hoping to get this year",
