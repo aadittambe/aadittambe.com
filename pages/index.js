@@ -40,7 +40,7 @@ export default function Home() {
           the rise of the AR-15 rifle in the U.S.
         </p>
         <p>
-          The visualization at the top represents my{" "}
+          The dots at the top represents my{" "}
           <Link href="/projects">projects</Link>, grouped by my primary
           contribution — web development, graphics, data analysis, or reporting.
           That’s not all <Link href="/resume#skills">I’m skilled at</Link>,
