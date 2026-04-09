@@ -20,13 +20,8 @@ jobs:
       - run: npm run build
 
       - name: Deploy via SFTP
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
-        with:
-          server: "${{ secrets.FTP_HOST }}"
-          username: "${{ secrets.FTP_USERNAME }}"
-          password: "${{ secrets.FTP_PASSWORD }}"
-          port: "22"
-          local_path: "./out/*"
-          remote_path: "/public_html/"
-          sftp_only: true
-          delete_remote_files: true
+        env:
+          FTP_HOST: "${{ secrets.FTP_HOST }}"
+          FTP_USERNAME: "${{ secrets.FTP_USERNAME }}"
+          FTP_PASSWORD: "${{ secrets.FTP_PASSWORD }}"
+        run: node scripts/deploy.mjs
