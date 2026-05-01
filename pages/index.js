@@ -22,8 +22,8 @@ export default function Home() {
           I am a journalist who specializes in telling visual stories with code.
         </p>
         <p>
-          Currently I am based in Washington, D.C., and work on the News Design
-          team at The Washington Post, building rich, highly customized
+          Currently I am based in Washington, D.C., and work on the Product
+          Design team at The Washington Post, building rich, highly customized
           interactive stories and web applications.
         </p>
         <p>
