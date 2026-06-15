@@ -107,6 +107,10 @@ export default function ProjectsPage() {
     <Layout>
       <Head>
         <title>Aadit Tambe — Projects</title>
+        <meta
+          name="description"
+          content="A selection of Aadit Tambe's projects — interactive stories, data visualizations, graphics, and web applications."
+        />
         <link rel="canonical" href="https://aadittambe.com/projects/" />
       </Head>
       <div className="projects">
@@ -136,7 +140,9 @@ export default function ProjectsPage() {
               onClick={() => setClicked("all")}
               className={`btn reset ${clicked === "all" && "active"}`}
             >
-              🌎<br />All
+              🌎
+              <br />
+              All
             </button>
             {categories.map((cat) => (
               <button

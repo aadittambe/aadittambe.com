@@ -13,7 +13,11 @@ export default function ResumePage() {
   return (
     <Layout>
       <Head>
-        <title>Aadit Tambe — Resume</title>
+        <title>Aadit Tambe — Resume</title>
+        <meta
+          name="description"
+          content="Aadit Tambe's experience, skills, and education."
+        />
         <link rel="canonical" href="https://aadittambe.com/resume/" />
       </Head>
       <div className="resume">
@@ -51,10 +55,10 @@ export default function ResumePage() {
           <h2>🏆 Awards</h2>
           {awards.map((d, i) => (
             <div className="item" key={i}>
-              <h3 >
+              <h3>
                 {d.event} ({d.year})
               </h3>
-              <p >
+              <p>
                 {d.category}
                 {d.project && (
                   <>

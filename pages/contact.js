@@ -51,6 +51,7 @@ const ContactPage = () => {
     <Layout>
       <Head>
         <title>Aadit Tambe — Contact</title>
+        <meta name="description" content="Get in touch with Aadit Tambe." />
         <link rel="canonical" href="https://aadittambe.com/contact/" />
       </Head>
       <div className="contact container">

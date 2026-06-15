@@ -8,6 +8,10 @@ export default function Home() {
     <Layout home>
       <Head>
         <title>Aadit Tambe — a journalist and developer</title>
+        <meta
+          name="description"
+          content="Aadit Tambe is a journalist and developer based in Washington, D.C., specializing in telling visual stories with code."
+        />
         <link rel="canonical" href="https://aadittambe.com/" />
       </Head>
 
