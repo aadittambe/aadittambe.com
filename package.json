@@ -10,8 +10,7 @@
     "start": "next start",
     "lint": "next lint",
     "test": "vitest",
-    "test:run": "vitest run",
-    "deploy": "npm run build && node scripts/deploy.mjs"
+    "test:run": "vitest run"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
@@ -35,7 +34,6 @@
     "@vitejs/plugin-react": "^6.0.1",
     "date-fns": "^4.1.0",
     "eslint": "^9.39.2",
-    "ftp-deploy": "^2.4.3",
     "gray-matter": "^4.0.3",
     "jsdom": "^29.0.0",
     "npm": "^11.11.1",

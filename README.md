@@ -46,11 +46,8 @@ npm run build
 
 ## 🪖 Deploy site
 
-To deploy to the FTP server, run:
-
-```
-npm run deploy
-```
+The site is hosted on [Netlify](https://www.netlify.com/). Every push to the
+`main` branch automatically triggers a build and deploy — no manual step needed.
 
 ## 🧪 Tests
 
