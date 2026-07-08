@@ -12,7 +12,13 @@ const Footer = () => {
         <div className="divider"></div>
         <p>
           © Site developed by Aadit Tambe |{" "}
-          <a href="https://github.com/aadittambe/aadittambe.com">Source code</a>{" "}
+          <a
+            href="https://github.com/aadittambe/aadittambe.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Source code
+          </a>{" "}
           {apUpdatedDate && `| Last updated ${apUpdatedDate}`}
         </p>
       </div>
