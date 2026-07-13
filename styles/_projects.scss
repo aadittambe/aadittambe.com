@@ -35,14 +35,15 @@
 .projects {
   padding-left: 18px;
   padding-right: 18px;
+  max-width: $content;
+  margin: auto;
 
   // Every block shares the site's content column width so the cards line up
   // with the body text.
   .intro,
   .grid,
   .source {
-    max-width: $content;
-    margin: auto;
+    //
   }
 
   .grid {
