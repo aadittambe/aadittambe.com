@@ -1,8 +1,11 @@
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { compareDesc } from "date-fns";
 import { useInView } from "react-intersection-observer";
 import Head from "next/head";
 import Layout from "../components/layout";
+import { getSortedProjectsData } from "../lib/projects";
 
 const CustomSpinner = ({ size = 36, color = "var(--site-text)" }) => (
   <svg
@@ -34,19 +37,7 @@ const CustomSpinner = ({ size = 36, color = "var(--site-text)" }) => (
   </svg>
 );
 
-const data = require("../data/content.json");
-
-const stories = data.stories;
-
-const categories = [
-  { topic: "Dev", class: "development", emoji: "🖥️" },
-  { topic: "Graphics", class: "graphics", emoji: "📊" },
-  { topic: "Data", class: "data", emoji: "📈" },
-  { topic: "Docs", class: "docs", emoji: "📖" },
-  { topic: "Written", class: "reporting", emoji: "✍️" },
-];
-
-const Story = ({ storyType, url, img, org, alt, project }) => {
+const Story = ({ slug, url, img, imgAlt, org, title, hasContent }) => {
   const { ref, inView } = useInView({
     threshold: 0,
     rootMargin: "50% 0% -10% 0%",
@@ -54,55 +45,96 @@ const Story = ({ storyType, url, img, org, alt, project }) => {
 
   const [isLoaded, setIsLoaded] = useState(false);
 
+  // img is optional — a project can have no thumbnail yet. A bare filename is
+  // resolved against public/images/projects/; a full URL is used as-is.
+  const imgSrc = img
+    ? img.startsWith("https")
+      ? img
+      : `/images/projects/${img}`
+    : null;
+
+  const pageHref = hasContent ? `/projects/${slug}` : null;
+
+  // The image and title point at the card's best destination: its own page if
+  // it has one, otherwise the live project. Some cards have neither, so each
+  // slot falls back to a plain tag — a <span> in the title, since a <p> can't
+  // legally contain a <div>.
+  const linkAttrs = pageHref
+    ? { href: pageHref }
+    : url
+      ? { href: url, target: "_blank", rel: "noopener noreferrer" }
+      : null;
+  const LinkTag = pageHref ? Link : "a";
+
+  const Media = linkAttrs ? LinkTag : "div";
+  const Title = linkAttrs ? LinkTag : "span";
+
+  const media = (
+    <>
+      <div
+        className="story-spinner"
+        style={{ opacity: imgSrc && isLoaded ? 0 : 1 }}
+      >
+        {imgSrc && !isLoaded && <CustomSpinner />}
+      </div>
+      {imgSrc && (
+        <Image
+          src={imgSrc}
+          alt={imgAlt || title || ""}
+          fill
+          sizes="(max-width: 672px) 100vw, 236px"
+          style={{ objectFit: "cover" }}
+          onLoad={() => setIsLoaded(true)}
+        />
+      )}
+    </>
+  );
+
   return (
-    <div
-      className={`story ${storyType} ${inView ? "reveal" : "no-reveal"}`}
-      ref={ref}
-    >
-      <a href={url} rel="noreferrer" target="_blank">
-        <div
-          style={{ position: "relative", width: "100%", aspectRatio: "16/9" }}
-        >
-          <div
-            style={{
-              zIndex: 1,
-              position: "absolute",
-              top: 0,
-              width: "100%",
-              height: "100%",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              backgroundColor: "var(--site-background-alt)",
-              opacity: !isLoaded ? 1 : 0,
-              transition: ".4s ease-in-out",
-            }}
-          >
-            {!isLoaded && <CustomSpinner />}
-          </div>
-          <Image
-            src={img.startsWith("https") ? img : `/images/${img}`}
-            alt={alt || project || ""}
-            fill
-            sizes="(max-width: 672px) 100vw, (max-width: 992px) 50vw, 33vw"
-            style={{ objectFit: "cover" }}
-            onLoad={() => setIsLoaded(true)}
-          />
+    <div className={`story ${inView ? "reveal" : "no-reveal"}`} ref={ref}>
+      <Media className="story-media" {...linkAttrs}>
+        {media}
+      </Media>
+      <div className="card-text">
+        <p className="story-org">{org}</p>
+        <p className="story-name">
+          <Title {...linkAttrs}>{title}</Title>
+        </p>
+        <div className="card-actions">
+          {url && (
+            <a
+              className="card-btn card-btn--primary"
+              href={url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View project&nbsp;↗
+            </a>
+          )}
+          {pageHref && (
+            <Link className="card-btn card-btn--ghost" href={pageHref}>
+              Read more&nbsp;→
+            </Link>
+          )}
         </div>
-        <div className="card-text">
-          <p className="story-org">{org}</p>
-          <p className="story-name">
-            <span>{project}</span>
-          </p>
-        </div>
-      </a>
+      </div>
     </div>
   );
 };
 
-export default function ProjectsPage() {
-  const [clicked, setClicked] = useState("all");
+export async function getStaticProps() {
+  const projects = getSortedProjectsData().sort((a, b) =>
+    compareDesc(new Date(a.date), new Date(b.date)),
+  );
 
+  return {
+    props: {
+      projects,
+    },
+  };
+}
+
+export default function ProjectsPage({ projects = [] }) {
   return (
     <Layout>
       <Head>
@@ -133,45 +165,19 @@ export default function ProjectsPage() {
             figuring out programming concepts I may not know.
           </p>
         </div>
-        <fieldset>
-          <legend>👀 Looking for a particular type of project?</legend>
-          <div className="filters">
-            <button
-              onClick={() => setClicked("all")}
-              className={`btn reset ${clicked === "all" && "active"}`}
-            >
-              🌎
-              <br />
-              All
-            </button>
-            {categories.map((cat) => (
-              <button
-                onClick={() => setClicked(cat.class)}
-                className={`btn ${cat.class === clicked && "active"}`}
-                key={cat.class}
-              >
-                {cat.emoji}
-                <br />
-                {cat.topic}
-              </button>
-            ))}
-          </div>
-        </fieldset>
         <div className="grid">
-          {stories
-            .filter((d) => d.show !== "false")
-            .filter((d) => clicked === "all" || d.storyType.includes(clicked))
-            .map((d) => (
-              <Story
-                key={d.url}
-                storyType={d.storyType}
-                url={d.url}
-                img={d.img}
-                org={d.org}
-                alt={d.alt}
-                project={d.project}
-              />
-            ))}
+          {projects.map((d) => (
+            <Story
+              key={d.slug}
+              slug={d.slug}
+              url={d.url}
+              img={d.img}
+              imgAlt={d.imgAlt}
+              org={d.org}
+              title={d.title}
+              hasContent={d.hasContent}
+            />
+          ))}
         </div>
         <div className="source">
           <p>

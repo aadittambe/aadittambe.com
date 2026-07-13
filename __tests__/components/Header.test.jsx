@@ -35,6 +35,13 @@ describe("Header", () => {
     expect(screen.getByText("Home").closest("li")).not.toHaveClass("active");
   });
 
+  it("marks Projects as active on a project detail page", () => {
+    mockUseRouter.mockReturnValue({ route: "/projects/[slug]" });
+    render(<Header />);
+    expect(screen.getByText("Projects").closest("li")).toHaveClass("active");
+    expect(screen.getByText("Home").closest("li")).not.toHaveClass("active");
+  });
+
   it("shows a Blog link and marks it active on a blog route", () => {
     mockUseRouter.mockReturnValue({ route: "/blog/some-post" });
     render(<Header />);
@@ -42,5 +49,24 @@ describe("Header", () => {
     expect(screen.getByText("Blog").closest("li")).toHaveClass("active");
   });
 
+  it("marks Blog active on a blog detail page", () => {
+    mockUseRouter.mockReturnValue({ route: "/blog/[slug]" });
+    render(<Header />);
+    expect(screen.getByText("Blog").closest("li")).toHaveClass("active");
+  });
 
+  it("hides the Blog link outside the blog section", () => {
+    mockUseRouter.mockReturnValue({ route: "/projects/[slug]" });
+    render(<Header />);
+    expect(screen.queryByText("Blog")).not.toBeInTheDocument();
+  });
+
+  it("does not mark Home active on nested routes", () => {
+    for (const route of ["/projects", "/projects/[slug]", "/blog/[slug]"]) {
+      mockUseRouter.mockReturnValue({ route });
+      const { unmount } = render(<Header />);
+      expect(screen.getByText("Home").closest("li")).not.toHaveClass("active");
+      unmount();
+    }
+  });
 });

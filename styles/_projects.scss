@@ -1,107 +1,162 @@
 @use "./globals" as *;
 
+// Project write-ups embed screenshots that are often portrait (a phone-shaped
+// capture), and the shared `.post img` rule stretches images to the full column
+// width — which would leave a tall screenshot towering over the text. Cap by
+// height instead and centre it. Scoped to `.post.project-post` so it outranks
+// `.post img` without disturbing the blog's landscape images.
+.post.project-post {
+  img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 60vh;
+    margin: 0 auto;
+  }
+
+  figure {
+    margin: 2rem 0; // browsers default to a 40px side margin — drop it
+  }
+
+  // Centred under the image and capped, so a caption never runs the full width
+  // of the text column beneath a narrow (portrait) screenshot.
+  figcaption {
+    max-width: 34rem;
+    margin: 8px auto 0;
+    font-size: 0.85rem;
+    font-weight: 400;
+    line-height: 1.35;
+    color: $site-text-alt;
+    text-align: center;
+  }
+}
+
 .projects {
   padding-left: 18px;
   padding-right: 18px;
 
-  .intro {
-    max-width: $xs;
+  // Every block shares the site's content column width so the cards line up
+  // with the body text.
+  .intro,
+  .grid,
+  .source {
+    max-width: $content;
     margin: auto;
   }
 
   .grid {
-    max-width: $lg;
-    margin: auto;
-    display: grid;
-    grid-gap: 24px;
-    grid-template-columns: 1fr 1fr 1fr;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
     padding-bottom: 2.5rem;
-    @media only screen and (max-width: $md) {
-      grid-gap: 18px;
-      grid-template-columns: 1fr 1fr;
-    }
-    @media only screen and (max-width: $xs) {
-      grid-template-columns: 1fr;
+  }
+
+  .story {
+    display: flex;
+    overflow: hidden;
+    border-radius: 4px;
+    transition: 0.4s ease-in-out;
+    border: 1px solid $site-background-alt;
+    box-shadow: 0 8px 24px 0 rgba(102, 102, 102, 0.15);
+
+    // Image on the left (a third of the card); the card grows to the text height.
+    .story-media {
+      position: relative;
+      flex: 0 0 33.333%;
+      align-self: stretch;
+      min-height: 135px;
+      border-bottom: none; // override the global anchor underline
     }
 
-    .story {
-      overflow: hidden;
-      border-radius: 4px;
-      width: 100%;
+    .story-spinner {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--site-background-alt);
       transition: 0.4s ease-in-out;
-      border: 1px solid $site-background-alt;
-      box-shadow: 0 8px 24px 0 rgba(102, 102, 102, 0.15);
-      .card-text {
-        padding-left: 8px;
-        padding-right: 8px;
-        padding-top: 12px;
-      }
+    }
 
-      .story-name {
-        transition: all 0.1s;
-      }
+    // Text on the right, vertically centered.
+    .card-text {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 16px 20px;
+    }
 
-      .story-org {
-        padding-bottom: 4px;
-        font-size: 0.87rem;
-        line-height: 1.2rem;
+    .story-org {
+      padding-bottom: 4px;
+      font-size: 0.87rem;
+      line-height: 1.2rem;
+    }
+
+    .story-name {
+      transition: all 0.1s;
+
+      a {
+        border-bottom: none; // the buttons below carry the affordance
       }
     }
-  }
 
-  fieldset {
-    font-size: 1rem;
-    font-weight: 500;
-    text-align: center;
-    border: none;
-    padding: 0px;
-    max-width: $md;
-    margin: auto;
-    padding-bottom: 48px;
-    margin-top: 36px;
-  }
-
-  legend {
-    padding-bottom: 24px;
-    @media only screen and (max-width: $md) {
-      max-width: 282px;
-      margin: auto;
+    .card-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding-top: 12px;
     }
-  }
 
-  .source {
-    max-width: $xs;
-    margin: auto;
-  }
+    .card-btn {
+      font-size: 0.85rem;
+      font-weight: 500;
+      line-height: 1.2;
+      padding: 6px 13px;
+      border-radius: 6px;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: all 0.18s ease;
 
-  .btn {
-    background-color: inherit;
-    border: none;
-    margin-right: 6px;
-    margin-bottom: 12px;
-    line-height: 1.5rem;
-    transition-duration: 0.3s;
-    text-align: center;
-    padding: 6px 6px;
-    cursor: pointer;
-    border-radius: 6px;
-    display: inline-block;
-    min-width: 82px;
-    color: $site-text;
-    &.active {
-      color: $site-text-on-yellow;
-      background-color: $site-yellow;
+      // Each hover restates `border` so the global `a:hover` underline (a 3px
+      // yellow bottom border) can't creep back in and jitter the button.
+      &--primary {
+        background-color: $site-yellow;
+        color: $site-text-on-yellow;
+        border: 1px solid $site-yellow;
+
+        &:hover {
+          border: 1px solid $site-yellow;
+          filter: brightness(1.06);
+          transform: translateY(-1px);
+        }
+      }
+
+      &--ghost {
+        $ghost-border: color-mix(in srgb, $site-text 18%, transparent);
+
+        background-color: transparent;
+        color: $site-text;
+        border: 1px solid $ghost-border;
+
+        &:hover {
+          border: 1px solid $ghost-border;
+          background-color: color-mix(in srgb, $site-text 7%, transparent);
+        }
+      }
     }
-  }
 
-  .btn input {
-    display: none;
-  }
+    // Stack on mobile: image on top, text below.
+    @media only screen and (max-width: $xs) {
+      flex-direction: column;
 
-  @media only screen and (max-width: $md) {
-    .btn span {
-      max-width: 72px;
-      min-width: 72px;
+      .story-media {
+        flex: none;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+      }
     }
   }
 }

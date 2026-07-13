@@ -47,3 +47,6 @@ $xs: 672px;
 $sm: 768px;
 $md: 992px;
 $lg: 1280px;
+
+// Canonical content column width shared across pages.
+$content: calc($xs + 36px);
