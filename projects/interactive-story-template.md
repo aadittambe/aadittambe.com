@@ -9,6 +9,6 @@ At The Washington Post, I contribute to the building and maintainance our bespok
 
 Built with Next.js, the template leverages our content APIs, enabling text and visual assets to flow directly from our CMS. Beyond front-end development of packaged NPM components,
 
-I also handle back-end publishing pipelines that deploy our stories to AWS S3.
+I also help handle back-end publishing pipelines that deploy our stories to AWS S3.
 
 The framework powers more than 400 of our most engaging and highest-converting stories each year, and was responsible for roughly 90 million pageviews in 2024 — including live pages, weather trackers and election result pages.
