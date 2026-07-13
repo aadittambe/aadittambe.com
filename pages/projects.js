@@ -37,7 +37,16 @@ const CustomSpinner = ({ size = 36, color = "var(--site-text)" }) => (
   </svg>
 );
 
-const Story = ({ slug, url, img, imgAlt, org, title, hasContent }) => {
+const Story = ({
+  slug,
+  url,
+  img,
+  imgAlt,
+  org,
+  title,
+  hasContent,
+  description,
+}) => {
   const { ref, inView } = useInView({
     threshold: 0,
     rootMargin: "50% 0% -10% 0%",
@@ -100,6 +109,7 @@ const Story = ({ slug, url, img, imgAlt, org, title, hasContent }) => {
         <p className="story-name">
           <Title {...linkAttrs}>{title}</Title>
         </p>
+        <p className="story-description">{description}</p>
         <div className="card-actions">
           {url && (
             <a
@@ -176,6 +186,7 @@ export default function ProjectsPage({ projects = [] }) {
               org={d.org}
               title={d.title}
               hasContent={d.hasContent}
+              description={d.description}
             />
           ))}
         </div>

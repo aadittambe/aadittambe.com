@@ -23,7 +23,16 @@ const todayMDY = () => {
 const buildFrontmatter = (meta) => {
   // Only title, slug, org and date are always written; the rest are optional
   // and omitted when left blank so the file stays clean.
-  const fields = ["title", "org", "date", "slug", "img", "imgAlt", "url"];
+  const fields = [
+    "title",
+    "org",
+    "date",
+    "slug",
+    "img",
+    "imgAlt",
+    "url",
+    "description",
+  ];
   const lines = fields
     .filter((key) => meta[key] !== undefined && String(meta[key]).trim() !== "")
     .map((key) => `${key}: ${meta[key]}`);
@@ -67,6 +76,7 @@ async function main() {
     }),
     imgAlt: await input({ message: "Image alt text:" }),
     url: await input({ message: "Live project URL:" }),
+    description: await input({ message: "Description (for SEO/previews):" }),
   };
 
   // Write the local .md with frontmatter (+ empty body for now).
