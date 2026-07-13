@@ -1,4 +1,3 @@
-import { compareDesc } from "date-fns";
 import Head from "next/head";
 import Link from "next/link";
 import Layout from "../../components/layout";
@@ -79,9 +78,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const sortedProjects = [...getSortedProjectsData()].sort((a, b) =>
-    compareDesc(new Date(a.date), new Date(b.date)),
-  );
+  const sortedProjects = getSortedProjectsData().filter((p) => p.hasContent);
 
   const projectIndex = sortedProjects.findIndex(
     (project) => project.slug === params.slug,

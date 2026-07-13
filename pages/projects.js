@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { compareDesc } from "date-fns";
 import { useInView } from "react-intersection-observer";
 import Head from "next/head";
 import Layout from "../components/layout";
@@ -132,19 +131,68 @@ const Story = ({
   );
 };
 
-export async function getStaticProps() {
-  const projects = getSortedProjectsData().sort((a, b) =>
-    compareDesc(new Date(a.date), new Date(b.date)),
+const Tile = ({ url, img, imgAlt, org, title }) => {
+  const { ref, inView } = useInView({
+    threshold: 0,
+    rootMargin: "50% 0% -10% 0%",
+  });
+
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  const imgSrc = img
+    ? img.startsWith("https")
+      ? img
+      : `/images/projects/${img}`
+    : null;
+
+  return (
+    <a
+      className={`tile ${inView ? "reveal" : "no-reveal"}`}
+      ref={ref}
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <div className="tile-media">
+        <div
+          className="story-spinner"
+          style={{ opacity: imgSrc && isLoaded ? 0 : 1 }}
+        >
+          {imgSrc && !isLoaded && <CustomSpinner size={24} />}
+        </div>
+        {imgSrc && (
+          <Image
+            src={imgSrc}
+            alt={imgAlt || title || ""}
+            fill
+            sizes="(max-width: 672px) 50vw, 236px"
+            style={{ objectFit: "cover" }}
+            onLoad={() => setIsLoaded(true)}
+          />
+        )}
+      </div>
+      <div className="tile-text">
+        <p className="tile-org">{org}</p>
+        <p className="tile-name">{title}</p>
+      </div>
+    </a>
   );
+};
+
+export async function getStaticProps() {
+  const projects = getSortedProjectsData();
+  const cardProjects = projects.filter((p) => p.description);
+  const tileProjects = projects.filter((p) => !p.description);
 
   return {
     props: {
-      projects,
+      cardProjects,
+      tileProjects,
     },
   };
 }
 
-export default function ProjectsPage({ projects = [] }) {
+export default function ProjectsPage({ cardProjects = [], tileProjects = [] }) {
   return (
     <Layout>
       <Head>
@@ -176,7 +224,7 @@ export default function ProjectsPage({ projects = [] }) {
           </p>
         </div>
         <div className="grid">
-          {projects.map((d) => (
+          {cardProjects.map((d) => (
             <Story
               key={d.slug}
               slug={d.slug}
@@ -190,6 +238,20 @@ export default function ProjectsPage({ projects = [] }) {
             />
           ))}
         </div>
+        {tileProjects.length > 0 && (
+          <div className="tile-grid">
+            {tileProjects.map((d) => (
+              <Tile
+                key={d.slug}
+                url={d.url}
+                img={d.img}
+                imgAlt={d.imgAlt}
+                org={d.org}
+                title={d.title}
+              />
+            ))}
+          </div>
+        )}
         <div className="source">
           <p>
             I am a supporter of open-source code — the source code for this

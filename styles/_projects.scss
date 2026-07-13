@@ -169,4 +169,52 @@
       }
     }
   }
+
+  // Link-out-only projects (no write-up) get a smaller square-ish tile
+  // instead of a full horizontal card, in a grid below the described cards.
+  .tile-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    padding-bottom: 2.5rem;
+
+    @media only screen and (max-width: $md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media only screen and (max-width: $xs) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .tile {
+    display: block;
+    overflow: hidden;
+    border-radius: 4px;
+    border: 1px solid $site-background-alt;
+    box-shadow: 0 8px 24px 0 rgba(102, 102, 102, 0.15);
+    transition: 0.4s ease-in-out;
+
+    .tile-media {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-bottom: none; // override the global anchor underline
+    }
+
+    .tile-text {
+      padding: 10px 14px;
+    }
+
+    .tile-org {
+      padding-bottom: 2px;
+      font-size: 0.8rem;
+      line-height: 1.15rem;
+    }
+
+    .tile-name {
+      font-size: 0.95rem;
+      line-height: 1.3;
+    }
+  }
 }
