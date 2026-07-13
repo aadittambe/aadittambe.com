@@ -63,7 +63,7 @@
     // Image on the left (a third of the card); the card grows to the text height.
     .story-media {
       position: relative;
-      flex: 0 0 33.333%;
+      flex: 0 0 40%;
       align-self: stretch;
       min-height: 135px;
       border-bottom: none; // override the global anchor underline
@@ -98,6 +98,15 @@
     .story-name {
       transition: all 0.1s;
 
+      a {
+        border-bottom: none; // the buttons below carry the affordance
+      }
+    }
+
+    .story-description {
+      transition: all 0.1s;
+      font-size: 1rem;
+      line-height: 1.5;
       a {
         border-bottom: none; // the buttons below carry the affordance
       }
