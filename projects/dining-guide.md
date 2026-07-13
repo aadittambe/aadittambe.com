@@ -9,6 +9,6 @@ url: https://www.washingtonpost.com/food/interactive/2026/10-best-new-restaurant
 description: ttkktk
 ---
 
-![Three Washington Post dining guide projects.](/images/projects/template.png "Dining guide projects produced in 2026, 2025 and 2024.")
+![Three Washington Post dining guide projects.](/images/projects/dining.png "Dining guide projects produced in 2026, 2025 and 2024.")
 
 tktktkk
