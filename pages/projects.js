@@ -92,7 +92,7 @@ const Story = ({
           alt={imgAlt || title || ""}
           fill
           sizes="(max-width: 672px) 100vw, 236px"
-          style={{ objectFit: "cover" }}
+          style={{ objectFit: "cover", objectPosition: "50% 0%" }}
           onLoad={() => setIsLoaded(true)}
         />
       )}
