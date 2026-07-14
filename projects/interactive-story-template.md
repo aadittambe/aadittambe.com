@@ -1,10 +1,13 @@
 ---
 title: Interactive story template
 org: The Washington Post
-slug: interactive-story-template
 date: 07/12/2026
-description: I contribute to the development and maintainance of the Post’s template for creating and publishing bespoke, interactive stories.
+slug: interactive-story-template
+order: 1
 img: template.png
+description: >-
+  I contribute to the development and maintainance of the Post’s template for
+  creating and publishing bespoke, interactive stories.
 ---
 
 At The Washington Post, I contribute to the building and maintainance our bespoke storytelling tools and templates. I help with the development and architecture of the newsroom’s most experimental framework, which allows graphics reporters and designers to build immersive stories.

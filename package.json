@@ -5,6 +5,7 @@
   "scripts": {
     "download": "node scripts/fetch.mjs",
     "new-project": "node scripts/new-project.mjs",
+    "admin": "node scripts/admin/server.mjs",
     "dev": "next dev",
     "prebuild": "node scripts/clean-build.mjs",
     "build": "next build",

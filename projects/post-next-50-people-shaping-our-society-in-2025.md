@@ -2,6 +2,7 @@
 title: "Post Next: 50 people shaping our society in 2025"
 org: The Washington Post
 slug: post-next-50-people-shaping-our-society-in-2025
+order: 8
 img: >-
   https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/CPJRZG2IIRDMBE4DZEXA2AXLXI.jpg&high_res=true&w=2048
 imgAlt: >-

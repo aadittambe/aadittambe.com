@@ -3,6 +3,7 @@ title: Dining Guide
 org: The Washington Post
 date: 07/13/2025
 slug: dining-guide
+order: 6
 img: dining.png
 imgAlt: Three Washington post dining guide projects.
 url: https://www.washingtonpost.com/food/interactive/2026/10-best-new-restaurants-dc-area/

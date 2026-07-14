@@ -33,17 +33,23 @@
 }
 
 .projects {
-  padding-left: 18px;
-  padding-right: 18px;
-  max-width: $content;
-  margin: auto;
+  // padding-left: 18px;
+  // padding-right: 18px;
 
   // Every block shares the site's content column width so the cards line up
   // with the body text.
+
+  .intro {
+    padding-bottom: 24px;
+  }
   .intro,
+  .source,
   .grid,
-  .source {
-    //
+  .tile-grid {
+    max-width: $content;
+    margin: auto;
+    padding-left: 18px;
+    padding-right: 18px;
   }
 
   .grid {
@@ -57,7 +63,7 @@
     display: flex;
     overflow: hidden;
     border-radius: 4px;
-    transition: 0.4s ease-in-out;
+    transition: 0.2s ease-in-out;
     border: 1px solid $site-background-alt;
     box-shadow: 0 8px 24px 0 rgba(102, 102, 102, 0.15);
 
@@ -173,8 +179,10 @@
   // Link-out-only projects (no write-up) get a smaller square-ish tile
   // instead of a full horizontal card, in a grid below the described cards.
   .tile-grid {
+    // max-width: 1200px;
+    // margin: auto;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 18px;
     padding-bottom: 2.5rem;
 
@@ -193,12 +201,12 @@
     border-radius: 4px;
     border: 1px solid $site-background-alt;
     box-shadow: 0 8px 24px 0 rgba(102, 102, 102, 0.15);
-    transition: 0.4s ease-in-out;
+    transition: 0.2s ease-in-out;
 
     .tile-media {
       position: relative;
       width: 100%;
-      aspect-ratio: 1 / 1;
+      aspect-ratio: 3 / 2;
       border-bottom: none; // override the global anchor underline
     }
 

@@ -1,10 +1,19 @@
 import { writeFile } from "fs/promises";
-import { existsSync } from "fs";
+import { existsSync, readdirSync, readFileSync } from "fs";
 import path from "node:path";
 import { input, confirm } from "@inquirer/prompts";
+import matter from "gray-matter";
 
 const CWD = process.cwd();
 const PROJECTS_DIR = path.join(CWD, "projects");
+
+const nextOrder = () => {
+  const orders = readdirSync(PROJECTS_DIR)
+    .filter((f) => f.endsWith(".md"))
+    .map((f) => Number(matter(readFileSync(path.join(PROJECTS_DIR, f), "utf8")).data.order))
+    .filter((n) => Number.isFinite(n));
+  return Math.max(0, ...orders) + 1;
+};
 
 const slugify = (str) =>
   str
@@ -28,6 +37,7 @@ const buildFrontmatter = (meta) => {
     "org",
     "date",
     "slug",
+    "order",
     "img",
     "imgAlt",
     "url",
@@ -71,6 +81,7 @@ async function main() {
     org: await input({ message: "Org:", default: "The Washington Post" }),
     date: await input({ message: "Date (MM/DD/YYYY):", default: todayMDY() }),
     slug,
+    order: nextOrder(),
     img: await input({
       message: "Thumbnail (full URL, or a filename in public/images/projects/):",
     }),

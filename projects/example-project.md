@@ -3,9 +3,12 @@ title: Interactive project template
 org: The Washington Post
 date: 12/01/2025
 slug: example-project
-img: https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/6I22LMUWQJBXDD5EOSEBWYNGL4.jpg
+order: 3
+img: >-
+  https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/6I22LMUWQJBXDD5EOSEBWYNGL4.jpg
 imgAlt: A placeholder thumbnail for the example project
-url: https://www.washingtonpost.com/
+url: 'https://www.washingtonpost.com/'
+description: test!!!!
 ---
 
 This is an example project page. Everything below the frontmatter is regular
