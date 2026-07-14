@@ -42,6 +42,7 @@ const Story = ({
   img,
   imgAlt,
   org,
+  tag,
   title,
   hasContent,
   description,
@@ -104,7 +105,10 @@ const Story = ({
         {media}
       </Media>
       <div className="card-text">
-        <p className="story-org">{org}</p>
+        <p className="story-org">
+          {org}
+          {tag && <span className="story-tag">{tag}</span>}
+        </p>
         <p className="story-name">
           <Title {...linkAttrs}>{title}</Title>
         </p>
@@ -232,6 +236,7 @@ export default function ProjectsPage({ cardProjects = [], tileProjects = [] }) {
               img={d.img}
               imgAlt={d.imgAlt}
               org={d.org}
+              tag={d.tag}
               title={d.title}
               hasContent={d.hasContent}
               description={d.description}

@@ -1,6 +1,7 @@
 ---
 title: Story formats
 org: The Washington Post
+tag: Internal
 date: 07/12/2026
 slug: story-formats
 order: 2

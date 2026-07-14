@@ -1,6 +1,7 @@
 ---
 title: Interactive story template
 org: The Washington Post
+tag: Internal
 date: 07/12/2026
 slug: interactive-story-template
 order: 1
@@ -28,4 +29,4 @@ I’ve also built hooks that persist user responses to their Post reader profile
 
 ![Save component.](/images/projects/save.png "Adding the ability to save items to a reader’s Post account.")
 
-Today, the framework powers more than 400 of The Post’s most engaging and highest-converting stories each year. In 2024 alone, it was responsible for roughly 90 million pageviews across projects including live blogs, weather trackers, and election results.
+The framework powers more than 400 of The Post’s most engaging and highest-converting stories each year. In 2024 alone, it was responsible for roughly 90 million pageviews across projects including live blogs, weather trackers, and election results.
