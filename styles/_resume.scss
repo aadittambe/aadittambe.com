@@ -3,52 +3,55 @@
 .resume {
   max-width: $content;
   margin: auto;
-  padding-left: 18px;
-  padding-right: 18px;
+  padding-left: $space-md;
+  padding-right: $space-md;
 
   .exp {
     display: flex;
-    @media only screen and (max-width: $md) {
-      display: block;
-    }
   }
 
   .left {
     width: 25%;
     padding-right: 2%;
-    @media only screen and (max-width: $md) {
-      width: 100%;
-      padding: 0%;
-    }
   }
 
   .right {
     width: 75%;
     padding-left: 2%;
-    @media only screen and (max-width: $md) {
-      width: 100%;
-      padding: 0%;
-    }
   }
 
   .section {
-    padding-bottom: 36px;
+    padding-bottom: $space-xl;
+  }
 
-    .item {
-      padding-bottom: 18px;
-    }
+  .item {
+    padding-bottom: $space-md;
   }
 
   .skills {
     display: grid;
-    grid-gap: 16px;
     grid-template-columns: 1fr 1fr;
-    @media only screen and (max-width: $xxs) {
-      grid-template-columns: 1fr;
-    }
+    grid-gap: $space-md;
 
     p {
-      padding-bottom: 0.2rem;
+      padding-bottom: $space-2xs;
+    }
+
+    @media (max-width: $xxs) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  // Stack the date/title columns on smaller screens.
+  @media (max-width: $md) {
+    .exp {
+      display: block;
+    }
+
+    .left,
+    .right {
+      width: 100%;
+      padding: 0;
     }
   }
 }

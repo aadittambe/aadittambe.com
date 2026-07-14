@@ -16,68 +16,95 @@
   }
 
   figure {
-    margin: 2rem 0; // browsers default to a 40px side margin — drop it
+    margin: $space-xl 0; // browsers default to a 40px side margin — drop it
   }
 
   // Centred under the image and capped, so a caption never runs the full width
   // of the text column beneath a narrow (portrait) screenshot.
   figcaption {
     max-width: 34rem;
-    margin: 8px auto 0;
-    font-size: 0.85rem;
-    font-weight: 400;
-    line-height: 1.35;
+    margin: $space-xs auto 0;
+    font-size: $text-sm;
+    font-weight: $weight-light;
+    line-height: $leading-snug;
     color: $site-text-alt;
     text-align: center;
   }
 
   ul {
-    margin-top: 0rem;
-    margin-bottom: 2rem;
-    li {
-      font-size: 1.2rem;
-      margin-bottom: 1rem;
-      line-height: 1.75rem;
-    }
+    margin-top: 0;
+    margin-bottom: $space-xl;
+  }
+
+  li {
+    margin-bottom: $space-md;
+    font-size: $text-md;
+    line-height: $leading-normal;
   }
 }
 
+// The cards and tiles stay nested one level inside `.projects`: the extra
+// class is what lets their `border` rules outrank the global `a:hover`
+// underline (both are anchors).
 .projects {
-  // padding-left: 18px;
-  // padding-right: 18px;
-
   // Every block shares the site's content column width so the cards line up
   // with the body text.
-
-  .intro {
-    padding-bottom: 24px;
-  }
   .intro,
   .source,
   .grid,
   .tile-grid {
     max-width: $content;
     margin: auto;
-    padding-left: 18px;
-    padding-right: 18px;
+    padding-left: $space-md;
+    padding-right: $space-md;
+  }
+
+  .intro {
+    padding-bottom: $space-lg;
   }
 
   .grid {
     display: flex;
     flex-direction: column;
-    gap: 24px;
-    padding-bottom: 2.5rem;
+    gap: $space-lg;
+    padding-bottom: $space-xl;
   }
 
+  // Link-out-only projects (no write-up) get a smaller square-ish tile
+  // instead of a full horizontal card, in a grid below the described cards.
+  .tile-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $space-md;
+    padding-bottom: $space-xl;
+
+    @media (max-width: $xs) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  // Shared by cards and tiles while their thumbnail loads.
+  .story-spinner {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $site-background-alt;
+    transition: 0.4s ease-in-out;
+  }
+
+  // A described project: image on the left (40% of the card), text on the
+  // right; the card grows to the text height.
   .story {
     display: flex;
     overflow: hidden;
-    border-radius: 4px;
-    transition: 0.2s ease-in-out;
     border: 1px solid $site-background-alt;
+    border-radius: 4px;
     box-shadow: 0 8px 24px 0 rgba(102, 102, 102, 0.15);
+    transition: 0.2s ease-in-out;
 
-    // Image on the left (a third of the card); the card grows to the text height.
     .story-media {
       position: relative;
       flex: 0 0 40%;
@@ -86,114 +113,62 @@
       border-bottom: none; // override the global anchor underline
     }
 
-    .story-spinner {
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: var(--site-background-alt);
-      transition: 0.4s ease-in-out;
-    }
-
-    // Text on the right, vertically centered.
     .card-text {
       flex: 1;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 16px 20px;
+      padding: $space-md;
     }
 
     .story-org {
-      padding-bottom: 4px;
-      font-size: 0.87rem;
-      line-height: 1.2rem;
+      padding-bottom: $space-2xs;
+      font-size: $text-sm;
+      line-height: $leading-tight;
     }
 
     // Small pill after the org name, e.g. "Internal tool".
     .story-tag {
       display: inline-block;
-      margin-left: 8px;
+      margin-left: $space-xs;
       padding: 2px 9px;
-      font-size: 0.68rem;
-      font-weight: 500;
-      line-height: 1.2;
+      border: 1px solid color-mix(in srgb, $site-text 18%, transparent);
+      border-radius: 999px;
+      font-size: $text-xs;
+      font-weight: $weight-medium;
+      line-height: $leading-tight;
       letter-spacing: 0.04em;
       text-transform: uppercase;
       color: $site-text;
-      border: 1px solid color-mix(in srgb, $site-text 18%, transparent);
-      border-radius: 999px;
       vertical-align: 8%;
       white-space: nowrap;
     }
 
     .story-name {
-      padding-bottom: 9px;
+      padding-bottom: $space-xs;
       transition: all 0.1s;
-
-      a {
-        border-bottom: none; // the buttons below carry the affordance
-      }
     }
 
     .story-description {
+      font-size: $text-base;
+      line-height: $leading-normal;
       transition: all 0.1s;
-      font-size: 1rem;
-      line-height: 1.5;
-      a {
-        border-bottom: none; // the buttons below carry the affordance
-      }
+    }
+
+    .story-name a,
+    .story-description a {
+      border-bottom: none; // the buttons below carry the affordance
     }
 
     .card-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
-      padding-top: 12px;
-    }
-
-    .card-btn {
-      font-size: 0.85rem;
-      font-weight: 500;
-      line-height: 1.2;
-      padding: 6px 13px;
-      border-radius: 6px;
-      white-space: nowrap;
-      cursor: pointer;
-      transition: all 0.18s ease;
-
-      // Each hover restates `border` so the global `a:hover` underline (a 3px
-      // yellow bottom border) can't creep back in and jitter the button.
-      &--primary {
-        background-color: $site-yellow;
-        color: $site-text-on-yellow;
-        border: 1px solid $site-yellow;
-
-        &:hover {
-          border: 1px solid $site-yellow;
-          filter: brightness(1.06);
-          transform: translateY(-1px);
-        }
-      }
-
-      &--ghost {
-        $ghost-border: color-mix(in srgb, $site-text 18%, transparent);
-
-        background-color: transparent;
-        color: $site-text;
-        border: 1px solid $ghost-border;
-
-        &:hover {
-          border: 1px solid $ghost-border;
-          background-color: color-mix(in srgb, $site-text 7%, transparent);
-        }
-      }
+      gap: $space-xs;
+      padding-top: $space-sm;
     }
 
     // Stack on mobile: image on top, text below.
-    @media only screen and (max-width: $xs) {
+    @media (max-width: $xs) {
       flex-direction: column;
 
       .story-media {
@@ -204,30 +179,49 @@
     }
   }
 
-  // Link-out-only projects (no write-up) get a smaller square-ish tile
-  // instead of a full horizontal card, in a grid below the described cards.
-  .tile-grid {
-    // max-width: 1200px;
-    // margin: auto;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 18px;
-    padding-bottom: 2.5rem;
+  .card-btn {
+    padding: 6px 13px;
+    border-radius: 6px;
+    font-size: $text-sm;
+    font-weight: $weight-medium;
+    line-height: $leading-tight;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 0.18s ease;
 
-    @media only screen and (max-width: $md) {
-      grid-template-columns: repeat(2, 1fr);
+    // Each hover restates `border` so the global `a:hover` underline (a 3px
+    // yellow bottom border) can't creep back in and jitter the button.
+    &--primary {
+      background-color: $site-yellow;
+      color: $site-text-on-yellow;
+      border: 1px solid $site-yellow;
+
+      &:hover {
+        border: 1px solid $site-yellow;
+        filter: brightness(1.06);
+        transform: translateY(-1px);
+      }
     }
 
-    @media only screen and (max-width: $xs) {
-      grid-template-columns: 1fr;
+    &--ghost {
+      $ghost-border: color-mix(in srgb, $site-text 18%, transparent);
+
+      background-color: transparent;
+      color: $site-text;
+      border: 1px solid $ghost-border;
+
+      &:hover {
+        border: 1px solid $ghost-border;
+        background-color: color-mix(in srgb, $site-text 7%, transparent);
+      }
     }
   }
 
   .tile {
     display: block;
     overflow: hidden;
-    border-radius: 4px;
     border: 1px solid $site-background-alt;
+    border-radius: 4px;
     box-shadow: 0 8px 24px 0 rgba(102, 102, 102, 0.15);
     transition: 0.2s ease-in-out;
 
@@ -239,18 +233,18 @@
     }
 
     .tile-text {
-      padding: 10px 14px;
+      padding: $space-sm $space-md;
     }
 
     .tile-org {
-      padding-bottom: 6px;
-      font-size: 0.87rem;
-      line-height: 1.15rem;
+      padding-bottom: $space-2xs;
+      font-size: $text-sm;
+      line-height: $leading-tight;
     }
 
     .tile-name {
-      font-size: 1.1rem;
-      line-height: 1.3;
+      font-size: $text-md;
+      line-height: $leading-snug;
     }
   }
 }

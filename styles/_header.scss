@@ -1,12 +1,18 @@
 @use "./globals" as *;
 
 .site-header {
-  max-width: calc($xs + 36px);
-  margin: 0px auto;
-  width: 100%;
   display: flex;
   flex-direction: column;
-  padding: 60px 18px;
+  width: 100%;
+  max-width: $content;
+  margin: 0 auto;
+  padding: $space-2xl $space-md;
+
+  @media (max-width: $xs) {
+    width: auto;
+    margin: 0;
+    padding: $space-md;
+  }
 
   a,
   a:hover {
@@ -15,50 +21,44 @@
 
   .header-row {
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    @media only screen and (max-width: $xs) {
+
+    @media (max-width: $xs) {
       align-items: flex-start;
     }
   }
 
-  @media only screen and (max-width: $xs) {
-    width: auto;
-    margin: 0px;
-    padding: 18px;
+  nav {
+    font-size: $text-base;
   }
 
-  nav {
-    font-size: 1rem;
-    font-weight: 500;
-  }
   ul {
-    margin: 0px;
-    margin-left: -6px;
-    padding: 0px;
-    list-style-type: none;
     display: flex;
-    @media only screen and (max-width: $xs) {
+    margin: 0 0 0 -6px;
+    padding: 0;
+    list-style-type: none;
+
+    @media (max-width: $xs) {
       display: block;
     }
   }
 
   li {
-    transition-duration: 0.3s;
-    margin-right: 12px;
-    text-decoration: none;
-    border-radius: 6px;
-    padding: 4px 6px;
     width: fit-content;
-    font-weight: 800;
-    @media only screen and (max-width: $xs) {
-      margin-left: 0px;
-      margin-bottom: 6px;
+    margin-right: $space-sm;
+    padding: 4px 6px;
+    border-radius: 6px;
+    font-weight: $weight-bold;
+    transition-duration: 0.3s;
+
+    @media (max-width: $xs) {
+      margin-left: 0;
+      margin-bottom: $space-2xs;
     }
+
     &.active {
       background-color: $site-yellow;
-      width: fit-content;
 
       a {
         color: $site-text-on-yellow;
@@ -68,28 +68,28 @@
 }
 
 .theme-toggle {
-  background: transparent;
-  border: none;
-  border-radius: 50%;
-  width: 36px;
-  height: 36px;
-  font-size: 16px;
-  cursor: pointer;
+  position: relative;
+  z-index: 2;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0;
   flex-shrink: 0;
-  position: relative;
-  z-index: 2;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  font-size: $text-base;
+  cursor: pointer;
   backdrop-filter: blur(6px);
 
   &::before {
     content: "";
     position: absolute;
     inset: 0;
-    border-radius: 50%;
     border: 1px solid $site-text;
+    border-radius: 50%;
     mix-blend-mode: difference;
     pointer-events: none;
   }
@@ -98,8 +98,8 @@
     outline: none;
   }
 
-  @media only screen and (max-width: $xs) {
+  @media (max-width: $xs) {
     position: fixed;
-    right: 18px;
+    right: $space-md;
   }
 }

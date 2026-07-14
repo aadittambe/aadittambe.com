@@ -47,41 +47,45 @@ a:hover {
 }
 
 h1 {
-  font-size: 2.2rem;
-  padding-bottom: 24px;
-  font-weight: 800;
+  font-size: $text-xl;
+  line-height: $leading-snug;
+  padding-bottom: $space-lg;
+  font-weight: $weight-bold;
   margin: 0;
 }
 
 h2 {
-  line-height: 1.75rem;
+  font-size: $text-lg;
+  line-height: $leading-snug;
+  font-weight: $weight-bold;
   margin: 0;
-  padding-bottom: 18px;
-  padding-top: 18px;
+  padding-bottom: $space-md;
+  padding-top: $space-md;
 }
 
 h3 {
-  font-size: 1.2rem;
-  line-height: 1.75rem;
+  font-size: $text-md;
+  line-height: $leading-snug;
+  font-weight: $weight-bold;
   margin: 0;
-  padding-bottom: 16px;
-  padding-top: 16px;
+  padding-bottom: $space-md;
+  padding-top: $space-md;
 }
 
 h4 {
-  font-weight: 500;
-  font-size: 1.2rem;
-  line-height: 1.75rem;
+  font-weight: $weight-medium;
+  font-size: $text-md;
+  line-height: $leading-snug;
   margin: 0;
-  padding-bottom: 12px;
-  padding-top: 12px;
+  padding-bottom: $space-sm;
+  padding-top: $space-sm;
 }
 
 p {
-  font-size: 1.2rem;
-  line-height: 1.75rem;
-  padding-bottom: 12px;
-  font-weight: 300;
+  font-size: $text-md;
+  line-height: $leading-normal;
+  padding-bottom: $space-sm;
+  font-weight: $weight-light;
   margin: 0;
 }
 

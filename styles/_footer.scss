@@ -1,23 +1,27 @@
 @use "./globals" as *;
 
 .site-footer {
-  padding-left: 12px;
-  padding-right: 12px;
+  padding-left: $space-md;
+  padding-right: $space-md;
+
   .container {
     max-width: $xs;
     margin: auto;
-    p {
-      font-size: 1rem;
+    padding-top: $space-2xl;
+    padding-bottom: $space-sm;
+
+    @media (max-width: $md) {
+      padding-top: $space-xl;
     }
-    .divider {
-      height: 1px;
-      background-color: $site-text;
-      margin-bottom: 12px;
-    }
-    padding-top: 60px;
-    padding-bottom: 12px;
-    @media only screen and (max-width: $md) {
-      padding-top: 36px;
-    }
+  }
+
+  p {
+    font-size: $text-base;
+  }
+
+  .divider {
+    height: 1px;
+    margin-bottom: $space-sm;
+    background-color: $site-text;
   }
 }

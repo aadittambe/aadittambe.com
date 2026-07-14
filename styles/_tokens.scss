@@ -1,0 +1,42 @@
+// Design tokens — every non-color value the stylesheets are allowed to
+// use for type, spacing, and layout. Colors live in theme.scss.
+// Micro-padding inside small controls (buttons, pills, inline code) may
+// stay literal; everything that sets page rhythm snaps to these scales.
+
+// Type scale
+$text-xs: 0.75rem; // tag pills, smallest labels
+$text-sm: 0.875rem; // org lines, captions, buttons
+$text-base: 1rem; // nav, footer, card descriptions
+$text-md: 1.2rem; // body copy
+$text-lg: 1.5rem; // h2
+$text-xl: 2.2rem; // page titles
+
+// Font weights — Fraunces is loaded in exactly these three weights
+// (see pages/_app.js); anything else renders as a synthesized fake.
+$weight-light: 300;
+$weight-medium: 500;
+$weight-bold: 700;
+
+// Line heights (unitless so they scale with the font size)
+$leading-tight: 1.2; // single-line labels
+$leading-snug: 1.35; // headings, captions
+$leading-normal: 1.5; // body copy
+
+// Spacing scale
+$space-2xs: 4px;
+$space-xs: 8px;
+$space-sm: 12px;
+$space-md: 18px; // also the site-wide horizontal gutter
+$space-lg: 24px;
+$space-xl: 36px;
+$space-2xl: 60px;
+
+// Breakpoints
+$xxs: 400px;
+$xs: 672px;
+$sm: 768px;
+$md: 992px;
+
+// Canonical content column width shared across pages: the $xs breakpoint
+// plus one gutter on each side, so inner content is exactly $xs wide.
+$content: calc($xs + 2 * $space-md);
