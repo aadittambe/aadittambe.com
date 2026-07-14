@@ -1,6 +1,7 @@
 ---
-title: "Post Next: 50 people shaping our society in 2025"
+title: 'Post Next: 50 people shaping our society in 2025'
 org: The Washington Post
+date: 02/02/2025
 slug: post-next-50-people-shaping-our-society-in-2025
 order: 8
 img: >-
@@ -8,6 +9,6 @@ img: >-
 imgAlt: >-
   grid of portraits of people include in the Post’s list of 50 influential
   people
-url: "https://www.washingtonpost.com/post-next/interactive/2025/"
-date: 02/02/2025
+url: 'https://www.washingtonpost.com/post-next/interactive/2025/'
 ---
+

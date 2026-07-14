@@ -3,11 +3,15 @@ title: Dining Guide
 org: The Washington Post
 date: 07/13/2025
 slug: dining-guide
-order: 6
+order: 4
 img: dining.png
 imgAlt: Three Washington post dining guide projects.
-url: https://www.washingtonpost.com/food/interactive/2026/10-best-new-restaurants-dc-area/
-description: The Post’s seasonal restaurant guide — an interactive database and map of dining picks across D.C., Maryland, and Virginia. I led development across three editions.
+url: >-
+  https://www.washingtonpost.com/food/interactive/2026/10-best-new-restaurants-dc-area/
+description: >-
+  The Post’s seasonal restaurant guide — an interactive database and map of
+  dining picks across D.C., Maryland, and Virginia. I led development across
+  three editions.
 ---
 
 ![Three Washington Post dining guide projects.](/images/projects/dining.png "Dining guide projects produced over the years.")
