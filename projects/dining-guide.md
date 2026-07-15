@@ -11,7 +11,7 @@ url: >-
 description: >-
   The Post’s seasonal restaurant guide — an interactive database and map of
   dining picks across D.C., Maryland, and Virginia. I led development across
-  three editions.
+  six editions.
 ---
 
 ![Three Washington Post dining guide projects.](/images/projects/dining.png "Dining guide projects produced over the years.")
