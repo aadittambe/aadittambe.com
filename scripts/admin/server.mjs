@@ -1,5 +1,5 @@
 import http from "node:http";
-import { readFile, writeFile, unlink, readdir } from "node:fs/promises";
+import { readFile, writeFile, unlink, readdir, stat } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import matter from "gray-matter";
@@ -12,6 +12,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const CWD = path.resolve(__dirname, "..", "..");
 const PROJECTS_DIR = path.join(CWD, "projects");
 const PUBLIC_DIR = path.join(CWD, "public");
+const IMAGES_DIR = path.join(PUBLIC_DIR, "images", "projects");
 const HOST = "localhost";
 const START_PORT = 4321;
 
@@ -77,6 +78,48 @@ async function listProjects() {
   const orderOf = (p) => (Number.isFinite(Number(p.order)) ? Number(p.order) : Infinity);
   projects.sort((a, b) => orderOf(a) - orderOf(b));
   return projects;
+}
+
+// An image is "in use" if its filename appears anywhere in a project's raw
+// markdown — that covers both the frontmatter `img:` field (bare filename)
+// and body references like ![...](/images/projects/name.png).
+async function findUnusedImages() {
+  const mdFiles = (await readdir(PROJECTS_DIR)).filter((f) => f.endsWith(".md"));
+  const sources = await Promise.all(
+    mdFiles.map((f) => readFile(path.join(PROJECTS_DIR, f), "utf8")),
+  );
+
+  let imageFiles;
+  try {
+    imageFiles = await readdir(IMAGES_DIR);
+  } catch {
+    return [];
+  }
+
+  const unused = [];
+  for (const file of imageFiles) {
+    if (!(path.extname(file).toLowerCase() in IMAGE_CONTENT_TYPES)) continue;
+    if (sources.some((src) => src.includes(file))) continue;
+    const { size } = await stat(path.join(IMAGES_DIR, file));
+    unused.push({ file, size });
+  }
+  return unused;
+}
+
+async function handleGetUnusedImages(req, res) {
+  sendJson(res, 200, await findUnusedImages());
+}
+
+async function handleDeleteImage(req, res, filename) {
+  const safeName = path.basename(String(filename));
+  // Refuse anything that isn't currently flagged as unused, so a stale UI
+  // can never delete an image a project still references.
+  const unused = await findUnusedImages();
+  if (!unused.some((img) => img.file === safeName)) {
+    return sendJson(res, 409, { error: "Image is in use (or missing) — refusing to delete" });
+  }
+  await unlink(path.join(IMAGES_DIR, safeName));
+  sendJson(res, 200, { ok: true });
 }
 
 async function readJsonBody(req) {
@@ -216,6 +259,14 @@ const server = http.createServer(async (req, res) => {
     if (req.method === "GET" && url.pathname === "/api/projects") return await handleGetProjects(req, res);
     if (req.method === "POST" && url.pathname === "/api/projects") return await handleCreateProject(req, res);
     if (req.method === "POST" && url.pathname === "/api/reorder") return await handleReorder(req, res);
+    if (req.method === "GET" && url.pathname === "/api/unused-images") {
+      return await handleGetUnusedImages(req, res);
+    }
+
+    const imageMatch = url.pathname.match(/^\/api\/images\/([^/]+)$/);
+    if (imageMatch && req.method === "DELETE") {
+      return await handleDeleteImage(req, res, decodeURIComponent(imageMatch[1]));
+    }
 
     const projectMatch = url.pathname.match(/^\/api\/projects\/([^/]+)$/);
     if (projectMatch) {
