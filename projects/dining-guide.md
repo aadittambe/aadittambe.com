@@ -3,7 +3,7 @@ title: Dining Guide
 org: The Washington Post
 date: 07/13/2025
 slug: dining-guide
-order: 4
+order: 5
 img: dining.png
 imgAlt: Three Washington post dining guide projects.
 url: >-

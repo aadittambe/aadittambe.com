@@ -1,10 +1,9 @@
 ---
 title: Story formats
 org: The Washington Post
-tag: Internal
 date: 07/12/2026
 slug: story-formats
-order: 2
+order: 3
 img: formats.png
 imgAlt: >-
   Two Washington Post stories, one built using the quiz format, and another
@@ -12,6 +11,7 @@ imgAlt: >-
 description: >-
   Reusable formats that let editors and reporters create interactive stories at
   scale, no codebase required.
+tag: Internal
 ---
 
 To enhance our interactive storytelling, I was part of a team of developers that transitioned some of our template’s most-used layouts into reusable formats, allowing editors and reporters to create engaging stories at scale without the need for a codebase.
