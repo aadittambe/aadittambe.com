@@ -48,6 +48,8 @@ To manage existing projects — edit metadata, drag to reorder, or delete — th
 npm run admin
 ```
 
+The admin also flags images in `public/images/projects/` that no project references (in frontmatter or body), so they can be deleted from the UI.
+
 It runs at `http://localhost:4321` (or the next free port), binds to loopback only, and is never part of the deployed site.
 
 ### Resume
