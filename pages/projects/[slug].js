@@ -14,7 +14,7 @@ export default function Project({ projectData, prevProject, nextProject }) {
     <Layout>
       <div className="post project-post">
         <Head>
-          <title>Prjects — {projectData.title}</title>
+          <title>Projects — {projectData.title}</title>
           {projectData.description && (
             <meta name="description" content={projectData.description} />
           )}
@@ -28,7 +28,7 @@ export default function Project({ projectData, prevProject, nextProject }) {
             {projectData.url && (
               <p>
                 <a href={projectData.url} rel="noreferrer" target="_blank">
-                  View live project ↗
+                  View live project ↗&#xFE0E;
                 </a>
               </p>
             )}
