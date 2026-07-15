@@ -2,7 +2,7 @@ import Head from "next/head";
 import Layout from "../components/layout";
 import Link from "next/link";
 
-const data = require("../data/content.json");
+const data = require("../data/resume.json");
 
 const work = data.work;
 const awards = data.awards;
