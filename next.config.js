@@ -2,6 +2,10 @@
 const nextConfig = {
   output: "export",
   trailingSlash: true,
+  experimental: {
+    // Restore scroll position on back/forward between pages
+    scrollRestoration: true,
+  },
   reactStrictMode: true,
   images: {
     unoptimized: true,

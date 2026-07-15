@@ -49,7 +49,7 @@ const Story = ({
 }) => {
   const { ref, inView } = useInView({
     threshold: 0,
-    rootMargin: "50% 0% -10% 0%",
+    // rootMargin: "50% 0% -10% 0%",
   });
 
   const [isLoaded, setIsLoaded] = useState(false);
@@ -138,7 +138,7 @@ const Story = ({
 const Tile = ({ url, img, imgAlt, org, title }) => {
   const { ref, inView } = useInView({
     threshold: 0,
-    rootMargin: "50% 0% -10% 0%",
+    // rootMargin: "50% 0% -10% 0%",
   });
 
   const [isLoaded, setIsLoaded] = useState(false);

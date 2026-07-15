@@ -1,13 +1,15 @@
 ---
 title: CMS migration
-tag: Internal
 org: The Washington Post
 date: 07/14/2026
 slug: cms-migration
-order: 1
-description: The Post migrated to a new CMS — I was on the development team that made sure transitioned smoothly.
+order: 5
 img: fce-json.png
 imgAlt: JSON view of the interactive embed I created
+description: >-
+  The Post migrated to a new CMS — I was on the development team that made sure interactives
+  transitioned smoothly.
+tag: Newsroom tool
 ---
 
 As part the Post’s migration to a new CMS, I worked on the team responsible for ensuring that the newsroom’s interactive stories continued to function throughout the transition.

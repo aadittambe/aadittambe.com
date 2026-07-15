@@ -14,7 +14,7 @@ export default function Project({ projectData, prevProject, nextProject }) {
     <Layout>
       <div className="post project-post">
         <Head>
-          <title>{projectData.title}</title>
+          <title>Prjects — {projectData.title}</title>
           {projectData.description && (
             <meta name="description" content={projectData.description} />
           )}

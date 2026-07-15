@@ -3,7 +3,7 @@ title: Story formats
 org: The Washington Post
 date: 07/12/2026
 slug: story-formats
-order: 3
+order: 2
 img: formats.png
 imgAlt: >-
   Two Washington Post stories, one built using the quiz format, and another
@@ -11,12 +11,12 @@ imgAlt: >-
 description: >-
   Reusable formats that let editors and reporters create interactive stories at
   scale, no codebase required.
-tag: Internal
+tag: Newsroom tool
 ---
 
 To enhance our interactive storytelling, I was part of a team of developers that transitioned some of our template’s most-used layouts into reusable formats, allowing editors and reporters to create engaging stories at scale without the need for a codebase.
 
-I contributed to developing deployment pipelines using AWS Lambda, giving newsroom leaders the ability to publish stories without engineering support.
+I contributed to developing deployment pipelines using AWS Lambda, giving newsroom leaders the ability to monitor and publish stories without engineering support.
 
 ![Two Washington Post stories, one built using the quiz format, and another built using the Great Works in Focus format.](/images/projects/formats.png "Quiz and “Great Works in Focus” formats")
 
