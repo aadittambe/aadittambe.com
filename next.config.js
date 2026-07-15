@@ -1,6 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "export",
   trailingSlash: true,
   experimental: {
     // Restore scroll position on back/forward between pages
@@ -8,7 +7,15 @@ const nextConfig = {
   },
   reactStrictMode: true,
   images: {
-    unoptimized: true,
+    // Project thumbnails may be full URLs; only these hosts are allowed
+    // through the image optimizer.
+    remotePatterns: [
+      "arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com",
+      "cnsmaryland.org",
+      "img.washingtonpost.com",
+      "media-cldnry.s-nbcnews.com",
+      "www.washingtonpost.com",
+    ].map((hostname) => ({ protocol: "https", hostname })),
   },
   env: {
     NEXT_PUBLIC_MODIFIED_DATE: new Date().toLocaleDateString("en-US", {
