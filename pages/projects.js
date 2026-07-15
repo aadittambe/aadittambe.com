@@ -121,12 +121,12 @@ const Story = ({
               target="_blank"
               rel="noopener noreferrer"
             >
-              View project&nbsp;↗
+              View project ↗&#xFE0E;
             </a>
           )}
           {pageHref && (
             <Link className="card-btn card-btn--ghost" href={pageHref}>
-              Read more&nbsp;→
+              Read more →&#xFE0E;
             </Link>
           )}
         </div>
