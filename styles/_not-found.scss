@@ -1,0 +1,8 @@
+@use "./globals" as *;
+
+.not-found {
+  max-width: $content;
+  margin: auto;
+  padding-left: $space-md;
+  padding-right: $space-md;
+}
