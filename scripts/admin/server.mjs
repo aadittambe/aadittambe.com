@@ -12,7 +12,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const CWD = path.resolve(__dirname, "..", "..");
 const PROJECTS_DIR = path.join(CWD, "projects");
 const PUBLIC_DIR = path.join(CWD, "public");
-const HOST = "127.0.0.1";
+const HOST = "localhost";
 const START_PORT = 4321;
 
 const IMAGE_CONTENT_TYPES = {

@@ -24,13 +24,35 @@ Install `npm` dependencies:
 npm install
 ```
 
-Resume data (work experience, awards, skills, and education) lives in `data/resume.json` — edit it directly to update the resume page.
-
 Start the development server:
 
 ```
 npm run dev
 ```
+
+## ✍️ Managing content
+
+### Projects
+
+Each project is a Markdown file in `projects/`, with metadata in frontmatter (title, org, date, thumbnail, live URL, etc.). Projects with a `description` render as cards on the [projects page](https://aadittambe.com/projects/); those without one render as smaller tiles. If a file has body content below the frontmatter, it gets its own page at `/projects/<slug>` with a "Read more" link on its card.
+
+To scaffold a new project, run the interactive prompt, which asks for the metadata and creates the `.md` file:
+
+```
+npm run new-project
+```
+
+To manage existing projects — edit metadata, drag to reorder, or delete — there's a local admin UI:
+
+```
+npm run admin
+```
+
+It runs at `http://localhost:4321` (or the next free port), binds to loopback only, and is never part of the deployed site.
+
+### Resume
+
+Resume data (work experience, awards, skills, and education) lives in `data/resume.json` — edit it directly to update the resume page.
 
 ## 🛠️ Build site
 
