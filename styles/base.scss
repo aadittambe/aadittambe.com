@@ -24,7 +24,18 @@
   box-sizing: border-box;
 }
 
-* {
+// Theme cross-fade. Scoped to the elements that paint theme colors — don't
+// widen this to `*`: a universal transition makes the browser animate every
+// node in the DOM when the theme flips, which takes seconds on Safari/mobile.
+// `color` inherits, so animating it on body carries all plain text along.
+body,
+pre,
+code,
+em,
+.divider,
+.label,
+.tooltip,
+.theme-toggle::before {
   transition:
     background-color 0.25s ease,
     color 0.25s ease,
