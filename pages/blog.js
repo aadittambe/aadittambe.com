@@ -40,7 +40,7 @@ export async function getStaticProps() {
 export default function BlogPage({ allPostsData = [] }) {
   return (
     <Layout>
-      <div className="blog container">
+      <div className="blog">
         <Head>
           <title>Aadit Tambe — blog</title>
         </Head>

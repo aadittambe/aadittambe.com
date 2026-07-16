@@ -1,107 +1,251 @@
 @use "./globals" as *;
 
+// Project write-ups embed screenshots that are often portrait (a phone-shaped
+// capture), and the shared `.post img` rule stretches images to the full column
+// width — which would leave a tall screenshot towering over the text. Cap by
+// height instead and centre it. Scoped to `.post.project-post` so it outranks
+// `.post img` without disturbing the blog's landscape images.
+.post.project-post {
+  img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 60vh; // mirrored in lib/remarkFigures.js's inline width cap
+
+    margin: 0 auto;
+  }
+
+  figure {
+    margin: $space-xl 0; // browsers default to a 40px side margin — drop it
+  }
+
+  // Centred under the image and capped, so a caption never runs the full width
+  // of the text column beneath a narrow (portrait) screenshot.
+  figcaption {
+    max-width: 34rem;
+    margin: $space-xs auto 0;
+    font-size: $text-sm;
+    font-weight: $weight-light;
+    line-height: $leading-snug;
+    color: $site-text-alt;
+    text-align: center;
+  }
+
+  ul {
+    margin-top: 0;
+    margin-bottom: $space-md;
+  }
+
+  li {
+    margin-bottom: $space-md;
+    font-size: $text-md;
+    line-height: $leading-normal;
+  }
+}
+
+// The cards and tiles stay nested one level inside `.projects`: the extra
+// class is what lets their `border` rules outrank the global `a:hover`
+// underline (both are anchors).
 .projects {
-  padding-left: 18px;
-  padding-right: 18px;
+  // Every block shares the site's content column width so the cards line up
+  // with the body text.
+  .intro,
+  .source,
+  .grid,
+  .tile-grid {
+    max-width: $content;
+    margin: auto;
+    padding-left: $space-md;
+    padding-right: $space-md;
+  }
 
   .intro {
-    max-width: $xs;
-    margin: auto;
+    padding-bottom: $space-lg;
   }
 
   .grid {
-    max-width: $lg;
-    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: $space-lg;
+    padding-bottom: $space-xl;
+  }
+
+  // Link-out-only projects (no write-up) get a smaller square-ish tile
+  // instead of a full horizontal card, in a grid below the described cards.
+  .tile-grid {
     display: grid;
-    grid-gap: 24px;
-    grid-template-columns: 1fr 1fr 1fr;
-    padding-bottom: 2.5rem;
-    @media only screen and (max-width: $md) {
-      grid-gap: 18px;
-      grid-template-columns: 1fr 1fr;
-    }
-    @media only screen and (max-width: $xs) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: $space-md;
+    padding-bottom: $space-xl;
+
+    @media (max-width: $xs) {
       grid-template-columns: 1fr;
     }
+  }
 
-    .story {
-      overflow: hidden;
-      border-radius: 4px;
-      width: 100%;
-      transition: 0.4s ease-in-out;
-      border: 1px solid $site-background-alt;
-      box-shadow: 0 8px 24px 0 rgba(102, 102, 102, 0.15);
-      .card-text {
-        padding-left: 8px;
-        padding-right: 8px;
-        padding-top: 12px;
-      }
+  // Shared by cards and tiles while their thumbnail loads.
+  .story-spinner {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $site-background-alt;
+    transition: 0.4s ease-in-out;
+  }
 
-      .story-name {
-        transition: all 0.1s;
-      }
+  // A described project: image on the left (40% of the card), text on the
+  // right; the card grows to the text height.
+  .story {
+    display: flex;
+    overflow: hidden;
+    border: 1px solid $site-background-alt;
+    border-radius: 4px;
+    // box-shadow: 0 8px 24px 0 rgba(102, 102, 102, 0.15);
+    transition: 0.2s ease-in-out;
 
-      .story-org {
-        padding-bottom: 4px;
-        font-size: 0.87rem;
-        line-height: 1.2rem;
+    .story-media {
+      position: relative;
+      flex: 0 0 40%;
+      align-self: stretch;
+      min-height: 100px;
+      border-bottom: none; // override the global anchor underline
+    }
+
+    .card-text {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: $space-md;
+    }
+
+    .story-org {
+      padding-bottom: $space-2xs;
+      font-size: $text-sm;
+      line-height: $leading-tight;
+    }
+
+    // Small pill after the org name, e.g. "Internal tool".
+    .story-tag {
+      display: inline-block;
+      margin-left: $space-xs;
+      padding: 2px 9px;
+      border: 1px solid color-mix(in srgb, $site-text 18%, transparent);
+      border-radius: 999px;
+      font-size: $text-xs;
+      font-weight: $weight-medium;
+      line-height: $leading-tight;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: $site-text;
+      vertical-align: 8%;
+      white-space: nowrap;
+    }
+
+    .story-name {
+      padding-bottom: $space-xs;
+      transition: all 0.1s;
+    }
+
+    .story-description {
+      font-size: $text-base;
+      line-height: $leading-normal;
+      transition: all 0.1s;
+    }
+
+    .story-name a,
+    .story-description a {
+      border-bottom: none; // the buttons below carry the affordance
+    }
+
+    .card-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: $space-xs;
+      padding-top: $space-sm;
+    }
+
+    // Stack on mobile: image on top, text below.
+    @media (max-width: $xs) {
+      flex-direction: column;
+
+      .story-media {
+        flex: none;
+        width: 100%;
+        aspect-ratio: 16 / 9;
       }
     }
   }
 
-  fieldset {
-    font-size: 1rem;
-    font-weight: 500;
-    text-align: center;
-    border: none;
-    padding: 0px;
-    max-width: $md;
-    margin: auto;
-    padding-bottom: 48px;
-    margin-top: 36px;
-  }
-
-  legend {
-    padding-bottom: 24px;
-    @media only screen and (max-width: $md) {
-      max-width: 282px;
-      margin: auto;
-    }
-  }
-
-  .source {
-    max-width: $xs;
-    margin: auto;
-  }
-
-  .btn {
-    background-color: inherit;
-    border: none;
-    margin-right: 6px;
-    margin-bottom: 12px;
-    line-height: 1.5rem;
-    transition-duration: 0.3s;
-    text-align: center;
-    padding: 6px 6px;
-    cursor: pointer;
+  .card-btn {
+    padding: 6px 13px;
     border-radius: 6px;
-    display: inline-block;
-    min-width: 82px;
-    color: $site-text;
-    &.active {
-      color: $site-text-on-yellow;
+    font-size: $text-sm;
+    font-weight: $weight-medium;
+    line-height: $leading-tight;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 0.18s ease;
+
+    // Each hover restates `border` so the global `a:hover` underline (a 3px
+    // yellow bottom border) can't creep back in and jitter the button.
+    &--primary {
       background-color: $site-yellow;
+      color: $site-text-on-yellow;
+      border: 1px solid $site-yellow;
+
+      &:hover {
+        border: 1px solid $site-yellow;
+        filter: brightness(1.06);
+        transform: translateY(-1px);
+      }
+    }
+
+    &--ghost {
+      $ghost-border: color-mix(in srgb, $site-text 18%, transparent);
+
+      background-color: transparent;
+      color: $site-text;
+      border: 1px solid $ghost-border;
+
+      &:hover {
+        border: 1px solid $ghost-border;
+        background-color: color-mix(in srgb, $site-text 7%, transparent);
+      }
     }
   }
 
-  .btn input {
-    display: none;
-  }
+  .tile {
+    display: block;
+    overflow: hidden;
+    border: 1px solid $site-background-alt;
+    border-radius: 4px;
+    // box-shadow: 0 8px 24px 0 rgba(102, 102, 102, 0.15);
+    transition: 0.2s ease-in-out;
 
-  @media only screen and (max-width: $md) {
-    .btn span {
-      max-width: 72px;
-      min-width: 72px;
+    .tile-media {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-bottom: none; // override the global anchor underline
+    }
+
+    .tile-text {
+      padding: $space-sm $space-md;
+    }
+
+    .tile-org {
+      padding-bottom: $space-2xs;
+      font-size: $text-sm;
+      line-height: $leading-tight;
+    }
+
+    .tile-name {
+      font-size: $text-md;
+      line-height: $leading-snug;
     }
   }
 }

@@ -1,7 +1,6 @@
 import Head from "next/head";
 import Layout from "../components/layout";
 import Link from "next/link";
-import D3Viz from "./../components/D3Viz";
 
 export default function Home() {
   return (
@@ -16,9 +15,6 @@ export default function Home() {
       </Head>
 
       <div className="home">
-        <div className="viz">
-          <D3Viz />
-        </div>
         <h1>
           <span className="wave">👋🏽</span> Hi — I am Aadit.
         </h1>
@@ -43,14 +39,6 @@ export default function Home() {
           in National Reporting for our ‘American Icon’ series, which chronicled
           the rise of the AR-15 rifle in the U.S.
         </p>
-        <p>
-          The dots at the top represent my{" "}
-          <Link href="/projects">projects</Link>, grouped by my primary
-          contribution — web development, graphics, data analysis, or reporting.
-          That’s not all <Link href="/resume#skills">I’m skilled at</Link>,
-          though.
-        </p>
-
         <p>
           Feel free to <Link href="/contact">get in touch</Link> — I’d love to
           hear from you. And thank you for stopping by.

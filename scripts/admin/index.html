@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Projects admin</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff;
+    --fg: #111111;
+    --border: #dddddd;
+    --alt: #f7f7f7;
+    --accent: #f6c90e;
+    --danger: #c0392b;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #16181c;
+      --fg: #eeeeee;
+      --border: #333333;
+      --alt: #1f2226;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 24px;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 14px;
+  }
+  h1 { font-size: 20px; margin: 0 0 4px; }
+  .sub { color: #888; margin: 0 0 20px; font-size: 13px; }
+  table { width: 100%; border-collapse: collapse; }
+  th, td {
+    border-bottom: 1px solid var(--border);
+    padding: 6px 8px;
+    text-align: left;
+    vertical-align: top;
+  }
+  th { font-size: 12px; text-transform: uppercase; color: #888; font-weight: 600; }
+  tr.dragging { opacity: 0.4; }
+  tr.drag-over { border-top: 2px solid var(--accent); }
+  .handle { cursor: grab; color: #999; padding-right: 4px; user-select: none; }
+  .thumb {
+    width: 48px; height: 48px; object-fit: cover; border-radius: 4px;
+    background: var(--alt); display: block;
+  }
+  input, textarea {
+    width: 100%;
+    border: 1px solid transparent;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    padding: 4px;
+    border-radius: 4px;
+  }
+  input:hover, textarea:hover, input:focus, textarea:focus {
+    border-color: var(--border);
+    background: var(--alt);
+  }
+  textarea { resize: vertical; min-height: 32px; }
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 600;
+    background: var(--alt);
+    border: 1px solid var(--border);
+    white-space: nowrap;
+  }
+  .badge.card { color: #1a7f37; }
+  .badge.tile { color: #8250df; }
+  button {
+    cursor: pointer;
+    border: 1px solid var(--border);
+    background: var(--alt);
+    color: inherit;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font: inherit;
+  }
+  button:hover { filter: brightness(1.05); }
+  .delete-btn { color: var(--danger); border-color: var(--danger); background: transparent; }
+  .add-row { display: flex; gap: 8px; margin-top: 20px; }
+  .add-row input { border: 1px solid var(--border); background: var(--alt); flex: 1; max-width: 400px; }
+  .saved-flash { outline: 1px solid #1a7f37 !important; }
+  .col-narrow { width: 60px; }
+  #unused-images { margin-top: 32px; }
+  #unused-images h2 { font-size: 16px; margin: 0 0 4px; }
+  .image-grid { display: flex; flex-wrap: wrap; gap: 12px; }
+  .image-card {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 8px;
+    width: 160px;
+    background: var(--alt);
+  }
+  .image-card img {
+    width: 100%; height: 90px; object-fit: cover; border-radius: 4px;
+    background: var(--bg); display: block;
+  }
+  .image-card .name {
+    font-size: 12px;
+    word-break: break-all;
+    margin: 6px 0 2px;
+  }
+  .image-card .size { font-size: 11px; color: #888; margin: 0 0 6px; }
+  .image-card button { width: 100%; padding: 4px 8px; font-size: 12px; }
+</style>
+</head>
+<body>
+  <h1>Projects</h1>
+  <p class="sub">Drag rows to reorder. Edits save on blur. Local-only — this page is never deployed.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th class="col-narrow"></th>
+        <th class="col-narrow"></th>
+        <th>Title</th>
+        <th>Org</th>
+        <th>Date</th>
+        <th>Type</th>
+        <th>URL</th>
+        <th>Description</th>
+        <th class="col-narrow"></th>
+      </tr>
+    </thead>
+    <tbody id="rows"></tbody>
+  </table>
+
+  <div class="add-row">
+    <input id="new-title" type="text" placeholder="New project title…" />
+    <button id="add-btn">Add project</button>
+  </div>
+
+  <div id="unused-images" hidden>
+    <h2>Unused images</h2>
+    <p class="sub">
+      Files in <code>public/images/projects/</code> that no project references —
+      safe to delete.
+    </p>
+    <div class="image-grid" id="image-grid"></div>
+  </div>
+
+<script>
+  const rowsEl = document.getElementById("rows");
+  let projects = [];
+  let dragIndex = null;
+
+  async function api(path, opts) {
+    const res = await fetch(path, opts);
+    if (!res.ok) {
+      const body = await res.json().catch(() => ({}));
+      throw new Error(body.error || res.statusText);
+    }
+    return res.status === 204 ? null : res.json();
+  }
+
+  async function load() {
+    projects = await api("/api/projects");
+    render();
+    await loadUnusedImages();
+  }
+
+  function formatSize(bytes) {
+    if (bytes >= 1024 * 1024) return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
+    return `${Math.max(1, Math.round(bytes / 1024))} KB`;
+  }
+
+  async function loadUnusedImages() {
+    const section = document.getElementById("unused-images");
+    const grid = document.getElementById("image-grid");
+    const images = await api("/api/unused-images");
+
+    section.hidden = images.length === 0;
+    grid.innerHTML = "";
+
+    images.forEach(({ file, size }) => {
+      const card = document.createElement("div");
+      card.className = "image-card";
+
+      const img = document.createElement("img");
+      img.src = `/images/projects/${encodeURIComponent(file)}`;
+      img.alt = "";
+      card.appendChild(img);
+
+      const name = document.createElement("p");
+      name.className = "name";
+      name.textContent = file;
+      card.appendChild(name);
+
+      const sizeEl = document.createElement("p");
+      sizeEl.className = "size";
+      sizeEl.textContent = formatSize(size);
+      card.appendChild(sizeEl);
+
+      const deleteBtn = document.createElement("button");
+      deleteBtn.className = "delete-btn";
+      deleteBtn.textContent = "Delete";
+      deleteBtn.addEventListener("click", async () => {
+        if (!confirm(`Delete ${file}? This cannot be undone.`)) return;
+        try {
+          await api(`/api/images/${encodeURIComponent(file)}`, { method: "DELETE" });
+          await loadUnusedImages();
+        } catch (err) {
+          alert(`Failed to delete: ${err.message}`);
+        }
+      });
+      card.appendChild(deleteBtn);
+
+      grid.appendChild(card);
+    });
+  }
+
+  function field(project, key, tag) {
+    const el = document.createElement(tag);
+    el.value = project[key] || "";
+    el.addEventListener("blur", async () => {
+      if (el.value === (project[key] || "")) return;
+      project[key] = el.value;
+      try {
+        await api(`/api/projects/${encodeURIComponent(project.file)}`, {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ [key]: el.value }),
+        });
+        el.classList.add("saved-flash");
+        setTimeout(() => el.classList.remove("saved-flash"), 600);
+      } catch (err) {
+        alert(`Failed to save: ${err.message}`);
+      }
+    });
+    return el;
+  }
+
+  function render() {
+    rowsEl.innerHTML = "";
+    projects.forEach((project, index) => {
+      const tr = document.createElement("tr");
+      tr.draggable = true;
+      tr.dataset.index = index;
+
+      tr.addEventListener("dragstart", () => {
+        dragIndex = index;
+        tr.classList.add("dragging");
+      });
+      tr.addEventListener("dragend", () => tr.classList.remove("dragging"));
+      tr.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        tr.classList.add("drag-over");
+      });
+      tr.addEventListener("dragleave", () => tr.classList.remove("drag-over"));
+      tr.addEventListener("drop", async (e) => {
+        e.preventDefault();
+        tr.classList.remove("drag-over");
+        if (dragIndex === null || dragIndex === index) return;
+        const [moved] = projects.splice(dragIndex, 1);
+        projects.splice(index, 0, moved);
+        dragIndex = null;
+        render();
+        await api("/api/reorder", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ files: projects.map((p) => p.file) }),
+        });
+      });
+
+      const handleTd = document.createElement("td");
+      handleTd.className = "handle";
+      handleTd.textContent = "⠿";
+      tr.appendChild(handleTd);
+
+      const thumbTd = document.createElement("td");
+      if (project.img) {
+        const img = document.createElement("img");
+        img.className = "thumb";
+        img.src = project.img.startsWith("http") ? project.img : `/images/projects/${project.img}`;
+        img.alt = "";
+        thumbTd.appendChild(img);
+      } else {
+        const placeholder = document.createElement("div");
+        placeholder.className = "thumb";
+        thumbTd.appendChild(placeholder);
+      }
+      tr.appendChild(thumbTd);
+
+      const titleTd = document.createElement("td");
+      titleTd.appendChild(field(project, "title", "input"));
+      tr.appendChild(titleTd);
+
+      const orgTd = document.createElement("td");
+      orgTd.appendChild(field(project, "org", "input"));
+      tr.appendChild(orgTd);
+
+      const dateTd = document.createElement("td");
+      dateTd.appendChild(field(project, "date", "input"));
+      tr.appendChild(dateTd);
+
+      const typeTd = document.createElement("td");
+      const badge = document.createElement("span");
+      badge.className = `badge ${project.type}`;
+      badge.textContent = project.type === "card" ? "Card" : "Tile";
+      typeTd.appendChild(badge);
+      if (project.hasContent) {
+        const pageBadge = document.createElement("span");
+        pageBadge.className = "badge";
+        pageBadge.style.marginLeft = "4px";
+        pageBadge.textContent = "Has page";
+        typeTd.appendChild(pageBadge);
+      }
+      tr.appendChild(typeTd);
+
+      const urlTd = document.createElement("td");
+      urlTd.appendChild(field(project, "url", "input"));
+      tr.appendChild(urlTd);
+
+      const descTd = document.createElement("td");
+      descTd.appendChild(field(project, "description", "textarea"));
+      tr.appendChild(descTd);
+
+      const deleteTd = document.createElement("td");
+      const deleteBtn = document.createElement("button");
+      deleteBtn.className = "delete-btn";
+      deleteBtn.textContent = "Delete";
+      deleteBtn.addEventListener("click", async () => {
+        if (!confirm(`Delete "${project.title || project.file}"? This cannot be undone.`)) return;
+        await api(`/api/projects/${encodeURIComponent(project.file)}`, { method: "DELETE" });
+        await load();
+      });
+      deleteTd.appendChild(deleteBtn);
+      tr.appendChild(deleteTd);
+
+      rowsEl.appendChild(tr);
+    });
+  }
+
+  document.getElementById("add-btn").addEventListener("click", async () => {
+    const input = document.getElementById("new-title");
+    const title = input.value.trim();
+    if (!title) return;
+    try {
+      await api("/api/projects", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ title }),
+      });
+      input.value = "";
+      await load();
+    } catch (err) {
+      alert(`Failed to add project: ${err.message}`);
+    }
+  });
+
+  load();
+</script>
+</body>
+</html>

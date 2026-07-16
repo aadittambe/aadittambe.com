@@ -54,7 +54,7 @@ const ContactPage = () => {
         <meta name="description" content="Get in touch with Aadit Tambe." />
         <link rel="canonical" href="https://aadittambe.com/contact/" />
       </Head>
-      <div className="contact container">
+      <div className="contact">
         <h1>Ways to get in touch.</h1>
         {socials.map((s, i) => (
           <div key={i} className="social">

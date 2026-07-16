@@ -1,31 +1,47 @@
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 
 const NAV_LINKS = [
-  { href: "/", label: "Home", key: "home" },
-  { href: "/projects", label: "Projects", key: "projects" },
-  { href: "/resume", label: "Resume", key: "resume" },
-  { href: "/contact", label: "Contact", key: "contact" },
+  { href: "/", label: "Home" },
+  { href: "/projects", label: "Projects" },
+  { href: "/resume", label: "Resume" },
+  { href: "/contact", label: "Contact" },
 ];
+
+const CONTEXTUAL_LINKS = [{ href: "/blog", label: "Blog" }];
+
+const isActive = (route, href) =>
+  href === "/" ? route === "/" : route === href || route.startsWith(`${href}/`);
+
+// The current theme lives on <html data-theme>, set before hydration by the
+// bootstrap script — the DOM is the source of truth, React just mirrors it.
+const subscribeToTheme = (onChange) => {
+  const observer = new MutationObserver(onChange);
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ["data-theme"],
+  });
+  return () => observer.disconnect();
+};
 
 const Header = () => {
   const router = useRouter();
-  const [isDark, setIsDark] = useState(false);
+  const isDark = useSyncExternalStore(
+    subscribeToTheme,
+    () => document.documentElement.dataset.theme === "dark",
+    () => false, // server render: theme unknown until the client takes over
+  );
 
-  useEffect(() => {
-    setIsDark(document.documentElement.dataset.theme === "dark");
-  }, []);
-
-  const page = router.route.replace(/\//g, "");
-  const activeLink =
-    page === "" ? "home" : page.startsWith("blog") ? "blog" : page;
+  const links = [
+    ...NAV_LINKS,
+    ...CONTEXTUAL_LINKS.filter(({ href }) => isActive(router.route, href)),
+  ];
 
   const toggleTheme = () => {
     const newTheme = isDark ? "light" : "dark";
     document.documentElement.dataset.theme = newTheme;
     localStorage.setItem("theme", newTheme);
-    setIsDark(!isDark);
   };
 
   return (
@@ -33,16 +49,14 @@ const Header = () => {
       <div className="header-row">
         <nav role="navigation">
           <ul>
-            {NAV_LINKS.map(({ href, label, key }) => (
-              <li key={key} className={activeLink === key ? "active" : ""}>
+            {links.map(({ href, label }) => (
+              <li
+                key={href}
+                className={isActive(router.route, href) ? "active" : ""}
+              >
                 <Link href={href}>{label}</Link>
               </li>
             ))}
-            {activeLink === "blog" && (
-              <li className="active">
-                <Link href="/blog">Blog</Link>
-              </li>
-            )}
           </ul>
         </nav>
 

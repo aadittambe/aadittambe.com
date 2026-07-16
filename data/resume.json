@@ -1,0 +1,145 @@
+{
+  "work": [
+    {
+      "name": "The Washington Post",
+      "dates": "June 2022 – Present",
+      "title": "Product Designer / News Designer / Design and Graphics Intern",
+      "desc": "Collaborate with designers and graphics reporters to design and develop web presentations of enterprise projects. Build and maintain bespoke reusable storytelling formats and templates, enabling the newsroom to produce visually rich, high-quality, interactive stories quickly and consistently.",
+      "emoji": "🗞"
+    },
+    {
+      "name": "Howard Center for Investigative Journalism",
+      "dates": "January 2021 – May 2022",
+      "title": "Fellow / Data Reporter",
+      "desc": "Ran advanced data analyses in R and Python to develop promising leads and story ideas. Filed public records requests to gather data. Designed and built interactive graphics to supplement storytelling.",
+      "link": "https://merrill.umd.edu/howard-center-for-investigative-journalism",
+      "emoji": "🕵🏽‍♂️"
+    },
+    {
+      "name": "Capital News Service",
+      "dates": "August 2021 – December 2021",
+      "title": "Data and Graphics Reporter",
+      "desc": "Designed graphics and programmed interactive maps and visualizations. Wrote Python web scrapers to automate data collection. Created news apps and long-form web presentations to present data-driven stories visually.",
+      "link": "https://cnsmaryland.org/"
+    },
+    {
+      "name": "NBC News",
+      "dates": "June 2021 – August 2021",
+      "title": "Data Graphics Intern",
+      "desc": "Pitched, reported and wrote data-driven stories. Analyzed data sets to develop story ideas. Built engaging charts, maps and graphics for stories to explain the news visually.",
+      "link": "https://www.nbcnews.com/datagraphics",
+      "emoji": "📺"
+    }
+  ],
+  "awards": [
+    {
+      "event": "Pulitzer Prize",
+      "year": "2024",
+      "category": "National Reporting",
+      "project": "the “American Icon” series",
+      "link": "https://www.washingtonpost.com/nation/interactive/2023/ar-15-america-gun-culture-politics/"
+    },
+    {
+      "event": "White House Correspondents Association",
+      "year": "2024",
+      "category": "Katharine Graham Award for Courage and Accountability",
+      "project": "the “American Icon” series",
+      "link": "https://www.washingtonpost.com/nation/interactive/2023/ar-15-america-gun-culture-politics/"
+    },
+    {
+      "event": "National Press Foundation",
+      "year": "2023",
+      "category": "Innovative Storytelling Award",
+      "project": "the “American Icon” series",
+      "link": "https://www.washingtonpost.com/nation/interactive/2023/ar-15-america-gun-culture-politics/"
+    },
+    {
+      "event": "Society of News Design",
+      "year": "2024",
+      "category": "Bronze medal for individual design and development portfolio"
+    },
+    {
+      "event": "Society of News Design",
+      "category": "Award of Excellence",
+      "project": "“50 hip-hop artists share 50 songs they love”",
+      "link": "https://www.washingtonpost.com/arts-entertainment/interactive/2023/hip-hop-50-years-anniversary-playlist/",
+      "year": "2024"
+    },
+    {
+      "event": "Online Journalism Awards",
+      "category": "The Al Neuharth Innovation in Investigative Journalism Award",
+      "project": "an investigation into predatory practices by state lotteries",
+      "link": "https://cnsmaryland.org/2022/07/01/state-lotteries-transfer-wealth/",
+      "year": "2023"
+    }
+  ],
+  "skills": [
+    {
+      "name": "Web Development",
+      "tools": [
+        "HTML/CSS/SCSS",
+        "JavaScript",
+        "React",
+        "Flask",
+        "Grunt",
+        "Node.js",
+        "jQuery",
+        "Bootstrap"
+      ]
+    },
+    {
+      "name": "Design + Visualization",
+      "tools": [
+        "D3",
+        "Illustrator",
+        "InDesign",
+        "Leaflet",
+        "Photoshop",
+        "ai2html",
+        "QGIS",
+        "Mapbox",
+        "Flourish",
+        "Datawrapper"
+      ]
+    },
+    {
+      "name": "Data Analysis",
+      "tools": [
+        "Python",
+        "pandas",
+        "SQL",
+        "R",
+        "Excel",
+        "Google Sheets",
+        "OpenRefine"
+      ]
+    },
+    {
+      "name": "News Gathering",
+      "tools": [
+        "Public records negotiation",
+        "Web scraping",
+        "Tabula",
+        "Cron jobs",
+        "Shell scripting",
+        "GitHub Actions"
+      ]
+    }
+  ],
+  "ed": [
+    {
+      "name": "University of Maryland",
+      "degree": "Master's in Journalism",
+      "focus": "Data Journalism Focus",
+      "year": "May 2022",
+      "gpa": "3.9"
+    },
+    {
+      "name": "University of Iowa",
+      "degree": "B.A. Journalism and Mass Communication",
+      "focus": "German Minor",
+      "year": "May 2020",
+      "gpa": "3.7"
+    }
+  ]
+}

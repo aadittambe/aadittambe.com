@@ -2,7 +2,7 @@
 
 Codebase for my personal [website](https://aadittambe.com/).
 
-The site is scaffolded with [Next.js](https://nextjs.org/) and uses [ArchieML](http://archieml.org/) as a micro CMS, so I can catch typos easily.
+The site is scaffolded with [Next.js](https://nextjs.org/).
 
 ## 🧰 Development
 
@@ -24,17 +24,37 @@ Install `npm` dependencies:
 npm install
 ```
 
-This site uses a [Google Doc](https://docs.google.com/document/d/1lnWLWaUz2b-ho5QxBcjh5jdxF4Gf_K2gumFWfyma4xc/) as an ad-hoc CMS. To fetch data from the Google Doc — thanks to [this script](https://github.com/the-pudding/starter/blob/master/scripts/fetch-doc.js) from The Pudding which uses ArchieML — run:
-
-```
-npm run download
-```
-
 Start the development server:
 
 ```
 npm run dev
 ```
+
+## ✍️ Managing content
+
+### Projects
+
+Each project is a Markdown file in `projects/`, with metadata in frontmatter (title, org, date, thumbnail, live URL, etc.). Projects with a `description` render as cards on the [projects page](https://aadittambe.com/projects/); those without one render as smaller tiles. If a file has body content below the frontmatter, it gets its own page at `/projects/<slug>` with a "Read more" link on its card.
+
+To scaffold a new project, run the interactive prompt, which asks for the metadata and creates the `.md` file:
+
+```
+npm run new-project
+```
+
+To manage existing projects — edit metadata, drag to reorder, or delete — there's a local admin UI:
+
+```
+npm run admin
+```
+
+The admin also flags images in `public/images/projects/` that no project references (in frontmatter or body), so they can be deleted from the UI.
+
+It runs at `http://localhost:4321` (or the next free port), binds to loopback only, and is never part of the deployed site.
+
+### Resume
+
+Resume data (work experience, awards, skills, and education) lives in `data/resume.json` — edit it directly to update the resume page.
 
 ## 🛠️ Build site
 

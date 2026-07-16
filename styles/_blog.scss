@@ -1,113 +1,103 @@
 @use "./globals" as *;
 
 .blog {
-  &.container {
-    max-width: calc($xs + 36px);
-    margin: auto;
-  }
-  padding-left: 18px;
-  padding-right: 18px;
-
-  .blog-intro {
-    padding-bottom: 24px;
-  }
+  max-width: $content;
+  margin: auto;
+  padding-left: $space-md;
+  padding-right: $space-md;
 
   table {
     width: 100%;
   }
 
-  .posts {
-    a {
-      border-bottom: none;
-    }
+  .blog-intro {
+    padding-bottom: $space-lg;
+  }
 
-    .post-date {
-      text-align: right;
-      width: 30%;
+  .posts a {
+    border-bottom: none;
+  }
 
-      @media only screen and (max-width: $sm) {
-        width: 40%;
-      }
-    }
+  .post-title p {
+    font-weight: $weight-medium;
+  }
 
-    .post-title {
-      p {
-        font-weight: 500;
-      }
-    }
+  .post-date {
+    width: 30%;
+    text-align: right;
 
-    .post-date p a:hover {
-      border-bottom: none;
+    @media (max-width: $sm) {
+      width: 40%;
     }
   }
 }
 
 .post {
-  max-width: calc($xs + 36px);
+  max-width: $content;
   margin: auto;
-  padding-left: 18px;
-  padding-right: 18px;
+  padding-left: $space-md;
+  padding-right: $space-md;
 
   .divider {
     height: 1px;
+    margin-bottom: $space-lg;
+    margin-top: $space-md;
     background-color: $site-text;
-    margin-bottom: 24px;
   }
 
   img {
     width: 100%;
   }
+
   em {
     color: $site-text;
   }
 
   pre {
+    padding: $space-sm;
+    margin-bottom: $space-xl;
     border: 1px solid $site-background-alt;
     border-radius: 2px;
-    padding: 12px;
-    margin-bottom: 2rem;
     background-color: $site-background-alt;
     white-space: pre-wrap;
     overflow-wrap: break-word;
   }
+
   code {
-    text-wrap: auto;
     font-family: monospace;
-    font-size: 16px;
+    font-size: $text-base;
+    text-wrap: auto;
+  }
+
+  p code {
+    padding-left: 6px;
+    padding-right: 6px;
+    border-radius: 4px;
+    background-color: $site-background-alt;
   }
 
   ol {
+    margin-left: $space-md;
     list-style-type: disc;
-    margin-left: 18px;
-    line-height: 1.5;
+    line-height: $leading-normal;
   }
 
   li {
-    margin-bottom: 2rem;
-    font-size: 1.25rem;
-    font-weight: 300;
-  }
-
-  p {
-    code {
-      background-color: $site-background-alt;
-      padding-left: 6px;
-      padding-right: 6px;
-
-      border-radius: 4px;
-    }
+    margin-bottom: $space-lg;
+    font-size: $text-md;
+    font-weight: $weight-light;
   }
 
   nav {
     display: flex;
     justify-content: space-between;
-    padding-top: 36px;
+    padding-top: $space-xl;
   }
 
   .actions {
     width: 30%;
 
-    @media only screen and (max-width: $sm) {
+    @media (max-width: $sm) {
       width: 45%;
     }
 
@@ -116,9 +106,10 @@
     }
 
     p {
-      font-size: 1rem;
-      padding-bottom: 6px;
+      padding-bottom: $space-2xs;
+      font-size: $text-base;
     }
+
     .label {
       color: $site-text;
     }
