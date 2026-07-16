@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 
@@ -14,13 +14,24 @@ const CONTEXTUAL_LINKS = [{ href: "/blog", label: "Blog" }];
 const isActive = (route, href) =>
   href === "/" ? route === "/" : route === href || route.startsWith(`${href}/`);
 
+// The current theme lives on <html data-theme>, set before hydration by the
+// bootstrap script — the DOM is the source of truth, React just mirrors it.
+const subscribeToTheme = (onChange) => {
+  const observer = new MutationObserver(onChange);
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ["data-theme"],
+  });
+  return () => observer.disconnect();
+};
+
 const Header = () => {
   const router = useRouter();
-  const [isDark, setIsDark] = useState(false);
-
-  useEffect(() => {
-    setIsDark(document.documentElement.dataset.theme === "dark");
-  }, []);
+  const isDark = useSyncExternalStore(
+    subscribeToTheme,
+    () => document.documentElement.dataset.theme === "dark",
+    () => false, // server render: theme unknown until the client takes over
+  );
 
   const links = [
     ...NAV_LINKS,
@@ -31,7 +42,6 @@ const Header = () => {
     const newTheme = isDark ? "light" : "dark";
     document.documentElement.dataset.theme = newTheme;
     localStorage.setItem("theme", newTheme);
-    setIsDark(!isDark);
   };
 
   return (
