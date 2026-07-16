@@ -23,16 +23,7 @@ const CustomSpinner = ({ size = 36, color = "var(--site-text)" }) => (
       strokeWidth="4"
       strokeLinecap="round"
       strokeDasharray="31.4 31.4"
-    >
-      <animateTransform
-        attributeName="transform"
-        type="rotate"
-        from="0 25 25"
-        to="360 25 25"
-        dur="0.9s"
-        repeatCount="indefinite"
-      />
-    </circle>
+    />
   </svg>
 );
 
