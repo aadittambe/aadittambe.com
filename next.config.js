@@ -7,6 +7,8 @@ const nextConfig = {
   },
   reactStrictMode: true,
   images: {
+    // AVIF first (smaller), WebP fallback for browsers without it.
+    formats: ["image/avif", "image/webp"],
     // Project thumbnails may be full URLs; only these hosts are allowed
     // through the image optimizer.
     remotePatterns: [
