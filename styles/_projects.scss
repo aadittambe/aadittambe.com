@@ -20,6 +20,49 @@
     margin: $space-xl 0; // browsers default to a 40px side margin — drop it
   }
 
+  // Body figures get the same loading treatment as the grid tiles: a spinner
+  // on a muted backdrop fills the reserved box while the image streams in,
+  // then swaps for the image. lib/remarkFigures.js emits the markup and adds
+  // .figure-loaded to the <figure> from the image's onload.
+  .figure-media {
+    position: relative;
+    display: block;
+    margin: 0 auto;
+
+    img {
+      width: 100%;
+      height: auto;
+      opacity: 0;
+      transition: opacity 0.4s ease-in-out;
+    }
+  }
+
+  .figure-spinner {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $site-background-alt;
+    // visibility flips after the fade so the "loading" status also leaves
+    // the accessibility tree (the tiles unmount their spinner instead).
+    transition:
+      opacity 0.4s ease-in-out,
+      visibility 0.4s;
+  }
+
+  .figure-loaded {
+    img {
+      opacity: 1;
+    }
+
+    .figure-spinner {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+
   // Centred under the image and capped, so a caption never runs the full width
   // of the text column beneath a narrow (portrait) screenshot.
   figcaption {
@@ -104,7 +147,8 @@
     border: 1px solid $site-background-alt;
     border-radius: 4px;
     // box-shadow: 0 8px 24px 0 rgba(102, 102, 102, 0.15);
-    transition: 0.2s ease-in-out;
+
+    transition: transform 1.3s cubic-bezier(0.16, 1, 0.3, 1);
 
     .story-media {
       position: relative;
@@ -147,13 +191,11 @@
 
     .story-name {
       padding-bottom: $space-xs;
-      transition: all 0.1s;
     }
 
     .story-description {
       font-size: $text-base;
       line-height: $leading-normal;
-      transition: all 0.1s;
     }
 
     .story-name a,
@@ -224,7 +266,8 @@
     border: 1px solid $site-background-alt;
     border-radius: 4px;
     // box-shadow: 0 8px 24px 0 rgba(102, 102, 102, 0.15);
-    transition: 0.2s ease-in-out;
+
+    transition: transform 1.3s cubic-bezier(0.16, 1, 0.3, 1);
 
     .tile-media {
       position: relative;
@@ -247,5 +290,23 @@
       font-size: $text-md;
       line-height: $leading-snug;
     }
+  }
+}
+
+// The spinners rotate via CSS rather than SVG <animateTransform> — SMIL is
+// unreliable (deprecation-flagged in Chromium, frozen by some privacy
+// shields) and can't respect prefers-reduced-motion.
+@keyframes spinner-rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.story-spinner svg,
+.figure-spinner svg {
+  animation: spinner-rotate 0.9s linear infinite;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
   }
 }
