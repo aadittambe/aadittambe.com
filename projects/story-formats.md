@@ -18,7 +18,7 @@ To enhance our interactive storytelling, I was part of a team of developers that
 
 I contributed to developing deployment pipelines using AWS Lambda, giving newsroom leaders the ability to monitor and publish stories without engineering support.
 
-![Two Washington Post stories, one built using the quiz format, and another built using the Great Works in Focus format.](/images/projects/formats.png "Quiz and “Great Works in Focus” formats")
+![Two Washington Post stories, one built using the quiz format, and another built using the Great Works in Focus format.](/images/projects/formats.png "The quiz and “Great Works in Focus” formats.")
 
 As part of this effort, I led the development of a [quiz format](https://www.washingtonpost.com/nation/interactive/2026/06/27/quiz-how-well-do-you-know-american-history-government/) — one of the newsroom’s most used layouts.
 
