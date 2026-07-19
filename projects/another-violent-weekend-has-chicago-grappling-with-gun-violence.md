@@ -6,7 +6,7 @@ slug: another-violent-weekend-has-chicago-grappling-with-gun-violence
 order: 23
 img: >-
   https://media-cldnry.s-nbcnews.com/image/upload/t_nbcnews-fp-1200-630,f_auto,q_auto:best/newscms/2021_27/3489743/210708-chicago-shooting-se-544p.jpg
-imgAlt: Charts showing change in crime in Chicago.
+imgAlt: A photo of a Chicago police officer marking evidence at a crime scene.
 url: 'https://www.nbcnews.com/news/us-news/chicago-violent-crime-data-2021-n1273592'
 ---
 
