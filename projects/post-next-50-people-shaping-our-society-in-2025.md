@@ -7,8 +7,8 @@ order: 9
 img: >-
   https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/CPJRZG2IIRDMBE4DZEXA2AXLXI.jpg&high_res=true&w=2048
 imgAlt: >-
-  grid of portraits of people include in the Post’s list of 50 influential
-  people
+  A grid of portraits of people included in The Post’s list of 50 influential
+  people.
 url: 'https://www.washingtonpost.com/post-next/interactive/2025/'
 ---
 

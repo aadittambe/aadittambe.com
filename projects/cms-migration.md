@@ -5,7 +5,7 @@ date: 07/14/2026
 slug: cms-migration
 order: 5
 img: fce-json.png
-imgAlt: JSON view of the interactive embed I created
+imgAlt: The JSON view of the interactive embed.
 description: >-
   The Post migrated to a new CMS — I was on the development team that made sure interactives
   transitioned smoothly.
@@ -18,9 +18,9 @@ I led the development of custom embeds within the Arc XP environment that enable
 
 The system allowed developers to write structured JSON directly within the CMS while providing editors with a toggle to view and edit the same content as plain text. This kept the CMS the single source of truth for editorial content, including text and visual assets.
 
-![Text editor view.](/images/projects/fce-text.png "The text editor view.")
+![The text editor view.](/images/projects/fce-text.png "The text editor view.")
 
-![JSON editor view.](/images/projects/fce-json.png "The JSON editor view.")
+![The JSON editor view.](/images/projects/fce-json.png "The JSON editor view.")
 
 Working closely with the engineering team, I helped implement backward compatibility so that interactive projects already in development would continue working during the CMS migration.
 
