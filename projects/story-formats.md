@@ -3,11 +3,11 @@ title: Story formats
 org: The Washington Post
 date: 07/12/2026
 slug: story-formats
-order: 2
+order: 3
 img: formats.png
 imgAlt: >-
-  Three Washington Post stories, two built with the quiz format and one with
-  the “Great Works in Focus” format.
+  Three Washington Post stories, two built with the quiz format and one with the
+  “Great Works in Focus” format.
 description: >-
   Reusable formats that let editors and reporters create interactive stories at
   scale, no codebase required.

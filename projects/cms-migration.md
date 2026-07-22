@@ -3,12 +3,12 @@ title: CMS migration
 org: The Washington Post
 date: 07/14/2026
 slug: cms-migration
-order: 5
+order: 4
 img: fce-json.png
 imgAlt: The JSON view of the interactive embed.
 description: >-
-  The Post migrated to a new CMS — I was on the development team that made sure interactives
-  transitioned smoothly.
+  The Post migrated to a new CMS — I was on the development team that made sure
+  interactives transitioned smoothly.
 tag: Newsroom tool
 ---
 
