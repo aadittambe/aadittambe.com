@@ -58,6 +58,12 @@ a:hover {
   border-bottom: solid 3px $site-yellow;
 }
 
+body {
+  font-variation-settings:
+    "WONK" 1,
+    "opsz" 24;
+}
+
 h1 {
   font-size: $text-xl;
   line-height: $leading-snug;

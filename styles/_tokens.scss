@@ -11,8 +11,9 @@ $text-md: 1.125rem; // body copy
 $text-lg: 1.5rem; // h2
 $text-xl: 2.2rem; // page titles
 
-// Font weights — Fraunces is loaded in exactly these three weights
-// (see pages/_app.js); anything else renders as a synthesized fake.
+// Font weights — Fraunces is loaded as a variable font (see pages/_app.js), so
+// any value 100-900 is real. These three are the ones the design uses; stick to
+// them rather than introducing new steps.
 $weight-light: 300;
 $weight-medium: 500;
 $weight-bold: 700;
