@@ -1,4 +1,5 @@
 @use "./normalize";
+@use "./fonts";
 @use "./globals" as *;
 
 @use "./header";
@@ -43,6 +44,7 @@ em,
 }
 
 body {
+  font-family: "Fraunces", "Fraunces Fallback", serif;
   background-color: $site-background;
   color: $site-text;
 }
@@ -56,12 +58,6 @@ a {
 
 a:hover {
   border-bottom: solid 3px $site-yellow;
-}
-
-body {
-  font-variation-settings:
-    "WONK" 1,
-    "opsz" 24;
 }
 
 h1 {

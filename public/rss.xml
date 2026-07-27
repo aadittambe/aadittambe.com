@@ -9,9 +9,9 @@
             <link>https://aadittambe.com</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 27 Jul 2026 04:14:34 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 27 Jul 2026 04:28:46 GMT</lastBuildDate>
         <atom:link href="https://aadittambe.com/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Mon, 27 Jul 2026 04:14:34 GMT</pubDate>
+        <pubDate>Mon, 27 Jul 2026 04:28:46 GMT</pubDate>
         <copyright><![CDATA[All rights reserved 2026]]></copyright>
         <item>
             <title><![CDATA[Optimizing Next.js with Flat JSON Files]]></title>
