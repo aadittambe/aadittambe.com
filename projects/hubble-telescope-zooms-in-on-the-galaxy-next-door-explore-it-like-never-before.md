@@ -5,7 +5,7 @@ title: >-
 org: The Washington Post
 date: 07/17/2025
 slug: hubble-telescope-zooms-in-on-the-galaxy-next-door-explore-it-like-never-before
-order: 7
+order: 9
 img: >-
   https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/A7ER7CAOCVML36D5FS6LW4THJY.jpg
 imgAlt: A photo of the Andromeda galaxy.

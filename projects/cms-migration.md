@@ -3,7 +3,7 @@ title: CMS migration
 org: The Washington Post
 date: 07/14/2026
 slug: cms-migration
-order: 4
+order: 5
 img: fce-json.png
 imgAlt: The JSON view of the interactive embed.
 description: >-

@@ -3,7 +3,7 @@ title: 'Gift guide 2025: The gifts we are giving and hoping to get this year'
 org: The Washington Post
 date: 11/28/2025
 slug: gift-guide-2025-the-gifts-we-are-giving-and-hoping-to-get-this-year
-order: 6
+order: 8
 img: >-
   https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/6I22LMUWQJBXDD5EOSEBWYNGL4.jpg
 imgAlt: A collage of gifts with the text “Gift Guide 2025” in the center.
