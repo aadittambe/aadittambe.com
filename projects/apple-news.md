@@ -20,12 +20,12 @@ News API.
 
 Apple News renders most of an article natively, but anything interactive has to ship as
 a web embed — a self-contained bundle that loads nothing at runtime. As part of this
-effort, I helped colleagues convert their interactive graphics into web embeds for
+effort, I helped colleagues convert their interactive graphics [into web embeds](https://apple.news/AHwKBOWs4Sguexnm3WqIJEA) for
 Apple News.
 
 ![A story with an interactive web embed as it appears in Apple News.](/images/projects/apple-news-webembed.png "An interactive web embed published in Apple News.")
 
-I also built the Apple News version of our quiz format, which ships the whole quiz as a
+I also built the [Apple News version](https://apple.news/AfhadNQd-TlycAjjTtfTBUw) of our quiz format, which ships the whole quiz as a
 single embed. I wrote a generator that builds that bundle from a published quiz — it
 renders the format’s own components, so the Apple News version stays in step with the
 web story instead of drifting from a separate copy.
