@@ -10,6 +10,16 @@
 @use "./blog";
 @use "./not-found";
 
+@view-transition {
+  navigation: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @view-transition {
+    navigation: none;
+  }
+}
+
 .app-wrapper {
   display: flex;
   flex-direction: column;
