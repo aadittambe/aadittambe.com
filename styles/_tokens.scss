@@ -1,9 +1,13 @@
-// Design tokens — every non-color value the stylesheets are allowed to
-// use for type, spacing, and layout. Colors live in theme.scss.
-// Micro-padding inside small controls (buttons, pills, inline code) may
-// stay literal; everything that sets page rhythm snaps to these scales.
+// Design tokens — the values that repeat across the stylesheets: type,
+// spacing, shape, motion, and layout. Colors live in theme.scss, breakpoint
+// helpers in mixins.scss.
+//
+// These are scales, not an inventory. A number used once, in one place, and
+// meaningful only there (an icon's 20px, a caption's measure) stays literal
+// next to the rule that needs it.
 
-// Type scale
+// ---------------------------------------------------------------- type ----
+
 $text-xs: 0.75rem; // tag pills, smallest labels
 $text-sm: 0.875rem; // org lines, captions, buttons
 $text-base: 1rem; // nav, footer, card descriptions
@@ -30,7 +34,8 @@ $leading-tight: 1.2; // single-line labels
 $leading-snug: 1.35; // headings, captions
 $leading-normal: 1.5; // body copy
 
-// Spacing scale
+// ------------------------------------------------------------- spacing ----
+
 $space-2xs: 4px;
 $space-xs: 8px;
 $space-sm: 12px;
@@ -39,12 +44,33 @@ $space-lg: 24px;
 $space-xl: 36px;
 $space-2xl: 60px;
 
-// Breakpoints
-$xxs: 400px;
-$xs: 672px;
-$sm: 768px;
-$md: 992px;
+// --------------------------------------------------------------- shape ----
 
-// Canonical content column width shared across pages: the $xs breakpoint
-// plus one gutter on each side, so inner content is exactly $xs wide.
-$content: calc($xs + 2 * $space-md);
+$radius-sm: 4px; // cards, tiles, inline code
+$radius-md: 6px; // buttons, nav pills
+$radius-pill: 999px;
+
+// The accent underline under links, and its hover weight. Several components
+// restate it to keep the global anchor rule from creeping back in.
+$underline: 2px;
+$underline-hover: 3px;
+
+// -------------------------------------------------------------- motion ----
+
+$duration-fast: 0.1s; // link underline, button hover
+$duration-base: 0.25s; // theme cross-fade
+$duration-slow: 0.4s; // image fade-in
+
+$ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+// -------------------------------------------------------------- layout ----
+
+// Two breakpoints, both max-width, both reached through the `below()` mixin.
+// Anything wanting a third should probably be intrinsic instead — see the
+// grid, clamp, and min() usages throughout the partials.
+$bp-narrow: 672px; // phone / single column
+$bp-wide: 992px; // below this, side-by-side label columns stack
+
+// Canonical content column shared across every page: $bp-narrow plus one
+// gutter on each side, so inner content is exactly $bp-narrow wide.
+$content: calc($bp-narrow + 2 * $space-md);

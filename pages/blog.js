@@ -40,7 +40,7 @@ export async function getStaticProps() {
 export default function BlogPage({ allPostsData = [] }) {
   return (
     <Layout>
-      <div className="blog">
+      <div className="wrap">
         <Head>
           <title>Aadit Tambe — blog</title>
         </Head>
@@ -53,17 +53,17 @@ export default function BlogPage({ allPostsData = [] }) {
           <a href="https://aadittambe.com/rss.xml">here</a>.
         </p>
 
-        <div className="posts">
+        <div className="post-list">
           <table>
             <tbody>
               {allPostsData.map((p) => (
                 <tr key={p.slug}>
-                  <td className="post-title">
+                  <td className="post-list-title">
                     <p>
                       <Link href={`/blog/${p.slug}`}>{p.title}</Link>
                     </p>
                   </td>
-                  <td className="post-date">
+                  <td className="post-list-date">
                     <p>
                       <Link href={`/blog/${p.slug}`}>{longAP(p.date)}</Link>
                     </p>

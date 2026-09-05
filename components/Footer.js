@@ -8,7 +8,7 @@ const Footer = () => {
 
   return (
     <footer className="site-footer">
-      <div className="container">
+      <div className="wrap">
         <div className="divider"></div>
         <p>
           © Site developed by Aadit Tambe |{" "}

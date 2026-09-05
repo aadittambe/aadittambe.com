@@ -3,30 +3,17 @@
 .site-header {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  max-width: $content;
-  margin: 0 auto;
-  padding: $space-2xl $space-md;
-
-  @media (max-width: $xs) {
-    width: auto;
-    margin: 0;
-    padding: $space-md;
-  }
+  padding-block: $space-2xl;
 
   a,
   a:hover {
     border: none;
   }
 
-  .header-row {
+  .site-header-row {
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-    @media (max-width: $xs) {
-      align-items: flex-start;
-    }
   }
 
   nav {
@@ -38,31 +25,39 @@
     margin: 0 0 0 -6px;
     padding: 0;
     list-style-type: none;
-
-    @media (max-width: $xs) {
-      display: block;
-    }
   }
 
   li {
     width: fit-content;
     margin-right: $space-sm;
-    padding: 4px 6px;
-    border-radius: 6px;
+    padding: $space-2xs 6px;
+    border-radius: $radius-md;
     font-weight: $weight-medium;
-    transition-duration: 0.3s;
 
-    @media (max-width: $xs) {
-      margin-left: 0;
-      margin-bottom: $space-2xs;
-    }
-
-    &.active {
+    &.is-active {
       background-color: $site-accent;
 
       a {
         color: $site-text-on-accent;
       }
+    }
+  }
+
+  // One block for the whole narrow layout: the header loses its tall top
+  // padding, and the nav stacks into a column.
+  @include below($bp-narrow) {
+    padding-block: $space-md;
+
+    .site-header-row {
+      align-items: flex-start;
+    }
+
+    ul {
+      display: block;
+    }
+
+    li {
+      margin-bottom: $space-2xs;
     }
   }
 }
@@ -84,6 +79,7 @@
   cursor: pointer;
   backdrop-filter: blur(6px);
 
+  // A ring that reads against whatever it sits over, light or dark.
   &::before {
     content: "";
     position: absolute;
@@ -98,7 +94,9 @@
     outline: none;
   }
 
-  @media (max-width: $xs) {
+  // Pinned to the viewport on narrow screens so it stays reachable as the
+  // stacked nav grows taller.
+  @include below($bp-narrow) {
     position: fixed;
     right: $space-md;
   }

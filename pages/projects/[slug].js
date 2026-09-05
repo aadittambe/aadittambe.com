@@ -12,7 +12,7 @@ const { longAP } = apStyleDate;
 export default function Project({ projectData, prevProject, nextProject }) {
   return (
     <Layout>
-      <div className="post project-post">
+      <div className="wrap post project-post">
         <Head>
           <title>{`Projects — ${projectData.title}`}</title>
           {projectData.description && (
@@ -43,11 +43,11 @@ export default function Project({ projectData, prevProject, nextProject }) {
               dangerouslySetInnerHTML={{ __html: projectData.contentHtml }}
             />
           </article>
-          <nav>
-            <div className="actions">
+          <nav className="post-nav">
+            <div className="post-nav-item">
               {prevProject && (
                 <>
-                  <p className="label">← Previous</p>
+                  <p className="post-nav-label">← Previous</p>
                   <p>
                     <Link href={`/projects/${prevProject.slug}`}>
                       {prevProject.title}
@@ -56,10 +56,10 @@ export default function Project({ projectData, prevProject, nextProject }) {
                 </>
               )}
             </div>
-            <div className="actions next">
+            <div className="post-nav-item post-nav-item--next">
               {nextProject && (
                 <>
-                  <p className="label">Next →</p>
+                  <p className="post-nav-label">Next →</p>
                   <p>
                     <Link href={`/projects/${nextProject.slug}`}>
                       {nextProject.title}

@@ -1,0 +1,29 @@
+@use "./tokens" as *;
+
+// The only way a partial is allowed to open a media query. Keeping every
+// breakpoint behind these two mixins means the set of breakpoints is
+// enumerable (it's the argument list below) and a change lands in one place.
+//
+// Prefer intrinsic CSS to either of them: `min()`/`clamp()` for sizes and
+// `auto-fit`/`auto-fill` grids reflow at every width, not just two.
+
+@mixin below($bp) {
+  @media (max-width: $bp) {
+    @content;
+  }
+}
+
+// Hover styling that touch devices should never inherit — a `:hover` rule on
+// a phone sticks after a tap. Also lets a mobile-only override disappear
+// entirely rather than being undone in a max-width query.
+@mixin hover-capable {
+  @media (hover: hover) {
+    @content;
+  }
+}
+
+@mixin reduced-motion {
+  @media (prefers-reduced-motion: reduce) {
+    @content;
+  }
+}

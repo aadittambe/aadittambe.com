@@ -1,6 +1,8 @@
 @use "./normalize";
 @use "./globals" as *;
 
+@use "./layout";
+
 @use "./header";
 @use "./footer";
 @use "./home";
@@ -8,7 +10,12 @@
 @use "./resume";
 @use "./contact";
 @use "./blog";
-@use "./not-found";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
 .app-wrapper {
   display: flex;
@@ -16,12 +23,6 @@
   min-height: 100vh;
   height: 100%;
   justify-content: space-between;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
 }
 
 // Theme cross-fade. Scoped to the elements that paint theme colors — don't
@@ -33,13 +34,13 @@ pre,
 code,
 em,
 .divider,
-.label,
-.tooltip,
+.post-nav-label,
+.contact-tooltip,
 .theme-toggle::before {
   transition:
-    background-color 0.25s ease,
-    color 0.25s ease,
-    border-color 0.25s ease;
+    background-color $duration-base ease,
+    color $duration-base ease,
+    border-color $duration-base ease;
 }
 
 body {
@@ -49,22 +50,22 @@ body {
 }
 
 a {
-  text-decoration: none;
-  border-bottom: solid 2px $site-accent;
-  transition: all 0.1s;
   color: $site-text;
-}
+  text-decoration: none;
+  border-bottom: solid $underline $site-accent;
+  transition: border-bottom-width $duration-fast;
 
-a:hover {
-  border-bottom: solid 3px $site-accent;
+  &:hover {
+    border-bottom: solid $underline-hover $site-accent;
+  }
 }
 
 h1 {
   font-size: $text-xl;
   line-height: $leading-snug;
-  padding-bottom: $space-lg;
   font-weight: $weight-bold;
   margin: 0;
+  padding-bottom: $space-lg;
 }
 
 h2 {
@@ -72,8 +73,7 @@ h2 {
   line-height: $leading-snug;
   font-weight: $weight-bold;
   margin: 0;
-  padding-bottom: $space-md;
-  padding-top: $space-md;
+  padding-block: $space-md;
 }
 
 h3 {
@@ -81,39 +81,21 @@ h3 {
   line-height: $leading-snug;
   font-weight: $weight-bold;
   margin: 0;
-  padding-bottom: $space-md;
-  padding-top: $space-md;
+  padding-block: $space-md;
 }
 
 h4 {
-  font-weight: $weight-medium;
   font-size: $text-md;
   line-height: $leading-snug;
+  font-weight: $weight-medium;
   margin: 0;
-  padding-bottom: $space-sm;
-  padding-top: $space-sm;
+  padding-block: $space-sm;
 }
 
 p {
   font-size: $text-md;
   line-height: $leading-normal;
-  padding-bottom: $space-sm;
   font-weight: $weight-light;
   margin: 0;
-}
-
-// Scroll reveal: cards rise into place (no fade). The transition lives on
-// .story / .tile in _projects.scss.
-.reveal {
-  transform: none;
-}
-
-.no-reveal {
-  transform: translateY(28px);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .no-reveal {
-    transform: none;
-  }
+  padding-bottom: $space-sm;
 }

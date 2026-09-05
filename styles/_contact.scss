@@ -1,67 +1,35 @@
 @use "./globals" as *;
 
 .contact {
-  max-width: $content;
-  margin: auto;
-  padding-left: $space-md;
-  padding-right: $space-md;
+  // Rows carry their own rhythm in both layouts, so nothing has to be
+  // undone when the columns stack.
+  .contact-row {
+    padding-bottom: $space-md;
 
-  .social {
-    display: flex;
+    p {
+      padding-bottom: 0;
+    }
   }
 
-  .left {
-    width: 30%;
-    font-weight: $weight-bold;
-  }
-
-  .right {
+  .split-body {
     display: flex;
     align-items: center;
-    width: 70%;
   }
 
-  .info-icon {
+  .contact-icon {
     width: 20px;
-    vertical-align: middle;
     margin-left: $space-xs;
     margin-bottom: $space-xs;
+    vertical-align: middle;
   }
 
-  .tooltip {
-    max-width: 350px;
+  // Wide enough to hold a sentence or two, but never wider than the screen —
+  // `min()` covers every width the three sizes used to step through.
+  .contact-tooltip {
+    max-width: min(350px, 80vw);
     background-color: $site-text;
     color: $site-background;
     font-size: $text-base;
     font-weight: $weight-light;
-
-    @media (max-width: $xs) {
-      max-width: 300px;
-    }
-
-    @media (max-width: $xxs) {
-      max-width: 80%;
-    }
-  }
-
-  // Stack the name/links columns on smaller screens.
-  @media (max-width: $md) {
-    p {
-      padding-bottom: 0;
-    }
-
-    .social {
-      display: block;
-      padding-bottom: $space-md;
-    }
-
-    .left,
-    .right {
-      width: 100%;
-    }
-
-    .info-icon {
-      margin-top: $space-xs;
-    }
   }
 }

@@ -14,7 +14,7 @@ export default function Home() {
         <link rel="canonical" href="https://aadittambe.com/" />
       </Head>
 
-      <div className="home">
+      <div className="wrap">
         <h1>
           <span className="wave">👋🏽</span> Hi — I am Aadit.
         </h1>
