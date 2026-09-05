@@ -27,8 +27,14 @@ export default function Project({ projectData, prevProject, nextProject }) {
             {/* <p>{longAP(projectData.date)}</p> */}
             {projectData.url && (
               <p>
-                <a href={projectData.url} rel="noreferrer" target="_blank">
-                  View live project ↗&#xFE0E;
+                <a
+                  className="live-link"
+                  href={projectData.url}
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  <span className="live-link-label">View live project</span>
+                  <span> ↗&#xFE0E;</span>
                 </a>
               </p>
             )}

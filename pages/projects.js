@@ -97,7 +97,7 @@ const Story = ({
       </Media>
       <div className="card-text">
         <p className="story-org">
-          {org}
+          <span>{org}</span>
           {tag && <span className="story-tag">{tag}</span>}
         </p>
         <p className="story-name">

@@ -11,11 +11,19 @@ $text-md: 1.125rem; // body copy
 $text-lg: 1.5rem; // h2
 $text-xl: 2.2rem; // page titles
 
-// Font weights — Fraunces is loaded in exactly these three weights
-// (see pages/_app.js); anything else renders as a synthesized fake.
+// Font stack — San Francisco on Apple platforms, each OS's own UI font
+// elsewhere. SF can't be served as a webfont (Apple licenses it for apps on
+// Apple platforms only), so the system stack is the only route; nothing is
+// downloaded at runtime.
+$font-sans:
+  -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+  Arial, sans-serif;
+
+// Font weights — SF ships true cuts at all three. Segoe UI (the Windows
+// fallback) has no real 300, so browsers there synthesize the light weight.
 $weight-light: 300;
 $weight-medium: 500;
-$weight-bold: 700;
+$weight-bold: 800;
 
 // Line heights (unitless so they scale with the font size)
 $leading-tight: 1.2; // single-line labels

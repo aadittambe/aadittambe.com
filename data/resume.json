@@ -4,16 +4,14 @@
       "name": "The Washington Post",
       "dates": "June 2022 – Present",
       "title": "Product Designer / News Designer / Design and Graphics Intern",
-      "desc": "Collaborate with designers and graphics reporters to design and develop web presentations of enterprise projects. Build and maintain bespoke reusable storytelling formats and templates, enabling the newsroom to produce visually rich, high-quality, interactive stories quickly and consistently.",
-      "emoji": "🗞"
+      "desc": "Collaborate with designers and graphics reporters to design and develop web presentations of enterprise projects. Build and maintain bespoke reusable storytelling formats and templates, enabling the newsroom to produce visually rich, high-quality, interactive stories quickly and consistently."
     },
     {
       "name": "Howard Center for Investigative Journalism",
       "dates": "January 2021 – May 2022",
       "title": "Fellow / Data Reporter",
       "desc": "Ran advanced data analyses in R and Python to develop promising leads and story ideas. Filed public records requests to gather data. Designed and built interactive graphics to supplement storytelling.",
-      "link": "https://merrill.umd.edu/howard-center-for-investigative-journalism",
-      "emoji": "🕵🏽‍♂️"
+      "link": "https://merrill.umd.edu/howard-center-for-investigative-journalism"
     },
     {
       "name": "Capital News Service",
@@ -27,8 +25,7 @@
       "dates": "June 2021 – August 2021",
       "title": "Data Graphics Intern",
       "desc": "Pitched, reported and wrote data-driven stories. Analyzed data sets to develop story ideas. Built engaging charts, maps and graphics for stories to explain the news visually.",
-      "link": "https://www.nbcnews.com/datagraphics",
-      "emoji": "📺"
+      "link": "https://www.nbcnews.com/datagraphics"
     }
   ],
   "awards": [

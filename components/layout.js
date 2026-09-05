@@ -20,8 +20,8 @@ export default function Layout({ children, home }) {
         <link rel="shortcut icon" href="/logo592.png" />
         <link rel="apple-touch-icon" href="/logo592.png" />
         <link rel="me" href="https://vis.social/@aadittambe" />
-        <meta name="theme-color" content="#f8f8f2" media="(prefers-color-scheme: light)" />
-        <meta name="theme-color" content="#282a36" media="(prefers-color-scheme: dark)" />
+        <meta name="theme-color" content="#fcfaf3" media="(prefers-color-scheme: light)" />
+        <meta name="theme-color" content="#171612" media="(prefers-color-scheme: dark)" />
         <meta property="og:locale" content="en_US" />
       </Head>
       <main className={home && "home-wrapper"}>{children}</main>

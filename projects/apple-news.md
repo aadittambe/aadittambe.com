@@ -8,7 +8,7 @@ img: apple-news-tile.png
 description: >-
   The pipeline that publishes the newsroom’s interactive stories to Apple News —
   I rebuilt the publishing tool and brought our quiz to the platform.
-tag: Newsroom tool
+tag: Internal
 ---
 
 The Post publishes its interactive stories to Apple News as well as the web. These

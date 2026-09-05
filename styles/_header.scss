@@ -49,7 +49,7 @@
     margin-right: $space-sm;
     padding: 4px 6px;
     border-radius: 6px;
-    font-weight: $weight-bold;
+    font-weight: $weight-medium;
     transition-duration: 0.3s;
 
     @media (max-width: $xs) {
@@ -58,10 +58,10 @@
     }
 
     &.active {
-      background-color: $site-yellow;
+      background-color: $site-accent;
 
       a {
-        color: $site-text-on-yellow;
+        color: $site-text-on-accent;
       }
     }
   }

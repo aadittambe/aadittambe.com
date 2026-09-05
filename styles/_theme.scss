@@ -3,23 +3,23 @@
 // and layout tokens live in tokens.scss.
 
 :root {
-  --site-background: #f8f8f2;
-  --site-text: #282a36;
-  --site-background-alt: #dcdce6; /* pre, cards */
-  --site-text-alt: #44475a;
+  --site-background: #fcfaf3;
+  --site-text: #1c1a15;
+  --site-background-alt: #ede8da; /* pre, cards */
+  --site-text-alt: #565144;
 
-  --site-yellow: #8b80d6;
-  --site-text-on-yellow: #eaeaf0;
+  --site-accent: #f2c230;
+  --site-text-on-accent: #2a2205;
 }
 
 [data-theme="dark"] {
-  --site-background: #282a36;
-  --site-text: #f8f8f2;
-  --site-background-alt: #43475b; /* pre, cards */
-  --site-text-alt: #cfd3f0;
+  --site-background: #171612;
+  --site-text: #f4f1e8;
+  --site-background-alt: #292620; /* pre, cards */
+  --site-text-alt: #b5af9e;
 
-  --site-yellow: #8b80d6;
-  --site-text-on-yellow: #eaeaf0;
+  --site-accent: #f2c230;
+  --site-text-on-accent: #2a2205;
 }
 
 // SCSS aliases so partials can reference theme colors as $-variables.
@@ -27,5 +27,5 @@ $site-background: var(--site-background);
 $site-text: var(--site-text);
 $site-background-alt: var(--site-background-alt);
 $site-text-alt: var(--site-text-alt);
-$site-yellow: var(--site-yellow);
-$site-text-on-yellow: var(--site-text-on-yellow);
+$site-accent: var(--site-accent);
+$site-text-on-accent: var(--site-text-on-accent);
