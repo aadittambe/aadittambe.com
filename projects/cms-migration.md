@@ -9,7 +9,7 @@ imgAlt: The JSON view of the interactive embed.
 description: >-
   The Post migrated to a new CMS — I was on the development team that made sure
   interactives transitioned smoothly.
-tag: Newsroom tool
+tag: Internal
 ---
 
 As part the Post’s migration to a new CMS, I worked on the team responsible for ensuring that the newsroom’s interactive stories continued to function throughout the transition.

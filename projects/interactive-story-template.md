@@ -8,7 +8,7 @@ img: template.png
 description: >-
   The Post’s template for building bespoke stories — I help develop and maintain
   the framework used across the newsroom.
-tag: Newsroom tool
+tag: Internal
 ---
 
 At The Washington Post, I contribute to the building and maintainance our bespoke storytelling tools and templates. I help with the development and architecture of the newsroom’s most experimental framework, which allows graphics reporters and designers to build immersive stories.

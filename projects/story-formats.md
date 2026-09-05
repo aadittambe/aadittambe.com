@@ -11,7 +11,7 @@ imgAlt: >-
 description: >-
   Reusable formats that let editors and reporters create interactive stories at
   scale, no codebase required.
-tag: Newsroom tool
+tag: Internal
 ---
 
 To enhance our interactive storytelling, I was part of a team of developers that transitioned some of our template’s most-used layouts into reusable formats, allowing editors and reporters to create engaging stories at scale without the need for a codebase.

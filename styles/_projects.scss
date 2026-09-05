@@ -75,6 +75,27 @@
     text-align: center;
   }
 
+  // "View live project ↗" underlines only its label. The global anchor rule
+  // paints the border on the <a>, which spans the whole inline box — including
+  // the arrow — and no rule on a child can undo a parent's border. So drop it
+  // from the anchor and hang it on the label span instead.
+  .live-link {
+    border-bottom: none;
+
+    .live-link-label {
+      border-bottom: solid 2px $site-accent;
+      transition: all 0.1s;
+    }
+
+    &:hover {
+      border-bottom: none;
+
+      .live-link-label {
+        border-bottom: solid 3px $site-accent;
+      }
+    }
+  }
+
   ul {
     margin-top: 0;
     margin-bottom: $space-md;
@@ -164,12 +185,19 @@
       flex-direction: column;
       justify-content: center;
       padding: $space-md;
+      @media (max-width: $xs) {
+        padding: $space-sm;
+        padding-bottom: $space-md;
+      }
     }
 
     .story-org {
       padding-bottom: $space-2xs;
       font-size: $text-sm;
       line-height: $leading-tight;
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
     }
 
     // Small pill after the org name, e.g. "Internal tool".
@@ -183,7 +211,6 @@
       font-weight: $weight-medium;
       line-height: $leading-tight;
       letter-spacing: 0.04em;
-      text-transform: uppercase;
       color: $site-text;
       vertical-align: 8%;
       white-space: nowrap;
@@ -209,6 +236,9 @@
       flex-wrap: wrap;
       gap: $space-xs;
       padding-top: $space-sm;
+      @media (max-width: $xs) {
+        padding-top: 0;
+      }
     }
 
     // Stack on mobile: image on top, text below.
