@@ -1,19 +1,13 @@
 import "../styles/base.scss";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { Fraunces } from "next/font/google";
 import Script from "next/script";
-
-const fraunces = Fraunces({
-  weight: ["300", "500", "700"],
-  subsets: ["latin"],
-});
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 
 export default function App({ Component, pageProps }) {
   return (
-    <div className={`app-wrapper ${fraunces.className}`}>
+    <div className="app-wrapper">
       {GA_ID && (
         <>
           <Script
