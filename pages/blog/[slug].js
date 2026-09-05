@@ -13,7 +13,7 @@ const { longAP } = apStyleDate;
 export default function Post({ postData, prevPost, nextPost }) {
   return (
     <Layout>
-      <div className="post">
+      <div className="wrap post">
         <Head>
           <title>{postData.title}</title>
         </Head>
@@ -26,11 +26,11 @@ export default function Post({ postData, prevPost, nextPost }) {
             <div className="divider" />
             <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
           </article>
-          <nav>
-            <div className="actions">
+          <nav className="post-nav">
+            <div className="post-nav-item">
               {prevPost && (
                 <>
-                  <p className="label">← Previous</p>
+                  <p className="post-nav-label">← Previous</p>
                   <p>
                     <Link href={`/blog/${prevPost.slug}`}>
                       {prevPost.title}
@@ -39,10 +39,10 @@ export default function Post({ postData, prevPost, nextPost }) {
                 </>
               )}
             </div>
-            <div className="actions next">
+            <div className="post-nav-item post-nav-item--next">
               {nextPost && (
                 <>
-                  <p className="label">Next →</p>
+                  <p className="post-nav-label">Next →</p>
                   <p>
                     <Link href={`/blog/${nextPost.slug}`}>
                       {nextPost.title}

@@ -1,6 +1,6 @@
 // Color themes — light by default, dark when the toggle sets
 // [data-theme="dark"] on the root element. Colors only; type, spacing,
-// and layout tokens live in tokens.scss.
+// shape, and motion tokens live in tokens.scss.
 
 :root {
   --site-background: #fcfaf3;
@@ -22,6 +22,14 @@
   --site-text-on-accent: #2a2205;
 }
 
+// Derived from --site-text, so one declaration covers both themes: the
+// substitution happens on <html>, where the active theme has already set
+// --site-text.
+:root {
+  --site-hairline: color-mix(in srgb, var(--site-text) 18%, transparent);
+  --site-wash: color-mix(in srgb, var(--site-text) 7%, transparent);
+}
+
 // SCSS aliases so partials can reference theme colors as $-variables.
 $site-background: var(--site-background);
 $site-text: var(--site-text);
@@ -29,3 +37,5 @@ $site-background-alt: var(--site-background-alt);
 $site-text-alt: var(--site-text-alt);
 $site-accent: var(--site-accent);
 $site-text-on-accent: var(--site-text-on-accent);
+$site-hairline: var(--site-hairline);
+$site-wash: var(--site-wash);

@@ -1,0 +1,104 @@
+@use "./globals" as *;
+
+// Shared layout primitives. Anything a second page would otherwise
+// copy-paste lives here, so page partials only hold what is unique to them.
+
+// The site's content column. Every page root and every full-width block
+// inside one carries this, which is why no partial sets max-width or
+// horizontal padding of its own.
+.wrap {
+  // `width` is not redundant next to `max-width`: the header is a flex item
+  // of .app-wrapper, and the auto inline margins below cancel its cross-axis
+  // stretch — without an explicit width it would shrink to fit its nav.
+  width: 100%;
+  max-width: $content;
+  margin-inline: auto;
+  padding-inline: $space-md;
+}
+
+// A narrow label column beside a wider body column, stacking on small
+// screens: resume dates/role, contact channel/handle. The one breakpoint
+// here replaces the identical pair each page used to carry.
+//
+// Callers tune the label width through --split-basis rather than
+// redeclaring the flex rules.
+.split {
+  --split-basis: 30%;
+
+  display: flex;
+  gap: $space-md;
+
+  @include below($bp-wide) {
+    display: block;
+  }
+}
+
+.split-label {
+  flex: 0 0 var(--split-basis);
+  font-weight: $weight-bold;
+}
+
+.split-body {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+// Horizontal rule between sections. Shared by the footer and by article
+// headers, which is why it isn't in either partial.
+.divider {
+  height: 1px;
+  background-color: $site-text;
+}
+
+// Scroll reveal: cards rise into place (no fade). The element carries
+// .reveal from first paint and gains .is-revealed once it intersects, so the
+// resting state is the one written here and the transition lives in one rule
+// instead of on every component that reveals.
+.reveal {
+  transform: translateY(28px);
+  transition: transform 1.3s $ease-out-expo;
+
+  &.is-revealed {
+    transform: none;
+  }
+
+  @include reduced-motion {
+    transform: none;
+    transition: none;
+  }
+}
+
+// Fills a reserved media box while its image streams in — project cards,
+// project tiles, and article figures all use this one rule. The element that
+// owns the box adds .is-loaded to swap the spinner for the image.
+.media-spinner {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $site-background-alt;
+  // Visibility flips after the fade so the "loading" status also leaves the
+  // accessibility tree.
+  transition:
+    opacity $duration-slow ease-in-out,
+    visibility $duration-slow;
+
+  // The spinners rotate via CSS rather than SVG <animateTransform> — SMIL is
+  // unreliable (deprecation-flagged in Chromium, frozen by some privacy
+  // shields) and can't respect prefers-reduced-motion.
+  svg {
+    animation: spinner-rotate 0.9s linear infinite;
+
+    @include reduced-motion {
+      animation: none;
+    }
+  }
+}
+
+@keyframes spinner-rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}

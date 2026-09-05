@@ -1,48 +1,41 @@
 @use "./globals" as *;
 
-.blog {
-  max-width: $content;
-  margin: auto;
-  padding-left: $space-md;
-  padding-right: $space-md;
+// ----------------------------------------------------------- blog index ----
 
+.blog-intro {
+  padding-bottom: $space-lg;
+}
+
+.post-list {
   table {
     width: 100%;
   }
 
-  .blog-intro {
-    padding-bottom: $space-lg;
-  }
-
-  .posts a {
+  a {
     border-bottom: none;
   }
 
-  .post-title p {
+  .post-list-title p {
     font-weight: $weight-medium;
   }
 
-  .post-date {
-    width: 30%;
+  // Shrink-to-fit rather than a percentage that has to widen at a
+  // breakpoint: the date column takes exactly the room the date needs and
+  // leaves the rest to the title.
+  .post-list-date {
+    width: 1%;
+    padding-left: $space-md;
     text-align: right;
-
-    @media (max-width: $sm) {
-      width: 40%;
-    }
+    white-space: nowrap;
   }
 }
 
-.post {
-  max-width: $content;
-  margin: auto;
-  padding-left: $space-md;
-  padding-right: $space-md;
+// -------------------------------------------------------------- article ----
 
+.post {
   .divider {
-    height: 1px;
-    margin-bottom: $space-lg;
     margin-top: $space-md;
-    background-color: $site-text;
+    margin-bottom: $space-lg;
   }
 
   img {
@@ -70,9 +63,8 @@
   }
 
   p code {
-    padding-left: 6px;
-    padding-right: 6px;
-    border-radius: 4px;
+    padding-inline: 6px;
+    border-radius: $radius-sm;
     background-color: $site-background-alt;
   }
 
@@ -87,31 +79,32 @@
     font-size: $text-md;
     font-weight: $weight-light;
   }
+}
 
-  nav {
-    display: flex;
-    justify-content: space-between;
-    padding-top: $space-xl;
+// Previous / next links at the foot of an article. The columns hold a share
+// of the width until that share gets too cramped to read, then min-width
+// takes over — which reflows continuously instead of jumping at one width.
+.post-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: $space-md;
+  padding-top: $space-xl;
+}
+
+.post-nav-item {
+  flex: 0 1 30%;
+  min-width: 11rem;
+
+  &--next {
+    text-align: right;
   }
 
-  .actions {
-    width: 30%;
-
-    @media (max-width: $sm) {
-      width: 45%;
-    }
-
-    &.next {
-      text-align: right;
-    }
-
-    p {
-      padding-bottom: $space-2xs;
-      font-size: $text-base;
-    }
-
-    .label {
-      color: $site-text;
-    }
+  p {
+    padding-bottom: $space-2xs;
+    font-size: $text-base;
   }
+}
+
+.post-nav-label {
+  color: $site-text;
 }

@@ -1,27 +1,16 @@
 @use "./globals" as *;
 
 .site-footer {
-  padding-left: $space-md;
-  padding-right: $space-md;
-
-  .container {
-    max-width: $xs;
-    margin: auto;
-    padding-top: $space-2xl;
-    padding-bottom: $space-sm;
-
-    @media (max-width: $md) {
-      padding-top: $space-xl;
-    }
-  }
+  // Breathing room above the rule scales with the viewport instead of
+  // stepping at a breakpoint.
+  padding-top: clamp($space-xl, 6vw, $space-2xl);
+  padding-bottom: $space-sm;
 
   p {
     font-size: $text-base;
   }
 
   .divider {
-    height: 1px;
     margin-bottom: $space-sm;
-    background-color: $site-text;
   }
 }

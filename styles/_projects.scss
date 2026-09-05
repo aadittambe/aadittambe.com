@@ -1,10 +1,198 @@
 @use "./globals" as *;
 
+// ------------------------------------------------------- projects index ----
+
+.projects-intro {
+  padding-bottom: $space-lg;
+}
+
+.projects-cards {
+  display: flex;
+  flex-direction: column;
+  gap: $space-lg;
+  padding-bottom: $space-xl;
+}
+
+// Link-out-only projects (no write-up) get a smaller square-ish tile instead
+// of a full horizontal card. `auto-fill` drops to one column on its own once
+// two tiles no longer fit, so this needs no breakpoint.
+.projects-tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr));
+  gap: $space-md;
+  padding-bottom: $space-xl;
+}
+
+// A described project: image on the left (40% of the card), text on the
+// right; the card grows to the text height. Both `.card` and `.tile` restate
+// their border on hover so the global `a:hover` underline — which outranks a
+// bare class — can't creep back in and jitter the box.
+.card,
+.tile {
+  overflow: hidden;
+  border: 1px solid $site-background-alt;
+  border-radius: $radius-sm;
+
+  &:hover {
+    border: 1px solid $site-background-alt;
+  }
+}
+
+.card {
+  display: flex;
+
+  .card-media {
+    position: relative;
+    flex: 0 0 40%;
+    align-self: stretch;
+    min-height: 100px;
+    border-bottom: none; // override the global anchor underline
+  }
+
+  .card-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: $space-md;
+  }
+
+  .card-org {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: $space-2xs;
+    font-size: $text-sm;
+    line-height: $leading-tight;
+  }
+
+  // Small pill after the org name, e.g. "Internal tool".
+  .card-tag {
+    display: inline-block;
+    margin-left: $space-xs;
+    padding: 2px 9px;
+    border: 1px solid $site-hairline;
+    border-radius: $radius-pill;
+    font-size: $text-xs;
+    font-weight: $weight-medium;
+    line-height: $leading-tight;
+    letter-spacing: 0.04em;
+    color: $site-text;
+    vertical-align: 8%;
+    white-space: nowrap;
+  }
+
+  .card-name {
+    padding-bottom: $space-xs;
+    font-weight: $weight-medium;
+  }
+
+  .card-description {
+    font-size: $text-base;
+    line-height: $leading-normal;
+  }
+
+  .card-name a,
+  .card-description a {
+    border-bottom: none; // the buttons below carry the affordance
+  }
+
+  .card-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $space-xs;
+    padding-top: $space-sm;
+  }
+
+  // Stack on mobile: image on top, text below, with the tighter padding the
+  // narrower column needs. One block covers the whole card.
+  @include below($bp-narrow) {
+    flex-direction: column;
+
+    .card-media {
+      flex: none;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+    }
+
+    .card-text {
+      padding: $space-sm $space-sm $space-md;
+    }
+
+    .card-actions {
+      padding-top: 0;
+    }
+  }
+}
+
+.tile {
+  display: block;
+
+  .tile-media {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-bottom: none; // override the global anchor underline
+  }
+
+  .tile-text {
+    padding: $space-sm $space-sm 0;
+  }
+
+  .tile-org {
+    padding-bottom: $space-2xs;
+    font-size: $text-sm;
+    line-height: $leading-tight;
+  }
+
+  .tile-name {
+    font-size: $text-md;
+    line-height: $leading-snug;
+  }
+}
+
+.btn {
+  padding: 6px 13px;
+  border-radius: $radius-md;
+  font-size: $text-sm;
+  font-weight: $weight-medium;
+  line-height: $leading-tight;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all $duration-fast ease;
+
+  // Each hover restates `border` for the same reason the cards do.
+  &--primary {
+    background-color: $site-accent;
+    color: $site-text-on-accent;
+    border: 1px solid $site-accent;
+
+    &:hover {
+      border: 1px solid $site-accent;
+      filter: brightness(1.06);
+      transform: translateY(-1px);
+    }
+  }
+
+  &--ghost {
+    background-color: transparent;
+    color: $site-text;
+    border: 1px solid $site-hairline;
+
+    &:hover {
+      border: 1px solid $site-hairline;
+      background-color: $site-wash;
+    }
+  }
+}
+
+// -------------------------------------------------------- project write-up ----
+
 // Project write-ups embed screenshots that are often portrait (a phone-shaped
-// capture), and the shared `.post img` rule stretches images to the full column
-// width — which would leave a tall screenshot towering over the text. Cap by
-// height instead and centre it. Scoped to `.post.project-post` so it outranks
-// `.post img` without disturbing the blog's landscape images.
+// capture), and the shared `.post img` rule stretches images to the full
+// column width — which would leave a tall screenshot towering over the text.
+// Cap by height instead and centre it. Scoped to `.post.project-post` so it
+// outranks `.post img` without disturbing the blog's landscape images.
 .post.project-post {
   img {
     display: block;
@@ -12,7 +200,6 @@
     height: auto;
     max-width: 100%;
     max-height: 60vh; // mirrored in lib/remarkFigures.js's inline width cap
-
     margin: 0 auto;
   }
 
@@ -20,10 +207,10 @@
     margin: $space-xl 0; // browsers default to a 40px side margin — drop it
   }
 
-  // Body figures get the same loading treatment as the grid tiles: a spinner
-  // on a muted backdrop fills the reserved box while the image streams in,
-  // then swaps for the image. lib/remarkFigures.js emits the markup and adds
-  // .figure-loaded to the <figure> from the image's onload.
+  // Body figures get the same loading treatment as the grid tiles: the shared
+  // .media-spinner fills the reserved box while the image streams in, then
+  // fades out. lib/remarkFigures.js emits the markup and adds .is-loaded to
+  // the <figure> from the image's onload.
   .figure-media {
     position: relative;
     display: block;
@@ -33,38 +220,23 @@
       width: 100%;
       height: auto;
       opacity: 0;
-      transition: opacity 0.4s ease-in-out;
+      transition: opacity $duration-slow ease-in-out;
     }
   }
 
-  .figure-spinner {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: $site-background-alt;
-    // visibility flips after the fade so the "loading" status also leaves
-    // the accessibility tree (the tiles unmount their spinner instead).
-    transition:
-      opacity 0.4s ease-in-out,
-      visibility 0.4s;
-  }
-
-  .figure-loaded {
+  .is-loaded {
     img {
       opacity: 1;
     }
 
-    .figure-spinner {
+    .media-spinner {
       opacity: 0;
       visibility: hidden;
     }
   }
 
-  // Centred under the image and capped, so a caption never runs the full width
-  // of the text column beneath a narrow (portrait) screenshot.
+  // Centred under the image and capped, so a caption never runs the full
+  // width of the text column beneath a narrow (portrait) screenshot.
   figcaption {
     max-width: 34rem;
     margin: $space-xs auto 0;
@@ -76,22 +248,22 @@
   }
 
   // "View live project ↗" underlines only its label. The global anchor rule
-  // paints the border on the <a>, which spans the whole inline box — including
-  // the arrow — and no rule on a child can undo a parent's border. So drop it
-  // from the anchor and hang it on the label span instead.
+  // paints the border on the <a>, which spans the whole inline box —
+  // including the arrow — and no rule on a child can undo a parent's border.
+  // So drop it from the anchor and hang it on the label span instead.
   .live-link {
     border-bottom: none;
 
     .live-link-label {
-      border-bottom: solid 2px $site-accent;
-      transition: all 0.1s;
+      border-bottom: solid $underline $site-accent;
+      transition: border-bottom-width $duration-fast;
     }
 
     &:hover {
       border-bottom: none;
 
       .live-link-label {
-        border-bottom: solid 3px $site-accent;
+        border-bottom: solid $underline-hover $site-accent;
       }
     }
   }
@@ -105,239 +277,5 @@
     margin-bottom: $space-md;
     font-size: $text-md;
     line-height: $leading-normal;
-  }
-}
-
-// The cards and tiles stay nested one level inside `.projects`: the extra
-// class is what lets their `border` rules outrank the global `a:hover`
-// underline (both are anchors).
-.projects {
-  // Every block shares the site's content column width so the cards line up
-  // with the body text.
-  .intro,
-  .source,
-  .grid,
-  .tile-grid {
-    max-width: $content;
-    margin: auto;
-    padding-left: $space-md;
-    padding-right: $space-md;
-  }
-
-  .intro {
-    padding-bottom: $space-lg;
-  }
-
-  .grid {
-    display: flex;
-    flex-direction: column;
-    gap: $space-lg;
-    padding-bottom: $space-xl;
-  }
-
-  // Link-out-only projects (no write-up) get a smaller square-ish tile
-  // instead of a full horizontal card, in a grid below the described cards.
-  .tile-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: $space-md;
-    padding-bottom: $space-xl;
-
-    @media (max-width: $xs) {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  // Shared by cards and tiles while their thumbnail loads.
-  .story-spinner {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: $site-background-alt;
-    transition: 0.4s ease-in-out;
-  }
-
-  // A described project: image on the left (40% of the card), text on the
-  // right; the card grows to the text height.
-  .story {
-    display: flex;
-    overflow: hidden;
-    border: 1px solid $site-background-alt;
-    border-radius: 4px;
-    // box-shadow: 0 8px 24px 0 rgba(102, 102, 102, 0.15);
-
-    transition: transform 1.3s cubic-bezier(0.16, 1, 0.3, 1);
-
-    .story-media {
-      position: relative;
-      flex: 0 0 40%;
-      align-self: stretch;
-      min-height: 100px;
-      border-bottom: none; // override the global anchor underline
-    }
-
-    .card-text {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: $space-md;
-      @media (max-width: $xs) {
-        padding: $space-sm;
-        padding-bottom: $space-md;
-      }
-    }
-
-    .story-org {
-      padding-bottom: $space-2xs;
-      font-size: $text-sm;
-      line-height: $leading-tight;
-      align-items: center;
-      display: flex;
-      justify-content: space-between;
-    }
-
-    // Small pill after the org name, e.g. "Internal tool".
-    .story-tag {
-      display: inline-block;
-      margin-left: $space-xs;
-      padding: 2px 9px;
-      border: 1px solid color-mix(in srgb, $site-text 18%, transparent);
-      border-radius: 999px;
-      font-size: $text-xs;
-      font-weight: $weight-medium;
-      line-height: $leading-tight;
-      letter-spacing: 0.04em;
-      color: $site-text;
-      vertical-align: 8%;
-      white-space: nowrap;
-    }
-
-    .story-name {
-      font-weight: $weight-medium;
-      padding-bottom: $space-xs;
-    }
-
-    .story-description {
-      font-size: $text-base;
-      line-height: $leading-normal;
-    }
-
-    .story-name a,
-    .story-description a {
-      border-bottom: none; // the buttons below carry the affordance
-    }
-
-    .card-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: $space-xs;
-      padding-top: $space-sm;
-      @media (max-width: $xs) {
-        padding-top: 0;
-      }
-    }
-
-    // Stack on mobile: image on top, text below.
-    @media (max-width: $xs) {
-      flex-direction: column;
-
-      .story-media {
-        flex: none;
-        width: 100%;
-        aspect-ratio: 16 / 9;
-      }
-    }
-  }
-
-  .card-btn {
-    padding: 6px 13px;
-    border-radius: 6px;
-    font-size: $text-sm;
-    font-weight: $weight-medium;
-    line-height: $leading-tight;
-    white-space: nowrap;
-    cursor: pointer;
-    transition: all 0.18s ease;
-
-    // Each hover restates `border` so the global `a:hover` underline (a 3px accent
-    // bottom border) can't creep back in and jitter the button.
-    &--primary {
-      background-color: $site-accent;
-      color: $site-text-on-accent;
-      border: 1px solid $site-accent;
-
-      &:hover {
-        border: 1px solid $site-accent;
-        filter: brightness(1.06);
-        transform: translateY(-1px);
-      }
-    }
-
-    &--ghost {
-      $ghost-border: color-mix(in srgb, $site-text 18%, transparent);
-
-      background-color: transparent;
-      color: $site-text;
-      border: 1px solid $ghost-border;
-
-      &:hover {
-        border: 1px solid $ghost-border;
-        background-color: color-mix(in srgb, $site-text 7%, transparent);
-      }
-    }
-  }
-
-  .tile {
-    display: block;
-    overflow: hidden;
-    border: 1px solid $site-background-alt;
-    border-radius: 4px;
-    // box-shadow: 0 8px 24px 0 rgba(102, 102, 102, 0.15);
-
-    transition: transform 1.3s cubic-bezier(0.16, 1, 0.3, 1);
-
-    .tile-media {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      border-bottom: none; // override the global anchor underline
-    }
-
-    .tile-text {
-      padding: $space-sm $space-sm 0 $space-sm;
-    }
-
-    .tile-org {
-      padding-bottom: $space-2xs;
-      font-size: $text-sm;
-      line-height: $leading-tight;
-    }
-
-    .tile-name {
-      font-size: $text-md;
-      line-height: $leading-snug;
-    }
-  }
-}
-
-// The spinners rotate via CSS rather than SVG <animateTransform> — SMIL is
-// unreliable (deprecation-flagged in Chromium, frozen by some privacy
-// shields) and can't respect prefers-reduced-motion.
-@keyframes spinner-rotate {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.story-spinner svg,
-.figure-spinner svg {
-  animation: spinner-rotate 0.9s linear infinite;
-
-  @media (prefers-reduced-motion: reduce) {
-    animation: none;
   }
 }

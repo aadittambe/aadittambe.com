@@ -24,35 +24,35 @@ describe("Header", () => {
 
   it("marks Home as active on the root route", () => {
     render(<Header />);
-    expect(screen.getByText("Home").closest("li")).toHaveClass("active");
-    expect(screen.getByText("Projects").closest("li")).not.toHaveClass("active");
+    expect(screen.getByText("Home").closest("li")).toHaveClass("is-active");
+    expect(screen.getByText("Projects").closest("li")).not.toHaveClass("is-active");
   });
 
   it("marks Projects as active on /projects", () => {
     mockUseRouter.mockReturnValue({ route: "/projects" });
     render(<Header />);
-    expect(screen.getByText("Projects").closest("li")).toHaveClass("active");
-    expect(screen.getByText("Home").closest("li")).not.toHaveClass("active");
+    expect(screen.getByText("Projects").closest("li")).toHaveClass("is-active");
+    expect(screen.getByText("Home").closest("li")).not.toHaveClass("is-active");
   });
 
   it("marks Projects as active on a project detail page", () => {
     mockUseRouter.mockReturnValue({ route: "/projects/[slug]" });
     render(<Header />);
-    expect(screen.getByText("Projects").closest("li")).toHaveClass("active");
-    expect(screen.getByText("Home").closest("li")).not.toHaveClass("active");
+    expect(screen.getByText("Projects").closest("li")).toHaveClass("is-active");
+    expect(screen.getByText("Home").closest("li")).not.toHaveClass("is-active");
   });
 
   it("shows a Blog link and marks it active on a blog route", () => {
     mockUseRouter.mockReturnValue({ route: "/blog/some-post" });
     render(<Header />);
     expect(screen.getByText("Blog")).toBeInTheDocument();
-    expect(screen.getByText("Blog").closest("li")).toHaveClass("active");
+    expect(screen.getByText("Blog").closest("li")).toHaveClass("is-active");
   });
 
   it("marks Blog active on a blog detail page", () => {
     mockUseRouter.mockReturnValue({ route: "/blog/[slug]" });
     render(<Header />);
-    expect(screen.getByText("Blog").closest("li")).toHaveClass("active");
+    expect(screen.getByText("Blog").closest("li")).toHaveClass("is-active");
   });
 
   it("hides the Blog link outside the blog section", () => {
@@ -65,7 +65,7 @@ describe("Header", () => {
     for (const route of ["/projects", "/projects/[slug]", "/blog/[slug]"]) {
       mockUseRouter.mockReturnValue({ route });
       const { unmount } = render(<Header />);
-      expect(screen.getByText("Home").closest("li")).not.toHaveClass("active");
+      expect(screen.getByText("Home").closest("li")).not.toHaveClass("is-active");
       unmount();
     }
   });

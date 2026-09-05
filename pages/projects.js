@@ -72,7 +72,7 @@ const Story = ({
   const media = (
     <>
       <div
-        className="story-spinner"
+        className="media-spinner"
         style={{ opacity: imgSrc && isLoaded ? 0 : 1 }}
       >
         {imgSrc && !isLoaded && <CustomSpinner />}
@@ -91,23 +91,23 @@ const Story = ({
   );
 
   return (
-    <div className={`story ${inView ? "reveal" : "no-reveal"}`} ref={ref}>
-      <Media className="story-media" {...linkAttrs}>
+    <div className={`card reveal ${inView ? "is-revealed" : ""}`} ref={ref}>
+      <Media className="card-media" {...linkAttrs}>
         {media}
       </Media>
       <div className="card-text">
-        <p className="story-org">
+        <p className="card-org">
           <span>{org}</span>
-          {tag && <span className="story-tag">{tag}</span>}
+          {tag && <span className="card-tag">{tag}</span>}
         </p>
-        <p className="story-name">
+        <p className="card-name">
           <Title {...linkAttrs}>{title}</Title>
         </p>
-        <p className="story-description">{description}</p>
+        <p className="card-description">{description}</p>
         <div className="card-actions">
           {url && (
             <a
-              className="card-btn card-btn--primary"
+              className="btn btn--primary"
               href={url}
               target="_blank"
               rel="noopener noreferrer"
@@ -116,7 +116,7 @@ const Story = ({
             </a>
           )}
           {pageHref && (
-            <Link className="card-btn card-btn--ghost" href={pageHref}>
+            <Link className="btn btn--ghost" href={pageHref}>
               Read more →&#xFE0E;
             </Link>
           )}
@@ -142,7 +142,7 @@ const Tile = ({ url, img, imgAlt, org, title }) => {
 
   return (
     <a
-      className={`tile ${inView ? "reveal" : "no-reveal"}`}
+      className={`tile reveal ${inView ? "is-revealed" : ""}`}
       ref={ref}
       href={url}
       target="_blank"
@@ -150,7 +150,7 @@ const Tile = ({ url, img, imgAlt, org, title }) => {
     >
       <div className="tile-media">
         <div
-          className="story-spinner"
+          className="media-spinner"
           style={{ opacity: imgSrc && isLoaded ? 0 : 1 }}
         >
           {imgSrc && !isLoaded && <CustomSpinner size={24} />}
@@ -198,8 +198,8 @@ export default function ProjectsPage({ cardProjects = [], tileProjects = [] }) {
         />
         <link rel="canonical" href="https://aadittambe.com/projects/" />
       </Head>
-      <div className="projects">
-        <div className="intro">
+      <div className="wrap">
+        <div className="projects-intro">
           <h1>A selection of my work.</h1>
           <p>
             I specialize in telling data-driven stories visually, and my work
@@ -218,7 +218,7 @@ export default function ProjectsPage({ cardProjects = [], tileProjects = [] }) {
             figuring out programming concepts I may not know.
           </p>
         </div>
-        <div className="grid">
+        <div className="projects-cards">
           {cardProjects.map((d) => (
             <Story
               key={d.slug}
@@ -235,7 +235,7 @@ export default function ProjectsPage({ cardProjects = [], tileProjects = [] }) {
           ))}
         </div>
         {tileProjects.length > 0 && (
-          <div className="tile-grid">
+          <div className="projects-tiles">
             {tileProjects.map((d) => (
               <Tile
                 key={d.slug}
@@ -248,7 +248,7 @@ export default function ProjectsPage({ cardProjects = [], tileProjects = [] }) {
             ))}
           </div>
         )}
-        <div className="source">
+        <div>
           <p>
             I am a supporter of open-source code — the source code for this
             website is available on{" "}

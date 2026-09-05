@@ -20,9 +20,9 @@ export default function ResumePage() {
         />
         <link rel="canonical" href="https://aadittambe.com/resume/" />
       </Head>
-      <div className="resume">
+      <div className="wrap resume">
         <h1>Some of my experience and skills.</h1>
-        <div className="ital source">
+        <div>
           <p>
             <Link
               href="/AaditTambe_Resume.pdf"
@@ -34,27 +34,27 @@ export default function ResumePage() {
             a PDF resume, if that’s what you’re looking for.
           </p>
         </div>
-        <div className="section">
+        <div className="resume-section">
           <h2 id="experience">Work experience</h2>
           {work.map((d, i) => (
-            <div className="item" key={i}>
-              <h3 className="org">{d.name}</h3>
-              <div className="exp">
-                <div className="left">
-                  <h4 className="dates">{d.dates}</h4>
+            <div className="resume-item" key={i}>
+              <h3>{d.name}</h3>
+              <div className="split">
+                <div className="split-label">
+                  <h4>{d.dates}</h4>
                 </div>
-                <div className="right">
-                  <h4 className="title">{d.title}</h4>
-                  <p className="desc">{d.desc}</p>
+                <div className="split-body">
+                  <h4>{d.title}</h4>
+                  <p>{d.desc}</p>
                 </div>
               </div>
             </div>
           ))}
         </div>
-        <div className="section">
+        <div className="resume-section">
           <h2>Awards</h2>
           {awards.map((d, i) => (
-            <div className="item" key={i}>
+            <div className="resume-item" key={i}>
               <h3>
                 {d.event} ({d.year})
               </h3>
@@ -72,11 +72,11 @@ export default function ResumePage() {
             </div>
           ))}
         </div>
-        <div className="section">
+        <div className="resume-section">
           <h2 id="skills">Skills</h2>
-          <div className="skills">
+          <div className="resume-skills">
             {skills.map((d, i) => (
-              <div className="skill" key={i}>
+              <div key={i}>
                 <h3>{d.name}</h3>
                 {d.tools.map((tool, i) => (
                   <p key={i}>{tool}</p>
@@ -85,17 +85,17 @@ export default function ResumePage() {
             ))}
           </div>
         </div>
-        <div className="section">
+        <div className="resume-section">
           <h2 id="education">Education</h2>
           {ed.map((d, i) => (
-            <div className="item" key={i}>
-              <h3 className="org">{d.name}</h3>
-              <div className="exp">
-                <div className="left">
-                  <h4 className="dates">{d.year}</h4>
+            <div className="resume-item" key={i}>
+              <h3>{d.name}</h3>
+              <div className="split">
+                <div className="split-label">
+                  <h4>{d.year}</h4>
                 </div>
-                <div className="right">
-                  <h4 className="title">
+                <div className="split-body">
+                  <h4>
                     {d.degree}, {d.focus}
                   </h4>
                 </div>

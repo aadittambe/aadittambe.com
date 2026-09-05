@@ -9,7 +9,7 @@ const NotFoundPage = () => {
         <title>Aadit Tambe — Page not found</title>
         <meta name="robots" content="noindex" />
       </Head>
-      <div className="not-found">
+      <div className="wrap">
         <h1>Page not found.</h1>
         <p>Sorry, the page you&rsquo;re looking for doesn&rsquo;t exist.</p>
         <p>

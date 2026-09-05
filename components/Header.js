@@ -45,14 +45,14 @@ const Header = () => {
   };
 
   return (
-    <header className="site-header">
-      <div className="header-row">
+    <header className="wrap site-header">
+      <div className="site-header-row">
         <nav role="navigation">
           <ul>
             {links.map(({ href, label }) => (
               <li
                 key={href}
-                className={isActive(router.route, href) ? "active" : ""}
+                className={isActive(router.route, href) ? "is-active" : ""}
               >
                 <Link href={href}>{label}</Link>
               </li>

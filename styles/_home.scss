@@ -5,29 +5,27 @@
   flex-direction: column;
 }
 
-.home {
-  max-width: $content;
-  margin: 0 auto;
-  padding-left: $space-md;
-  padding-right: $space-md;
-}
-
 .wave {
   display: inline-block;
   cursor: default;
   transform-origin: 70% 70%;
   animation: wave-animation 3.5s 1.5s 1;
-}
 
-.wave:hover {
-  cursor:
-    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:$site-text;font-size:24px;'><text y='50%'>👋🏽</text></svg>")
-      16 0,
-    auto;
-  animation: wave-animation 2.5s infinite;
+  // Only pointer devices get the looping wave and the emoji cursor. Gating on
+  // hover capability rather than width means touch screens never enter the
+  // state at all, instead of entering it and being walked back.
+  @include hover-capable {
+    &:hover {
+      cursor:
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='font-size:24px;'><text y='50%'>👋🏽</text></svg>")
+          16 0,
+        auto;
+      animation: wave-animation 2.5s infinite;
+    }
+  }
 
-  @media (max-width: $xs) {
-    animation-iteration-count: 1;
+  @include reduced-motion {
+    animation: none;
   }
 }
 

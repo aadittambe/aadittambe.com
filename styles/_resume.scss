@@ -1,57 +1,28 @@
 @use "./globals" as *;
 
 .resume {
-  max-width: $content;
-  margin: auto;
-  padding-left: $space-md;
-  padding-right: $space-md;
-
-  .exp {
-    display: flex;
+  // The dates column is narrower here than the shared default.
+  .split {
+    --split-basis: 25%;
   }
 
-  .left {
-    width: 25%;
-    padding-right: 2%;
-  }
-
-  .right {
-    width: 75%;
-    padding-left: 2%;
-  }
-
-  .section {
+  .resume-section {
     padding-bottom: $space-xl;
   }
 
-  .item {
+  .resume-item {
     padding-bottom: $space-md;
   }
 
-  .skills {
+  // Two columns where they fit, one where they don't — `auto-fit` decides,
+  // so no breakpoint is involved.
+  .resume-skills {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: $space-md;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
+    gap: $space-md;
 
     p {
       padding-bottom: $space-2xs;
-    }
-
-    @media (max-width: $xxs) {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  // Stack the date/title columns on smaller screens.
-  @media (max-width: $md) {
-    .exp {
-      display: block;
-    }
-
-    .left,
-    .right {
-      width: 100%;
-      padding: 0;
     }
   }
 }

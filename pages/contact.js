@@ -54,12 +54,12 @@ const ContactPage = () => {
         <meta name="description" content="Get in touch with Aadit Tambe." />
         <link rel="canonical" href="https://aadittambe.com/contact/" />
       </Head>
-      <div className="contact">
+      <div className="wrap contact">
         <h1>Ways to get in touch.</h1>
         {socials.map((s, i) => (
-          <div key={i} className="social">
-            <p className="left">{s.name}</p>
-            <div className="right">
+          <div key={i} className="split contact-row">
+            <p className="split-label">{s.name}</p>
+            <div className="split-body">
               {s.link ? (
                 <>
                   <p>
@@ -74,12 +74,12 @@ const ContactPage = () => {
                         data-tooltip-id={`${s.name}-tooltip`}
                         data-tooltip-content={s.tooltipText}
                         data-tooltip-place="right"
-                        className="info-icon"
+                        className="contact-icon"
                         aria-hidden="false"
                         focusable="true"
                       />
                       <Tooltip
-                        className="tooltip"
+                        className="contact-tooltip"
                         id={`${s.name}-tooltip`}
                         place="right"
                       />
