@@ -28,13 +28,13 @@ export default function Project({ projectData, prevProject, nextProject }) {
             {projectData.url && (
               <p>
                 <a
-                  className="live-link"
+                  className="icon-link"
                   href={projectData.url}
                   rel="noreferrer"
                   target="_blank"
                 >
-                  <span className="live-link-label">View live project</span>
-                  <span> ↗&#xFE0E;</span>
+                  <span className="icon-link-label">View live project</span>
+                  <span aria-hidden="true"> ↗&#xFE0E;</span>
                 </a>
               </p>
             )}

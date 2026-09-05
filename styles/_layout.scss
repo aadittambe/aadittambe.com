@@ -43,6 +43,29 @@
   min-width: 0;
 }
 
+// A link that ends in an icon — "Source code ↗", "View live project ↗" —
+// where only the words should be underlined. The global anchor rule paints
+// the border on the <a>, which spans the whole inline box including the
+// icon, and no rule on a child can undo a parent's border. So drop it from
+// the anchor and hang it on the label span instead. The class beats the bare
+// `a` / `a:hover` selectors on specificity, so this works anywhere.
+.icon-link {
+  border-bottom: none;
+
+  .icon-link-label {
+    border-bottom: solid $underline $site-accent;
+    transition: border-bottom-width $duration-fast;
+  }
+
+  &:hover {
+    border-bottom: none;
+
+    .icon-link-label {
+      border-bottom: solid $underline-hover $site-accent;
+    }
+  }
+}
+
 // Horizontal rule between sections. Shared by the footer and by article
 // headers, which is why it isn't in either partial.
 .divider {

@@ -13,11 +13,13 @@ const Footer = () => {
         <p>
           © Site developed by Aadit Tambe |{" "}
           <a
+            className="icon-link"
             href="https://github.com/aadittambe/aadittambe.com"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Source code
+            <span className="icon-link-label">Source code</span>
+            <span aria-hidden="true"> ↗&#xFE0E;</span>
           </a>{" "}
           {apUpdatedDate && `| Last updated ${apUpdatedDate}`}
         </p>
