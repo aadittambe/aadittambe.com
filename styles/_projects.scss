@@ -247,27 +247,6 @@
     text-align: center;
   }
 
-  // "View live project ↗" underlines only its label. The global anchor rule
-  // paints the border on the <a>, which spans the whole inline box —
-  // including the arrow — and no rule on a child can undo a parent's border.
-  // So drop it from the anchor and hang it on the label span instead.
-  .live-link {
-    border-bottom: none;
-
-    .live-link-label {
-      border-bottom: solid $underline $site-accent;
-      transition: border-bottom-width $duration-fast;
-    }
-
-    &:hover {
-      border-bottom: none;
-
-      .live-link-label {
-        border-bottom: solid $underline-hover $site-accent;
-      }
-    }
-  }
-
   ul {
     margin-top: 0;
     margin-bottom: $space-md;
