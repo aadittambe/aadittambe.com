@@ -11,7 +11,10 @@
     width: 100%;
   }
 
-  a {
+  // `a:hover` in base.scss has the same specificity as `.post-list a` and is
+  // emitted later, so the hover state has to be named to stay underline-free.
+  a,
+  a:hover {
     border-bottom: none;
   }
 
