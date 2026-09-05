@@ -232,15 +232,15 @@
     cursor: pointer;
     transition: all 0.18s ease;
 
-    // Each hover restates `border` so the global `a:hover` underline (a 3px
-    // yellow bottom border) can't creep back in and jitter the button.
+    // Each hover restates `border` so the global `a:hover` underline (a 3px accent
+    // bottom border) can't creep back in and jitter the button.
     &--primary {
-      background-color: $site-yellow;
-      color: $site-text-on-yellow;
-      border: 1px solid $site-yellow;
+      background-color: $site-accent;
+      color: $site-text-on-accent;
+      border: 1px solid $site-accent;
 
       &:hover {
-        border: 1px solid $site-yellow;
+        border: 1px solid $site-accent;
         filter: brightness(1.06);
         transform: translateY(-1px);
       }

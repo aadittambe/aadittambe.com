@@ -49,13 +49,13 @@ body {
 
 a {
   text-decoration: none;
-  border-bottom: solid 2px $site-yellow;
+  border-bottom: solid 2px $site-accent;
   transition: all 0.1s;
   color: $site-text;
 }
 
 a:hover {
-  border-bottom: solid 3px $site-yellow;
+  border-bottom: solid 3px $site-accent;
 }
 
 h1 {

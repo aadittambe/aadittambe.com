@@ -58,10 +58,10 @@
     }
 
     &.active {
-      background-color: $site-yellow;
+      background-color: $site-accent;
 
       a {
-        color: $site-text-on-yellow;
+        color: $site-text-on-accent;
       }
     }
   }
