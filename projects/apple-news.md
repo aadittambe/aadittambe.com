@@ -7,7 +7,7 @@ order: 4
 img: apple-news-tile.png
 description: >-
   The pipeline that publishes the newsroom’s interactive stories to Apple News —
-  I rebuilt the publishing tool and brought our quiz to the platform.
+  I rebuilt the publishing tool and brought our quiz format to the platform.
 tag: Internal
 ---
 
