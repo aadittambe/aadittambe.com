@@ -1,4 +1,3 @@
-@use "sass:map";
 @use "./globals" as *;
 
 .site-header {
@@ -23,8 +22,9 @@
 
   ul {
     display: flex;
+    margin: 0;
     // Bleeds the pill inset so text aligns to the edge.
-    margin: 0 0 0 (-1 * map.get($pad-pill-x, sm));
+    margin-left: -$pill-nav-x;
     padding: 0;
     list-style-type: none;
   }
@@ -32,7 +32,7 @@
   li {
     width: fit-content;
     margin-right: $space-sm;
-    @include pill(sm);
+    padding: $pill-nav-y $pill-nav-x;
     border-radius: $radius-md;
     font-weight: $weight-medium;
 

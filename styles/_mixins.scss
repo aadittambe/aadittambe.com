@@ -1,4 +1,3 @@
-@use "sass:map";
 @use "./tokens" as *;
 
 // The only way a partial is allowed to open a media query. Keeping every
@@ -27,9 +26,4 @@
   @media (prefers-reduced-motion: reduce) {
     @content;
   }
-}
-
-// Nav item, tag pill, button. One step per type size.
-@mixin pill($size) {
-  padding: map.get($pad-pill-y, $size) map.get($pad-pill-x, $size);
 }

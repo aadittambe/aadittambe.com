@@ -56,16 +56,12 @@ $underline: 2px;
 // ---------------------------------------------------------------- pills ----
 
 // Off the spacing scale on purpose — 4px is too coarse here.
-$pad-pill-y: (
-  xs: 2px,
-  sm: 4px,
-  md: 6px,
-);
-$pad-pill-x: (
-  xs: 8px,
-  sm: 8px,
-  md: 12px,
-);
+$pill-tag-y: 2px; // tag pills
+$pill-tag-x: 8px;
+$pill-nav-y: 4px; // nav items
+$pill-nav-x: 8px;
+$pill-btn-y: 6px; // buttons
+$pill-btn-x: 12px;
 
 // -------------------------------------------------------------- motion ----
 

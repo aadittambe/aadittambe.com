@@ -70,7 +70,7 @@
   .card-tag {
     display: inline-block;
     margin-left: $space-xs;
-    @include pill(xs);
+    padding: $pill-tag-y $pill-tag-x;
     border: 1px solid $site-hairline;
     border-radius: $radius-pill;
     font-size: $text-xs;
@@ -152,7 +152,7 @@
 }
 
 .btn {
-  @include pill(md);
+  padding: $pill-btn-y $pill-btn-x;
   border-radius: $radius-md;
   font-size: $text-sm;
   font-weight: $weight-medium;
