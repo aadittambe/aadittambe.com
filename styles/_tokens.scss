@@ -50,14 +50,12 @@ $radius-sm: 4px; // cards, tiles, inline code
 $radius-md: 6px; // buttons, nav pills
 $radius-pill: 999px;
 
-// The accent underline under links, and its hover weight. Several components
-// restate it to keep the global anchor rule from creeping back in.
+// Link underline; clears on hover.
 $underline: 2px;
-$underline-hover: 3px;
 
 // -------------------------------------------------------------- motion ----
 
-$duration-fast: 0.1s; // link underline, button hover
+$duration-fast: 0.1s; // link underline, arrow nudge, button hover
 $duration-base: 0.25s; // theme cross-fade
 $duration-slow: 0.4s; // image fade-in
 

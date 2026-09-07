@@ -19,7 +19,9 @@ const Footer = () => {
             rel="noopener noreferrer"
           >
             <span className="icon-link-label">Source code</span>
-            <span aria-hidden="true"> ↗&#xFE0E;</span>
+            <span className="link-icon" aria-hidden="true">
+              ↗&#xFE0E;
+            </span>
           </a>{" "}
           {apUpdatedDate && `| Last updated ${apUpdatedDate}`}
         </p>

@@ -53,10 +53,11 @@ a {
   color: $site-text;
   text-decoration: none;
   border-bottom: solid $underline $site-accent;
-  transition: border-bottom-width $duration-fast;
+  // Fade the color, not the width — no text shift.
+  transition: border-bottom-color $duration-fast;
 
   &:hover {
-    border-bottom: solid $underline-hover $site-accent;
+    border-bottom-color: transparent;
   }
 }
 
