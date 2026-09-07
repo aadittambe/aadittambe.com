@@ -54,15 +54,47 @@
 
   .icon-link-label {
     border-bottom: solid $underline $site-accent;
-    transition: border-bottom-width $duration-fast;
+    transition: border-bottom-color $duration-fast;
   }
 
-  &:hover {
-    border-bottom: none;
+  &:hover .icon-link-label {
+    border-bottom-color: transparent;
+  }
+}
 
-    .icon-link-label {
-      border-bottom: solid $underline-hover $site-accent;
-    }
+// Inline, not inline-block, so it can't wrap off the word.
+.link-icon {
+  position: relative;
+  top: 0;
+  left: 0;
+  margin: 0 0.2em; // a space, minus the line break
+  transition:
+    top $duration-slow $ease-out-expo,
+    left $duration-slow $ease-out-expo;
+}
+
+@include hover-capable {
+  a:hover .link-icon {
+    top: -2px;
+    left: 2px;
+  }
+
+  // → goes sideways, not up.
+  a:hover .link-icon--forward {
+    top: 0;
+    left: 2px;
+  }
+}
+
+@include reduced-motion {
+  .link-icon {
+    transition: none;
+  }
+
+  a:hover .link-icon,
+  a:hover .link-icon--forward {
+    top: 0;
+    left: 0;
   }
 }
 

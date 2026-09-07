@@ -70,7 +70,7 @@
   .card-tag {
     display: inline-block;
     margin-left: $space-xs;
-    padding: 2px 9px;
+    padding: $pill-tag-y $pill-tag-x;
     border: 1px solid $site-hairline;
     border-radius: $radius-pill;
     font-size: $text-xs;
@@ -101,7 +101,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: $space-xs;
-    padding-top: $space-sm;
+    padding-top: $space-2xs;
   }
 
   // Stack on mobile: image on top, text below, with the tighter padding the
@@ -120,7 +120,7 @@
     }
 
     .card-actions {
-      padding-top: 0;
+      padding-top: $space-sm;
     }
   }
 }
@@ -152,7 +152,7 @@
 }
 
 .btn {
-  padding: 6px 13px;
+  padding: $pill-btn-y $pill-btn-x;
   border-radius: $radius-md;
   font-size: $text-sm;
   font-weight: $weight-medium;
@@ -163,14 +163,13 @@
 
   // Each hover restates `border` for the same reason the cards do.
   &--primary {
-    background-color: $site-accent;
-    color: $site-text-on-accent;
-    border: 1px solid $site-accent;
+    background-color: $site-text;
+    color: $site-background;
+    border: 1px solid $site-text;
 
     &:hover {
-      border: 1px solid $site-accent;
-      filter: brightness(1.06);
-      transform: translateY(-1px);
+      border: 1px solid $site-text;
+      filter: brightness(1.35);
     }
   }
 

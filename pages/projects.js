@@ -112,12 +112,18 @@ const Story = ({
               target="_blank"
               rel="noopener noreferrer"
             >
-              View project ↗&#xFE0E;
+              View project
+              <span className="link-icon" aria-hidden="true">
+                ↗&#xFE0E;
+              </span>
             </a>
           )}
           {pageHref && (
             <Link className="btn btn--ghost" href={pageHref}>
-              Read more →&#xFE0E;
+              Read more
+              <span className="link-icon link-icon--forward" aria-hidden="true">
+                →&#xFE0E;
+              </span>
             </Link>
           )}
         </div>
@@ -200,7 +206,7 @@ export default function ProjectsPage({ cardProjects = [], tileProjects = [] }) {
       </Head>
       <div className="wrap">
         <div className="projects-intro">
-          <h1>A selection of my work.</h1>
+          <h1>A selection of my proudest work.</h1>
           <p>
             I specialize in telling data-driven stories visually, and my work
             helps people understand the news and make sense of the policies that
