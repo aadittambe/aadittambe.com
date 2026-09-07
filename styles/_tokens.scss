@@ -53,6 +53,20 @@ $radius-pill: 999px;
 // Link underline; clears on hover.
 $underline: 2px;
 
+// ---------------------------------------------------------------- pills ----
+
+// Off the spacing scale on purpose — 4px is too coarse here.
+$pad-pill-y: (
+  xs: 2px,
+  sm: 4px,
+  md: 6px,
+);
+$pad-pill-x: (
+  xs: 8px,
+  sm: 8px,
+  md: 12px,
+);
+
 // -------------------------------------------------------------- motion ----
 
 $duration-fast: 0.1s; // link underline, arrow nudge, button hover
