@@ -2,6 +2,7 @@ import { compareDesc } from "date-fns";
 import Head from "next/head";
 import Link from "next/link";
 import Layout from "../../components/layout";
+import LinkIcon from "../../components/LinkIcon";
 import {
   getAllPostSlugs,
   getPostDataBySlug,
@@ -30,7 +31,10 @@ export default function Post({ postData, prevPost, nextPost }) {
             <div className="post-nav-item">
               {prevPost && (
                 <>
-                  <p className="post-nav-label">← Previous</p>
+                  <p className="post-nav-label">
+                    <LinkIcon direction="back" />
+                    Previous
+                  </p>
                   <p>
                     <Link href={`/blog/${prevPost.slug}`}>
                       {prevPost.title}
@@ -42,7 +46,10 @@ export default function Post({ postData, prevPost, nextPost }) {
             <div className="post-nav-item post-nav-item--next">
               {nextPost && (
                 <>
-                  <p className="post-nav-label">Next →</p>
+                  <p className="post-nav-label">
+                    Next
+                    <LinkIcon direction="forward" />
+                  </p>
                   <p>
                     <Link href={`/blog/${nextPost.slug}`}>
                       {nextPost.title}

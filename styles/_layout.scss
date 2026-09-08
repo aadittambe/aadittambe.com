@@ -62,15 +62,28 @@
   }
 }
 
-// Inline, not inline-block, so it can't wrap off the word.
+// One horizontal arrow, rotated for the diagonal variant.
 .link-icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.12em;
   position: relative;
   top: 0;
   left: 0;
   margin: 0 0.2em; // a space, minus the line break
+  transform: rotate(-45deg);
+  stroke-width: 1.75;
   transition:
     top $duration-slow $ease-out-expo,
     left $duration-slow $ease-out-expo;
+}
+
+.link-icon--forward {
+  transform: none;
+}
+
+.link-icon--back {
+  transform: rotate(180deg);
 }
 
 @include hover-capable {
@@ -79,7 +92,7 @@
     left: 2px;
   }
 
-  // → goes sideways, not up.
+  // The unrotated arrow goes sideways, not up.
   a:hover .link-icon--forward {
     top: 0;
     left: 2px;

@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import Layout from "../../components/layout";
+import LinkIcon from "../../components/LinkIcon";
 import {
   getAllProjectSlugs,
   getProjectDataBySlug,
@@ -34,7 +35,7 @@ export default function Project({ projectData, prevProject, nextProject }) {
                   target="_blank"
                 >
                   <span className="icon-link-label">View live project</span>
-                  <span aria-hidden="true"> ↗&#xFE0E;</span>
+                  <LinkIcon />
                 </a>
               </p>
             )}
@@ -47,7 +48,10 @@ export default function Project({ projectData, prevProject, nextProject }) {
             <div className="post-nav-item">
               {prevProject && (
                 <>
-                  <p className="post-nav-label">← Previous</p>
+                  <p className="post-nav-label">
+                    <LinkIcon direction="back" />
+                    Previous
+                  </p>
                   <p>
                     <Link href={`/projects/${prevProject.slug}`}>
                       {prevProject.title}
@@ -59,7 +63,10 @@ export default function Project({ projectData, prevProject, nextProject }) {
             <div className="post-nav-item post-nav-item--next">
               {nextProject && (
                 <>
-                  <p className="post-nav-label">Next →</p>
+                  <p className="post-nav-label">
+                    Next
+                    <LinkIcon direction="forward" />
+                  </p>
                   <p>
                     <Link href={`/projects/${nextProject.slug}`}>
                       {nextProject.title}

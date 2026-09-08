@@ -1,4 +1,5 @@
 import apStyleDate from "ap-style-date";
+import LinkIcon from "./LinkIcon";
 const { longAP } = apStyleDate;
 
 const Footer = () => {
@@ -19,9 +20,7 @@ const Footer = () => {
             rel="noopener noreferrer"
           >
             <span className="icon-link-label">Source code</span>
-            <span className="link-icon" aria-hidden="true">
-              ↗&#xFE0E;
-            </span>
+            <LinkIcon />
           </a>{" "}
           {apUpdatedDate && `| Last updated ${apUpdatedDate}`}
         </p>
