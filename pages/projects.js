@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useInView } from "react-intersection-observer";
 import Head from "next/head";
 import Layout from "../components/layout";
+import LinkIcon from "../components/LinkIcon";
 import { getSortedProjectsData } from "../lib/projects";
 
 const CustomSpinner = ({ size = 36, color = "var(--site-text)" }) => (
@@ -113,17 +114,13 @@ const Story = ({
               rel="noopener noreferrer"
             >
               View project
-              <span className="link-icon" aria-hidden="true">
-                ↗&#xFE0E;
-              </span>
+              <LinkIcon />
             </a>
           )}
           {pageHref && (
             <Link className="btn btn--ghost" href={pageHref}>
               Read more
-              <span className="link-icon link-icon--forward" aria-hidden="true">
-                →&#xFE0E;
-              </span>
+              <LinkIcon direction="forward" />
             </Link>
           )}
         </div>
