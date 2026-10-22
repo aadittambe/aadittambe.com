@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Plain HTML/JS/CSS in out/ — no Netlify server function.
+  output: "export",
   trailingSlash: true,
   experimental: {
     // Restore scroll position on back/forward between pages
@@ -7,17 +9,9 @@ const nextConfig = {
   },
   reactStrictMode: true,
   images: {
-    // AVIF first (smaller), WebP fallback for browsers without it.
-    formats: ["image/avif", "image/webp"],
-    // Project thumbnails may be full URLs; only these hosts are allowed
-    // through the image optimizer.
-    remotePatterns: [
-      "arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com",
-      "cnsmaryland.org",
-      "img.washingtonpost.com",
-      "media-cldnry.s-nbcnews.com",
-      "www.washingtonpost.com",
-    ].map((hostname) => ({ protocol: "https", hostname })),
+    // Netlify Image CDN does the resizing; allowed remote hosts are in netlify.toml.
+    loader: "custom",
+    loaderFile: "./lib/netlifyImageLoader.js",
   },
   env: {
     NEXT_PUBLIC_MODIFIED_DATE: new Date().toLocaleDateString("en-US", {

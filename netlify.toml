@@ -1,3 +1,13 @@
 [build]
 command = "npm run build"
-publish = ".next"
+publish = "out"
+
+# Remote project thumbnails the Image CDN may fetch.
+[images]
+remote_images = [
+  "https://arc-anglerfish-washpost-prod-washpost\\.s3\\.amazonaws\\.com/.*",
+  "https://cnsmaryland\\.org/.*",
+  "https://img\\.washingtonpost\\.com/.*",
+  "https://media-cldnry\\.s-nbcnews\\.com/.*",
+  "https://www\\.washingtonpost\\.com/.*",
+]
